@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import { useDevice } from '@/hooks/useDevice';
 import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { TYPOGRAPHY } from '@/theme/typography';
@@ -18,13 +19,21 @@ export default function PrimaryButton({
   title,
   onPress,
 }: Props) {
+  const { isTablet } = useDevice();
+
   return (
     <TouchableOpacity
       activeOpacity={0.9}
-      style={styles.button}
+      style={[
+        styles.button,
+        isTablet && styles.buttonTablet
+      ]}
       onPress={onPress}
     >
-      <Text style={styles.text}>
+      <Text style={[
+        styles.text,
+        isTablet && styles.textTablet
+      ]}>
         {title}
       </Text>
     </TouchableOpacity>
@@ -49,9 +58,15 @@ const styles = StyleSheet.create({
     },
     elevation: 8,
   },
+  buttonTablet: {
+    height: 60
+  },
   text: {
     color: COLORS.black,
     fontSize: TYPOGRAPHY.bodyLarge.size,
     fontWeight: '700',
   },
+  textTablet: {
+    fontSize: 20
+  }
 });

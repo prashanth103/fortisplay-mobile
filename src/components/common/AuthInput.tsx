@@ -1,3 +1,4 @@
+import { useDevice } from '@/hooks/useDevice';
 import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { TYPOGRAPHY } from '@/theme/typography';
@@ -28,14 +29,26 @@ export default function AuthInput({
   rightIcon,
   secureTextEntry,
 }: Props) {
+  const { isTablet } = useDevice();
 
   return (
 
-    <View style={styles.wrapper}>
-      <Text style={styles.label}>
+    <View style={[
+      styles.wrapper,
+      isTablet && styles.tabletWrapper
+    ]}>
+      <Text style={[
+        styles.label,
+        isTablet && styles.tabletLabel
+      ]}>
         {label}
       </Text>
-      <View style={styles.inputContainer}>
+      <View
+        style={[
+          styles.inputContainer,
+          isTablet && styles.tabletInput
+        ]}
+      >
         {leftIcon}
         <TextInput
           value={value}
@@ -47,7 +60,10 @@ export default function AuthInput({
             secureTextEntry
           }
           onChangeText={onChangeText}
-          style={styles.input}
+          style={[
+            styles.input,
+            isTablet && styles.tabletText
+          ]}
         />
         {rightIcon}
       </View>
@@ -59,11 +75,18 @@ const styles = StyleSheet.create({
   wrapper: {
     marginBottom: 14,
   },
+  tabletWrapper: {
+    marginBottom: 18,
+  },
   label: {
     color: COLORS.white,
     marginBottom: 8,
     fontSize: TYPOGRAPHY.label.size,
     fontWeight: '600',
+  },
+  tabletLabel: {
+    fontSize: 14,
+    marginBottom: 10,
   },
   inputContainer: {
     height: 52,
@@ -76,6 +99,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  tabletInput: {
+    height: 58
+  },
   input: {
     flex: 1,
     color: COLORS.textPrimary,
@@ -83,4 +109,7 @@ const styles = StyleSheet.create({
     fontSize: TYPOGRAPHY.body.size,
     fontWeight: '600',
   },
+  tabletText: {
+    fontSize: 18
+  }
 });

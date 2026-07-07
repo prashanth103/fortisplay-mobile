@@ -1,3 +1,4 @@
+import { useDevice } from '@/hooks/useDevice';
 import { COLORS } from '@/theme/colors';
 import { SPACING } from '@/theme/spacing';
 import React from 'react';
@@ -16,11 +17,19 @@ interface Props {
 export default function AuthLayout({
   children,
 }: Props) {
+
+  const { isTablet } = useDevice();
+
   return (
     <SafeAreaView
       style={styles.container}
     >
-      <View style={styles.content}>
+      <View
+        style={[
+          styles.content,
+          isTablet && styles.tabletContent
+        ]}
+      >
         {children}
       </View>
       <View style={styles.footer}>
@@ -46,6 +55,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal:
       SPACING.xxxl,
+  },
+  tabletContent: {
+    width: '100%',
+    maxWidth: 460,
+    alignSelf: 'center'
   },
   footer: {
     paddingBottom: 24,
