@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import AppHeader from '@/components/common/AppHeader';
 import { COLORS } from '@/theme/colors';
+import { SPACING } from '@/theme/spacing';
 
 interface ScreenProps {
   children: ReactNode;
@@ -16,6 +17,7 @@ export default function Screen({
 }: ScreenProps) {
   return (
     <SafeAreaView
+      edges={['top']}
       style={[
         styles.container,
         { backgroundColor },
@@ -36,5 +38,6 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    paddingHorizontal: SPACING.lg,
   },
 });

@@ -1,112 +1,113 @@
-import Screen from '@/components/layout/Screen';
-import { COLORS } from '@/theme/colors';
-import { RADIUS } from '@/theme/radius';
-import { SPACING } from '@/theme/spacing';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { useState } from 'react';
 
-export default function HomeScreen() {
+import BetSlip from '@/components/bet/BetSlip';
+import ConfirmBetModal from '@/components/bet/ConfirmBetModal';
+import TicketModal from '@/components/bet/TicketModal';
+
+import RaceSelector from '@/components/home/RaceSelector';
+
+import Screen from '@/components/layout/Screen';
+
+import BetTypeTabs from '@/components/home/BetTypeTabs';
+import FinishedRace from '@/components/home/FinishedRace';
+import LiveRace from '@/components/home/LiveRace';
+import RunnerList from '@/components/home/RunnerList';
+import { RACES, RUNNERS } from '@/data/runners';
+import { View } from 'react-native';
+
+type Step = 'home' | 'betSlip' | 'confirm' | 'ticket';
+
+export default function Home() {
+
+  const [step, setStep] = useState<Step>('home');
+
+  const [selectedRunnerId, setSelectedRunnerId] = useState<string | null>(null);
+
+  const [betAmount, setBetAmount] = useState('5');
+
+  const [selectedRaceId, setSelectedRaceId] = useState(3);
+
+  const selectedRace = RACES.find(
+    race => race.id === selectedRaceId
+  );
+
+  const runner = RUNNERS.find(
+    item => item.id === selectedRunnerId
+  );
+
   return (
     <Screen>
-      <ScrollView>
-        <View style={styles.header}>
-          <Text style={styles.welcome}>
-            Welcome
-          </Text>
-          <Text style={styles.name}>
-            Prashanth
-          </Text>
-        </View>
 
-        <View style={styles.balanceCard}>
-          <Text style={styles.balanceLabel}>
-            Wallet Balance
-          </Text>
-          <Text style={styles.balance}>
-            ₹24,500
-          </Text>
-        </View>
+      <View>
+        <RaceSelector
+          selectedRaceId={selectedRaceId}
+          onSelectRace={setSelectedRaceId}
+        />
+      </View>
 
-        <Text style={styles.sectionTitle}>
-          Upcoming Races
-        </Text>
+      {selectedRace?.status === 'UPCOMING' && (
+        <RunnerList
+          selectedRunnerId={selectedRunnerId}
+          onSelectRunner={(id) => {
+            setSelectedRunnerId(id);
+            setStep('betSlip');
+          }}
+          ListHeaderComponent={
+            <BetTypeTabs />
+          }
+        />
+      )}
 
-        {[1, 2, 3].map(item => (
-          <View
-            key={item}
-            style={styles.card}
-          >
-            <Text style={styles.cardTitle}>
-              Race #{item}
-            </Text>
-            <Text style={styles.cardSubtitle}>
-              Starts in 12 min
-            </Text>
-          </View>
-        ))}
-      </ScrollView>
+      {selectedRace?.status === 'LIVE' && (
+        <LiveRace
+          raceName={selectedRace.title}
+          onWatchLive={() => {
+            console.log('Watch Live');
+          }}
+        />
+      )}
+
+      {selectedRace?.status === 'FINISHED' && (
+        <FinishedRace
+          raceName={selectedRace.title}
+        />
+      )}
+
+      <BetSlip
+        visible={step === 'betSlip'}
+        runnerCode={runner?.code ?? ''}
+        runnerName={runner?.name ?? ''}
+        amount={betAmount}
+        onAmountChange={setBetAmount}
+        onClose={() => {
+          setStep('home');
+          setSelectedRunnerId(null);
+        }}
+        onPlaceBet={() => setStep('confirm')}
+      />
+
+      <ConfirmBetModal
+        visible={step === 'confirm'}
+        runnerCode={runner?.code ?? ''}
+        runnerName={runner?.name ?? ''}
+        amount={betAmount}
+        onClose={() => setStep('betSlip')}
+        onConfirm={() => setStep('ticket')}
+      />
+
+      <TicketModal
+        visible={step === 'ticket'}
+        ticketNo="0000213456"
+        runnerCode={runner?.code ?? ''}
+        runnerName={runner?.name ?? ''}
+        amount={betAmount}
+        onClose={() => {
+          setStep('home');
+          setSelectedRunnerId(null);
+        }}
+        onPrint={() => { }}
+      />
+
     </Screen>
-  )
+  );
 }
-
-const styles = StyleSheet.create({
-  header: {
-    paddingHorizontal: SPACING.xl,
-    paddingTop: SPACING.lg
-  },
-  welcome: {
-    color: COLORS.textSecondary,
-    fontSize: 14
-  },
-  name: {
-    color: COLORS.textPrimary,
-    fontSize: 28,
-    fontWeight: '700',
-    marginTop: 4
-  },
-  balanceCard: {
-    marginHorizontal: SPACING.xl,
-    marginTop: SPACING.xl,
-    padding: SPACING.xl,
-    backgroundColor: COLORS.surface,
-    borderRadius: RADIUS.xl
-  },
-  balanceLabel: {
-    color: COLORS.textSecondary,
-    fontSize: 14
-  },
-  balance: {
-    color: COLORS.primary,
-    fontSize: 32,
-    fontWeight: '700',
-    marginTop: 8
-  },
-  sectionTitle: {
-    color: COLORS.textPrimary,
-    fontSize: 18,
-    fontWeight: '700',
-    marginTop: 32,
-    marginBottom: 16,
-    paddingHorizontal: SPACING.xl
-  },
-  card: {
-    marginHorizontal: SPACING.xl,
-    marginBottom: SPACING.lg,
-    padding: SPACING.lg,
-    backgroundColor: COLORS.surface,
-    borderRadius: RADIUS.lg
-  },
-  cardTitle: {
-    color: COLORS.textPrimary,
-    fontWeight: '700',
-    fontSize: 16
-  },
-  cardSubtitle: {
-    color: COLORS.textSecondary,
-    marginTop: 6
-  }
-})
