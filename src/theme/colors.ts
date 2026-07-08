@@ -48,11 +48,18 @@ export const COLORS = {
 
   navyCard: '#1A2436',
 
-  walletPrimary: '#E5BE52',
-
-  walletSecondary: '#1C2638',
-
-  walletLight: '#F5F5F5',
+  walletPrimary: "#E5BE52",
+  walletPrimaryDark: "#C7A84A",
+  walletSecondary: "#1C2638",
+  walletCard: "#1D293B",
+  walletCardAlt: "#101828",
+  walletAccent: "#F6D877",
+  walletLabel: "#A7B0C4",
+  walletText: "#F4F6FB",
+  walletSuccess: "#4FC96F",
+  walletDanger: "#F04A3A",
+  walletInfo: "#5B76D9",
+  walletLight: "#F5F5F5",
 
   overlay: 'rgba(0,0,0,0.65)',
 
