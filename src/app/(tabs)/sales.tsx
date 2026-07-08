@@ -2,6 +2,7 @@
 import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
+import { TYPOGRAPHY } from '@/theme/typography';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
@@ -191,7 +192,7 @@ export default function SalesScreen() {
     <Screen backgroundColor={COLORS.background}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.heading}>
-          <Text style={styles.title}>Sales</Text>
+          <Text style={TYPOGRAPHY.h1}>Sales</Text>
           <Text style={styles.subtitle}>Today's transactions</Text>
         </View>
 

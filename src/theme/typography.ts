@@ -1,3 +1,5 @@
+import { COLORS } from "./colors";
+
 export const TYPOGRAPHY = {
   display: {
     size: 36,
@@ -6,9 +8,10 @@ export const TYPOGRAPHY = {
   },
 
   h1: {
-    size: 32,
-    weight: 700,
-    lineHeight: 40,
+    color: COLORS.white,
+    fontSize: 28,
+    fontWeight: '800',
+    fontFamily: 'manrope'
   },
 
   h2: {

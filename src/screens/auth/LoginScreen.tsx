@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   titleTablet: {
-    fontSize: TYPOGRAPHY.h1.size
+    fontSize: TYPOGRAPHY.h1.fontSize
   },
   subtitle: {
     color:
