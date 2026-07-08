@@ -6,6 +6,13 @@ export const COLORS = {
   background: '#090909',
   backgroundSecondary: '#111111',
 
+  // Header Colors
+  headerbg: '#1B1B1B',
+  headerChip: '#2A2A2A',
+  iconDark: '#202020',
+  iconGrey: '#7A7A7A',
+
+
   surface: '#181818',
   surfaceElevated: '#1F1F1F',
   surfaceActive: '#2B2417',

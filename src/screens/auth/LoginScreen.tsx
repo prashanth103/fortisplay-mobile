@@ -6,6 +6,7 @@ import { useDevice } from '@/hooks/useDevice';
 import { COLORS } from '@/theme/colors';
 import { TYPOGRAPHY } from '@/theme/typography';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
+import { router } from 'expo-router';
 import { useState } from 'react';
 import {
   StyleSheet,
@@ -17,12 +18,13 @@ export default function LoginScreen() {
 
   const { isTablet } = useDevice();
 
-  const [soId, setSoId] =
-    useState('400001');
+  const [soId, setSoId] = useState('400001');
 
-  const [password,
-    setPassword] =
-    useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+    router.replace('/(tabs)');
+  };
 
   return (
     <AuthLayout>
@@ -89,7 +91,7 @@ export default function LoginScreen() {
 
       <PrimaryButton
         title="Sign In"
-        onPress={() => { }}
+        onPress={handleLogin}
       />
 
     </AuthLayout>
