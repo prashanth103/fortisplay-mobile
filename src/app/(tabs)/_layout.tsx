@@ -1,97 +1,89 @@
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { Tabs } from 'expo-router';
+import { Platform } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { COLORS } from '@/theme/colors';
 
+type MaterialIconName = React.ComponentProps<typeof MaterialIcons>['name'];
+
+type TabItem = {
+  name: string;
+  title: string;
+  icon: MaterialIconName;
+};
+
+const TAB_ITEMS: TabItem[] = [
+  {
+    name: 'index',
+    title: 'Home',
+    icon: 'home-filled',
+  },
+  {
+    name: 'watch',
+    title: 'Watch',
+    icon: 'visibility',
+  },
+  {
+    name: 'sales',
+    title: 'Sales',
+    icon: 'trending-up',
+  },
+  {
+    name: 'payouts',
+    title: 'Payouts',
+    icon: 'payments',
+  },
+  {
+    name: 'wallet',
+    title: 'Wallet',
+    icon: 'account-balance-wallet',
+  },
+];
+
 export default function TabsLayout() {
+  const insets = useSafeAreaInsets();
+
+  const bottomPadding = insets.bottom + (Platform.OS === 'ios' ? 12 : 10);
+
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
+        lazy: true,
+        tabBarHideOnKeyboard: true,
         tabBarActiveTintColor: COLORS.primary,
         tabBarInactiveTintColor: COLORS.textSecondary,
         tabBarStyle: {
           backgroundColor: COLORS.surface,
           borderTopWidth: 0,
-          height: 72,
+          height: 64 + bottomPadding,
           paddingTop: 8,
-          paddingBottom: 8,
+          paddingBottom: bottomPadding,
+          paddingHorizontal: 8,
+        },
+        tabBarItemStyle: {
+          paddingVertical: 2,
         },
         tabBarLabelStyle: {
-          fontSize: 12,
+          fontSize: 11,
           fontWeight: '600',
+          marginBottom: Platform.OS === 'ios' ? 4 : 2,
         },
       }}
     >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons
-              name="home-filled"
-              color={color}
-              size={size}
-            />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="watch"
-        options={{
-          title: 'Watch',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons
-              name="visibility"
-              color={color}
-              size={size}
-            />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="sales"
-        options={{
-          title: 'Sales',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons
-              name="trending-up"
-              color={color}
-              size={size}
-            />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="payouts"
-        options={{
-          title: 'Payouts',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons
-              name="payments"
-              color={color}
-              size={size}
-            />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="wallet"
-        options={{
-          title: 'Wallet',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons
-              name="account-balance-wallet"
-              color={color}
-              size={size}
-            />
-          ),
-        }}
-      />
+      {TAB_ITEMS.map((tab) => (
+        <Tabs.Screen
+          key={tab.name}
+          name={tab.name}
+          options={{
+            title: tab.title,
+            tabBarIcon: ({ color, size }) => (
+              <MaterialIcons name={tab.icon} color={color} size={size} />
+            ),
+          }}
+        />
+      ))}
     </Tabs>
   );
 }
