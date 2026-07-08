@@ -1,5 +1,5 @@
 import AppLogo from '@/components/common/AppLogo';
-import AuthInput from '@/components/common/AuthInput';
+import AuthInput from '@/components/common/Input';
 import PrimaryButton from '@/components/common/PrimaryButton';
 import AuthLayout from '@/components/layout/AuthLayout';
 import { useDevice } from '@/hooks/useDevice';
@@ -76,13 +76,6 @@ export default function LoginScreen() {
         leftIcon={
           <MaterialIcons
             name="lock-outline"
-            size={20}
-            color={COLORS.textSecondary}
-          />
-        }
-        rightIcon={
-          <MaterialIcons
-            name="visibility"
             size={20}
             color={COLORS.textSecondary}
           />

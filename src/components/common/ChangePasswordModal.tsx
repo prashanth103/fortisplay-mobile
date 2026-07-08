@@ -5,12 +5,12 @@ import {
   Pressable,
   StyleSheet,
   Text,
-  TextInput,
   View,
 } from 'react-native';
 
 import { useDevice } from '@/hooks/useDevice';
 import { COLORS } from '@/theme/colors';
+import AuthInput from './Input';
 
 interface ChangePasswordModalProps {
   visible: boolean;
@@ -57,34 +57,31 @@ export default function ChangePasswordModal({
           </View>
 
           <View style={styles.body}>
-            <Text style={styles.inputLabel}>Current Password</Text>
-            <TextInput
-              style={styles.input}
+            <AuthInput
+              label="Current Password"
               value={currentPassword}
-              onChangeText={setCurrentPassword}
-              secureTextEntry
               placeholder="********"
-              placeholderTextColor={COLORS.textSecondary}
+              secureTextEntry
+              onChangeText={setCurrentPassword}
+              inputBackgroundColor={COLORS.backgroundSecondary}
             />
 
-            <Text style={styles.inputLabel}>New Password</Text>
-            <TextInput
-              style={styles.input}
+            <AuthInput
+              label="New Password"
               value={newPassword}
-              onChangeText={setNewPassword}
-              secureTextEntry
               placeholder="At least 6 characters"
-              placeholderTextColor={COLORS.textMuted}
+              secureTextEntry
+              onChangeText={setNewPassword}
+              inputBackgroundColor={COLORS.backgroundSecondary}
             />
 
-            <Text style={styles.inputLabel}>Confirm New Password</Text>
-            <TextInput
-              style={styles.input}
+            <AuthInput
+              label="Confirm New Password"
               value={confirmPassword}
-              onChangeText={setConfirmPassword}
-              secureTextEntry
               placeholder="Re-enter new password"
-              placeholderTextColor={COLORS.textMuted}
+              secureTextEntry
+              onChangeText={setConfirmPassword}
+              inputBackgroundColor={COLORS.backgroundSecondary}
             />
 
             <View style={styles.actions}>
@@ -135,7 +132,7 @@ const styles = StyleSheet.create({
     maxWidth: 520,
   },
   header: {
-    height: 72,
+    height: 66,
     paddingHorizontal: 24,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.border,
@@ -162,26 +159,6 @@ const styles = StyleSheet.create({
     paddingTop: 24,
     paddingBottom: 24,
   },
-  inputLabel: {
-    marginBottom: 10,
-    color: '#D0D0D0',
-    fontSize: 17,
-    fontFamily: 'Manrope',
-    fontWeight: '800',
-  },
-  input: {
-    height: 62,
-    marginBottom: 18,
-    paddingHorizontal: 20,
-    borderRadius: 14,
-    borderWidth: 1,
-    borderColor: COLORS.border,
-    backgroundColor: COLORS.backgroundSecondary,
-    color: COLORS.textPrimary,
-    fontSize: 20,
-    fontFamily: 'Manrope',
-    fontWeight: '600',
-  },
   actions: {
     flexDirection: 'row',
     gap: 16,
@@ -189,7 +166,7 @@ const styles = StyleSheet.create({
   },
   cancelButton: {
     flex: 0.82,
-    height: 66,
+    height: 54,
     borderRadius: 14,
     borderWidth: 2,
     borderColor: '#555555',
@@ -198,7 +175,7 @@ const styles = StyleSheet.create({
   },
   updateButton: {
     flex: 1.18,
-    height: 66,
+    height: 54,
     borderRadius: 14,
     backgroundColor: COLORS.primary,
     justifyContent: 'center',

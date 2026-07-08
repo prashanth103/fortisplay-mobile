@@ -2,8 +2,11 @@ import { useDevice } from '@/hooks/useDevice';
 import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { TYPOGRAPHY } from '@/theme/typography';
-import React from 'react';
+import MaterialIcons from '@react-native-vector-icons/material-icons';
+import React, { useState } from 'react';
 import {
+  ColorValue,
+  Pressable,
   StyleSheet,
   Text,
   TextInput,
@@ -18,6 +21,7 @@ interface Props {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   secureTextEntry?: boolean;
+  inputBackgroundColor?: ColorValue;
 }
 
 export default function AuthInput({
@@ -28,8 +32,11 @@ export default function AuthInput({
   leftIcon,
   rightIcon,
   secureTextEntry,
+  inputBackgroundColor,
 }: Props) {
   const { isTablet } = useDevice();
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const isPasswordInput = Boolean(secureTextEntry);
 
   return (
 
@@ -46,7 +53,8 @@ export default function AuthInput({
       <View
         style={[
           styles.inputContainer,
-          isTablet && styles.tabletInput
+          isTablet && styles.tabletInput,
+          inputBackgroundColor && { backgroundColor: inputBackgroundColor },
         ]}
       >
         {leftIcon}
@@ -57,15 +65,30 @@ export default function AuthInput({
             COLORS.textMuted
           }
           secureTextEntry={
-            secureTextEntry
+            isPasswordInput && !passwordVisible
           }
           onChangeText={onChangeText}
           style={[
             styles.input,
+            leftIcon ? styles.inputWithLeftIcon : styles.inputWithoutLeftIcon,
+            (rightIcon || isPasswordInput) ? styles.inputWithRightIcon : styles.inputWithoutRightIcon,
             isTablet && styles.tabletText
           ]}
         />
-        {rightIcon}
+        {isPasswordInput ? (
+          <Pressable
+            onPress={() => setPasswordVisible((visible) => !visible)}
+            hitSlop={10}
+          >
+            <MaterialIcons
+              name={passwordVisible ? 'visibility-off' : 'visibility'}
+              size={20}
+              color={COLORS.textSecondary}
+            />
+          </Pressable>
+        ) : (
+          rightIcon
+        )}
       </View>
     </View>
   );
@@ -105,9 +128,20 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     color: COLORS.textPrimary,
-    marginHorizontal: 12,
     fontSize: TYPOGRAPHY.body.size,
     fontWeight: '600',
+  },
+  inputWithLeftIcon: {
+    marginLeft: 12,
+  },
+  inputWithoutLeftIcon: {
+    marginLeft: 0,
+  },
+  inputWithRightIcon: {
+    marginRight: 12,
+  },
+  inputWithoutRightIcon: {
+    marginRight: 0,
   },
   tabletText: {
     fontSize: 18
