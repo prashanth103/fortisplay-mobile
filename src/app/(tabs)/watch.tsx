@@ -1,9 +1,9 @@
-﻿import { useMemo, useState } from 'react';
-import Screen from '@/components/layout/Screen';
+﻿import Screen from '@/components/layout/Screen';
 import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
+import { useMemo, useState } from 'react';
 import {
     ScrollView,
     StyleSheet,
@@ -152,7 +152,9 @@ export default function WatchScreen() {
                                 <Text style={styles.raceTitle}>{race.title}</Text>
                                 <Text style={styles.raceSubtitle}>{race.subtitle}</Text>
                             </View>
-                            <View style={[styles.raceStatus, ]}>                                <View style={[styles.raceStatusDot, { backgroundColor: race.statusColor }]} />                                <Text style={[styles.raceStatusText, { color: race.statusColor }]}>{race.status}</Text>
+                            <View style={[styles.raceStatus,]}>
+                                <View style={[styles.raceStatusDot, { backgroundColor: race.statusColor }]} />
+                                <Text style={[styles.raceStatusText, { color: race.statusColor }]}>{race.status}</Text>
                             </View>
                         </View>
                     </TouchableOpacity>
@@ -164,7 +166,6 @@ export default function WatchScreen() {
 
 const styles = StyleSheet.create({
     container: {
-        paddingHorizontal: SPACING.xl,
         paddingBottom: SPACING.huge,
     },
     videoCard: {

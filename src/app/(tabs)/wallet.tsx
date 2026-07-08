@@ -1,8 +1,8 @@
-﻿import { ComponentProps } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
-import Screen from '@/components/layout/Screen';
+﻿import Screen from '@/components/layout/Screen';
 import { COLORS } from '@/theme/colors';
+import MaterialIcons from '@react-native-vector-icons/material-icons';
+import { ComponentProps } from 'react';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 type MaterialIconName = ComponentProps<typeof MaterialIcons>['name'];
 
@@ -224,7 +224,6 @@ export default function WalletScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 20,
     paddingBottom: 32,
   },
   header: {

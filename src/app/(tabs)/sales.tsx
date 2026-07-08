@@ -1,11 +1,11 @@
-﻿import { useMemo, useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { useRouter } from 'expo-router';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
-import Screen from '@/components/layout/Screen';
+﻿import Screen from '@/components/layout/Screen';
 import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
+import MaterialIcons from '@react-native-vector-icons/material-icons';
+import { useRouter } from 'expo-router';
+import { useMemo, useState } from 'react';
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 const salesData = [
   {
@@ -302,7 +302,6 @@ export default function SalesScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: SPACING.xl,
     paddingBottom: SPACING.huge,
   },
   heading: {

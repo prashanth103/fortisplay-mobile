@@ -1,11 +1,11 @@
-﻿import { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { useLocalSearchParams } from 'expo-router';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
-import Screen from '@/components/layout/Screen';
+﻿import Screen from '@/components/layout/Screen';
 import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
+import MaterialIcons from '@react-native-vector-icons/material-icons';
+import { useLocalSearchParams } from 'expo-router';
+import { useEffect, useState } from 'react';
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 const ticketData = {
   '8266150525': {
@@ -221,7 +221,6 @@ export default function PayoutsScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: SPACING.xl,
     paddingBottom: SPACING.huge,
   },
   heading: {
