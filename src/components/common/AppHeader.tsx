@@ -1,12 +1,34 @@
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import { StyleSheet, Text, View } from 'react-native';
+import { router } from 'expo-router';
+import { useState } from 'react';
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 import AppLogo from '@/components/common/AppLogo';
+import ChangePasswordModal from '@/components/common/ChangePasswordModal';
+import ProfileModal from '@/components/common/ProfileModal';
 import { useDevice } from '@/hooks/useDevice';
 import { COLORS } from '@/theme/colors';
 
 export default function AppHeader() {
   const { isTablet } = useDevice();
+  const [profileVisible, setProfileVisible] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const openPasswordModal = () => {
+    setProfileVisible(false);
+    setPasswordVisible(true);
+  };
+
+  const handleLogout = () => {
+    setProfileVisible(false);
+    setPasswordVisible(false);
+    router.replace('/(auth)/login');
+  };
 
   return (
     <View style={[styles.container, isTablet && styles.containerTablet]}>
@@ -20,7 +42,10 @@ export default function AppHeader() {
           />
           <Text style={[styles.amount, isTablet && styles.amountTablet]}>$ 12,500.00</Text>
         </View>
-        <View style={[styles.profileContainer, isTablet && styles.profileContainerTablet]}>
+        <Pressable
+          style={[styles.profileContainer, isTablet && styles.profileContainerTablet]}
+          onPress={() => setProfileVisible(true)}
+        >
           <View style={[styles.profileIconContainer, isTablet && styles.profileIconContainerTablet]}>
             <MaterialIcons
               name="person-outline"
@@ -33,8 +58,20 @@ export default function AppHeader() {
             size={isTablet ? 28 : 22}
             color={COLORS.iconGrey}
           />
-        </View>
+        </Pressable>
       </View>
+
+      <ProfileModal
+        visible={profileVisible}
+        onClose={() => setProfileVisible(false)}
+        onChangePassword={openPasswordModal}
+        onLogout={handleLogout}
+      />
+
+      <ChangePasswordModal
+        visible={passwordVisible}
+        onClose={() => setPasswordVisible(false)}
+      />
     </View>
   );
 }

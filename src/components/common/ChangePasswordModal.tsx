@@ -1,0 +1,219 @@
+import MaterialIcons from '@react-native-vector-icons/material-icons';
+import { useState } from 'react';
+import {
+  Modal,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
+
+import { useDevice } from '@/hooks/useDevice';
+import { COLORS } from '@/theme/colors';
+
+interface ChangePasswordModalProps {
+  visible: boolean;
+  onClose: () => void;
+}
+
+export default function ChangePasswordModal({
+  visible,
+  onClose,
+}: ChangePasswordModalProps) {
+  const { isTablet } = useDevice();
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const closeModal = () => {
+    onClose();
+    setCurrentPassword('');
+    setNewPassword('');
+    setConfirmPassword('');
+  };
+
+  return (
+    <Modal
+      visible={visible}
+      transparent
+      animationType="fade"
+      onRequestClose={closeModal}
+    >
+      <View style={styles.overlay}>
+        <View style={[styles.modal, isTablet && styles.modalTablet]}>
+          <View style={styles.header}>
+            <Text style={styles.title}>Change Password</Text>
+            <Pressable
+              style={styles.closeButton}
+              onPress={closeModal}
+            >
+              <MaterialIcons
+                name="close"
+                size={18}
+                color={COLORS.textSecondary}
+              />
+            </Pressable>
+          </View>
+
+          <View style={styles.body}>
+            <Text style={styles.inputLabel}>Current Password</Text>
+            <TextInput
+              style={styles.input}
+              value={currentPassword}
+              onChangeText={setCurrentPassword}
+              secureTextEntry
+              placeholder="********"
+              placeholderTextColor={COLORS.textSecondary}
+            />
+
+            <Text style={styles.inputLabel}>New Password</Text>
+            <TextInput
+              style={styles.input}
+              value={newPassword}
+              onChangeText={setNewPassword}
+              secureTextEntry
+              placeholder="At least 6 characters"
+              placeholderTextColor={COLORS.textMuted}
+            />
+
+            <Text style={styles.inputLabel}>Confirm New Password</Text>
+            <TextInput
+              style={styles.input}
+              value={confirmPassword}
+              onChangeText={setConfirmPassword}
+              secureTextEntry
+              placeholder="Re-enter new password"
+              placeholderTextColor={COLORS.textMuted}
+            />
+
+            <View style={styles.actions}>
+              <Pressable
+                style={styles.cancelButton}
+                onPress={closeModal}
+              >
+                <Text style={styles.cancelText}>Cancel</Text>
+              </Pressable>
+
+              <Pressable
+                style={styles.updateButton}
+                onPress={closeModal}
+              >
+                <Text style={styles.updateText}>Update</Text>
+              </Pressable>
+            </View>
+          </View>
+        </View>
+      </View>
+    </Modal>
+  );
+}
+
+const styles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: 'rgba(0,0,0,0.78)',
+  },
+  modal: {
+    width: '100%',
+    maxWidth: 480,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: '#3A3A3A',
+    backgroundColor: COLORS.surfaceElevated,
+    overflow: 'hidden',
+    shadowColor: COLORS.black,
+    shadowOffset: { width: 0, height: 18 },
+    shadowOpacity: 0.38,
+    shadowRadius: 28,
+    elevation: 18,
+  },
+  modalTablet: {
+    maxWidth: 520,
+  },
+  header: {
+    height: 72,
+    paddingHorizontal: 24,
+    borderBottomWidth: 1,
+    borderBottomColor: COLORS.border,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  title: {
+    color: COLORS.textPrimary,
+    fontSize: 20,
+    fontFamily: 'Manrope',
+    fontWeight: '800',
+  },
+  closeButton: {
+    width: 32,
+    height: 32,
+    borderRadius: 8,
+    backgroundColor: COLORS.border,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  body: {
+    paddingHorizontal: 24,
+    paddingTop: 24,
+    paddingBottom: 24,
+  },
+  inputLabel: {
+    marginBottom: 10,
+    color: '#D0D0D0',
+    fontSize: 17,
+    fontFamily: 'Manrope',
+    fontWeight: '800',
+  },
+  input: {
+    height: 62,
+    marginBottom: 18,
+    paddingHorizontal: 20,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    backgroundColor: COLORS.backgroundSecondary,
+    color: COLORS.textPrimary,
+    fontSize: 20,
+    fontFamily: 'Manrope',
+    fontWeight: '600',
+  },
+  actions: {
+    flexDirection: 'row',
+    gap: 16,
+    marginTop: 6,
+  },
+  cancelButton: {
+    flex: 0.82,
+    height: 66,
+    borderRadius: 14,
+    borderWidth: 2,
+    borderColor: '#555555',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  updateButton: {
+    flex: 1.18,
+    height: 66,
+    borderRadius: 14,
+    backgroundColor: COLORS.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  cancelText: {
+    color: COLORS.textPrimary,
+    fontSize: 20,
+    fontFamily: 'Manrope',
+    fontWeight: '800',
+  },
+  updateText: {
+    color: COLORS.black,
+    fontSize: 20,
+    fontFamily: 'Manrope',
+    fontWeight: '800',
+  },
+});
