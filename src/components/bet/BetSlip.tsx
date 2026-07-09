@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import Input from '@/components/common/Input';
+import Button from '@/components/common/Button';
 import { COLORS } from '@/theme/colors';
 import { SPACING } from '@/theme/spacing';
 import { TYPOGRAPHY } from '@/theme/typography';
@@ -106,14 +107,12 @@ export default function BetSlip({
 
         </View>
 
-        <Pressable
+        <Button
+          title={`Place Bet · ₱${amount}`}
           style={styles.button}
+          textStyle={styles.buttonText}
           onPress={onPlaceBet}
-        >
-          <Text style={styles.buttonText}>
-            Place Bet · ₱{amount}
-          </Text>
-        </Pressable>
+        />
 
       </View>
 

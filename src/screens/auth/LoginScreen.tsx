@@ -1,6 +1,6 @@
 import AppLogo from '@/components/common/AppLogo';
+import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
-import PrimaryButton from '@/components/common/PrimaryButton';
 import AuthLayout from '@/components/layout/AuthLayout';
 import { useDevice } from '@/hooks/useDevice';
 import { commonStyles } from '@/styles/commonStyles';
@@ -85,9 +85,18 @@ export default function LoginScreen() {
         }
       />
 
-      <PrimaryButton
+      <Button
         title="Sign In"
         onPress={handleLogin}
+        style={[
+          styles.signInButton,
+          isTablet && styles.signInButtonTablet,
+        ]}
+        textStyle={[
+          styles.signInText,
+          isTablet && styles.signInTextTablet,
+        ]}
+        activeOpacity={0.9}
       />
 
     </AuthLayout>
@@ -120,5 +129,26 @@ const styles = StyleSheet.create({
   },
   subtitleTablet: {
     fontSize: TYPOGRAPHY.body.size
+  },
+  signInButton: {
+    height: 54,
+    marginTop: 20,
+    shadowColor: COLORS.primary,
+    shadowOpacity: 0.30,
+    shadowRadius: 24,
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    elevation: 8,
+  },
+  signInButtonTablet: {
+    height: 60,
+  },
+  signInText: {
+    fontSize: TYPOGRAPHY.bodyLarge.size,
+  },
+  signInTextTablet: {
+    fontSize: 20,
   }
 });

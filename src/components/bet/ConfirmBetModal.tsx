@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 
+import Button from '@/components/common/Button';
 import { COLORS } from '@/theme/colors';
 import { TYPOGRAPHY } from '@/theme/typography';
 
@@ -143,23 +144,20 @@ export default function ConfirmBetModal({
 
           <View style={styles.footer}>
 
-            <Pressable
+            <Button
+              title="Cancel"
+              variant="outline"
               style={styles.cancel}
+              textStyle={styles.cancelText}
               onPress={onClose}
-            >
-              <Text style={styles.cancelText}>
-                Cancel
-              </Text>
-            </Pressable>
+            />
 
-            <Pressable
+            <Button
+              title="Place Bet"
               style={styles.confirm}
+              textStyle={styles.confirmText}
               onPress={onConfirm}
-            >
-              <Text style={styles.confirmText}>
-                Place Bet
-              </Text>
-            </Pressable>
+            />
 
           </View>
 

@@ -1,11 +1,11 @@
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {
-  Pressable,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 
+import Button from '@/components/common/Button';
 import { useDevice } from '@/hooks/useDevice';
 
 import { COLORS } from '@/theme/colors';
@@ -76,24 +76,22 @@ export default function LiveRace({
         The race is underway — watch it live.
       </Text>
 
-      <Pressable
+      <Button
+        title="Watch Live"
         style={[
           styles.button,
           isTablet && styles.buttonTablet,
         ]}
+        textStyle={styles.buttonText}
         onPress={onWatchLive}
-      >
-        <MaterialIcons
-          name="videocam"
-          size={20}
-          color={COLORS.white}
-        />
-
-        <Text style={styles.buttonText}>
-          Watch Live
-        </Text>
-
-      </Pressable>
+        leftIcon={(
+          <MaterialIcons
+            name="videocam"
+            size={20}
+            color={COLORS.white}
+          />
+        )}
+      />
 
     </View>
   );

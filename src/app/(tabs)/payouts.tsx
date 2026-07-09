@@ -1,12 +1,13 @@
 ﻿import Screen from '@/components/layout/Screen';
 import { COLORS } from '@/theme/colors';
 import Input from '@/components/common/Input';
+import Button from '@/components/common/Button';
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 const ticketData = {
   '8266150525': {
@@ -136,10 +137,14 @@ export default function PayoutsScreen() {
               <View style={styles.scanCornerBottomRight} />
             </View>
 
-            <TouchableOpacity style={styles.scanButton} activeOpacity={0.8} onPress={handleReset}>
-              <MaterialIcons name="qr-code-scanner" size={20} color={COLORS.black} />
-              <Text style={styles.scanButtonText}>Scan Ticket</Text>
-            </TouchableOpacity>
+            <Button
+              title="Scan Ticket"
+              style={styles.scanButton}
+              textStyle={styles.scanButtonText}
+              activeOpacity={0.8}
+              onPress={handleReset}
+              leftIcon={<MaterialIcons name="qr-code-scanner" size={20} color={COLORS.black} />}
+            />
 
             <Text style={styles.orText}>OR ENTER TICKET NUMBER</Text>
 
@@ -155,9 +160,13 @@ export default function PayoutsScreen() {
                 onChangeText={setTicketNumber}
                 keyboardType="number-pad"
               />
-              <TouchableOpacity style={styles.verifyButton} activeOpacity={0.8} onPress={handleVerify}>
-                <Text style={styles.verifyButtonText}>Verify</Text>
-              </TouchableOpacity>
+              <Button
+                title="Verify"
+                style={styles.verifyButton}
+                textStyle={styles.verifyButtonText}
+                activeOpacity={0.8}
+                onPress={handleVerify}
+              />
             </View>
 
             {error ? <Text style={styles.errorText}>{error}</Text> : null}
@@ -211,9 +220,14 @@ export default function PayoutsScreen() {
         ) : null}
 
         {result ? (
-          <TouchableOpacity style={styles.scanAnotherButton} activeOpacity={0.8} onPress={handleReset}>
-            <Text style={styles.scanAnotherText}>Scan Another</Text>
-          </TouchableOpacity>
+          <Button
+            title="Scan Another"
+            variant="outline"
+            style={styles.scanAnotherButton}
+            textStyle={styles.scanAnotherText}
+            activeOpacity={0.8}
+            onPress={handleReset}
+          />
         ) : null}
       </ScrollView>
     </Screen>

@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 
+import Button from '@/components/common/Button';
 import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { TYPOGRAPHY } from '@/theme/typography';
@@ -119,30 +120,27 @@ export default function TicketModal({
 
           <View style={styles.footer}>
 
-            <Pressable
+            <Button
+              title="Close"
+              variant="outline"
               style={styles.close}
+              textStyle={styles.closeText}
               onPress={onClose}
-            >
-              <Text style={styles.closeText}>
-                Close
-              </Text>
-            </Pressable>
+            />
 
-            <Pressable
+            <Button
+              title="Print Ticket"
               style={styles.print}
+              textStyle={styles.printText}
               onPress={onPrint}
-            >
-              <MaterialIcons
-                name="print"
-                size={18}
-                color={COLORS.black}
-              />
-
-              <Text style={styles.printText}>
-                Print Ticket
-              </Text>
-
-            </Pressable>
+              leftIcon={(
+                <MaterialIcons
+                  name="print"
+                  size={18}
+                  color={COLORS.black}
+                />
+              )}
+            />
 
           </View>
 

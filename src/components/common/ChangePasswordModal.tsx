@@ -10,6 +10,7 @@ import {
 
 import { useDevice } from '@/hooks/useDevice';
 import { COLORS } from '@/theme/colors';
+import Button from './Button';
 import Input from './Input';
 
 interface ChangePasswordModalProps {
@@ -85,19 +86,20 @@ export default function ChangePasswordModal({
             />
 
             <View style={styles.actions}>
-              <Pressable
+              <Button
+                title="Cancel"
+                variant="outline"
                 style={styles.cancelButton}
+                textStyle={styles.cancelText}
                 onPress={closeModal}
-              >
-                <Text style={styles.cancelText}>Cancel</Text>
-              </Pressable>
+              />
 
-              <Pressable
+              <Button
+                title="Update"
                 style={styles.updateButton}
+                textStyle={styles.updateText}
                 onPress={closeModal}
-              >
-                <Text style={styles.updateText}>Update</Text>
-              </Pressable>
+              />
             </View>
           </View>
         </View>
