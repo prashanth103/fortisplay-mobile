@@ -41,83 +41,100 @@ export default function TicketModal({
 
         <View style={styles.container}>
 
-          {/* Header */}
+          <View style={styles.card}>
 
-          <View style={styles.header}>
+            {/* Header */}
 
-            <Text style={styles.title}>
-              Ticket
-            </Text>
+            <View style={styles.header}>
 
-            <Pressable onPress={onClose}>
+              <Text style={styles.title}>
+                Ticket
+              </Text>
+
+              <Pressable onPress={onClose}>
+                <MaterialIcons
+                  name="close"
+                  size={22}
+                  color={COLORS.textMuted}
+                />
+              </Pressable>
+
+            </View>
+
+            {/* QR */}
+
+            <View style={styles.qrContainer}>
+
               <MaterialIcons
-                name="close"
-                size={22}
-                color={COLORS.textMuted}
+                name="qr-code-2"
+                size={180}
+                color={COLORS.black}
               />
-            </Pressable>
+
+            </View>
+
+            <View style={styles.ticketNo}>
+
+              <Text style={styles.ticketLabel}>
+                Ticket No
+              </Text>
+
+              <View style={styles.ticketValueBox}>
+                <Text style={styles.ticketValue}>
+                  {ticketNo}
+                </Text>
+              </View>
+
+            </View>
+
+            <View style={styles.separator} />
+
+            {/* Details */}
+
+            <View style={styles.details}>
+
+              <Row
+                label="Date"
+                value={new Date().toLocaleString()}
+              />
+
+              <Row
+                label="Pool"
+                value="WIN"
+              />
+
+              <Row
+                label="Order Preference"
+                value="EXACT"
+              />
+
+              <Row
+                label="Variant"
+                value="Fixed Odds"
+              />
+
+              <Row
+                label="Tickets"
+                value={runnerCode}
+              />
+
+            </View>
+
+            <View style={styles.separator} />
+
+            <View style={styles.totalRow}>
+
+              <Text style={styles.totalLabel}>TOTAL</Text>
+
+              <View style={styles.totalAmountBox}>
+                <Text style={styles.totalAmount}>₱{Number(amount).toFixed(2)}</Text>
+              </View>
+
+            </View>
 
           </View>
 
-          {/* Ticket Number */}
-
-          <View style={styles.ticketNo}>
-
-            <Text style={styles.ticketLabel}>
-              Ticket No
-            </Text>
-
-            <Text style={styles.ticketValue}>
-              {ticketNo}
-            </Text>
-
-          </View>
-
-          {/* QR */}
-
-          <View style={styles.qrContainer}>
-
-            <MaterialIcons
-              name="qr-code-2"
-              size={180}
-              color={COLORS.black}
-            />
-
-          </View>
-
-          {/* Details */}
-
-          <View style={styles.details}>
-
-            <Row
-              label="Race"
-              value="KB3 - 20:05"
-            />
-
-            <Row
-              label="Pool"
-              value="WIN"
-            />
-
-            <Row
-              label="Runner"
-              value={`${runnerCode} - ${runnerName}`}
-            />
-
-            <Row
-              label="Amount"
-              value={`₱ ${amount}`}
-            />
-
-            <Row
-              label="Order"
-              value="EXACT"
-            />
-
-          </View>
-
-          {/* Buttons */}
-
+          {/* Buttons outside white card */}
           <View style={styles.footer}>
 
             <Button
@@ -186,6 +203,13 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     borderRadius: 20,
+    backgroundColor: 'transparent',
+    overflow: 'visible',
+  },
+
+  card: {
+    width: '100%',
+    borderRadius: 20,
     backgroundColor: COLORS.white,
     overflow: 'hidden',
   },
@@ -208,7 +232,7 @@ const styles = StyleSheet.create({
 
   ticketNo: {
     alignItems: 'center',
-    marginTop: 18,
+    marginTop: 8,
   },
 
   ticketLabel: {
@@ -216,11 +240,18 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
 
+  ticketValueBox: {
+    marginTop: 8,
+    backgroundColor: '#1F1F1F',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 12,
+  },
+
   ticketValue: {
-    marginTop: 4,
-    color: COLORS.primary,
+    color: COLORS.white,
     fontWeight: '800',
-    fontSize: 22,
+    fontSize: 16,
   },
 
   qrContainer: {
@@ -230,6 +261,13 @@ const styles = StyleSheet.create({
 
   details: {
     paddingHorizontal: 24,
+  },
+
+  separator: {
+    borderTopWidth: 1,
+    borderTopColor: COLORS.border,
+    borderStyle: 'dashed',
+    marginVertical: 16,
   },
 
   row: {
@@ -252,7 +290,8 @@ const styles = StyleSheet.create({
   footer: {
     flexDirection: 'row',
     gap: 16,
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingTop: 16,
   },
 
   close: {
@@ -276,8 +315,33 @@ const styles = StyleSheet.create({
     gap: 8,
   },
 
-  closeText: {
+  totalRow: {
+    paddingHorizontal: 24,
+    paddingBottom: 18,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+
+  totalLabel: {
+    fontWeight: '700',
     color: COLORS.black,
+  },
+
+  totalAmountBox: {
+    backgroundColor: COLORS.primary,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 12,
+  },
+
+  totalAmount: {
+    color: COLORS.black,
+    fontWeight: '700',
+  },
+
+  closeText: {
+    color: COLORS.white,
     fontWeight: '700',
     fontSize: TYPOGRAPHY.bodyLarge.size,
   },

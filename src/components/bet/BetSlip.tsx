@@ -6,8 +6,8 @@ import {
   View,
 } from 'react-native';
 
-import Input from '@/components/common/Input';
 import Button from '@/components/common/Button';
+import Input from '@/components/common/Input';
 import { COLORS } from '@/theme/colors';
 import { SPACING } from '@/theme/spacing';
 import { TYPOGRAPHY } from '@/theme/typography';
@@ -70,40 +70,46 @@ export default function BetSlip({
 
       <View style={styles.content}>
 
-        <Text style={styles.pool}>
-          WIN · FINISH 1ST
-        </Text>
+        <View style={styles.topRow}>
 
-        <View style={styles.row}>
-
-          <View style={styles.runner}>
-
-            <View style={styles.circle}>
-              <Text style={styles.code}>
-                {runnerCode}
-              </Text>
-            </View>
-
-            <Text style={styles.runnerName}>
-              {runnerName}
+          <View style={styles.leftBlock}>
+            <Text style={styles.pool}>
+              WIN · FINISH 1ST
             </Text>
 
+            <View style={styles.runner}>
+
+              <View style={styles.circle}>
+                <Text style={styles.code}>
+                  {runnerCode}
+                </Text>
+              </View>
+
+              <Text style={styles.runnerName}>
+                {runnerName}
+              </Text>
+
+            </View>
           </View>
 
-          <Input
-            wrapperStyle={styles.amountBox}
-            inputContainerStyle={styles.amountInputContainer}
-            leftContent={(
-              <Text style={styles.currency}>
-                ₱
-              </Text>
-            )}
-            value={amount}
-            keyboardType="numeric"
-            onChangeText={onAmountChange}
-            textColor={COLORS.black}
-            style={styles.input}
-          />
+          <View style={styles.rightBlock}>
+            <Text style={styles.stakeLabel}>STAKE</Text>
+
+            <Input
+              wrapperStyle={styles.amountBox}
+              inputContainerStyle={styles.amountInputContainer}
+              leftContent={(
+                <Text style={styles.currency}>
+                  ₱
+                </Text>
+              )}
+              value={amount}
+              keyboardType="numeric"
+              onChangeText={onAmountChange}
+              textColor={COLORS.black}
+              style={styles.input}
+            />
+          </View>
 
         </View>
 
@@ -187,10 +193,26 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
 
-  row: {
+  topRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+
+  leftBlock: {
+    flex: 1,
+    paddingRight: 12,
+  },
+
+  rightBlock: {
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+  },
+
+  stakeLabel: {
+    color: COLORS.textSecondary,
+    fontWeight: '700',
+    marginBottom: 6,
   },
 
   runner: {

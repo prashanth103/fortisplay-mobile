@@ -38,110 +38,117 @@ export default function ConfirmBetModal({
 
         <View style={styles.container}>
 
-          {/* Header */}
+          <View style={styles.card}>
 
-          <View style={styles.header}>
+            {/* Header */}
 
-            <Text style={styles.headerTitle}>
-              Confirm Bet
-            </Text>
+            <View style={styles.header}>
 
-            <Pressable onPress={onClose}>
-              <MaterialIcons
-                name="close"
-                size={22}
-                color={COLORS.textMuted}
-              />
-            </Pressable>
-
-          </View>
-
-          {/* QR */}
-
-          <View style={styles.qrContainer}>
-
-            <View style={styles.badge}>
-              <Text style={styles.badgeText}>
-                KB3 · RACE 8
-              </Text>
-            </View>
-
-            <View style={styles.qr}>
-              <MaterialIcons
-                name="qr-code-2"
-                size={150}
-                color={COLORS.black}
-              />
-            </View>
-
-          </View>
-
-          {/* Info */}
-
-          <View style={styles.infoRow}>
-
-            <View>
-
-              <Text style={styles.label}>
-                WIN
+              <Text style={styles.headerTitle}>
+                Confirm Bet
               </Text>
 
-              <Text style={styles.subLabel}>
-                POOL
-              </Text>
+              <Pressable onPress={onClose}>
+                <MaterialIcons
+                  name="close"
+                  size={22}
+                  color={COLORS.textMuted}
+                />
+              </Pressable>
 
             </View>
 
-            <View style={styles.runner}>
+            {/* QR */}
 
-              <View style={styles.circle}>
+            <View style={styles.qrContainer}>
 
-                <View style={styles.innerCircle}>
+              <View style={styles.badge}>
+                <Text style={styles.badgeText}>
+                  KB3 · RACE 8
+                </Text>
+              </View>
 
-                  <Text style={styles.code}>
-                    {runnerCode}
-                  </Text>
+              <View style={styles.qr}>
+                <MaterialIcons
+                  name="qr-code-2"
+                  size={150}
+                  color={COLORS.black}
+                />
+              </View>
 
-                </View>
+            </View>
+
+            <View style={styles.separator} />
+
+            {/* Info */}
+
+            <View style={styles.infoRow}>
+
+              <View>
+
+                <Text style={styles.label}>
+                  WIN
+                </Text>
+
+                <Text style={styles.subLabel}>
+                  POOL
+                </Text>
 
               </View>
 
-              <Text style={styles.runnerName}>
-                {runnerName}
-              </Text>
+              <View style={styles.runner}>
+
+                <View style={styles.circle}>
+
+                  <View style={styles.innerCircle}>
+
+                    <Text style={styles.code}>
+                      {runnerCode}
+                    </Text>
+
+                  </View>
+
+                </View>
+
+                <Text style={styles.runnerName}>
+                  {runnerName}
+                </Text>
+
+              </View>
+
+              <View>
+
+                <Text style={styles.label}>
+                  EXACT
+                </Text>
+
+                <Text style={styles.subLabel}>
+                  ORDER
+                </Text>
+
+              </View>
 
             </View>
 
-            <View>
+            <View style={styles.separator} />
 
-              <Text style={styles.label}>
-                EXACT
+            <View style={styles.amountRow}>
+
+              <Text style={styles.total}>
+                TOTAL AMOUNT
               </Text>
 
-              <Text style={styles.subLabel}>
-                ORDER
-              </Text>
+              <View style={styles.amountBox}>
+                <Text style={styles.amount}>
+                  ₱{amount}
+                </Text>
+              </View>
 
             </View>
 
           </View>
 
-          <View style={styles.amountRow}>
-
-            <Text style={styles.total}>
-              TOTAL AMOUNT
-            </Text>
-
-            <View style={styles.amountBox}>
-              <Text style={styles.amount}>
-                ₱{amount}
-              </Text>
-            </View>
-
-          </View>
-
-          {/* Buttons */}
-
+          {/* Buttons outside white card */}
           <View style={styles.footer}>
 
             <Button
@@ -181,8 +188,15 @@ const styles = StyleSheet.create({
 
   container: {
     width: '100%',
-    backgroundColor: COLORS.white,
+    backgroundColor: 'transparent',
     borderRadius: 20,
+    overflow: 'visible',
+  },
+
+  card: {
+    width: '100%',
+    borderRadius: 20,
+    backgroundColor: COLORS.white,
     overflow: 'hidden',
   },
 
@@ -221,6 +235,13 @@ const styles = StyleSheet.create({
 
   qr: {
     marginTop: 18,
+  },
+
+  separator: {
+    borderTopWidth: 1,
+    borderTopColor: COLORS.border,
+    borderStyle: 'dashed',
+    marginVertical: 18,
   },
 
   infoRow: {
@@ -307,7 +328,8 @@ const styles = StyleSheet.create({
 
   footer: {
     flexDirection: 'row',
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingTop: 18,
     gap: 16,
   },
 
@@ -331,7 +353,7 @@ const styles = StyleSheet.create({
   },
 
   cancelText: {
-    color: COLORS.black,
+    color: COLORS.white,
     fontWeight: '700',
     fontSize: TYPOGRAPHY.bodyLarge.size,
   },
