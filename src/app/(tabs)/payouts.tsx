@@ -146,7 +146,11 @@ export default function PayoutsScreen() {
               leftIcon={<MaterialIcons name="qr-code-scanner" size={20} color={COLORS.black} />}
             />
 
-            <Text style={styles.orText}>OR ENTER TICKET NUMBER</Text>
+            <View style={styles.dividerRow}>
+              <View style={styles.dividerLine} />
+              <Text style={styles.orText}>OR ENTER TICKET NUMBER</Text>
+              <View style={styles.dividerLine} />
+            </View>
 
             <View style={styles.verifyRow}>
               <Input
@@ -253,12 +257,15 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   scanFrame: {
+    width: 240,
     height: 240,
+    alignSelf: 'center',
     borderRadius: RADIUS.xl,
     backgroundColor: COLORS.surfaceElevated,
     marginBottom: SPACING.lg,
     justifyContent: 'center',
     alignItems: 'center',
+    overflow: 'hidden',
   },
   scanCornerTopLeft: {
     position: 'absolute',
@@ -305,13 +312,15 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 6,
   },
   scanButton: {
+    width: 190,
+    alignSelf: 'center',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: COLORS.primary,
-    borderRadius: RADIUS.xl,
-    paddingVertical: SPACING.md,
-    marginBottom: SPACING.md,
+    borderRadius: RADIUS.lg,
+    paddingVertical: 14,
+    marginBottom: SPACING.lg,
   },
   scanButtonText: {
     color: COLORS.black,
@@ -319,12 +328,28 @@ const styles = StyleSheet.create({
     marginLeft: SPACING.sm,
     fontSize: 14,
   },
+
+  dividerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: SPACING.md,
+  },
+
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: COLORS.borderMuted,
+  },
+
   orText: {
     color: COLORS.textSecondary,
     textAlign: 'center',
     letterSpacing: 1,
-    marginBottom: SPACING.md,
+    fontSize: 12,
+    fontWeight: '700',
+    marginHorizontal: 12,
   },
+
   verifyRow: {
     flexDirection: 'row',
     gap: SPACING.sm,
@@ -335,19 +360,23 @@ const styles = StyleSheet.create({
     marginBottom: 0,
   },
   inputContainer: {
+    height: 48,
     borderRadius: RADIUS.lg,
-    borderColor: COLORS.surface,
+    backgroundColor: COLORS.surfaceElevated,
+    borderColor: COLORS.border,
   },
   verifyButton: {
     minWidth: 88,
+    height: 48,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.headerChip,
     borderRadius: RADIUS.lg,
     paddingHorizontal: SPACING.md,
   },
+
   verifyButtonText: {
-    color: COLORS.black,
+    color: COLORS.primary,
     fontWeight: '800',
     fontSize: 14,
   },
