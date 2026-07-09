@@ -1,11 +1,12 @@
 ﻿import Screen from '@/components/layout/Screen';
 import { COLORS } from '@/theme/colors';
+import Input from '@/components/common/Input';
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const ticketData = {
   '8266150525': {
@@ -143,17 +144,17 @@ export default function PayoutsScreen() {
             <Text style={styles.orText}>OR ENTER TICKET NUMBER</Text>
 
             <View style={styles.verifyRow}>
-              <View style={styles.inputWrapper}>
-                <MaterialIcons name="receipt-long" size={18} color={COLORS.textSecondary} />
-                <TextInput
-                  style={styles.input}
-                  placeholder="e.g. 8266150525"
-                  placeholderTextColor={COLORS.textSecondary}
-                  value={ticketNumber}
-                  onChangeText={setTicketNumber}
-                  keyboardType="number-pad"
-                />
-              </View>
+              <Input
+                wrapperStyle={styles.inputWrapper}
+                inputContainerStyle={styles.inputContainer}
+                leftIcon={<MaterialIcons name="receipt-long" size={18} color={COLORS.textSecondary} />}
+                placeholder="e.g. 8266150525"
+                placeholderColor={COLORS.textSecondary}
+                textColor={COLORS.white}
+                value={ticketNumber}
+                onChangeText={setTicketNumber}
+                keyboardType="number-pad"
+              />
               <TouchableOpacity style={styles.verifyButton} activeOpacity={0.8} onPress={handleVerify}>
                 <Text style={styles.verifyButtonText}>Verify</Text>
               </TouchableOpacity>
@@ -317,19 +318,11 @@ const styles = StyleSheet.create({
   },
   inputWrapper: {
     flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: SPACING.sm,
-    backgroundColor: COLORS.surface,
-    borderRadius: RADIUS.lg,
-    paddingHorizontal: SPACING.md,
-    paddingVertical: SPACING.sm,
+    marginBottom: 0,
   },
-  input: {
-    flex: 1,
-    color: COLORS.white,
-    fontSize: 14,
-    paddingVertical: 8,
+  inputContainer: {
+    borderRadius: RADIUS.lg,
+    borderColor: COLORS.surface,
   },
   verifyButton: {
     minWidth: 88,

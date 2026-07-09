@@ -10,7 +10,7 @@ import {
 
 import { useDevice } from '@/hooks/useDevice';
 import { COLORS } from '@/theme/colors';
-import AuthInput from './Input';
+import Input from './Input';
 
 interface ChangePasswordModalProps {
   visible: boolean;
@@ -57,7 +57,7 @@ export default function ChangePasswordModal({
           </View>
 
           <View style={styles.body}>
-            <AuthInput
+            <Input
               label="Current Password"
               value={currentPassword}
               placeholder="********"
@@ -66,7 +66,7 @@ export default function ChangePasswordModal({
               inputBackgroundColor={COLORS.backgroundSecondary}
             />
 
-            <AuthInput
+            <Input
               label="New Password"
               value={newPassword}
               placeholder="At least 6 characters"
@@ -75,7 +75,7 @@ export default function ChangePasswordModal({
               inputBackgroundColor={COLORS.backgroundSecondary}
             />
 
-            <AuthInput
+            <Input
               label="Confirm New Password"
               value={confirmPassword}
               placeholder="Re-enter new password"

@@ -1,12 +1,13 @@
 ﻿import Screen from '@/components/layout/Screen';
 import { COLORS } from '@/theme/colors';
+import Input from '@/components/common/Input';
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
 import { TYPOGRAPHY } from '@/theme/typography';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const salesData = [
   {
@@ -207,16 +208,16 @@ export default function SalesScreen() {
           </View>
         </View>
 
-        <View style={styles.searchBox}>
-          <MaterialIcons name="search" size={18} color={COLORS.textSecondary} />
-          <TextInput
-            style={styles.searchInput}
-            placeholder="Search ticket no., color or pool..."
-            placeholderTextColor={COLORS.textSecondary}
-            value={query}
-            onChangeText={setQuery}
-          />
-        </View>
+        <Input
+          wrapperStyle={styles.searchBox}
+          inputContainerStyle={styles.searchInputContainer}
+          leftIcon={<MaterialIcons name="search" size={18} color={COLORS.textSecondary} />}
+          placeholder="Search ticket no., color or pool..."
+          placeholderColor={COLORS.textSecondary}
+          textColor={COLORS.white}
+          value={query}
+          onChangeText={setQuery}
+        />
 
         {selectedSale ? (
           <View style={styles.detailContainer}>
@@ -342,20 +343,12 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   searchBox: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: SPACING.sm,
-    backgroundColor: COLORS.surfaceElevated,
-    borderRadius: RADIUS.lg,
-    paddingHorizontal: SPACING.md,
-    paddingVertical: SPACING.sm,
     marginBottom: SPACING.lg,
   },
-  searchInput: {
-    flex: 1,
-    color: COLORS.white,
-    fontSize: 14,
-    paddingVertical: SPACING.sm,
+  searchInputContainer: {
+    backgroundColor: COLORS.surfaceElevated,
+    borderColor: COLORS.surfaceElevated,
+    borderRadius: RADIUS.lg,
   },
   saleCard: {
     flexDirection: 'row',

@@ -3,10 +3,10 @@ import {
   Pressable,
   StyleSheet,
   Text,
-  TextInput,
   View,
 } from 'react-native';
 
+import Input from '@/components/common/Input';
 import { COLORS } from '@/theme/colors';
 import { SPACING } from '@/theme/spacing';
 import { TYPOGRAPHY } from '@/theme/typography';
@@ -89,20 +89,20 @@ export default function BetSlip({
 
           </View>
 
-          <View style={styles.amountBox}>
-
-            <Text style={styles.currency}>
-              ₱
-            </Text>
-
-            <TextInput
-              value={amount}
-              keyboardType="numeric"
-              onChangeText={onAmountChange}
-              style={styles.input}
-            />
-
-          </View>
+          <Input
+            wrapperStyle={styles.amountBox}
+            inputContainerStyle={styles.amountInputContainer}
+            leftContent={(
+              <Text style={styles.currency}>
+                ₱
+              </Text>
+            )}
+            value={amount}
+            keyboardType="numeric"
+            onChangeText={onAmountChange}
+            textColor={COLORS.black}
+            style={styles.input}
+          />
 
         </View>
 
@@ -221,14 +221,18 @@ const styles = StyleSheet.create({
   },
 
   amountBox: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    width: 105,
+    marginBottom: 0,
+  },
+
+  amountInputContainer: {
+    height: 46,
     borderWidth: 2,
     borderColor: COLORS.primary,
     borderRadius: 10,
+    backgroundColor: COLORS.white,
     paddingHorizontal: 12,
-    width: 105,
-    height: 46,
+    gap: 6,
   },
 
   currency: {
@@ -238,11 +242,8 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    flex: 1,
-    color: COLORS.black,
     fontWeight: '700',
     fontSize: 22,
-    marginLeft: 6,
     padding: 0,
   },
 
