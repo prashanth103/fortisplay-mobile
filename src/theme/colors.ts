@@ -91,8 +91,8 @@ export const LIGHT_COLORS = {
   surfaceElevated: '#F9F9F9',
   surfaceActive: '#FFF6D9',
 
-  border: '#E0E0E0',
-  borderMuted: '#EEEEEE',
+  border: '#CCCCCC',
+  borderMuted: '#E0E0E0',
   borderPrimary: '#E3BA4B',
 
   textPrimary: '#111111',

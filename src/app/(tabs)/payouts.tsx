@@ -161,8 +161,8 @@ export default function PayoutsScreen() {
                 inputContainerStyle={styles.inputContainer}
                 leftIcon={<MaterialIcons name="receipt-long" size={18} color={COLORS.textSecondary} />}
                 placeholder="e.g. 8266150525"
-                placeholderColor={COLORS.textSecondary}
-                textColor={COLORS.white}
+                placeholderColor={COLORS.textMuted}
+                textColor={COLORS.textPrimary}
                 value={ticketNumber}
                 onChangeText={setTicketNumber}
                 keyboardType="number-pad"
@@ -250,7 +250,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     marginBottom: SPACING.lg,
   },
   title: {
-    color: COLORS.white,
+    color: COLORS.textPrimary,
     fontSize: 28,
     fontWeight: '800',
   },
@@ -502,7 +502,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     alignItems: 'center',
   },
   scanAnotherText: {
-    color: COLORS.white,
+    color: COLORS.textPrimary,
     fontWeight: '800',
   },
 });

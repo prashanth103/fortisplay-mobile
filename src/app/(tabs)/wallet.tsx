@@ -251,7 +251,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     marginBottom: 20,
   },
   title: {
-    color: COLORS.white,
+    color: COLORS.textPrimary,
     fontSize: 32,
     fontWeight: '800',
   },
@@ -295,7 +295,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   summaryValue: {
     fontSize: 28,
     fontWeight: '900',
-    color: COLORS.white,
+    color: COLORS.textPrimary,
   },
   actionRow: {
     flexDirection: 'row',
@@ -395,7 +395,7 @@ statLabel: {
     flex: 1,
   },
   historyTitle: {
-    color: COLORS.white,
+    color: COLORS.textPrimary,
     fontSize: 15,
     fontWeight: '700',
     marginBottom: 2,

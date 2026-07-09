@@ -14,29 +14,29 @@ export const createCommonStyles = (COLORS: any) => StyleSheet.create({
   // Heading
   h1: {
     fontFamily: 'ManropeExtraBold',
-    color: COLORS.white,
+    color: COLORS.textPrimary,
   },
   h1Mobile: {
     fontSize: 32,
-    color: COLORS.white,
+    color: COLORS.textPrimary,
   },
   h1Tablet: {
     fontSize: 36,
-    color: COLORS.white,
+    color: COLORS.textPrimary,
   },
   h2: {
     fontFamily: 'ManropeExtraBold',
-    color: COLORS.white,
+    color: COLORS.textPrimary,
   },
   h2Mobile: {
     fontSize: 28,
     lineHeight: 36,
-    color: COLORS.white,
+    color: COLORS.textPrimary,
   },
   h2Tablet: {
     fontSize: 34,
     lineHeight: 42,
-    color: COLORS.white,
+    color: COLORS.textPrimary,
   },
   h3: {
     fontSize: 22,

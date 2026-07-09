@@ -1,13 +1,12 @@
-﻿import Input from '@/components/common/Input';
+import Input from '@/components/common/Input';
 import Screen from '@/components/layout/Screen';
 import { useThemeColors } from "@/hooks/useThemeColors";
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
-import { TYPOGRAPHY } from '@/theme/typography';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useRouter } from 'expo-router';
 import React, { useMemo, useState } from "react";
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function SalesScreen() {
 
@@ -195,7 +194,7 @@ export default function SalesScreen() {
     <Screen backgroundColor={COLORS.background}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.heading}>
-          <Text style={TYPOGRAPHY.h1}>Sales</Text>
+          <Text style={styles.title}>Sales</Text>
           <Text style={styles.subtitle}>Today's transactions</Text>
         </View>
 
@@ -215,18 +214,18 @@ export default function SalesScreen() {
           inputContainerStyle={styles.searchInputContainer}
           leftIcon={<MaterialIcons name="search" size={18} color={COLORS.textSecondary} />}
           placeholder="Search ticket no., color or pool..."
-          placeholderColor={COLORS.textSecondary}
-          textColor={COLORS.white}
+          placeholderTextColor={COLORS.textMuted}
+          textColor={COLORS.textPrimary}
           value={query}
           onChangeText={setQuery}
         />
 
         {selectedSale ? (
           <View style={styles.detailContainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setSelectedSaleId(null)}>
-              <MaterialIcons name="arrow-back-ios" size={18} color={COLORS.white} />
+            <Pressable onPress={() => setSelectedSaleId(null)} style={styles.backButton}>
+              <MaterialIcons name="arrow-back-ios" size={18} color={COLORS.textPrimary} />
               <Text style={styles.backText}>Back</Text>
-            </TouchableOpacity>
+            </Pressable>
             <View style={styles.detailCard}>
               <View style={styles.detailHeader}>
                 <Text style={styles.detailHeaderText}>Ticket Details</Text>
@@ -313,8 +312,8 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     marginBottom: SPACING.lg,
   },
   title: {
-    color: COLORS.white,
-    fontSize: 28,
+    color: COLORS.textPrimary,
+    fontSize: 32,
     fontWeight: '800',
   },
   subtitle: {
@@ -340,7 +339,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     marginBottom: SPACING.sm,
   },
   summaryValue: {
-    color: COLORS.white,
+    color: COLORS.textPrimary,
     fontSize: 26,
     fontWeight: '800',
   },
@@ -378,10 +377,10 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderRadius: 18,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.surface,
   },
   avatarText: {
-    color: COLORS.black,
+    color: COLORS.textPrimary,
     fontWeight: '700',
     fontSize: 14,
   },
@@ -394,8 +393,14 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: SPACING.xs,
   },
+  cardTitle: {
+    color: COLORS.textPrimary,
+    fontSize: 16,
+    fontWeight: '800',
+    marginBottom: 4,
+  },
   saleTitle: {
-    color: COLORS.white,
+    color: COLORS.textPrimary,
     fontSize: 15,
     fontWeight: '700',
     flex: 1,

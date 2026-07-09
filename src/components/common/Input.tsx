@@ -164,7 +164,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   label: {
-    color: COLORS.white,
+    color: COLORS.textPrimary,
     marginBottom: 8,
     fontSize: TYPOGRAPHY.label.size,
     fontWeight: '600',

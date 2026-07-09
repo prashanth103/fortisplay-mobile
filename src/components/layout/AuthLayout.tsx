@@ -77,7 +77,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   brand: {
     color:
-      COLORS.white,
+      COLORS.textPrimary,
     fontWeight: '700',
   },
 });

@@ -8,7 +8,7 @@ export const TYPOGRAPHY = {
   },
 
   h1: {
-    color: COLORS.white,
+    color: COLORS.textPrimary,
     fontSize: 28,
     fontWeight: '800',
     fontFamily: 'manrope'

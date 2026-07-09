@@ -272,7 +272,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
         marginBottom: SPACING.sm,
     },
     title: {
-        color: COLORS.white,
+        color: COLORS.textPrimary,
         fontSize: 22,
         fontWeight: '800',
     },
@@ -281,7 +281,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
         marginTop: 4,
     },
     sectionTitle: {
-        color: COLORS.white,
+        color: COLORS.textPrimary,
         fontSize: 14,
         fontWeight: '700',
         marginTop: SPACING.xl,
@@ -317,7 +317,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
         flex: 1,
     },
     raceTitle: {
-        color: COLORS.white,
+        color: COLORS.textPrimary,
         fontWeight: '700',
         fontSize: 15,
     },
