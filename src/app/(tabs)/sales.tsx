@@ -45,7 +45,7 @@ const salesData = [
     badgeTextColor: COLORS.black,
     avatarText: 'SB',
     avatarColor: '#6BB9FF',
-    avatarTextColor: COLORS.white,
+    avatarTextColor: COLORS.black,
     status: 'LOST',
     statusBackground: COLORS.surface,
     statusTextColor: COLORS.lost,
@@ -69,7 +69,7 @@ const salesData = [
     badgeTextColor: COLORS.black,
     avatarText: 'LG',
     avatarColor: '#58D16A',
-    avatarTextColor: COLORS.white,
+    avatarTextColor: COLORS.black,
     status: 'PENDING',
     statusBackground: COLORS.payoutBackground,
     statusTextColor: COLORS.warning,
@@ -93,7 +93,7 @@ const salesData = [
     badgeTextColor: COLORS.black,
     avatarText: 'OR',
     avatarColor: '#F28B34',
-    avatarTextColor: COLORS.white,
+    avatarTextColor: COLORS.black,
     status: 'PENDING',
     statusBackground: COLORS.surface,
     statusTextColor: COLORS.lost,
@@ -141,7 +141,7 @@ const salesData = [
     badgeTextColor: COLORS.black,
     avatarText: 'RD',
     avatarColor: '#F15151',
-    avatarTextColor: COLORS.white,
+    avatarTextColor: COLORS.black,
     status: 'PENDING',
     statusBackground: COLORS.payoutBackground,
     statusTextColor: COLORS.warning,
@@ -200,7 +200,7 @@ export default function SalesScreen() {
         <View style={styles.summaryRow}>
           <View style={styles.summaryCard}>
             <Text style={styles.summaryLabel}>TOTAL SALES</Text>
-            <Text style={styles.summaryValue}>₱{totalSales}</Text>
+            <Text style={styles.summaryValue}>₱ {totalSales}</Text>
           </View>
           <View style={styles.summaryCard}>
             <Text style={styles.summaryLabel}>TICKETS</Text>
@@ -279,7 +279,7 @@ export default function SalesScreen() {
         ) : (
           filteredSales.map((item) => (
             <TouchableOpacity key={item.id} style={styles.saleCard} activeOpacity={0.8} onPress={() => handleItemPress(item.ticketNumber)}>
-              <View style={[styles.avatarBorder, { borderColor: item.avatarColor }]}>
+              <View style={[styles.avatarBorder, { borderColor: item.avatarColor, backgroundColor: item.avatarColor }]}>
                 <View style={styles.avatar}>
                   <Text style={[styles.avatarText, { color: item.avatarTextColor }]}>{item.avatarText}</Text>
                 </View>
@@ -288,7 +288,9 @@ export default function SalesScreen() {
                 <View style={styles.saleTitleRow}>
                   <Text style={styles.saleTitle}>{item.title}</Text>
                   <View style={[styles.itemBadge, { backgroundColor: item.badgeBackground }]}>
-                    <Text style={styles.itemBadgeText}>{item.badge}</Text>
+                    <Text style={[styles.itemBadgeText, { color: item.badgeTextColor }]}>
+                      {item.badge}
+                    </Text>
                   </View>
                 </View>
                 <Text style={styles.saleSubtitle}>{item.subtitle}</Text>
@@ -327,20 +329,24 @@ const styles = StyleSheet.create({
   },
   summaryCard: {
     flex: 1,
-    backgroundColor: COLORS.navyCard,
-    borderRadius: RADIUS.lg,
-    padding: SPACING.lg,
+    backgroundColor: COLORS.walletCard,
+    borderRadius: 12,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    minHeight: 78,
   },
+
   summaryLabel: {
-    color: COLORS.textSecondary,
-    fontSize: 12,
-    letterSpacing: 0.5,
-    marginBottom: SPACING.sm,
+    color: COLORS.walletLabel,
+    fontSize: 11,
+    letterSpacing: 0.6,
+    marginBottom: 6,
   },
+
   summaryValue: {
     color: COLORS.white,
-    fontSize: 26,
-    fontWeight: '800',
+    fontSize: 22,
+    fontWeight: '900',
   },
   searchBox: {
     marginBottom: SPACING.lg,
@@ -354,34 +360,42 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: COLORS.surfaceElevated,
-    borderRadius: RADIUS.lg,
-    padding: SPACING.lg,
-    marginBottom: SPACING.md,
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    marginBottom: 10,
     borderWidth: 1,
     borderColor: COLORS.border,
   },
   avatarBorder: {
-    width: 46,
-    height: 46,
-    borderRadius: 24,
+    width: 52,
+    height: 52,
+    borderRadius: 26,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: SPACING.md,
-    backgroundColor: COLORS.surfaceElevated,
-    borderWidth: 2,
+    marginRight: 16,
+
+    // shadow/elevation for high color circle
+    shadowColor: COLORS.black,
+    shadowOpacity: 0.35,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
+    elevation: 6,
   },
+
   avatar: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    width: 34,
+    height: 34,
+    borderRadius: 17,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLORS.white,
   },
+
   avatarText: {
     color: COLORS.black,
-    fontWeight: '700',
-    fontSize: 14,
+    fontWeight: '900',
+    fontSize: 12,
   },
   saleInfo: {
     flex: 1,
@@ -389,25 +403,27 @@ const styles = StyleSheet.create({
   saleTitleRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: SPACING.xs,
+    justifyContent: 'flex-start',
+    gap: 8,
+    marginBottom: 4,
   },
+
   saleTitle: {
     color: COLORS.white,
     fontSize: 15,
-    fontWeight: '700',
-    flex: 1,
+    fontWeight: '900',
   },
   itemBadge: {
-    borderRadius: 999,
-    paddingHorizontal: SPACING.sm,
-    paddingVertical: 2,
-    backgroundColor: '#F2C94C',
+    borderRadius: 8,
+    paddingHorizontal: 7,
+    paddingVertical: 3,
+    backgroundColor: COLORS.salesBadgeBackground,
   },
+
   itemBadgeText: {
-    color: COLORS.black,
+    color: COLORS.salesBadgeText,
     fontSize: 10,
-    fontWeight: '700',
+    fontWeight: '900',
     letterSpacing: 0.5,
   },
   saleSubtitle: {

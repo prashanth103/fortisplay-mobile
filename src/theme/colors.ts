@@ -64,6 +64,8 @@ export const COLORS = {
   walletLight: "#F5F5F5",
   walletIconBackground: "#4A3D1C",
   walletHistoryCard: "#142026",
+  salesBadgeBackground: '#4B3A18',
+salesBadgeText: '#F3CE55',
 
   overlay: 'rgba(0,0,0,0.65)',
 
