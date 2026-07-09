@@ -3,8 +3,9 @@ import { FlatList, StyleSheet } from 'react-native';
 import RunnerCard from './RunnerCard';
 
 import { RUNNERS } from '@/data/runners';
-import { COLORS } from '@/theme/colors';
 import { useState } from 'react';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import React from "react";
 
 interface Props {
   selectedRunnerId: string | null;
@@ -17,6 +18,8 @@ export default function RunnerList({
   selectedRunnerId,
   onSelectRunner,
 }: Props) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
 
   const [betAmount, setBetAmount] = useState('5');
 
@@ -42,7 +45,7 @@ export default function RunnerList({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
   list: {
     flex: 1,
   },

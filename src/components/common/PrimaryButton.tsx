@@ -6,9 +6,10 @@ import {
 } from 'react-native';
 
 import { useDevice } from '@/hooks/useDevice';
-import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { TYPOGRAPHY } from '@/theme/typography';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import * as React from "react";
 
 interface Props {
   title: string;
@@ -19,6 +20,8 @@ export default function PrimaryButton({
   title,
   onPress,
 }: Props) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   const { isTablet } = useDevice();
 
   return (
@@ -41,7 +44,7 @@ export default function PrimaryButton({
 
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
   button: {
     height: 54,
     borderRadius: RADIUS.md,

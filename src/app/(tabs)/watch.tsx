@@ -1,6 +1,5 @@
 import StripedBackground from '@/components/common/StripedBackground';
 import Screen from '@/components/layout/Screen';
-import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
@@ -12,7 +11,13 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import React from "react";
 
+export default function WatchScreen() {
+
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
 type RaceIconName = 'play-arrow' | 'schedule';
 
 type WatchRace = {
@@ -72,8 +77,6 @@ const raceData: WatchRace[] = [
         progress: 38,
     },
 ];
-
-export default function WatchScreen() {
     const [selectedRaceId, setSelectedRaceId] = useState('kb2');
     const selectedRace = useMemo(
         () => raceData.find(race => race.id === selectedRaceId) ?? raceData[0],
@@ -167,7 +170,7 @@ export default function WatchScreen() {
     );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
     container: {
         paddingBottom: SPACING.huge,
     },

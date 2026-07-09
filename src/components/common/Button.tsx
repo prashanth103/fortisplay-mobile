@@ -9,10 +9,9 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-
-import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { TYPOGRAPHY } from '@/theme/typography';
+import { useThemeColors } from "@/hooks/useThemeColors";
 
 type ButtonVariant = 'primary' | 'outline' | 'ghost';
 type ButtonSize = 'sm' | 'md' | 'lg';
@@ -40,6 +39,8 @@ export default function Button({
   activeOpacity = 0.85,
   ...touchableProps
 }: Props) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   return (
     <TouchableOpacity
       {...touchableProps}
@@ -47,8 +48,8 @@ export default function Button({
       disabled={disabled}
       style={[
         styles.button,
-        styles[variant],
-        styles[size],
+        styles[variant as keyof typeof styles] as any,
+        styles[size as keyof typeof styles] as any,
         disabled && styles.disabled,
         style,
       ]}
@@ -60,8 +61,8 @@ export default function Button({
           adjustsFontSizeToFit
           style={[
             styles.text,
-            styles[`${variant}Text`],
-            styles[`${size}Text`],
+            styles[`${variant}Text` as keyof typeof styles] as any,
+            styles[`${size}Text` as keyof typeof styles] as any,
             textStyle,
           ]}
         >
@@ -73,7 +74,7 @@ export default function Button({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
   button: {
     borderRadius: RADIUS.md,
     alignItems: 'center',

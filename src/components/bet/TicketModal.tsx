@@ -8,9 +8,10 @@ import {
 } from 'react-native';
 
 import Button from '@/components/common/Button';
-import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { TYPOGRAPHY } from '@/theme/typography';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import * as React from "react";
 
 interface Props {
   visible: boolean;
@@ -31,6 +32,8 @@ export default function TicketModal({
   onClose,
   onPrint,
 }: Props) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   return (
     <Modal
       visible={visible}
@@ -182,6 +185,8 @@ function Row({
   label: string;
   value: string;
 }) {
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   return (
     <View style={styles.row}>
 
@@ -197,7 +202,7 @@ function Row({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
 
   overlay: {
     flex: 1,

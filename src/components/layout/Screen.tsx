@@ -3,8 +3,9 @@ import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import AppHeader from '@/components/common/AppHeader';
-import { COLORS } from '@/theme/colors';
 import { SPACING } from '@/theme/spacing';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import React from "react";
 
 interface ScreenProps {
   children: ReactNode;
@@ -13,14 +14,17 @@ interface ScreenProps {
 
 export default function Screen({
   children,
-  backgroundColor = COLORS.background,
+  backgroundColor,
 }: ScreenProps) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+      const finalBg = backgroundColor || COLORS.background;
   return (
     <SafeAreaView
       edges={['top']}
       style={[
         styles.container,
-        { backgroundColor },
+        { backgroundColor: finalBg },
       ]}
     >
       <AppHeader />
@@ -32,7 +36,7 @@ export default function Screen({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
     flex: 1,
   },

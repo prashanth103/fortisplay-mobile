@@ -3,8 +3,7 @@ import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
 import AuthLayout from '@/components/layout/AuthLayout';
 import { useDevice } from '@/hooks/useDevice';
-import { commonStyles } from '@/styles/commonStyles';
-import { COLORS } from '@/theme/colors';
+import { createCommonStyles } from '@/styles/commonStyles';
 import { TYPOGRAPHY } from '@/theme/typography';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { router } from 'expo-router';
@@ -14,8 +13,13 @@ import {
   Text,
   View,
 } from 'react-native';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import React from "react";
 
 export default function LoginScreen() {
+    const COLORS = useThemeColors();
+    const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+    const commonStyles = React.useMemo(() => createCommonStyles(COLORS), [COLORS]);
 
   const { isTablet } = useDevice();
 
@@ -103,7 +107,7 @@ export default function LoginScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
   header: {
     alignItems: 'center',
     marginBottom: 48,

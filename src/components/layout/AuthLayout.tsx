@@ -1,5 +1,4 @@
 import { useDevice } from '@/hooks/useDevice';
-import { COLORS } from '@/theme/colors';
 import { SPACING } from '@/theme/spacing';
 import React from 'react';
 import {
@@ -8,6 +7,7 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useThemeColors } from "@/hooks/useThemeColors";
 
 interface Props {
   children:
@@ -17,6 +17,8 @@ interface Props {
 export default function AuthLayout({
   children,
 }: Props) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
 
   const { isTablet } = useDevice();
 
@@ -44,7 +46,7 @@ export default function AuthLayout({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor:

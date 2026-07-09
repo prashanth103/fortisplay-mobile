@@ -8,9 +8,10 @@ import {
 
 import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
-import { COLORS } from '@/theme/colors';
 import { SPACING } from '@/theme/spacing';
 import { TYPOGRAPHY } from '@/theme/typography';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import * as React from "react";
 
 interface Props {
   visible: boolean;
@@ -31,6 +32,8 @@ export default function BetSlip({
   onClose,
   onPlaceBet,
 }: Props) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   if (!visible) return null;
 
   return (
@@ -126,7 +129,7 @@ export default function BetSlip({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
 
   container: {
     backgroundColor: COLORS.surface,

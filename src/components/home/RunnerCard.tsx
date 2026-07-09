@@ -7,11 +7,11 @@ import {
 } from 'react-native';
 
 import { useDevice } from '@/hooks/useDevice';
-
-import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
 import { TYPOGRAPHY } from '@/theme/typography';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import * as React from "react";
 
 interface Props {
   code: string;
@@ -28,6 +28,8 @@ export default function RunnerCard({
   selected,
   onPress,
 }: Props) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   const { isTablet } = useDevice();
 
   return (
@@ -97,7 +99,7 @@ export default function RunnerCard({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
     height: 74,
     flexDirection: 'row',

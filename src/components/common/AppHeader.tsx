@@ -6,18 +6,28 @@ import {
   StyleSheet,
   Text,
   View,
+  Appearance,
+  useColorScheme
 } from 'react-native';
 
 import AppLogo from '@/components/common/AppLogo';
 import ChangePasswordModal from '@/components/common/ChangePasswordModal';
 import ProfileModal from '@/components/common/ProfileModal';
 import { useDevice } from '@/hooks/useDevice';
-import { COLORS } from '@/theme/colors';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import React from "react";
 
 export default function AppHeader() {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   const { isTablet } = useDevice();
   const [profileVisible, setProfileVisible] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const scheme = useColorScheme();
+
+  const toggleTheme = () => {
+    Appearance.setColorScheme(scheme === 'dark' ? 'light' : 'dark');
+  };
 
   const openPasswordModal = () => {
     setProfileVisible(false);
@@ -34,6 +44,13 @@ export default function AppHeader() {
     <View style={[styles.container, isTablet && styles.containerTablet]}>
       <AppLogo size={isTablet ? 72 : 56} />
       <View style={[styles.rightContainer, isTablet && styles.rightContainerTablet]}>
+        <Pressable onPress={toggleTheme} style={styles.themeToggle}>
+          <MaterialIcons
+            name={scheme === 'dark' ? 'light-mode' : 'dark-mode'}
+            size={isTablet ? 28 : 24}
+            color={COLORS.textPrimary}
+          />
+        </Pressable>
         <View style={[styles.balanceContainer, isTablet && styles.balanceContainerTablet]}>
           <MaterialIcons
             name="account-balance-wallet"
@@ -76,7 +93,7 @@ export default function AppHeader() {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -96,6 +113,13 @@ const styles = StyleSheet.create({
   },
   rightContainerTablet: {
     gap: 20
+  },
+  themeToggle: {
+    padding: 8,
+    borderRadius: 20,
+    backgroundColor: COLORS.border,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   balanceContainer: {
     height: 44,

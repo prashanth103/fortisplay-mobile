@@ -5,9 +5,9 @@ import {
   Text,
   View,
 } from 'react-native';
-
-import { COLORS } from '@/theme/colors';
 import { SPACING } from '@/theme/spacing';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import React from "react";
 
 const BET_TYPES = [
   {
@@ -29,6 +29,8 @@ const BET_TYPES = [
 ];
 
 export default function BetTypeTabs() {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   const [selected, setSelected] = useState(0);
 
   return (
@@ -69,7 +71,7 @@ export default function BetTypeTabs() {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
 
   container: {
     flexDirection: 'row',

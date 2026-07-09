@@ -7,11 +7,11 @@ import {
 
 import Button from '@/components/common/Button';
 import { useDevice } from '@/hooks/useDevice';
-
-import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
 import { TYPOGRAPHY } from '@/theme/typography';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import * as React from "react";
 
 interface Props {
   raceName: string;
@@ -22,6 +22,8 @@ export default function LiveRace({
   raceName,
   onWatchLive,
 }: Props) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
 
   const { isTablet } = useDevice();
 
@@ -97,7 +99,7 @@ export default function LiveRace({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
 
   container: {
     flex: 1,

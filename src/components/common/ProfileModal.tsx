@@ -8,7 +8,8 @@ import {
 } from 'react-native';
 
 import { useDevice } from '@/hooks/useDevice';
-import { COLORS } from '@/theme/colors';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import * as React from "react";
 
 interface ProfileModalProps {
   visible: boolean;
@@ -23,6 +24,8 @@ export default function ProfileModal({
   onChangePassword,
   onLogout,
 }: ProfileModalProps) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   const { isTablet } = useDevice();
 
   return (
@@ -77,7 +80,7 @@ export default function ProfileModal({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
   overlay: {
     flex: 1,
   },

@@ -1,4 +1,4 @@
-import { COLORS } from "@/theme/colors";
+
 import { StyleSheet } from "react-native";
 
 // Manrope-ExtraLight	"200"
@@ -9,7 +9,7 @@ import { StyleSheet } from "react-native";
 // Manrope-Bold	"700" (or "bold")
 // Manrope-ExtraBold	"800"
 
-export const commonStyles = StyleSheet.create({
+export const createCommonStyles = (COLORS: any) => StyleSheet.create({
 
   // Heading
   h1: {

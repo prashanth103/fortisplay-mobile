@@ -3,11 +3,11 @@ import { StyleSheet, Text, View } from 'react-native';
 import ResultRow from './ResultRow';
 
 import { RESULT_ROWS } from '@/data/runners';
-
-import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
 import { TYPOGRAPHY } from '@/theme/typography';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import * as React from "react";
 
 interface Props {
   raceName: string;
@@ -16,6 +16,8 @@ interface Props {
 export default function FinishedRace({
   raceName,
 }: Props) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   return (
     <View style={styles.container}>
 
@@ -37,7 +39,7 @@ export default function FinishedRace({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
 
   container: {
     marginTop: SPACING.md,

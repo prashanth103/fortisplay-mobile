@@ -9,9 +9,10 @@ import {
 } from 'react-native';
 
 import { useDevice } from '@/hooks/useDevice';
-import { COLORS } from '@/theme/colors';
 import Button from './Button';
 import Input from './Input';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import React from "react";
 
 interface ChangePasswordModalProps {
   visible: boolean;
@@ -22,6 +23,8 @@ export default function ChangePasswordModal({
   visible,
   onClose,
 }: ChangePasswordModalProps) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   const { isTablet } = useDevice();
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -108,7 +111,7 @@ export default function ChangePasswordModal({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
   overlay: {
     flex: 1,
     justifyContent: 'center',

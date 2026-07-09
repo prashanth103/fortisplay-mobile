@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 import ResultCircle from './ResultCircle';
-
-import { COLORS } from '@/theme/colors';
 import { SPACING } from '@/theme/spacing';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import * as React from "react";
 
 interface Runner {
   place: string;
@@ -20,6 +20,8 @@ export default function ResultRow({
   title,
   runners,
 }: Props) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
@@ -40,7 +42,7 @@ export default function ResultRow({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
 
   container: {
     paddingVertical: 18,

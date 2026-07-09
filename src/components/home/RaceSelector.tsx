@@ -11,10 +11,11 @@ import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useDevice } from '@/hooks/useDevice';
 
 import { RACES } from '@/data/runners';
-import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
 import { TYPOGRAPHY } from '@/theme/typography';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import * as React from "react";
 
 interface Props {
   selectedRaceId: number;
@@ -25,6 +26,8 @@ export default function RaceSelector({
   selectedRaceId,
   onSelectRace,
 }: Props) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   const { isTablet } = useDevice();
 
   return (
@@ -97,7 +100,7 @@ export default function RaceSelector({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
 
   container: {
     paddingTop: SPACING.md,

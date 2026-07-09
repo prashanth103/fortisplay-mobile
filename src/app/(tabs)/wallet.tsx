@@ -1,9 +1,14 @@
-﻿import Screen from '@/components/layout/Screen';
-import { COLORS } from '@/theme/colors';
+import Screen from '@/components/layout/Screen';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { ComponentProps } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import React from "react";
 
+export default function WalletScreen() {
+
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
 type MaterialIconName = ComponentProps<typeof MaterialIcons>['name'];
 
 const topStats: Array<{
@@ -167,8 +172,6 @@ const historyItems: Array<{
     backgroundColor: COLORS.walletHistoryCard,
   },
 ] as const;
-
-export default function WalletScreen() {
   return (
     <Screen backgroundColor={COLORS.background}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -239,7 +242,7 @@ export default function WalletScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
     paddingBottom: 32,
   },

@@ -1,162 +1,164 @@
-﻿import Screen from '@/components/layout/Screen';
-import { COLORS } from '@/theme/colors';
-import Input from '@/components/common/Input';
+﻿import Input from '@/components/common/Input';
+import Screen from '@/components/layout/Screen';
+import { useThemeColors } from "@/hooks/useThemeColors";
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
 import { TYPOGRAPHY } from '@/theme/typography';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useRouter } from 'expo-router';
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from "react";
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const salesData = [
-  {
-    id: '1',
-    title: 'KB2 · WIN',
-    subtitle: 'No. 8266150525 · 4:32:18 PM',
-    detailSubtitle: 'Yellow',
-    amount: 5,
-    badge: 'EXACT',
-    badgeBackground: COLORS.warning,
-    badgeTextColor: COLORS.black,
-    avatarText: 'YW',
-    avatarColor: '#F8D44E',
-    avatarTextColor: '#141414',
-    status: 'WON',
-    statusBackground: COLORS.payoutBackground,
-    statusTextColor: COLORS.payoutText,
-    ticketNumber: '8266150525',
-    date: '21-06-2026, 4:32 PM',
-    betAmount: 5,
-    resultLabel: 'PAYOUT DUE',
-    resultValue: 75,
-    resultNote: 'Race won — payout due.',
-    resultNoteColor: COLORS.payoutText,
-    resultNoteBg: COLORS.payoutBackground,
-  },
-  {
-    id: '2',
-    title: 'KB1 · FORECAST',
-    subtitle: 'No. 8266144213 · 4:18:46 PM',
-    detailSubtitle: 'Light Blue',
-    amount: 10,
-    badge: 'ANY',
-    badgeBackground: COLORS.warning,
-    badgeTextColor: COLORS.black,
-    avatarText: 'SB',
-    avatarColor: '#6BB9FF',
-    avatarTextColor: COLORS.black,
-    status: 'LOST',
-    statusBackground: COLORS.surface,
-    statusTextColor: COLORS.lost,
-    ticketNumber: '8266144213',
-    date: '21-06-2026, 4:18 PM',
-    betAmount: 10,
-    resultLabel: 'NO PAYOUT',
-    resultValue: 0,
-    resultNote: 'No payout — this ticket did not win.',
-    resultNoteColor: COLORS.textSecondary,
-    resultNoteBg: COLORS.surface,
-  },
-  {
-    id: '3',
-    title: 'KB1 · WIN',
-    subtitle: 'No. 8259181740 · 4:05:09 PM',
-    detailSubtitle: 'Light Green',
-    amount: 5,
-    badge: 'EXACT',
-    badgeBackground: COLORS.warning,
-    badgeTextColor: COLORS.black,
-    avatarText: 'LG',
-    avatarColor: '#58D16A',
-    avatarTextColor: COLORS.black,
-    status: 'PENDING',
-    statusBackground: COLORS.payoutBackground,
-    statusTextColor: COLORS.warning,
-    ticketNumber: '8259181740',
-    date: '21-06-2026, 4:05 PM',
-    betAmount: 5,
-    resultLabel: 'PENDING',
-    resultValue: 0,
-    resultNote: 'Race not finished — payout pending result.',
-    resultNoteColor: COLORS.warning,
-    resultNoteBg: COLORS.payoutBackground,
-  },
-  {
-    id: '4',
-    title: 'KB2 · TRIFECTA',
-    subtitle: 'No. 8254222906 · 3:52:31 PM',
-    detailSubtitle: 'Orange',
-    amount: 20,
-    badge: 'ANY',
-    badgeBackground: COLORS.warning,
-    badgeTextColor: COLORS.black,
-    avatarText: 'OR',
-    avatarColor: '#F28B34',
-    avatarTextColor: COLORS.black,
-    status: 'PENDING',
-    statusBackground: COLORS.surface,
-    statusTextColor: COLORS.lost,
-    ticketNumber: '8254222906',
-    date: '21-06-2026, 3:52 PM',
-    betAmount: 20,
-    resultLabel: 'PENDING',
-    resultValue: 0,
-    resultNote: 'This ticket is still pending review.',
-    resultNoteColor: COLORS.textSecondary,
-    resultNoteBg: COLORS.surface,
-  },
-  {
-    id: '5',
-    title: 'KB1 · QUARTET',
-    subtitle: 'No. 8248913558 · 3:40:55 PM',
-    detailSubtitle: 'Silver',
-    amount: 15,
-    badge: 'EXACT',
-    badgeBackground: COLORS.warning,
-    badgeTextColor: COLORS.black,
-    avatarText: 'SV',
-    avatarColor: '#D9D9D9',
-    avatarTextColor: '#141414',
-    status: 'LOST',
-    statusBackground: COLORS.surface,
-    statusTextColor: COLORS.lost,
-    ticketNumber: '8248913558',
-    date: '21-06-2026, 3:40 PM',
-    betAmount: 15,
-    resultLabel: 'NO PAYOUT',
-    resultValue: 0,
-    resultNote: 'This ticket did not qualify for payout.',
-    resultNoteColor: COLORS.textSecondary,
-    resultNoteBg: COLORS.surface,
-  },
-  {
-    id: '6',
-    title: 'KB3 · WIN',
-    subtitle: 'No. 824290817 · 3:25:12 PM',
-    detailSubtitle: 'Red',
-    amount: 5,
-    badge: 'EXACT',
-    badgeBackground: COLORS.warning,
-    badgeTextColor: COLORS.black,
-    avatarText: 'RD',
-    avatarColor: '#F15151',
-    avatarTextColor: COLORS.black,
-    status: 'PENDING',
-    statusBackground: COLORS.payoutBackground,
-    statusTextColor: COLORS.warning,
-    ticketNumber: '824290817',
-    date: '21-06-2026, 3:25 PM',
-    betAmount: 5,
-    resultLabel: 'PENDING',
-    resultValue: 0,
-    resultNote: 'Race not finished — payout pending result.',
-    resultNoteColor: COLORS.warning,
-    resultNoteBg: COLORS.payoutBackground,
-  },
-];
-
 export default function SalesScreen() {
+
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const salesData = [
+    {
+      id: '1',
+      title: 'KB2 · WIN',
+      subtitle: 'No. 8266150525 · 4:32:18 PM',
+      detailSubtitle: 'Yellow',
+      amount: 5,
+      badge: 'EXACT',
+      badgeBackground: COLORS.warning,
+      badgeTextColor: COLORS.black,
+      avatarText: 'YW',
+      avatarColor: '#F8D44E',
+      avatarTextColor: '#141414',
+      status: 'WON',
+      statusBackground: COLORS.payoutBackground,
+      statusTextColor: COLORS.payoutText,
+      ticketNumber: '8266150525',
+      date: '21-06-2026, 4:32 PM',
+      betAmount: 5,
+      resultLabel: 'PAYOUT DUE',
+      resultValue: 75,
+      resultNote: 'Race won — payout due.',
+      resultNoteColor: COLORS.payoutText,
+      resultNoteBg: COLORS.payoutBackground,
+    },
+    {
+      id: '2',
+      title: 'KB1 · FORECAST',
+      subtitle: 'No. 8266144213 · 4:18:46 PM',
+      detailSubtitle: 'Light Blue',
+      amount: 10,
+      badge: 'ANY',
+      badgeBackground: COLORS.warning,
+      badgeTextColor: COLORS.black,
+      avatarText: 'SB',
+      avatarColor: '#6BB9FF',
+      avatarTextColor: COLORS.white,
+      status: 'LOST',
+      statusBackground: COLORS.surface,
+      statusTextColor: COLORS.lost,
+      ticketNumber: '8266144213',
+      date: '21-06-2026, 4:18 PM',
+      betAmount: 10,
+      resultLabel: 'NO PAYOUT',
+      resultValue: 0,
+      resultNote: 'No payout — this ticket did not win.',
+      resultNoteColor: COLORS.textSecondary,
+      resultNoteBg: COLORS.surface,
+    },
+    {
+      id: '3',
+      title: 'KB1 · WIN',
+      subtitle: 'No. 8259181740 · 4:05:09 PM',
+      detailSubtitle: 'Light Green',
+      amount: 5,
+      badge: 'EXACT',
+      badgeBackground: COLORS.warning,
+      badgeTextColor: COLORS.black,
+      avatarText: 'LG',
+      avatarColor: '#58D16A',
+      avatarTextColor: COLORS.white,
+      status: 'PENDING',
+      statusBackground: COLORS.payoutBackground,
+      statusTextColor: COLORS.warning,
+      ticketNumber: '8259181740',
+      date: '21-06-2026, 4:05 PM',
+      betAmount: 5,
+      resultLabel: 'PENDING',
+      resultValue: 0,
+      resultNote: 'Race not finished — payout pending result.',
+      resultNoteColor: COLORS.warning,
+      resultNoteBg: COLORS.payoutBackground,
+    },
+    {
+      id: '4',
+      title: 'KB2 · TRIFECTA',
+      subtitle: 'No. 8254222906 · 3:52:31 PM',
+      detailSubtitle: 'Orange',
+      amount: 20,
+      badge: 'ANY',
+      badgeBackground: COLORS.warning,
+      badgeTextColor: COLORS.black,
+      avatarText: 'OR',
+      avatarColor: '#F28B34',
+      avatarTextColor: COLORS.white,
+      status: 'PENDING',
+      statusBackground: COLORS.surface,
+      statusTextColor: COLORS.lost,
+      ticketNumber: '8254222906',
+      date: '21-06-2026, 3:52 PM',
+      betAmount: 20,
+      resultLabel: 'PENDING',
+      resultValue: 0,
+      resultNote: 'This ticket is still pending review.',
+      resultNoteColor: COLORS.textSecondary,
+      resultNoteBg: COLORS.surface,
+    },
+    {
+      id: '5',
+      title: 'KB1 · QUARTET',
+      subtitle: 'No. 8248913558 · 3:40:55 PM',
+      detailSubtitle: 'Silver',
+      amount: 15,
+      badge: 'EXACT',
+      badgeBackground: COLORS.warning,
+      badgeTextColor: COLORS.black,
+      avatarText: 'SV',
+      avatarColor: '#D9D9D9',
+      avatarTextColor: '#141414',
+      status: 'LOST',
+      statusBackground: COLORS.surface,
+      statusTextColor: COLORS.lost,
+      ticketNumber: '8248913558',
+      date: '21-06-2026, 3:40 PM',
+      betAmount: 15,
+      resultLabel: 'NO PAYOUT',
+      resultValue: 0,
+      resultNote: 'This ticket did not qualify for payout.',
+      resultNoteColor: COLORS.textSecondary,
+      resultNoteBg: COLORS.surface,
+    },
+    {
+      id: '6',
+      title: 'KB3 · WIN',
+      subtitle: 'No. 824290817 · 3:25:12 PM',
+      detailSubtitle: 'Red',
+      amount: 5,
+      badge: 'EXACT',
+      badgeBackground: COLORS.warning,
+      badgeTextColor: COLORS.black,
+      avatarText: 'RD',
+      avatarColor: '#F15151',
+      avatarTextColor: COLORS.white,
+      status: 'PENDING',
+      statusBackground: COLORS.payoutBackground,
+      statusTextColor: COLORS.warning,
+      ticketNumber: '824290817',
+      date: '21-06-2026, 3:25 PM',
+      betAmount: 5,
+      resultLabel: 'PENDING',
+      resultValue: 0,
+      resultNote: 'Race not finished — payout pending result.',
+      resultNoteColor: COLORS.warning,
+      resultNoteBg: COLORS.payoutBackground,
+    },
+  ];
   const router = useRouter();
   const [query, setQuery] = useState('');
   const [selectedSaleId, setSelectedSaleId] = useState<string | null>(null);
@@ -200,7 +202,7 @@ export default function SalesScreen() {
         <View style={styles.summaryRow}>
           <View style={styles.summaryCard}>
             <Text style={styles.summaryLabel}>TOTAL SALES</Text>
-            <Text style={styles.summaryValue}>₱ {totalSales}</Text>
+            <Text style={styles.summaryValue}>₱{totalSales}</Text>
           </View>
           <View style={styles.summaryCard}>
             <Text style={styles.summaryLabel}>TICKETS</Text>
@@ -279,7 +281,7 @@ export default function SalesScreen() {
         ) : (
           filteredSales.map((item) => (
             <TouchableOpacity key={item.id} style={styles.saleCard} activeOpacity={0.8} onPress={() => handleItemPress(item.ticketNumber)}>
-              <View style={[styles.avatarBorder, { borderColor: item.avatarColor, backgroundColor: item.avatarColor }]}>
+              <View style={[styles.avatarBorder, { borderColor: item.avatarColor }]}>
                 <View style={styles.avatar}>
                   <Text style={[styles.avatarText, { color: item.avatarTextColor }]}>{item.avatarText}</Text>
                 </View>
@@ -288,9 +290,7 @@ export default function SalesScreen() {
                 <View style={styles.saleTitleRow}>
                   <Text style={styles.saleTitle}>{item.title}</Text>
                   <View style={[styles.itemBadge, { backgroundColor: item.badgeBackground }]}>
-                    <Text style={[styles.itemBadgeText, { color: item.badgeTextColor }]}>
-                      {item.badge}
-                    </Text>
+                    <Text style={styles.itemBadgeText}>{item.badge}</Text>
                   </View>
                 </View>
                 <Text style={styles.saleSubtitle}>{item.subtitle}</Text>
@@ -304,7 +304,7 @@ export default function SalesScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
     paddingBottom: SPACING.huge,
   },
@@ -329,24 +329,20 @@ const styles = StyleSheet.create({
   },
   summaryCard: {
     flex: 1,
-    backgroundColor: COLORS.walletCard,
-    borderRadius: 12,
-    paddingVertical: 14,
-    paddingHorizontal: 16,
-    minHeight: 78,
+    backgroundColor: COLORS.navyCard,
+    borderRadius: RADIUS.lg,
+    padding: SPACING.lg,
   },
-
   summaryLabel: {
-    color: COLORS.walletLabel,
-    fontSize: 11,
-    letterSpacing: 0.6,
-    marginBottom: 6,
+    color: COLORS.textSecondary,
+    fontSize: 12,
+    letterSpacing: 0.5,
+    marginBottom: SPACING.sm,
   },
-
   summaryValue: {
     color: COLORS.white,
-    fontSize: 22,
-    fontWeight: '900',
+    fontSize: 26,
+    fontWeight: '800',
   },
   searchBox: {
     marginBottom: SPACING.lg,
@@ -360,42 +356,34 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: COLORS.surfaceElevated,
-    borderRadius: 12,
-    paddingVertical: 12,
-    paddingHorizontal: 14,
-    marginBottom: 10,
+    borderRadius: RADIUS.lg,
+    padding: SPACING.lg,
+    marginBottom: SPACING.md,
     borderWidth: 1,
     borderColor: COLORS.border,
   },
   avatarBorder: {
-    width: 52,
-    height: 52,
-    borderRadius: 26,
+    width: 46,
+    height: 46,
+    borderRadius: 24,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 16,
-
-    // shadow/elevation for high color circle
-    shadowColor: COLORS.black,
-    shadowOpacity: 0.35,
-    shadowRadius: 6,
-    shadowOffset: { width: 0, height: 3 },
-    elevation: 6,
+    marginRight: SPACING.md,
+    backgroundColor: COLORS.surfaceElevated,
+    borderWidth: 2,
   },
-
   avatar: {
-    width: 34,
-    height: 34,
-    borderRadius: 17,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLORS.white,
   },
-
   avatarText: {
     color: COLORS.black,
-    fontWeight: '900',
-    fontSize: 12,
+    fontWeight: '700',
+    fontSize: 14,
   },
   saleInfo: {
     flex: 1,
@@ -403,27 +391,25 @@ const styles = StyleSheet.create({
   saleTitleRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start',
-    gap: 8,
-    marginBottom: 4,
+    justifyContent: 'space-between',
+    marginBottom: SPACING.xs,
   },
-
   saleTitle: {
     color: COLORS.white,
     fontSize: 15,
-    fontWeight: '900',
+    fontWeight: '700',
+    flex: 1,
   },
   itemBadge: {
-    borderRadius: 8,
-    paddingHorizontal: 7,
-    paddingVertical: 3,
-    backgroundColor: COLORS.salesBadgeBackground,
+    borderRadius: 999,
+    paddingHorizontal: SPACING.sm,
+    paddingVertical: 2,
+    backgroundColor: '#F2C94C',
   },
-
   itemBadgeText: {
-    color: COLORS.salesBadgeText,
+    color: COLORS.black,
     fontSize: 10,
-    fontWeight: '900',
+    fontWeight: '700',
     letterSpacing: 0.5,
   },
   saleSubtitle: {

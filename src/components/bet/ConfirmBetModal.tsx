@@ -8,8 +8,9 @@ import {
 } from 'react-native';
 
 import Button from '@/components/common/Button';
-import { COLORS } from '@/theme/colors';
 import { TYPOGRAPHY } from '@/theme/typography';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import * as React from "react";
 
 interface Props {
   visible: boolean;
@@ -28,6 +29,8 @@ export default function ConfirmBetModal({
   onClose,
   onConfirm,
 }: Props) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   return (
     <Modal
       transparent
@@ -182,7 +185,7 @@ export default function ConfirmBetModal({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
 
   overlay: {
     flex: 1,

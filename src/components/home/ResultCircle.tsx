@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
-
-import { COLORS } from '@/theme/colors';
 import { TYPOGRAPHY } from '@/theme/typography';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import * as React from "react";
 
 interface Props {
   place: string;
@@ -14,6 +14,8 @@ export default function ResultCircle({
   code,
   color,
 }: Props) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   return (
     <View style={styles.container}>
       <Text style={styles.place}>
@@ -36,7 +38,7 @@ export default function ResultCircle({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
     alignItems: 'center',
   },

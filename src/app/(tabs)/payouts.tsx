@@ -1,5 +1,4 @@
-﻿import Screen from '@/components/layout/Screen';
-import { COLORS } from '@/theme/colors';
+import Screen from '@/components/layout/Screen';
 import Input from '@/components/common/Input';
 import Button from '@/components/common/Button';
 import { RADIUS } from '@/theme/radius';
@@ -8,6 +7,8 @@ import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useThemeColors } from "@/hooks/useThemeColors";
+import React from "react";
 
 const ticketData = {
   '8266150525': {
@@ -84,6 +85,8 @@ const ticketData = {
 type TicketResult = typeof ticketData[keyof typeof ticketData];
 
 export default function PayoutsScreen() {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   const { ticket } = useLocalSearchParams();
   const ticketQuery = Array.isArray(ticket) ? ticket[0] : ticket ?? '';
   const [ticketNumber, setTicketNumber] = useState('');
@@ -238,7 +241,7 @@ export default function PayoutsScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
     paddingBottom: SPACING.huge,
   },

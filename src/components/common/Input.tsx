@@ -1,5 +1,4 @@
 import { useDevice } from '@/hooks/useDevice';
-import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { TYPOGRAPHY } from '@/theme/typography';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
@@ -16,6 +15,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import { useThemeColors } from "@/hooks/useThemeColors";
 
 interface Props extends TextInputProps {
   label?: string;
@@ -60,6 +60,8 @@ export default function Input({
 
   ...textInputProps
 }: Props) {
+    const COLORS = useThemeColors();
+      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   const { isTablet } = useDevice();
 
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -152,7 +154,7 @@ export default function Input({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (COLORS: any) => StyleSheet.create({
   wrapper: {
     marginBottom: 14,
   },

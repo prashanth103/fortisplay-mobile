@@ -4,7 +4,7 @@ import React from 'react';
 import { Platform, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { COLORS } from '@/theme/colors';
+import { useThemeColors } from '@/hooks/useThemeColors';
 
 type MaterialIconName = React.ComponentProps<typeof MaterialIcons>['name'];
 
@@ -45,6 +45,7 @@ const TAB_ITEMS: TabItem[] = [
 
 export default function TabsLayout() {
   const insets = useSafeAreaInsets();
+  const COLORS = useThemeColors();
 
   const bottomPadding = insets.bottom + (Platform.OS === 'ios' ? 12 : 10);
 
