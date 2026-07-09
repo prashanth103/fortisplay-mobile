@@ -68,17 +68,19 @@ export default function ConfirmBetModal({
                 </Text>
               </View>
 
-              <View style={styles.qr}>
-                <MaterialIcons
-                  name="qr-code-2"
-                  size={150}
-                  color={COLORS.black}
-                />
-              </View>
+              <MaterialIcons
+                name="qr-code-2"
+                size={180}
+                color={COLORS.black}
+              />
 
             </View>
 
-            <View style={styles.separator} />
+            <View style={styles.lineContainer}>
+              <View style={styles.semiCircleLeft} />
+              <View style={styles.line} />
+              <View style={styles.semiCircleRight} />
+            </View>
 
             {/* Info */}
 
@@ -86,7 +88,7 @@ export default function ConfirmBetModal({
 
               <View>
 
-                <Text style={styles.label}>
+                <Text style={styles.winLabel}>
                   WIN
                 </Text>
 
@@ -118,7 +120,7 @@ export default function ConfirmBetModal({
 
               <View>
 
-                <Text style={styles.label}>
+                <Text style={styles.exactLabel}>
                   EXACT
                 </Text>
 
@@ -130,7 +132,11 @@ export default function ConfirmBetModal({
 
             </View>
 
-            <View style={styles.separator} />
+            <View style={styles.lineContainer}>
+              <View style={styles.semiCircleLeft} />
+              <View style={styles.line} />
+              <View style={styles.semiCircleRight} />
+            </View>
 
             <View style={styles.amountRow}>
 
@@ -211,14 +217,14 @@ const styles = StyleSheet.create({
   },
 
   headerTitle: {
-    fontSize: 28,
-    fontWeight: '700',
+    fontSize: 20,
+    fontWeight: '800',
     color: COLORS.black,
   },
 
   qrContainer: {
     alignItems: 'center',
-    paddingTop: 20,
+    paddingTop: 18,
   },
 
   badge: {
@@ -233,19 +239,38 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 
-  qr: {
-    marginTop: 18,
+  lineContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 12,
   },
 
-  separator: {
+  semiCircleLeft: {
+    width: 13,
+    height: 26,
+    borderTopRightRadius: 15,
+    borderBottomRightRadius: 15,
+    backgroundColor: COLORS.background,
+    marginRight: 6
+  },
+
+  semiCircleRight: {
+    width: 13,
+    height: 26,
+    borderTopLeftRadius: 15,
+    borderBottomLeftRadius: 15,
+    backgroundColor: COLORS.background,
+    marginLeft: 6
+  },
+
+  line: {
+    flex: 1,
     borderTopWidth: 1,
-    borderTopColor: COLORS.border,
+    borderTopColor: COLORS.textSecondary,
     borderStyle: 'dashed',
-    marginVertical: 18,
   },
 
   infoRow: {
-    marginTop: 16,
     paddingHorizontal: 24,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -266,8 +291,8 @@ const styles = StyleSheet.create({
   },
 
   innerCircle: {
-    width: 38,
-    height: 38,
+    width: 36,
+    height: 36,
     borderRadius: 19,
     backgroundColor: COLORS.white,
     justifyContent: 'center',
@@ -285,10 +310,17 @@ const styles = StyleSheet.create({
     color: COLORS.black,
   },
 
-  label: {
+  winLabel: {
     fontSize: 28,
-    fontWeight: '700',
+    fontWeight: '800',
     color: '#B27D00',
+    textAlign: 'center',
+  },
+
+  exactLabel: {
+    fontSize: 28,
+    fontWeight: '800',
+    color: COLORS.black,
     textAlign: 'center',
   },
 
@@ -298,7 +330,6 @@ const styles = StyleSheet.create({
   },
 
   amountRow: {
-    marginTop: 20,
     paddingHorizontal: 24,
     paddingBottom: 20,
     flexDirection: 'row',
@@ -317,7 +348,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.primary,
     borderRadius: 12,
     paddingHorizontal: 20,
-    paddingVertical: 8,
+    paddingVertical: 4,
   },
 
   amount: {
@@ -338,7 +369,7 @@ const styles = StyleSheet.create({
     height: 54,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: COLORS.border,
+    borderColor: COLORS.textSecondary,
     justifyContent: 'center',
     alignItems: 'center',
   },

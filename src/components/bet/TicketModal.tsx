@@ -65,29 +65,29 @@ export default function TicketModal({
 
             <View style={styles.qrContainer}>
 
-              <MaterialIcons
-                name="qr-code-2"
-                size={180}
-                color={COLORS.black}
-              />
-
-            </View>
-
-            <View style={styles.ticketNo}>
-
-              <Text style={styles.ticketLabel}>
-                Ticket No
-              </Text>
-
-              <View style={styles.ticketValueBox}>
-                <Text style={styles.ticketValue}>
-                  {ticketNo}
+              <View style={styles.badge}>
+                <Text style={styles.badgeText}>
+                  KB · FIXED ODDS
                 </Text>
               </View>
 
+              <MaterialIcons
+                name="qr-code-2"
+                size={240}
+                color={COLORS.black}
+              />
+
+              <Text style={styles.ticketNo}>
+                No. {ticketNo}
+              </Text>
+
             </View>
 
-            <View style={styles.separator} />
+            <View style={styles.lineContainer}>
+              <View style={styles.semiCircleLeft} />
+              <View style={styles.line} />
+              <View style={styles.semiCircleRight} />
+            </View>
 
             {/* Details */}
 
@@ -122,14 +122,21 @@ export default function TicketModal({
 
             <View style={styles.separator} />
 
-            <View style={styles.totalRow}>
+            <View style={styles.totalContainer}>
+              <View style={styles.totalRow}>
 
-              <Text style={styles.totalLabel}>TOTAL</Text>
+                <Text style={styles.totalLabel}>TOTAL</Text>
 
-              <View style={styles.totalAmountBox}>
-                <Text style={styles.totalAmount}>₱{Number(amount).toFixed(2)}</Text>
+                <View style={styles.amountBox}>
+                  <Text style={styles.amount}>
+                    ₱{amount}.00
+                  </Text>
+                </View>
+
               </View>
-
+              <Text style={styles.disclaimer}>
+                Valid for 60 days. Ticket required for all payments
+              </Text>
             </View>
 
           </View>
@@ -225,38 +232,62 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: COLORS.black,
-  },
-
-  ticketNo: {
-    alignItems: 'center',
-    marginTop: 8,
-  },
-
-  ticketLabel: {
-    color: COLORS.textMuted,
-    fontSize: 14,
-  },
-
-  ticketValueBox: {
-    marginTop: 8,
-    backgroundColor: '#1F1F1F',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 12,
-  },
-
-  ticketValue: {
-    color: COLORS.white,
+    fontSize: 24,
     fontWeight: '800',
-    fontSize: 16,
+    color: COLORS.black,
   },
 
   qrContainer: {
     alignItems: 'center',
     marginVertical: 20,
+  },
+
+  badge: {
+    backgroundColor: '#1F1F1F',
+    borderRadius: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 6,
+  },
+
+  badgeText: {
+    color: COLORS.primary,
+    fontWeight: '700',
+  },
+
+  ticketNo: {
+    color: COLORS.textMuted,
+    fontWeight: '600',
+    fontSize: 14,
+  },
+
+  lineContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  semiCircleLeft: {
+    width: 13,
+    height: 26,
+    borderTopRightRadius: 15,
+    borderBottomRightRadius: 15,
+    backgroundColor: COLORS.background,
+    marginRight: 6
+  },
+
+  semiCircleRight: {
+    width: 13,
+    height: 26,
+    borderTopLeftRadius: 15,
+    borderBottomLeftRadius: 15,
+    backgroundColor: COLORS.background,
+    marginLeft: 6
+  },
+
+  line: {
+    flex: 1,
+    borderTopWidth: 1,
+    borderTopColor: COLORS.textSecondary,
+    borderStyle: 'dashed',
   },
 
   details: {
@@ -265,15 +296,15 @@ const styles = StyleSheet.create({
 
   separator: {
     borderTopWidth: 1,
-    borderTopColor: COLORS.border,
-    borderStyle: 'dashed',
+    borderTopColor: "#ECECEC",
     marginVertical: 16,
+    marginHorizontal: 24
   },
 
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 14,
+    marginBottom: 8,
   },
 
   rowLabel: {
@@ -298,7 +329,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 52,
     borderWidth: 1,
-    borderColor: COLORS.border,
+    borderColor: COLORS.textMuted,
     borderRadius: RADIUS.md,
     justifyContent: 'center',
     alignItems: 'center',
@@ -315,29 +346,45 @@ const styles = StyleSheet.create({
     gap: 8,
   },
 
-  totalRow: {
+  totalContainer: {
+    flexDirection: 'column',
+    gap: 22,
     paddingHorizontal: 24,
     paddingBottom: 18,
+  },
+
+  totalRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
 
   totalLabel: {
-    fontWeight: '700',
+    fontSize: 24,
+    fontWeight: '800',
     color: COLORS.black,
   },
 
-  totalAmountBox: {
-    backgroundColor: COLORS.primary,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
+  amountBox: {
+    borderWidth: 2,
+    borderColor: COLORS.primary,
     borderRadius: 12,
+    paddingHorizontal: 20,
+    paddingVertical: 4,
   },
 
-  totalAmount: {
-    color: COLORS.black,
+  amount: {
+    color: '#B27D00',
     fontWeight: '700',
+    fontSize: 22,
+  },
+
+  disclaimer: {
+    textAlign: 'center',
+    color: COLORS.textMuted,
+    fontSize: 12,
+    marginBottom: 12,
+    paddingHorizontal: 24
   },
 
   closeText: {
