@@ -1,6 +1,7 @@
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { Tabs } from 'expo-router';
-import { Platform } from 'react-native';
+import React from 'react';
+import { Platform, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { COLORS } from '@/theme/colors';
@@ -10,7 +11,8 @@ type MaterialIconName = React.ComponentProps<typeof MaterialIcons>['name'];
 type TabItem = {
   name: string;
   title: string;
-  icon: MaterialIconName;
+  icon?: MaterialIconName;
+  customIcon?: boolean;
 };
 
 const TAB_ITEMS: TabItem[] = [
@@ -32,7 +34,7 @@ const TAB_ITEMS: TabItem[] = [
   {
     name: 'payouts',
     title: 'Payouts',
-    icon: 'payments',
+    customIcon: true,
   },
   {
     name: 'wallet',
@@ -78,9 +80,25 @@ export default function TabsLayout() {
           name={tab.name}
           options={{
             title: tab.title,
-            tabBarIcon: ({ color, size }) => (
-              <MaterialIcons name={tab.icon} color={color} size={size} />
-            ),
+            tabBarIcon: ({ color, size }) =>
+              tab.customIcon ? (
+                <Text
+                  style={{
+                    color,
+                    fontSize: size,
+                    fontWeight: '700',
+                    paddingBottom: 4,
+                  }}
+                >
+                  ₱
+                </Text>
+              ) : (
+                <MaterialIcons
+                  name={tab.icon!}
+                  color={color}
+                  size={size}
+                />
+              ),
           }}
         />
       ))}

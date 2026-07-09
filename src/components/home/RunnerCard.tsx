@@ -89,7 +89,7 @@ export default function RunnerCard({
           <MaterialIcons
             name={selected ? 'check' : 'add'}
             size={isTablet ? 28 : 24}
-            color={selected ? COLORS.black : COLORS.primary}
+            color={selected ? COLORS.black : COLORS.white}
           />
         </View>
       </View>
@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
 
   addButtonSelected: {
     backgroundColor: COLORS.primary,
+    borderColor: COLORS.primaryLight
   },
 
   leftContainer: {
