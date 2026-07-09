@@ -51,11 +51,11 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    height: 52,
     justifyContent: 'center',
     alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: '#4D3C18',
+    paddingVertical: 16
   },
 
   headerTitle: {

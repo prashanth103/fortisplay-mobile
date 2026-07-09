@@ -41,7 +41,11 @@ export default function Home() {
       <View>
         <RaceSelector
           selectedRaceId={selectedRaceId}
-          onSelectRace={setSelectedRaceId}
+          onSelectRace={(id) => {
+            setSelectedRaceId(id);
+            setStep('home');
+            setSelectedRunnerId(null);
+          }}
         />
       </View>
 
@@ -74,7 +78,7 @@ export default function Home() {
       )}
 
       <BetSlip
-        visible={step === 'betSlip'}
+        visible={['betSlip', 'confirm', 'ticket'].includes(step)}
         runnerCode={runner?.code ?? ''}
         runnerName={runner?.name ?? ''}
         amount={betAmount}
@@ -105,7 +109,10 @@ export default function Home() {
           setStep('home');
           setSelectedRunnerId(null);
         }}
-        onPrint={() => { }}
+        onPrint={() => {
+          setStep('home');
+          setSelectedRunnerId(null);
+        }}
       />
 
     </Screen>

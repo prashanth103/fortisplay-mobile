@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
   container: {
     paddingVertical: 18,
     paddingHorizontal: SPACING.lg,
-    borderTopWidth: 1,
-    borderTopColor: '#4D3C18',
+    borderBottomWidth: 1,
+    borderBottomColor: '#4D3C18',
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
   runners: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    gap: 14,
+    // justifyContent: 'space-evenly',
   },
 
 });
