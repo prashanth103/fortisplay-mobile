@@ -3,6 +3,7 @@ import { FlatList, StyleSheet } from 'react-native';
 import RunnerCard from './RunnerCard';
 
 import { RUNNERS } from '@/data/runners';
+import { COLORS } from '@/theme/colors';
 import { useState } from 'react';
 
 interface Props {
@@ -47,5 +48,9 @@ const styles = StyleSheet.create({
   },
   content: {
     flexGrow: 1,
+    borderBottomWidth: 1,
+    borderBottomColor: COLORS.border,
+    borderBottomLeftRadius: 12,
+    borderBottomRightRadius: 12,
   },
 });

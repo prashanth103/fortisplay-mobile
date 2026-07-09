@@ -99,10 +99,12 @@ export default function RunnerCard({
 
 const styles = StyleSheet.create({
   container: {
-    height: 84,
+    height: 74,
     flexDirection: 'row',
     backgroundColor: COLORS.surface,
     overflow: 'hidden', // important
+    borderWidth: 1,
+    borderColor: COLORS.border
   },
 
   containerSelected: {
@@ -123,8 +125,7 @@ const styles = StyleSheet.create({
   },
 
   containerTablet: {
-    height: 96,
-    paddingHorizontal: SPACING.xl,
+    height: 86,
   },
 
   addButtonSelected: {

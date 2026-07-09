@@ -132,15 +132,24 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.surface,
     borderTopLeftRadius: 18,
     borderTopRightRadius: 18,
-    padding: SPACING.lg,
-    borderTopWidth: 1,
-    borderTopColor: COLORS.primary,
+    paddingTop: SPACING.lg,
+    paddingBottom: SPACING.lg,
+    marginTop: 14,
+    shadowColor: COLORS.primary,
+    shadowOffset: {
+      width: 0,
+      height: -4,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
+    elevation: 20,
   },
 
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingHorizontal: SPACING.lg,
   },
 
   headerLeft: {
@@ -183,8 +192,8 @@ const styles = StyleSheet.create({
   content: {
     marginTop: 20,
     backgroundColor: COLORS.white,
-    borderRadius: 12,
-    padding: 16,
+    paddingVertical: 16,
+    paddingHorizontal: SPACING.lg,
   },
 
   pool: {

@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: SPACING.md,
     gap: SPACING.md,
+    marginBottom: 10,
   },
 
   card: {
