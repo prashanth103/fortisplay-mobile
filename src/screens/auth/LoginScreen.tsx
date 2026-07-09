@@ -1,8 +1,9 @@
 import AppLogo from '@/components/common/AppLogo';
-import AuthInput from '@/components/common/Input';
+import Input from '@/components/common/Input';
 import PrimaryButton from '@/components/common/PrimaryButton';
 import AuthLayout from '@/components/layout/AuthLayout';
 import { useDevice } from '@/hooks/useDevice';
+import { commonStyles } from '@/styles/commonStyles';
 import { COLORS } from '@/theme/colors';
 import { TYPOGRAPHY } from '@/theme/typography';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
@@ -37,9 +38,11 @@ export default function LoginScreen() {
       >
         <AppLogo size={isTablet ? 120 : 100} />
         <Text
+          numberOfLines={1}
+          adjustsFontSizeToFit
           style={[
-            styles.title,
-            isTablet && styles.titleTablet
+            commonStyles.h2,
+            isTablet ? commonStyles.h2Tablet : commonStyles.h2Mobile
           ]}
         >
           Welcome back
@@ -54,7 +57,7 @@ export default function LoginScreen() {
         </Text>
       </View>
 
-      <AuthInput
+      <Input
         label="SO ID"
         value={soId}
         onChangeText={setSoId}
@@ -67,7 +70,7 @@ export default function LoginScreen() {
         }
       />
 
-      <AuthInput
+      <Input
         label="Password"
         value={password}
         placeholder="Enter password"
