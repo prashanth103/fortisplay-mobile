@@ -6,16 +6,25 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 type MaterialIconName = ComponentProps<typeof MaterialIcons>['name'];
 
-const topStats = [
-  {
-    id: 'sales',
-    title: 'Total Sales',
-    value: '₱400',
-    icon: 'trending-up',
-    backgroundColor: COLORS.walletCard,
-    iconColor: COLORS.walletAccent,
-  },
-] as const;
+const topStats: Array<{
+  id: string;
+  title: string;
+  value: string;
+  icon: MaterialIconName;
+  backgroundColor: string;
+  iconBackground: string;
+  iconColor: string;
+}> = [
+    {
+      id: 'sales',
+      title: 'Total Sales',
+      value: '₱ 400',
+      icon: 'trending-up',
+      backgroundColor: COLORS.walletCard,
+      iconBackground: COLORS.walletIconBackground,
+      iconColor: COLORS.walletAccent,
+    },
+  ];
 
 const actionCards: Array<{
   id: string;
@@ -24,8 +33,10 @@ const actionCards: Array<{
   icon: MaterialIconName;
   backgroundColor: string;
   textColor: string;
+  labelColor: string;
   iconBackground: string;
   iconColor: string;
+  iconSize: number;
 }> = [
     {
       id: 'cash',
@@ -34,18 +45,22 @@ const actionCards: Array<{
       icon: 'account-balance-wallet',
       backgroundColor: COLORS.walletPrimary,
       textColor: COLORS.black,
-      iconBackground: COLORS.white,
+      labelColor: COLORS.black,
+      iconBackground: COLORS.walletPrimaryDark,
       iconColor: COLORS.black,
+      iconSize: 20,
     },
     {
       id: 'commission',
       title: 'My Commission',
-      value: '₱40.00',
+      value: '₱ 40.00',
       icon: 'percent',
-      backgroundColor: COLORS.walletSecondary,
+      backgroundColor: COLORS.walletCard,
       textColor: COLORS.walletText,
-      iconBackground: COLORS.walletCard,
+      labelColor: COLORS.walletLabel,
+      iconBackground: COLORS.walletIconBackground,
       iconColor: COLORS.walletAccent,
+      iconSize: 24,
     },
   ];
 
@@ -62,41 +77,41 @@ const statCards: Array<{
   {
     id: 'received',
     title: 'RECEIVED',
-    value: '₱0',
+    value: '₱ 0',
     icon: 'arrow-downward',
     backgroundColor: COLORS.white,
-    iconBackground: COLORS.walletPrimary,
-    iconColor: COLORS.black,
+    iconBackground: COLORS.walletStatIconBg,
+    iconColor: COLORS.walletStatIconColor,
     labelColor: COLORS.textSecondary,
   },
   {
     id: 'remitted',
     title: 'REMITTED',
-    value: '₱100',
+    value: '₱ 100',
     icon: 'arrow-forward',
     backgroundColor: COLORS.white,
-    iconBackground: COLORS.walletSecondary,
-    iconColor: COLORS.walletAccent,
+    iconBackground: COLORS.walletStatIconBg,
+    iconColor: COLORS.walletStatIconColor,
     labelColor: COLORS.textSecondary,
   },
   {
     id: 'cancel',
     title: 'CANCEL',
-    value: '₱0',
+    value: '₱ 0',
     icon: 'close',
     backgroundColor: COLORS.white,
-    iconBackground: COLORS.walletPrimary,
-    iconColor: COLORS.black,
+    iconBackground: COLORS.walletStatIconBg,
+    iconColor: COLORS.walletStatIconColor,
     labelColor: COLORS.textSecondary,
   },
   {
     id: 'payouts',
     title: 'PAYOUTS',
-    value: '₱0',
+    value: '₱ 0',
     icon: 'payments',
     backgroundColor: COLORS.white,
-    iconBackground: COLORS.walletSecondary,
-    iconColor: COLORS.walletAccent,
+    iconBackground: COLORS.walletStatIconBg,
+    iconColor: COLORS.walletStatIconColor,
     labelColor: COLORS.textSecondary,
   },
 ] as const;
@@ -119,7 +134,7 @@ const historyItems: Array<{
     amountColor: COLORS.walletSuccess,
     icon: 'arrow-downward',
     iconColor: COLORS.walletSuccess,
-    backgroundColor: '#142026',
+    backgroundColor: COLORS.walletHistoryCard,
   },
   {
     id: '2',
@@ -129,7 +144,7 @@ const historyItems: Array<{
     amountColor: COLORS.danger,
     icon: 'arrow-upward',
     iconColor: COLORS.danger,
-    backgroundColor: '#142026',
+    backgroundColor: COLORS.walletHistoryCard,
   },
   {
     id: '3',
@@ -139,7 +154,7 @@ const historyItems: Array<{
     amountColor: COLORS.walletSuccess,
     icon: 'check-circle',
     iconColor: COLORS.walletInfo,
-    backgroundColor: '#142026',
+    backgroundColor: COLORS.walletHistoryCard,
   },
   {
     id: '4',
@@ -149,7 +164,7 @@ const historyItems: Array<{
     amountColor: COLORS.walletSuccess,
     icon: 'paid',
     iconColor: COLORS.walletAccent,
-    backgroundColor: '#142026',
+    backgroundColor: COLORS.walletHistoryCard,
   },
 ] as const;
 
@@ -166,8 +181,8 @@ export default function WalletScreen() {
           {topStats.map((item) => (
             <View key={item.id} style={[styles.summaryCard, { backgroundColor: item.backgroundColor }]}>
               <View style={styles.summaryRow}>
-                <View style={[styles.summaryIcon, { backgroundColor: item.iconColor }]}>
-                  <MaterialIcons name={item.icon} size={20} color={COLORS.black} />
+                <View style={[styles.summaryIcon, { backgroundColor: item.iconBackground }]}>
+                  <MaterialIcons name={item.icon} size={22} color={item.iconColor} />
                 </View>
                 <View style={styles.summaryInfo}>
                   <Text style={styles.summaryLabel}>{item.title}</Text>
@@ -179,13 +194,15 @@ export default function WalletScreen() {
         </View>
 
         <View style={styles.actionRow}>
-          {actionCards.map((item, index) => (
-            <View key={item.id} style={[styles.actionCard, { backgroundColor: item.backgroundColor }, index === 0 ? styles.actionCardPrimary : styles.actionCardSecondary]}>
+          {actionCards.map((item) => (
+            <View key={item.id} style={[styles.actionCard, { backgroundColor: item.backgroundColor }]}>
               <View style={[styles.actionIcon, { backgroundColor: item.iconBackground }]}>
-                <MaterialIcons name={item.icon} size={20} color={item.iconColor} />
+                <MaterialIcons name={item.icon} size={item.iconSize} color={item.iconColor} />
               </View>
               <Text style={[styles.actionValue, { color: item.textColor }]}>{item.value}</Text>
-              <Text style={[styles.actionLabel, { color: item.textColor === COLORS.black ? COLORS.black : COLORS.walletLabel }]}>{item.title}</Text>
+              <Text style={[styles.actionLabel, { color: item.labelColor }]}>
+                {item.title}
+              </Text>
             </View>
           ))}
         </View>
@@ -194,9 +211,9 @@ export default function WalletScreen() {
           {statCards.map((item) => (
             <View key={item.id} style={[styles.statCard, { backgroundColor: item.backgroundColor }]}>
               <View style={[styles.statIcon, { backgroundColor: item.iconBackground }]}>
-                <MaterialIcons name={item.icon} size={18} color={item.iconColor} />
+                <MaterialIcons name={item.icon} size={17} color={item.iconColor} />
               </View>
-              <View>
+              <View style={styles.statText}>
                 <Text style={styles.statValue}>{item.value}</Text>
                 <Text style={[styles.statLabel, { color: item.labelColor }]}>{item.title}</Text>
               </View>
@@ -245,9 +262,10 @@ const styles = StyleSheet.create({
   },
   summaryCard: {
     width: '100%',
-    borderRadius: 24,
-    padding: 20,
-    minHeight: 110,
+    borderRadius: 18,
+    paddingVertical: 16,
+    paddingHorizontal: 18,
+    minHeight: 86,
   },
   summaryRow: {
     flexDirection: 'row',
@@ -256,7 +274,7 @@ const styles = StyleSheet.create({
   summaryIcon: {
     width: 46,
     height: 46,
-    borderRadius: 16,
+    borderRadius: 14,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 14,
@@ -283,34 +301,30 @@ const styles = StyleSheet.create({
   },
   actionCard: {
     width: '48%',
-    borderRadius: 24,
-    padding: 18,
-    minHeight: 160,
+    borderRadius: 16,
+    padding: 16,
+    minHeight: 148,
     justifyContent: 'space-between',
   },
-  actionCardPrimary: {
-    marginRight: 0,
-  },
-  actionCardSecondary: {
-    marginLeft: 0,
-  },
   actionIcon: {
-    width: 44,
-    height: 44,
-    borderRadius: 16,
+    width: 46,
+    height: 46,
+    borderRadius: 14,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 16,
   },
+
   actionValue: {
-    fontSize: 28,
+    fontSize: 25,
     fontWeight: '900',
-    marginBottom: 8,
+    marginBottom: 6,
   },
+
   actionLabel: {
     fontSize: 12,
     textTransform: 'uppercase',
-    letterSpacing: 0.8,
+    letterSpacing: 0.6,
   },
   statGrid: {
     flexDirection: 'row',
@@ -320,30 +334,38 @@ const styles = StyleSheet.create({
   },
   statCard: {
     width: '48%',
-    padding: 14,
-    borderRadius: 18,
-    marginBottom: 12,
+    padding: 11,
+    borderRadius: 14,
+    marginBottom: 10,
     flexDirection: 'row',
     alignItems: 'center',
-    minHeight: 110,
+    justifyContent: 'space-between',
+    minHeight: 90,
   },
+
   statIcon: {
-    width: 34,
-    height: 34,
+    width: 42,
+    height: 42,
     borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 14,
+    marginRight: 10,
   },
-  statValue: {
-    fontSize: 20,
-    fontWeight: '800',
-    marginBottom: 4,
+  statText: {
+    flex: 1,
+    alignItems: 'flex-end',
   },
-  statLabel: {
-    fontSize: 12,
-    color: COLORS.textSecondary,
-  },
+
+ statValue: {
+  fontSize: 19,
+  fontWeight: '800',
+  marginBottom: 3,
+},
+
+statLabel: {
+  fontSize: 13,
+  color: COLORS.textSecondary,
+},
   sectionTitle: {
     color: COLORS.walletText,
     marginBottom: 12,
@@ -364,7 +386,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 14,
+    marginRight: 8,
   },
   historyText: {
     flex: 1,

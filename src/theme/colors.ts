@@ -49,6 +49,8 @@ export const COLORS = {
   navyCard: '#1A2436',
 
   walletPrimary: "#E5BE52",
+  walletStatIconBg: "#F8EBC5",
+  walletStatIconColor: "#C89512",
   walletPrimaryDark: "#C7A84A",
   walletSecondary: "#1C2638",
   walletCard: "#1D293B",
@@ -60,6 +62,8 @@ export const COLORS = {
   walletDanger: "#F04A3A",
   walletInfo: "#5B76D9",
   walletLight: "#F5F5F5",
+  walletIconBackground: "#4A3D1C",
+  walletHistoryCard: "#142026",
 
   overlay: 'rgba(0,0,0,0.65)',
 
