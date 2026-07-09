@@ -1,4 +1,5 @@
-﻿import Screen from '@/components/layout/Screen';
+import StripedBackground from '@/components/common/StripedBackground';
+import Screen from '@/components/layout/Screen';
 import { COLORS } from '@/theme/colors';
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
@@ -83,6 +84,8 @@ export default function WatchScreen() {
         <Screen backgroundColor={COLORS.background}>
             <ScrollView contentContainerStyle={styles.container}>
                 <View style={styles.videoCard}>
+                    <StripedBackground color1="#191919" color2="#222222" stripeWidth={12} />
+                    {/* Top Row */}
                     <View style={styles.cardHeader}>
                         <View style={[styles.badge, { backgroundColor: `${selectedRace.statusColor}22` }]}>
                             <View style={[styles.badgeDot, { backgroundColor: selectedRace.statusColor }]} />
@@ -96,22 +99,22 @@ export default function WatchScreen() {
                         ) : null}
                     </View>
 
-                    <View style={styles.videoBody}>
-                        <View style={[styles.iconCircle, styles.iconCircleShadow]}>
+                    {/* Center Overlay */}
+                    <View style={styles.centerOverlay}>
+                        <View style={styles.iconCircle}>
                             <MaterialIcons
                                 name={selectedRace.icon}
-                                size={40}
-                                color={selectedRace.statusColor}
+                                size={32}
+                                color={COLORS.white}
                             />
                         </View>
                         <Text style={styles.videoBodyTitle}>{selectedRace.videoTitle}</Text>
-                        <Text style={styles.videoBodyText}>{selectedRace.cardText}</Text>
                     </View>
 
+                    {/* Bottom Row */}
                     <View style={styles.videoFooter}>
-                        <View style={styles.footerIcon}>
-                            <MaterialIcons name="volume-up" size={14} color={COLORS.white} />
-                        </View>
+                        <MaterialIcons name="volume-up" size={20} color={COLORS.white} style={styles.footerIconLeft} />
+
                         <View style={styles.footerTrack}>
                             <View
                                 style={[
@@ -120,10 +123,9 @@ export default function WatchScreen() {
                                 ]}
                             />
                         </View>
-                        <View style={styles.footerRight}>
-                            <Text style={[styles.footerLabel, { color: selectedRace.statusColor }]}>{selectedRace.cardLabel}</Text>
-                            <MaterialIcons name="fullscreen" size={18} color={COLORS.white} style={styles.footerIconRight} />
-                        </View>
+
+                        <Text style={[styles.footerLabel, { color: COLORS.white }]}>{selectedRace.cardLabel}</Text>
+                        <MaterialIcons name="fullscreen" size={22} color={COLORS.white} />
                     </View>
                 </View>
 
@@ -146,6 +148,7 @@ export default function WatchScreen() {
                     >
                         <View style={styles.raceRow}>
                             <View style={styles.raceThumbnail}>
+                                <StripedBackground color1="#141414" color2="#1D1D1D" stripeWidth={8} />
                                 <MaterialIcons name="play-arrow" size={18} color={COLORS.textSecondary} />
                             </View>
                             <View style={styles.raceInfo}>
@@ -169,16 +172,19 @@ const styles = StyleSheet.create({
         paddingBottom: SPACING.huge,
     },
     videoCard: {
-        backgroundColor: COLORS.surfaceElevated,
+        backgroundColor: '#191919',
         borderRadius: RADIUS.xl,
-        padding: SPACING.xl,
         marginTop: SPACING.lg,
+        height: 220,
+        justifyContent: 'space-between',
+        padding: SPACING.lg,
+        overflow: 'hidden',
     },
     cardHeader: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: SPACING.xl,
+        zIndex: 10,
     },
     badge: {
         flexDirection: 'row',
@@ -201,89 +207,62 @@ const styles = StyleSheet.create({
     watchersBadge: {
         flexDirection: 'row',
         alignItems: 'center',
-        paddingHorizontal: SPACING.sm,
+        paddingHorizontal: SPACING.md,
         paddingVertical: 6,
         borderRadius: 999,
-        backgroundColor: '#222222',
+        backgroundColor: 'rgba(0,0,0,0.5)',
     },
     watchersText: {
         color: COLORS.white,
-        fontSize: 12,
-        marginLeft: SPACING.sm,
+        fontSize: 11,
+        fontWeight: '600',
+        marginLeft: SPACING.xs,
     },
-    videoBody: {
-        alignItems: 'center',
-        paddingVertical: SPACING.xxxl,
-        borderRadius: RADIUS.lg,
-        backgroundColor: COLORS.backgroundSecondary,
-    },
-    iconCircle: {
-        width: 84,
-        height: 84,
-        borderRadius: 42,
-        borderWidth: 1,
-        borderColor: COLORS.border,
+    centerOverlay: {
+        ...StyleSheet.absoluteFill,
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: SPACING.lg,
+        zIndex: 5,
     },
-    iconCircleShadow: {
-        shadowColor: COLORS.black,
-        shadowOffset: { width: 0, height: 8 },
-        shadowOpacity: 0.16,
-        shadowRadius: 16,
-        elevation: 4,
+    iconCircle: {
+        width: 56,
+        height: 56,
+        borderRadius: 28,
+        backgroundColor: 'rgba(255,255,255,0.15)',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: SPACING.md,
     },
     videoBodyTitle: {
-        color: COLORS.textSecondary,
+        color: COLORS.textMuted,
         fontSize: 12,
-        fontWeight: '700',
-        letterSpacing: 1,
-        marginBottom: SPACING.sm,
-    },
-    videoBodyText: {
-        color: COLORS.textSecondary,
-        fontSize: 12,
-        textAlign: 'center',
+        fontWeight: '800',
+        letterSpacing: 1.5,
     },
     videoFooter: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: SPACING.lg,
+        zIndex: 10,
     },
-    footerRight: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginLeft: SPACING.sm,
-    },
-    footerIconRight: {
-        marginLeft: SPACING.sm,
-    },
-    footerIcon: {
-        width: 32,
-        height: 32,
-        borderRadius: 12,
-        backgroundColor: COLORS.border,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginRight: SPACING.sm,
+    footerIconLeft: {
+        marginRight: SPACING.md,
     },
     footerTrack: {
         flex: 1,
         height: 4,
-        borderRadius: 999,
-        backgroundColor: COLORS.border,
+        borderRadius: 2,
+        backgroundColor: 'rgba(255,255,255,0.2)',
         overflow: 'hidden',
     },
     footerFill: {
         height: '100%',
-        borderRadius: 999,
+        borderRadius: 2,
     },
     footerLabel: {
-        fontSize: 11,
-        fontWeight: '700',
-        marginLeft: SPACING.sm,
-        textTransform: 'uppercase',
+        fontSize: 12,
+        fontWeight: '800',
+        marginLeft: SPACING.md,
+        marginRight: SPACING.md,
     },
     contentHeader: {
         marginTop: SPACING.xl,
@@ -329,6 +308,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginRight: SPACING.md,
+        overflow: 'hidden',
     },
     raceInfo: {
         flex: 1,
