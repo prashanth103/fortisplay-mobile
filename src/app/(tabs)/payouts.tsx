@@ -373,7 +373,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 48,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: COLORS.headerChip,
+    backgroundColor: COLORS.border,
     borderRadius: RADIUS.lg,
     paddingHorizontal: SPACING.md,
   },
@@ -384,7 +384,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     fontSize: 14,
   },
   errorText: {
-    color: COLORS.errorText,
+    color: COLORS.danger,
     marginTop: SPACING.sm,
     textAlign: 'center',
   },

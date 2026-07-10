@@ -3,23 +3,22 @@ import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
 import AuthLayout from '@/components/layout/AuthLayout';
 import { useDevice } from '@/hooks/useDevice';
+import { useThemeColors } from "@/hooks/useThemeColors";
 import { createCommonStyles } from '@/styles/commonStyles';
 import { TYPOGRAPHY } from '@/theme/typography';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { router } from 'expo-router';
-import { useState } from 'react';
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
   View,
 } from 'react-native';
-import { useThemeColors } from "@/hooks/useThemeColors";
-import React from "react";
 
 export default function LoginScreen() {
-    const COLORS = useThemeColors();
-    const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
-    const commonStyles = React.useMemo(() => createCommonStyles(COLORS), [COLORS]);
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const commonStyles = React.useMemo(() => createCommonStyles(COLORS), [COLORS]);
 
   const { isTablet } = useDevice();
 
@@ -114,13 +113,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   headerTablet: {
     marginBottom: 56
-  },
-  title: {
-    color:
-      COLORS.textPrimary,
-    fontSize:
-      TYPOGRAPHY.h2.size,
-    fontWeight: '700',
   },
   titleTablet: {
     fontSize: TYPOGRAPHY.h1.fontSize

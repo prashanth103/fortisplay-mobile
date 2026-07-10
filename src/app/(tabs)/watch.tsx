@@ -54,7 +54,7 @@ const raceData: WatchRace[] = [
         title: 'KB2 · Karambola',
         subtitle: 'Race 8 · 19:50',
         status: 'LIVE',
-        statusColor: COLORS.live,
+        statusColor: COLORS.danger,
         cardLabel: 'LIVE',
         cardText: 'Streaming live now',
         videoTitle: 'LIVE RACE FEED',

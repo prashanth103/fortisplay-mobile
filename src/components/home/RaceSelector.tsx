@@ -156,7 +156,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   live: {
-    color: COLORS.live,
+    color: COLORS.danger,
     fontWeight: '700',
   },
 

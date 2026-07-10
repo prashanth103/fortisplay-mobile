@@ -55,7 +55,7 @@ export default function AppHeader() {
           <MaterialIcons
             name="account-balance-wallet"
             size={isTablet ? 28 : 22}
-            color={COLORS.headerChip}
+            color={COLORS.border}
           />
           <Text style={[styles.amount, isTablet && styles.amountTablet]}>$ 12,500.00</Text>
         </View>
@@ -136,7 +136,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderRadius: 28,
   },
   amount: {
-    color: COLORS.headerChip,
+    color: COLORS.border,
     fontSize: 15,
     fontFamily: 'Manrope',
     fontWeight: '800',

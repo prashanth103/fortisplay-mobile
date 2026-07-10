@@ -107,7 +107,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderRadius: RADIUS.xl,
     borderWidth: 1,
     borderColor: COLORS.border,
-    borderTopColor: COLORS.live,
+    borderTopColor: COLORS.danger,
     backgroundColor: COLORS.surface,
     justifyContent: 'center',
     alignItems: 'center',
@@ -133,7 +133,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 5,
-    backgroundColor: COLORS.live,
+    backgroundColor: COLORS.danger,
     marginRight: 8,
   },
 
@@ -188,13 +188,13 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     width: 180,
     height: 54,
     borderRadius: RADIUS.lg,
-    backgroundColor: COLORS.live,
+    backgroundColor: COLORS.danger,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     gap: 10,
 
-    shadowColor: COLORS.live,
+    shadowColor: COLORS.danger,
     shadowOpacity: 0.35,
     shadowRadius: 16,
     shadowOffset: {
