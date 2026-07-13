@@ -21,11 +21,11 @@ export default function SalesScreen() {
       detailSubtitle: 'Yellow',
       amount: 5,
       badge: 'EXACT',
-      badgeBackground: COLORS.primary,
-      badgeTextColor: COLORS.black,
+      badgeBackground: '#3B3323',
+      badgeTextColor: COLORS.primary,
       avatarText: 'YW',
       avatarColor: '#F8D44E',
-      avatarTextColor: COLORS.white,
+      avatarTextColor: COLORS.black,
       status: 'WON',
       statusBackground: COLORS.payoutBackground,
       statusTextColor: COLORS.finished,
@@ -45,11 +45,11 @@ export default function SalesScreen() {
       detailSubtitle: 'Light Blue',
       amount: 10,
       badge: 'ANY',
-      badgeBackground: COLORS.primary,
-      badgeTextColor: COLORS.black,
+      badgeBackground: '#3B3323',
+      badgeTextColor: COLORS.primary,
       avatarText: 'SB',
       avatarColor: '#6BB9FF',
-      avatarTextColor: COLORS.white,
+      avatarTextColor: COLORS.black,
       status: 'LOST',
       statusBackground: COLORS.surface,
       statusTextColor: COLORS.iconGrey,
@@ -69,11 +69,11 @@ export default function SalesScreen() {
       detailSubtitle: 'Light Green',
       amount: 5,
       badge: 'EXACT',
-      badgeBackground: COLORS.primary,
-      badgeTextColor: COLORS.black,
+      badgeBackground: '#3B3323',
+      badgeTextColor: COLORS.primary,
       avatarText: 'LG',
       avatarColor: '#58D16A',
-      avatarTextColor: COLORS.white,
+      avatarTextColor: COLORS.black,
       status: 'PENDING',
       statusBackground: COLORS.payoutBackground,
       statusTextColor: COLORS.primary,
@@ -93,11 +93,11 @@ export default function SalesScreen() {
       detailSubtitle: 'Orange',
       amount: 20,
       badge: 'ANY',
-      badgeBackground: COLORS.primary,
-      badgeTextColor: COLORS.black,
+      badgeBackground: '#3B3323',
+      badgeTextColor: COLORS.primary,
       avatarText: 'OR',
       avatarColor: '#F28B34',
-      avatarTextColor: COLORS.white,
+      avatarTextColor: COLORS.black,
       status: 'PENDING',
       statusBackground: COLORS.surface,
       statusTextColor: COLORS.iconGrey,
@@ -117,11 +117,11 @@ export default function SalesScreen() {
       detailSubtitle: 'Silver',
       amount: 15,
       badge: 'EXACT',
-      badgeBackground: COLORS.primary,
-      badgeTextColor: COLORS.black,
+      badgeBackground: '#3B3323',
+      badgeTextColor: COLORS.primary,
       avatarText: 'SV',
       avatarColor: '#D9D9D9',
-      avatarTextColor: COLORS.white,
+      avatarTextColor: COLORS.black,
       status: 'LOST',
       statusBackground: COLORS.surface,
       statusTextColor: COLORS.iconGrey,
@@ -141,11 +141,11 @@ export default function SalesScreen() {
       detailSubtitle: 'Red',
       amount: 5,
       badge: 'EXACT',
-      badgeBackground: COLORS.primary,
-      badgeTextColor: COLORS.black,
+      badgeBackground: '#3B3323',
+      badgeTextColor: COLORS.primary,
       avatarText: 'RD',
       avatarColor: '#F15151',
-      avatarTextColor: COLORS.white,
+      avatarTextColor: COLORS.black,
       status: 'PENDING',
       statusBackground: COLORS.payoutBackground,
       statusTextColor: COLORS.primary,
@@ -202,7 +202,7 @@ export default function SalesScreen() {
         <View style={styles.summaryRow}>
           <View style={styles.summaryCard}>
             <AppText variant="p3" color={COLORS.textSecondary} style={{ letterSpacing: 0.5, marginBottom: 8 }}>TOTAL SALES</AppText>
-            <AppText fontSize={26} fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>₱{totalSales}</AppText>
+            <AppText fontSize={26} fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>₱ {totalSales}</AppText>
           </View>
           <View style={styles.summaryCard}>
             <AppText variant="p3" color={COLORS.textSecondary} style={{ letterSpacing: 0.5, marginBottom: 8 }}>TICKETS</AppText>
@@ -281,16 +281,18 @@ export default function SalesScreen() {
         ) : (
           filteredSales.map((item) => (
             <TouchableOpacity key={item.id} style={styles.saleCard} activeOpacity={0.8} onPress={() => handleItemPress(item.ticketNumber)}>
-              <View style={[styles.avatarBorder, { borderColor: item.avatarColor }]}>
+              <View style={[styles.avatarBorder, { borderColor: item.avatarColor, backgroundColor: item.avatarColor }]}>
                 <View style={styles.avatar}>
                   <AppText variant="p2" fontFamily="ManropeBold" color={item.avatarTextColor}>{item.avatarText}</AppText>
                 </View>
               </View>
               <View style={styles.saleInfo}>
                 <View style={styles.saleTitleRow}>
-                  <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.textPrimary} style={{ flex: 1 }}>{item.title}</AppText>
+                  <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.textPrimary}>{item.title}</AppText>
                   <View style={[styles.itemBadge, { backgroundColor: item.badgeBackground }]}>
-                    <AppText fontSize={10} fontFamily="ManropeBold" color={COLORS.black} style={{ letterSpacing: 0.5 }}>{item.badge}</AppText>
+                    <AppText fontSize={10} fontFamily="ManropeBold" color={COLORS.black} style={[{ letterSpacing: 0.5 }, { color: item.badgeTextColor }]}>
+                      {item.badge}
+                    </AppText>
                   </View>
                 </View>
                 <AppText variant="p3" color={COLORS.textSecondary}>{item.subtitle}</AppText>
@@ -329,20 +331,23 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   summaryCard: {
     flex: 1,
-    backgroundColor: COLORS.navyCard,
-    borderRadius: RADIUS.lg,
-    padding: SPACING.lg,
+    backgroundColor: COLORS.walletCard,
+    borderRadius: 12,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    minHeight: 78,
   },
   summaryLabel: {
-    color: COLORS.textSecondary,
-    fontSize: 12,
-    letterSpacing: 0.5,
-    marginBottom: SPACING.sm,
+    color: COLORS.walletLabel,
+    fontSize: 11,
+    letterSpacing: 0.6,
+    marginBottom: 6,
   },
+
   summaryValue: {
-    color: COLORS.textPrimary,
-    fontSize: 26,
-    fontWeight: '800',
+    color: COLORS.white,
+    fontSize: 22,
+    fontWeight: '900',
   },
   searchBox: {
     marginBottom: SPACING.lg,
@@ -356,34 +361,40 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: COLORS.surfaceElevated,
-    borderRadius: RADIUS.lg,
-    padding: SPACING.lg,
-    marginBottom: SPACING.md,
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    marginBottom: 10,
     borderWidth: 1,
     borderColor: COLORS.border,
   },
   avatarBorder: {
-    width: 46,
-    height: 46,
-    borderRadius: 24,
+    width: 52,
+    height: 52,
+    borderRadius: 26,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: SPACING.md,
-    backgroundColor: COLORS.surfaceElevated,
-    borderWidth: 2,
+    marginRight: 16,
+
+    // shadow/elevation for high color circle
+    shadowColor: COLORS.black,
+    shadowOpacity: 0.35,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
+    elevation: 6,
   },
   avatar: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    width: 34,
+    height: 34,
+    borderRadius: 17,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: COLORS.surface,
+    backgroundColor: COLORS.white,
   },
   avatarText: {
     color: COLORS.textPrimary,
-    fontWeight: '700',
-    fontSize: 14,
+    fontWeight: '900',
+    fontSize: 12,
   },
   saleInfo: {
     flex: 1,
@@ -391,8 +402,9 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   saleTitleRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: SPACING.xs,
+    justifyContent: 'flex-start',
+    gap: 8,
+    marginBottom: 4,
   },
   cardTitle: {
     color: COLORS.textPrimary,
@@ -403,19 +415,18 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   saleTitle: {
     color: COLORS.textPrimary,
     fontSize: 15,
-    fontWeight: '700',
-    flex: 1,
+    fontWeight: '900',
   },
   itemBadge: {
-    borderRadius: 999,
-    paddingHorizontal: SPACING.sm,
-    paddingVertical: 2,
-    backgroundColor: '#F2C94C',
+    borderRadius: 8,
+    paddingHorizontal: 7,
+    paddingVertical: 3,
+    backgroundColor: COLORS.salesBadgeBackground,
   },
   itemBadgeText: {
-    color: COLORS.black,
+    color: COLORS.salesBadgeText,
     fontSize: 10,
-    fontWeight: '700',
+    fontWeight: '900',
     letterSpacing: 0.5,
   },
   saleSubtitle: {
