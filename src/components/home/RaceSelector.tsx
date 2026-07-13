@@ -1,10 +1,5 @@
-import {
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import AppText from '@/components/common/AppText';
 
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 
@@ -13,7 +8,6 @@ import { useDevice } from '@/hooks/useDevice';
 import { RACES } from '@/data/runners';
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
-import { TYPOGRAPHY } from '@/theme/typography';
 import { useThemeColors } from "@/hooks/useThemeColors";
 import * as React from "react";
 
@@ -26,8 +20,8 @@ export default function RaceSelector({
   selectedRaceId,
   onSelectRace,
 }: Props) {
-    const COLORS = useThemeColors();
-      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   const { isTablet } = useDevice();
 
   return (
@@ -50,35 +44,33 @@ export default function RaceSelector({
             ]}
           >
             <View style={styles.row}>
-              <Text
-                style={[
-                  styles.title,
-                  active && styles.activeTitle,
-                ]}
+              <AppText
+                variant="h5"
+                fontFamily="ManropeBold"
+                color={active ? COLORS.black : COLORS.textPrimary}
               >
                 {race.title}
-              </Text>
+              </AppText>
 
-              <Text
-                style={[
-                  styles.time,
-                  active && styles.activeTitle,
-                ]}
+              <AppText
+                fontFamily="ManropeSemiBold"
+                color={active ? COLORS.black : COLORS.textPrimary}
+                style={{ marginLeft: 6 }}
               >
                 • {race.time}
-              </Text>
+              </AppText>
             </View>
 
             {race.status === 'FINISHED' && (
-              <Text style={styles.finished}>
+              <AppText fontFamily="ManropeBold" color={COLORS.finished}>
                 ✓ FINISHED
-              </Text>
+              </AppText>
             )}
 
             {race.status === 'LIVE' && (
-              <Text style={styles.live}>
+              <AppText fontFamily="ManropeBold" color={COLORS.danger}>
                 ● LIVE
-              </Text>
+              </AppText>
             )}
 
             {race.status === 'UPCOMING' && (
@@ -88,9 +80,9 @@ export default function RaceSelector({
                   size={16}
                   color="#6B5220"
                 />
-                <Text style={styles.timer}>
+                <AppText fontFamily="ManropeBold" color="#6B5220">
                   {race.countdown}
-                </Text>
+                </AppText>
               </View>
             )}
           </Pressable>
@@ -101,7 +93,6 @@ export default function RaceSelector({
 }
 
 const createStyles = (COLORS: any) => StyleSheet.create({
-
   container: {
     paddingTop: SPACING.md,
     gap: SPACING.md,
@@ -134,41 +125,9 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     marginBottom: 10,
   },
 
-  title: {
-    color: COLORS.textPrimary,
-    fontWeight: '700',
-    fontSize: TYPOGRAPHY.bodyLarge.size,
-  },
-
-  activeTitle: {
-    color: COLORS.black,
-  },
-
-  time: {
-    color: COLORS.textPrimary,
-    marginLeft: 6,
-    fontWeight: '600',
-  },
-
-  finished: {
-    color: COLORS.finished,
-    fontWeight: '700',
-  },
-
-  live: {
-    color: COLORS.danger,
-    fontWeight: '700',
-  },
-
   timerRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
   },
-
-  timer: {
-    color: '#6B5220',
-    fontWeight: '700',
-  },
-
 });

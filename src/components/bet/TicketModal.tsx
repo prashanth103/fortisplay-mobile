@@ -1,11 +1,6 @@
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import {
-  Modal,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import AppText from '@/components/common/AppText';
+import { Modal, Pressable, StyleSheet, View } from 'react-native';
 
 import Button from '@/components/common/Button';
 import { RADIUS } from '@/theme/radius';
@@ -50,9 +45,9 @@ export default function TicketModal({
 
             <View style={styles.header}>
 
-              <Text style={styles.title}>
+              <AppText variant="h2" fontFamily="ManropeExtraBold" color={COLORS.black}>
                 Ticket
-              </Text>
+              </AppText>
 
               <Pressable onPress={onClose}>
                 <MaterialIcons
@@ -69,9 +64,9 @@ export default function TicketModal({
             <View style={styles.qrContainer}>
 
               <View style={styles.badge}>
-                <Text style={styles.badgeText}>
+                <AppText fontFamily="ManropeBold" color={COLORS.primary}>
                   KB · FIXED ODDS
-                </Text>
+                </AppText>
               </View>
 
               <MaterialIcons
@@ -80,9 +75,9 @@ export default function TicketModal({
                 color={COLORS.black}
               />
 
-              <Text style={styles.ticketNo}>
+              <AppText variant="p2" fontFamily="ManropeSemiBold" color={COLORS.textMuted}>
                 No. {ticketNo}
-              </Text>
+              </AppText>
 
             </View>
 
@@ -128,18 +123,18 @@ export default function TicketModal({
             <View style={styles.totalContainer}>
               <View style={styles.totalRow}>
 
-                <Text style={styles.totalLabel}>TOTAL</Text>
+                <AppText variant="h2" fontFamily="ManropeExtraBold" color={COLORS.black}>TOTAL</AppText>
 
                 <View style={styles.amountBox}>
-                  <Text style={styles.amount}>
+                  <AppText variant="h3" fontFamily="ManropeBold" color="#B27D00">
                     ₱{amount}.00
-                  </Text>
+                  </AppText>
                 </View>
 
               </View>
-              <Text style={styles.disclaimer}>
+              <AppText variant="p3" fontFamily="ManropeRegular" color={COLORS.textMuted} style={{ textAlign: "center", marginBottom: 12, paddingHorizontal: 24 }}>
                 Valid for 60 days. Ticket required for all payments
-              </Text>
+              </AppText>
             </View>
 
           </View>
@@ -190,13 +185,13 @@ function Row({
   return (
     <View style={styles.row}>
 
-      <Text style={styles.rowLabel}>
+      <AppText variant="p1" fontFamily="ManropeRegular" color={COLORS.textMuted}>
         {label}
-      </Text>
+      </AppText>
 
-      <Text style={styles.rowValue}>
+      <AppText variant="p1" fontFamily="ManropeBold" color={COLORS.black}>
         {value}
-      </Text>
+      </AppText>
 
     </View>
   );

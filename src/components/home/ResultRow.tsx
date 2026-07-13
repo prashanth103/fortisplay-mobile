@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import AppText from '@/components/common/AppText';
 
 import ResultCircle from './ResultCircle';
 import { SPACING } from '@/theme/spacing';
@@ -20,13 +21,13 @@ export default function ResultRow({
   title,
   runners,
 }: Props) {
-    const COLORS = useThemeColors();
-      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
+      <AppText variant="h5" fontFamily="ManropeBold" color={COLORS.primary} style={{ width: 110 }}>
         {title}
-      </Text>
+      </AppText>
 
       <View style={styles.runners}>
         {runners.map(item => (
@@ -51,13 +52,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderBottomColor: '#4D3C18',
     flexDirection: 'row',
     alignItems: 'center',
-  },
-
-  title: {
-    width: 110,
-    color: COLORS.primary,
-    fontWeight: '700',
-    fontSize: 18,
   },
 
   runners: {

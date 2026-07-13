@@ -1,10 +1,6 @@
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import AppText from '@/components/common/AppText';
+import { Pressable, StyleSheet, View } from 'react-native';
 
 import { useDevice } from '@/hooks/useDevice';
 import { RADIUS } from '@/theme/radius';
@@ -60,25 +56,15 @@ export default function RunnerCard({
                 isTablet && styles.innerCircleTablet,
               ]}
             >
-              <Text
-                style={[
-                  styles.code,
-                  isTablet && styles.codeTablet,
-                ]}
-              >
+              <AppText fontFamily="ManropeExtraBold" color={COLORS.black} fontSize={isTablet ? 18 : 16}>
                 {code}
-              </Text>
+              </AppText>
             </View>
           </View>
 
-          <Text
-            style={[
-              styles.name,
-              isTablet && styles.nameTablet,
-            ]}
-          >
+          <AppText fontFamily="ManropeBold" color={COLORS.textPrimary} fontSize={isTablet ? 22 : 18} style={{ marginLeft: 24 }}>
             {name}
-          </Text>
+          </AppText>
         </View>
 
         <View

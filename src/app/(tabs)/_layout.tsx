@@ -1,7 +1,8 @@
 import MaterialIcons from '@react-native-vector-icons/material-icons';
+import AppText from '@/components/common/AppText';
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Platform, Text } from 'react-native';
+import { Platform } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useThemeColors } from '@/hooks/useThemeColors';
@@ -83,16 +84,14 @@ export default function TabsLayout() {
             title: tab.title,
             tabBarIcon: ({ color, size }) =>
               tab.customIcon ? (
-                <Text
-                  style={{
-                    color,
-                    fontSize: size,
-                    fontWeight: '700',
-                    paddingBottom: 4,
-                  }}
+                <AppText
+                  color={color}
+                  fontSize={size}
+                  fontFamily="ManropeBold"
+                  style={{ paddingBottom: 4 }}
                 >
                   ₱
-                </Text>
+                </AppText>
               ) : (
                 <MaterialIcons
                   name={tab.icon!}

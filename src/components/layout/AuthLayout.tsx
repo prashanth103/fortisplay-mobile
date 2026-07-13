@@ -1,17 +1,13 @@
 import { useDevice } from '@/hooks/useDevice';
+import AppText from '@/components/common/AppText';
 import { useThemeColors } from "@/hooks/useThemeColors";
 import { SPACING } from '@/theme/spacing';
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 interface Props {
-  children:
-  React.ReactNode;
+  children: React.ReactNode;
 }
 
 export default function AuthLayout({
@@ -35,12 +31,12 @@ export default function AuthLayout({
         {children}
       </View>
       <View style={styles.footer}>
-        <Text style={styles.footerText}>
+        <AppText variant="p3">
           Powered by
-          <Text style={styles.brand}>
+          <AppText variant="p3" color={COLORS.textPrimary} fontFamily="ManropeBold">
             {' '}NorthAlley.
-          </Text>
-        </Text>
+          </AppText>
+        </AppText>
       </View>
     </SafeAreaView>
   );
@@ -49,14 +45,12 @@ export default function AuthLayout({
 const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:
-      COLORS.backgroundSecondary,
+    backgroundColor: COLORS.backgroundSecondary,
   },
   content: {
     flex: 1,
     justifyContent: 'center',
-    paddingHorizontal:
-      SPACING.xxxl,
+    paddingHorizontal: SPACING.xxxl,
   },
   tabletContent: {
     width: '100%',
@@ -69,15 +63,5 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderTopWidth: 2,
     borderTopColor: COLORS.border,
     paddingTop: SPACING.md,
-  },
-  footerText: {
-    color:
-      COLORS.textSecondary,
-    fontSize: 13,
-  },
-  brand: {
-    color:
-      COLORS.textPrimary,
-    fontWeight: '700',
   },
 });

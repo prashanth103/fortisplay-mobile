@@ -2,16 +2,18 @@ import { useDevice } from '@/hooks/useDevice';
 import { useThemeColors } from '@/hooks/useThemeColors';
 import { createCommonStyles } from '@/styles/commonStyles';
 import React from 'react';
-import { StyleSheet, Text, TextProps } from 'react-native';
+import { StyleSheet, Text, TextProps, ColorValue } from 'react-native';
 
 export type AppTextVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p1' | 'p2' | 'p3';
 
 interface AppTextProps extends TextProps {
   variant?: AppTextVariant;
-  color?: string;
+  color?: string | ColorValue;
+  fontSize?: number;
+  fontFamily?: string;
 }
 
-const AppText: React.FC<AppTextProps> = ({ variant = 'p2', color, style, children, ...props }) => {
+const AppText: React.FC<AppTextProps> = ({ variant = 'p2', color, fontSize, fontFamily, style, children, ...props }) => {
   const { isTablet } = useDevice();
   const colors = useThemeColors();
   const commonStyles = createCommonStyles(colors);
@@ -40,7 +42,16 @@ const AppText: React.FC<AppTextProps> = ({ variant = 'p2', color, style, childre
   const finalColor = color || defaultColor;
 
   return (
-    <Text style={[textStyle, { color: finalColor }, style]} {...props}>
+    <Text 
+      style={[
+        textStyle, 
+        { color: finalColor }, 
+        fontSize ? { fontSize } : undefined,
+        fontFamily ? { fontFamily } : undefined,
+        style
+      ]} 
+      {...props}
+    >
       {children}
     </Text>
   );

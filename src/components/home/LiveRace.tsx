@@ -1,9 +1,6 @@
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import {
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import AppText from '@/components/common/AppText';
+import { StyleSheet, View } from 'react-native';
 
 import Button from '@/components/common/Button';
 import { useDevice } from '@/hooks/useDevice';
@@ -39,9 +36,9 @@ export default function LiveRace({
 
         <View style={styles.dot} />
 
-        <Text style={styles.badgeText}>
+        <AppText fontFamily="ManropeBold" color="#FF6A55" fontSize={16}>
           LIVE NOW
-        </Text>
+        </AppText>
 
       </View>
 
@@ -58,25 +55,15 @@ export default function LiveRace({
         />
       </View>
 
-      <Text
-        style={[
-          styles.title,
-          isTablet && styles.titleTablet,
-        ]}
-      >
+      <AppText fontFamily="ManropeBold" color={COLORS.textPrimary} fontSize={isTablet ? 38 : 32} style={{ marginTop: 24 }}>
         Bets Closed
-      </Text>
+      </AppText>
 
-      <Text
-        style={[
-          styles.description,
-          isTablet && styles.descriptionTablet,
-        ]}
-      >
+      <AppText fontFamily="ManropeRegular" color={COLORS.textSecondary} fontSize={isTablet ? 18 : 16} style={{ marginTop: 12, textAlign: "center", lineHeight: isTablet ? 28 : 24 }}>
         Betting for {raceName} is now closed.
         {'\n'}
         The race is underway — watch it live.
-      </Text>
+      </AppText>
 
       <Button
         title="Watch Live"

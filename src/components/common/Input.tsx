@@ -1,20 +1,10 @@
 import { useDevice } from '@/hooks/useDevice';
+import AppText from '@/components/common/AppText';
 import { RADIUS } from '@/theme/radius';
 import { TYPOGRAPHY } from '@/theme/typography';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import React, { useState } from 'react';
-import {
-  ColorValue,
-  DimensionValue,
-  Pressable,
-  StyleSheet,
-  StyleProp,
-  Text,
-  TextInput,
-  TextInputProps,
-  View,
-  ViewStyle,
-} from 'react-native';
+import { ColorValue, DimensionValue, Pressable, StyleSheet, StyleProp, TextInput, TextInputProps, View, ViewStyle } from 'react-native';
 import { useThemeColors } from "@/hooks/useThemeColors";
 
 interface Props extends TextInputProps {
@@ -78,14 +68,9 @@ export default function Input({
       ]}
     >
       {label && (
-        <Text
-          style={[
-            styles.label,
-            isTablet && styles.tabletLabel,
-          ]}
-        >
+        <AppText variant="p2" fontFamily="ManropeSemiBold" color={COLORS.textPrimary} style={{ marginBottom: isTablet ? 10 : 8 }}>
           {label}
-        </Text>
+        </AppText>
       )}
 
       <View

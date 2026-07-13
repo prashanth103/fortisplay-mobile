@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import AppText from '@/components/common/AppText';
 
 import ResultRow from './ResultRow';
 
 import { RESULT_ROWS } from '@/data/runners';
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
-import { TYPOGRAPHY } from '@/theme/typography';
 import { useThemeColors } from "@/hooks/useThemeColors";
 import * as React from "react";
 
@@ -16,15 +16,15 @@ interface Props {
 export default function FinishedRace({
   raceName,
 }: Props) {
-    const COLORS = useThemeColors();
-      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   return (
     <View style={styles.container}>
 
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>
+        <AppText variant="h2" fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>
           {raceName} RESULTS
-        </Text>
+        </AppText>
       </View>
 
       {RESULT_ROWS.map(item => (
@@ -58,12 +58,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#4D3C18',
     paddingVertical: 16
-  },
-
-  headerTitle: {
-    color: COLORS.textPrimary,
-    fontSize: TYPOGRAPHY.h3.size,
-    fontWeight: '800',
   },
 
 });

@@ -1,10 +1,6 @@
 import { useState } from 'react';
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import AppText from '@/components/common/AppText';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { SPACING } from '@/theme/spacing';
 import { useThemeColors } from "@/hooks/useThemeColors";
 import React from "react";
@@ -29,8 +25,8 @@ const BET_TYPES = [
 ];
 
 export default function BetTypeTabs() {
-    const COLORS = useThemeColors();
-      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   const [selected, setSelected] = useState(0);
 
   return (
@@ -47,23 +43,22 @@ export default function BetTypeTabs() {
               active && styles.activeItem,
             ]}
           >
-            <Text
-              style={[
-                styles.title,
-                active && styles.activeTitle,
-              ]}
+            <AppText
+              fontFamily="ManropeBold"
+              fontSize={16}
+              color={active ? COLORS.primary : COLORS.textPrimary}
             >
               {item.title}
-            </Text>
+            </AppText>
 
-            <Text
-              style={[
-                styles.subtitle,
-                active && styles.activeSubtitle,
-              ]}
+            <AppText
+              fontFamily="ManropeRegular"
+              fontSize={12}
+              color={active ? COLORS.textPrimary : COLORS.textSecondary}
+              style={{ marginTop: 4 }}
             >
               {item.subtitle}
-            </Text>
+            </AppText>
           </Pressable>
         );
       })}
@@ -95,26 +90,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     backgroundColor: "#3B3323",
     borderBottomWidth: 3,
     borderBottomColor: COLORS.primary,
-  },
-
-  title: {
-    color: COLORS.textPrimary,
-    fontWeight: '700',
-    fontSize: 16,
-  },
-
-  activeTitle: {
-    color: COLORS.primary,
-  },
-
-  subtitle: {
-    marginTop: 4,
-    color: COLORS.textSecondary,
-    fontSize: 12,
-  },
-
-  activeSubtitle: {
-    color: COLORS.textPrimary,
   },
 
 });

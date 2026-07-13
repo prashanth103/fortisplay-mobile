@@ -1,14 +1,8 @@
 import MaterialIcons from '@react-native-vector-icons/material-icons';
+import AppText from '@/components/common/AppText';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-  Appearance,
-  useColorScheme
-} from 'react-native';
+import { Pressable, StyleSheet, View, Appearance, useColorScheme } from 'react-native';
 
 import AppLogo from '@/components/common/AppLogo';
 import ChangePasswordModal from '@/components/common/ChangePasswordModal';
@@ -57,7 +51,7 @@ export default function AppHeader() {
             size={isTablet ? 28 : 22}
             color={COLORS.border}
           />
-          <Text style={[styles.amount, isTablet && styles.amountTablet]}>$ 12,500.00</Text>
+          <AppText variant="p1" fontFamily="ManropeExtraBold" color={COLORS.border}>$ 12,500.00</AppText>
         </View>
         <Pressable
           style={[styles.profileContainer, isTablet && styles.profileContainerTablet]}

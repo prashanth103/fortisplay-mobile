@@ -1,183 +1,183 @@
+import AppText from '@/components/common/AppText';
 import Screen from '@/components/layout/Screen';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
-import { ComponentProps } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useThemeColors } from "@/hooks/useThemeColors";
-import React from "react";
+import MaterialIcons from '@react-native-vector-icons/material-icons';
+import React, { ComponentProps } from "react";
+import { ScrollView, StyleSheet, View } from 'react-native';
 
 export default function WalletScreen() {
 
-    const COLORS = useThemeColors();
-      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
-type MaterialIconName = ComponentProps<typeof MaterialIcons>['name'];
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  type MaterialIconName = ComponentProps<typeof MaterialIcons>['name'];
 
-const topStats: Array<{
-  id: string;
-  title: string;
-  value: string;
-  icon: MaterialIconName;
-  backgroundColor: string;
-  iconBackground: string;
-  iconColor: string;
-}> = [
+  const topStats: Array<{
+    id: string;
+    title: string;
+    value: string;
+    icon: MaterialIconName;
+    backgroundColor: string;
+    iconBackground: string;
+    iconColor: string;
+  }> = [
+      {
+        id: 'sales',
+        title: 'Total Sales',
+        value: '₱ 400',
+        icon: 'trending-up',
+        backgroundColor: COLORS.walletCard,
+        iconBackground: COLORS.walletIconBackground,
+        iconColor: COLORS.walletAccent,
+      },
+    ];
+
+  const actionCards: Array<{
+    id: string;
+    title: string;
+    value: string;
+    icon: MaterialIconName;
+    backgroundColor: string;
+    textColor: string;
+    labelColor: string;
+    iconBackground: string;
+    iconColor: string;
+    iconSize: number;
+  }> = [
+      {
+        id: 'cash',
+        title: 'Cash in Hand',
+        value: '₱1,250.00',
+        icon: 'account-balance-wallet',
+        backgroundColor: COLORS.primary,
+        textColor: COLORS.black,
+        labelColor: COLORS.black,
+        iconBackground: COLORS.walletPrimaryDark,
+        iconColor: COLORS.black,
+        iconSize: 20,
+      },
+      {
+        id: 'commission',
+        title: 'My Commission',
+        value: '₱ 40.00',
+        icon: 'percent',
+        backgroundColor: COLORS.walletCard,
+        textColor: COLORS.walletText,
+        labelColor: COLORS.walletLabel,
+        iconBackground: COLORS.walletIconBackground,
+        iconColor: COLORS.walletAccent,
+        iconSize: 24,
+      },
+    ];
+
+  const statCards: Array<{
+    id: string;
+    title: string;
+    value: string;
+    icon: MaterialIconName;
+    backgroundColor: string;
+    iconBackground: string;
+    iconColor: string;
+    labelColor: string;
+  }> = [
     {
-      id: 'sales',
-      title: 'Total Sales',
-      value: '₱ 400',
-      icon: 'trending-up',
-      backgroundColor: COLORS.walletCard,
+      id: 'received',
+      title: 'RECEIVED',
+      value: '₱ 0',
+      icon: 'arrow-downward',
+      backgroundColor: COLORS.white,
       iconBackground: COLORS.walletIconBackground,
-      iconColor: COLORS.walletAccent,
-    },
-  ];
-
-const actionCards: Array<{
-  id: string;
-  title: string;
-  value: string;
-  icon: MaterialIconName;
-  backgroundColor: string;
-  textColor: string;
-  labelColor: string;
-  iconBackground: string;
-  iconColor: string;
-  iconSize: number;
-}> = [
-    {
-      id: 'cash',
-      title: 'Cash in Hand',
-      value: '₱1,250.00',
-      icon: 'account-balance-wallet',
-      backgroundColor: COLORS.primary,
-      textColor: COLORS.black,
-      labelColor: COLORS.black,
-      iconBackground: COLORS.walletPrimaryDark,
-      iconColor: COLORS.black,
-      iconSize: 20,
+      iconColor: COLORS.walletStatIconColor,
+      labelColor: COLORS.textSecondary,
     },
     {
-      id: 'commission',
-      title: 'My Commission',
-      value: '₱ 40.00',
-      icon: 'percent',
-      backgroundColor: COLORS.walletCard,
-      textColor: COLORS.walletText,
-      labelColor: COLORS.walletLabel,
+      id: 'remitted',
+      title: 'REMITTED',
+      value: '₱ 100',
+      icon: 'arrow-forward',
+      backgroundColor: COLORS.white,
       iconBackground: COLORS.walletIconBackground,
-      iconColor: COLORS.walletAccent,
-      iconSize: 24,
+      iconColor: COLORS.walletStatIconColor,
+      labelColor: COLORS.textSecondary,
     },
-  ];
+    {
+      id: 'cancel',
+      title: 'CANCEL',
+      value: '₱ 0',
+      icon: 'close',
+      backgroundColor: COLORS.white,
+      iconBackground: COLORS.walletIconBackground,
+      iconColor: COLORS.walletStatIconColor,
+      labelColor: COLORS.textSecondary,
+    },
+    {
+      id: 'payouts',
+      title: 'PAYOUTS',
+      value: '₱ 0',
+      icon: 'payments',
+      backgroundColor: COLORS.white,
+      iconBackground: COLORS.walletIconBackground,
+      iconColor: COLORS.walletStatIconColor,
+      labelColor: COLORS.textSecondary,
+    },
+  ] as const;
 
-const statCards: Array<{
-  id: string;
-  title: string;
-  value: string;
-  icon: MaterialIconName;
-  backgroundColor: string;
-  iconBackground: string;
-  iconColor: string;
-  labelColor: string;
-}> = [
-  {
-    id: 'received',
-    title: 'RECEIVED',
-    value: '₱ 0',
-    icon: 'arrow-downward',
-    backgroundColor: COLORS.white,
-    iconBackground: COLORS.walletIconBackground,
-    iconColor: COLORS.walletStatIconColor,
-    labelColor: COLORS.textSecondary,
-  },
-  {
-    id: 'remitted',
-    title: 'REMITTED',
-    value: '₱ 100',
-    icon: 'arrow-forward',
-    backgroundColor: COLORS.white,
-    iconBackground: COLORS.walletIconBackground,
-    iconColor: COLORS.walletStatIconColor,
-    labelColor: COLORS.textSecondary,
-  },
-  {
-    id: 'cancel',
-    title: 'CANCEL',
-    value: '₱ 0',
-    icon: 'close',
-    backgroundColor: COLORS.white,
-    iconBackground: COLORS.walletIconBackground,
-    iconColor: COLORS.walletStatIconColor,
-    labelColor: COLORS.textSecondary,
-  },
-  {
-    id: 'payouts',
-    title: 'PAYOUTS',
-    value: '₱ 0',
-    icon: 'payments',
-    backgroundColor: COLORS.white,
-    iconBackground: COLORS.walletIconBackground,
-    iconColor: COLORS.walletStatIconColor,
-    labelColor: COLORS.textSecondary,
-  },
-] as const;
-
-const historyItems: Array<{
-  id: string;
-  title: string;
-  subtitle: string;
-  amount: string;
-  amountColor: string;
-  icon: MaterialIconName;
-  iconColor: string;
-  backgroundColor: string;
-}> = [
-  {
-    id: '1',
-    title: 'Received',
-    subtitle: 'Cash · 17:22:08',
-    amount: '+₱500',
-    amountColor: COLORS.walletSuccess,
-    icon: 'arrow-downward',
-    iconColor: COLORS.walletSuccess,
-    backgroundColor: COLORS.walletHistoryCard,
-  },
-  {
-    id: '2',
-    title: 'Payout Sent',
-    subtitle: 'Bank transfer · 16:30:52',
-    amount: '-₱200',
-    amountColor: COLORS.danger,
-    icon: 'arrow-upward',
-    iconColor: COLORS.danger,
-    backgroundColor: COLORS.walletHistoryCard,
-  },
-  {
-    id: '3',
-    title: 'Sales settled',
-    subtitle: 'Ticket · 15:48:10',
-    amount: '+₱800',
-    amountColor: COLORS.walletSuccess,
-    icon: 'check-circle',
-    iconColor: COLORS.walletInfo,
-    backgroundColor: COLORS.walletHistoryCard,
-  },
-  {
-    id: '4',
-    title: 'Cash added',
-    subtitle: 'Deposit · 14:10:28',
-    amount: '+₱300',
-    amountColor: COLORS.walletSuccess,
-    icon: 'paid',
-    iconColor: COLORS.walletAccent,
-    backgroundColor: COLORS.walletHistoryCard,
-  },
-] as const;
+  const historyItems: Array<{
+    id: string;
+    title: string;
+    subtitle: string;
+    amount: string;
+    amountColor: string;
+    icon: MaterialIconName;
+    iconColor: string;
+    backgroundColor: string;
+  }> = [
+    {
+      id: '1',
+      title: 'Received',
+      subtitle: 'Cash · 17:22:08',
+      amount: '+₱500',
+      amountColor: COLORS.walletSuccess,
+      icon: 'arrow-downward',
+      iconColor: COLORS.walletSuccess,
+      backgroundColor: COLORS.walletHistoryCard,
+    },
+    {
+      id: '2',
+      title: 'Payout Sent',
+      subtitle: 'Bank transfer · 16:30:52',
+      amount: '-₱200',
+      amountColor: COLORS.danger,
+      icon: 'arrow-upward',
+      iconColor: COLORS.danger,
+      backgroundColor: COLORS.walletHistoryCard,
+    },
+    {
+      id: '3',
+      title: 'Sales settled',
+      subtitle: 'Ticket · 15:48:10',
+      amount: '+₱800',
+      amountColor: COLORS.walletSuccess,
+      icon: 'check-circle',
+      iconColor: COLORS.walletInfo,
+      backgroundColor: COLORS.walletHistoryCard,
+    },
+    {
+      id: '4',
+      title: 'Cash added',
+      subtitle: 'Deposit · 14:10:28',
+      amount: '+₱300',
+      amountColor: COLORS.walletSuccess,
+      icon: 'paid',
+      iconColor: COLORS.walletAccent,
+      backgroundColor: COLORS.walletHistoryCard,
+    },
+  ] as const;
   return (
     <Screen backgroundColor={COLORS.background}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>Wallet</Text>
-          <Text style={styles.subtitle}>Today's cash flow</Text>
+          <AppText variant="h1">Wallet</AppText>
+          <AppText variant="p2" style={{ marginTop: 6 }}>Today's cash flow</AppText>
         </View>
 
         <View style={styles.topRow}>
@@ -188,8 +188,8 @@ const historyItems: Array<{
                   <MaterialIcons name={item.icon} size={22} color={item.iconColor} />
                 </View>
                 <View style={styles.summaryInfo}>
-                  <Text style={styles.summaryLabel}>{item.title}</Text>
-                  <Text style={styles.summaryValue}>{item.value}</Text>
+                  <AppText variant="p3" color={COLORS.walletLabel} style={{ textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 6 }}>{item.title}</AppText>
+                  <AppText fontSize={28} fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>{item.value}</AppText>
                 </View>
               </View>
             </View>
@@ -202,10 +202,10 @@ const historyItems: Array<{
               <View style={[styles.actionIcon, { backgroundColor: item.iconBackground }]}>
                 <MaterialIcons name={item.icon} size={item.iconSize} color={item.iconColor} />
               </View>
-              <Text style={[styles.actionValue, { color: item.textColor }]}>{item.value}</Text>
-              <Text style={[styles.actionLabel, { color: item.labelColor }]}>
+              <AppText fontSize={25} fontFamily="ManropeExtraBold" color={item.textColor} style={{ marginBottom: 6 }}>{item.value}</AppText>
+              <AppText variant="p3" color={item.labelColor} style={{ textTransform: "uppercase", letterSpacing: 0.6 }}>
                 {item.title}
-              </Text>
+              </AppText>
             </View>
           ))}
         </View>
@@ -217,24 +217,24 @@ const historyItems: Array<{
                 <MaterialIcons name={item.icon} size={17} color={item.iconColor} />
               </View>
               <View style={styles.statText}>
-                <Text style={styles.statValue}>{item.value}</Text>
-                <Text style={[styles.statLabel, { color: item.labelColor }]}>{item.title}</Text>
+                <AppText variant="h4" style={{ marginBottom: 3 }}>{item.value}</AppText>
+                <AppText variant="p3" color={item.labelColor}>{item.title}</AppText>
               </View>
             </View>
           ))}
         </View>
 
-        <Text style={styles.sectionTitle}>Transaction History</Text>
+        <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.walletText} style={{ marginBottom: 12, letterSpacing: 0.5 }}>Transaction History</AppText>
         {historyItems.map((item) => (
           <View key={item.id} style={[styles.historyCard, { backgroundColor: item.backgroundColor }]}>
             <View style={[styles.historyIcon, { backgroundColor: item.iconColor + '22' }]}>
               <MaterialIcons name={item.icon} size={20} color={item.iconColor} />
             </View>
             <View style={styles.historyText}>
-              <Text style={styles.historyTitle}>{item.title}</Text>
-              <Text style={styles.historySubtitle}>{item.subtitle}</Text>
+              <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.textPrimary} style={{ marginBottom: 2 }}>{item.title}</AppText>
+              <AppText variant="p3" color={COLORS.textSecondary}>{item.subtitle}</AppText>
             </View>
-            <Text style={[styles.historyAmount, { color: item.amountColor }]}>{item.amount}</Text>
+            <AppText variant="p2" fontFamily="ManropeBold" color={item.amountColor}>{item.amount}</AppText>
           </View>
         ))}
       </ScrollView>
@@ -359,16 +359,16 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     alignItems: 'flex-end',
   },
 
- statValue: {
-  fontSize: 19,
-  fontWeight: '800',
-  marginBottom: 3,
-},
+  statValue: {
+    fontSize: 19,
+    fontWeight: '800',
+    marginBottom: 3,
+  },
 
-statLabel: {
-  fontSize: 13,
-  color: COLORS.textSecondary,
-},
+  statLabel: {
+    fontSize: 13,
+    color: COLORS.textSecondary,
+  },
   sectionTitle: {
     color: COLORS.walletText,
     marginBottom: 12,

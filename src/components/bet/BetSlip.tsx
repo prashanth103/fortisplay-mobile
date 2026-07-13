@@ -1,10 +1,6 @@
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import AppText from '@/components/common/AppText';
+import { Pressable, StyleSheet, View } from 'react-native';
 
 import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
@@ -51,12 +47,12 @@ export default function BetSlip({
             />
           </View>
 
-          <Text style={styles.headerTitle}>
+          <AppText variant="h4" fontFamily="ManropeBold" color={COLORS.primary} style={{ marginLeft: 8 }}>
             Bet Slip
-          </Text>
+          </AppText>
 
           <View style={styles.count}>
-            <Text style={styles.countText}>1</Text>
+            <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>1</AppText>
           </View>
 
         </View>
@@ -76,35 +72,35 @@ export default function BetSlip({
         <View style={styles.topRow}>
 
           <View style={styles.leftBlock}>
-            <Text style={styles.pool}>
+            <AppText fontFamily="ManropeBold" color="#B27D00" style={{ marginBottom: 12 }}>
               WIN · FINISH 1ST
-            </Text>
+            </AppText>
 
             <View style={styles.runner}>
 
               <View style={styles.circle}>
-                <Text style={styles.code}>
+                <AppText fontFamily="ManropeBold" color={COLORS.black}>
                   {runnerCode}
-                </Text>
+                </AppText>
               </View>
 
-              <Text style={styles.runnerName}>
+              <AppText fontSize={16} fontFamily="ManropeBold" color={COLORS.black} style={{ marginLeft: 12 }}>
                 {runnerName}
-              </Text>
+              </AppText>
 
             </View>
           </View>
 
           <View style={styles.rightBlock}>
-            <Text style={styles.stakeLabel}>STAKE</Text>
+            <AppText fontFamily="ManropeBold" color={COLORS.textSecondary} style={{ marginBottom: 6 }}>STAKE</AppText>
 
             <Input
               wrapperStyle={styles.amountBox}
               inputContainerStyle={styles.amountInputContainer}
               leftContent={(
-                <Text style={styles.currency}>
+                <AppText variant="h3" fontFamily="ManropeBold" color={COLORS.black}>
                   ₱
-                </Text>
+                </AppText>
               )}
               value={amount}
               keyboardType="numeric"

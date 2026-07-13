@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
-import { TYPOGRAPHY } from '@/theme/typography';
+import { StyleSheet, View } from 'react-native';
+import AppText from '@/components/common/AppText';
 import { useThemeColors } from "@/hooks/useThemeColors";
 import * as React from "react";
 
@@ -14,13 +14,13 @@ export default function ResultCircle({
   code,
   color,
 }: Props) {
-    const COLORS = useThemeColors();
-      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   return (
     <View style={styles.container}>
-      <Text style={styles.place}>
+      <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.textPrimary} style={{ marginBottom: 8 }}>
         {place}
-      </Text>
+      </AppText>
 
       <View
         style={[
@@ -29,9 +29,9 @@ export default function ResultCircle({
         ]}
       >
         <View style={styles.innerCircle}>
-          <Text style={styles.code}>
+          <AppText variant="p3" fontFamily="ManropeExtraBold" color={COLORS.black}>
             {code}
-          </Text>
+          </AppText>
         </View>
       </View>
     </View>
@@ -41,13 +41,6 @@ export default function ResultCircle({
 const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
     alignItems: 'center',
-  },
-
-  place: {
-    color: COLORS.textPrimary,
-    fontWeight: '700',
-    fontSize: 12,
-    marginBottom: 8,
   },
 
   outerCircle: {
@@ -65,11 +58,5 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     backgroundColor: COLORS.white,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-
-  code: {
-    color: COLORS.black,
-    fontWeight: '800',
-    fontSize: TYPOGRAPHY.small.size,
   },
 });

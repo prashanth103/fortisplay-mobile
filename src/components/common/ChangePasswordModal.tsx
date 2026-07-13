@@ -1,12 +1,7 @@
 import MaterialIcons from '@react-native-vector-icons/material-icons';
+import AppText from '@/components/common/AppText';
 import { useState } from 'react';
-import {
-  Modal,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { Modal, Pressable, StyleSheet, View } from 'react-native';
 
 import { useDevice } from '@/hooks/useDevice';
 import Button from './Button';
@@ -47,7 +42,7 @@ export default function ChangePasswordModal({
       <View style={styles.overlay}>
         <View style={[styles.modal, isTablet && styles.modalTablet]}>
           <View style={styles.header}>
-            <Text style={styles.title}>Change Password</Text>
+            <AppText variant="h4" fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>Change Password</AppText>
             <Pressable
               style={styles.closeButton}
               onPress={closeModal}
@@ -144,12 +139,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-  },
-  title: {
-    color: COLORS.textPrimary,
-    fontSize: 20,
-    fontFamily: 'Manrope',
-    fontWeight: '800',
   },
   closeButton: {
     width: 32,

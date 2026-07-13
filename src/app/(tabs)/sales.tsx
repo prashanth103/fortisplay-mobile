@@ -1,3 +1,4 @@
+import AppText from '@/components/common/AppText';
 import Input from '@/components/common/Input';
 import Screen from '@/components/layout/Screen';
 import { useThemeColors } from "@/hooks/useThemeColors";
@@ -6,7 +7,7 @@ import { SPACING } from '@/theme/spacing';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useRouter } from 'expo-router';
 import React, { useMemo, useState } from "react";
-import { Pressable, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 export default function SalesScreen() {
 
@@ -194,18 +195,18 @@ export default function SalesScreen() {
     <Screen backgroundColor={COLORS.background}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.heading}>
-          <Text style={styles.title}>Sales</Text>
-          <Text style={styles.subtitle}>Today's transactions</Text>
+          <AppText variant="h1">Sales</AppText>
+          <AppText variant="p2" style={{ marginTop: 8 }}>Today's transactions</AppText>
         </View>
 
         <View style={styles.summaryRow}>
           <View style={styles.summaryCard}>
-            <Text style={styles.summaryLabel}>TOTAL SALES</Text>
-            <Text style={styles.summaryValue}>₱{totalSales}</Text>
+            <AppText variant="p3" color={COLORS.textSecondary} style={{ letterSpacing: 0.5, marginBottom: 8 }}>TOTAL SALES</AppText>
+            <AppText fontSize={26} fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>₱{totalSales}</AppText>
           </View>
           <View style={styles.summaryCard}>
-            <Text style={styles.summaryLabel}>TICKETS</Text>
-            <Text style={styles.summaryValue}>{salesData.length}</Text>
+            <AppText variant="p3" color={COLORS.textSecondary} style={{ letterSpacing: 0.5, marginBottom: 8 }}>TICKETS</AppText>
+            <AppText fontSize={26} fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>{salesData.length}</AppText>
           </View>
         </View>
 
@@ -224,55 +225,55 @@ export default function SalesScreen() {
           <View style={styles.detailContainer}>
             <Pressable onPress={() => setSelectedSaleId(null)} style={styles.backButton}>
               <MaterialIcons name="arrow-back-ios" size={18} color={COLORS.textPrimary} />
-              <Text style={styles.backText}>Back</Text>
+              <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.white}>Back</AppText>
             </Pressable>
             <View style={styles.detailCard}>
               <View style={styles.detailHeader}>
-                <Text style={styles.detailHeaderText}>Ticket Details</Text>
+                <AppText variant="p1" fontFamily="ManropeExtraBold" color={COLORS.black}>Ticket Details</AppText>
                 <View style={[styles.statusBadge, { backgroundColor: selectedSale.statusBackground }]}>
-                  <Text style={[styles.statusBadgeText, { color: selectedSale.statusTextColor }]}>{selectedSale.status}</Text>
+                  <AppText variant="p3" fontFamily="ManropeExtraBold" color={selectedSale.statusTextColor}>{selectedSale.status}</AppText>
                 </View>
               </View>
 
               <View style={styles.ticketBody}>
                 <View style={[styles.ticketIconOuter, { backgroundColor: selectedSale.avatarColor }]}>
                   <View style={styles.ticketIconInner}>
-                    <Text style={[styles.ticketIconText, { color: selectedSale.avatarTextColor }]}>{selectedSale.avatarText}</Text>
+                    <AppText variant="p2" fontFamily="ManropeExtraBold" color={selectedSale.avatarTextColor}>{selectedSale.avatarText}</AppText>
                   </View>
                 </View>
                 <View style={styles.ticketInfo}>
                   <View style={styles.ticketTitleRow}>
-                    <Text style={styles.ticketTitle}>{selectedSale.title}</Text>
+                    <AppText variant="p2" fontFamily="ManropeExtraBold" color={COLORS.black} style={{ flex: 1 }}>{selectedSale.title}</AppText>
                     <View style={[styles.itemBadge, { backgroundColor: selectedSale.badgeBackground }]}>
-                      <Text style={styles.itemBadgeText}>{selectedSale.badge}</Text>
+                      <AppText fontSize={10} fontFamily="ManropeBold" color={COLORS.black} style={{ letterSpacing: 0.5 }}>{selectedSale.badge}</AppText>
                     </View>
                   </View>
-                  <Text style={styles.ticketSubtitle}>{selectedSale.detailSubtitle}</Text>
+                  <AppText variant="p3" color={COLORS.textSecondary}>{selectedSale.detailSubtitle}</AppText>
                   {selectedSale.resultLabel ? (
-                    <Text style={[styles.resultLabel, { color: selectedSale.resultNoteColor, marginTop: SPACING.xs }]}>
+                    <AppText variant="p3" fontFamily="ManropeBold" color={selectedSale.resultNoteColor} style={{ marginTop: 4 }}>
                       {selectedSale.resultLabel}
-                    </Text>
+                    </AppText>
                   ) : null}
                 </View>
               </View>
 
               <View style={styles.ticketDetailsRow}>
-                <Text style={styles.ticketLabel}>Ticket</Text>
-                <Text style={styles.ticketValue}>No. {selectedSale.ticketNumber}</Text>
+                <AppText variant="p3" color="#7F7F7F">Ticket</AppText>
+                <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>No. {selectedSale.ticketNumber}</AppText>
               </View>
               <View style={styles.ticketDetailsRow}>
-                <Text style={styles.ticketLabel}>Date</Text>
-                <Text style={styles.ticketValue}>{selectedSale.date}</Text>
+                <AppText variant="p3" color="#7F7F7F">Date</AppText>
+                <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>{selectedSale.date}</AppText>
               </View>
               <View style={styles.ticketDetailsRow}>
-                <Text style={styles.ticketLabel}>Bet Amount</Text>
-                <Text style={styles.ticketValue}>₱{selectedSale.betAmount}</Text>
+                <AppText variant="p3" color="#7F7F7F">Bet Amount</AppText>
+                <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>₱{selectedSale.betAmount}</AppText>
               </View>
 
               <View style={[styles.resultBox, { backgroundColor: selectedSale.resultNoteBg }]}>
-                <Text style={[styles.resultText, { color: selectedSale.resultNoteColor }]}>{selectedSale.resultNote}</Text>
+                <AppText variant="p3" fontFamily="ManropeBold" color={selectedSale.resultNoteColor} style={{ flex: 1 }}>{selectedSale.resultNote}</AppText>
                 {selectedSale.resultValue ? (
-                  <Text style={[styles.payoutAmount, { color: '#2B7A37' }]}>₱{selectedSale.resultValue}</Text>
+                  <AppText variant="h4" fontFamily="ManropeExtraBold" color="#2B7A37">₱{selectedSale.resultValue}</AppText>
                 ) : null}
               </View>
             </View>
@@ -282,19 +283,19 @@ export default function SalesScreen() {
             <TouchableOpacity key={item.id} style={styles.saleCard} activeOpacity={0.8} onPress={() => handleItemPress(item.ticketNumber)}>
               <View style={[styles.avatarBorder, { borderColor: item.avatarColor }]}>
                 <View style={styles.avatar}>
-                  <Text style={[styles.avatarText, { color: item.avatarTextColor }]}>{item.avatarText}</Text>
+                  <AppText variant="p2" fontFamily="ManropeBold" color={item.avatarTextColor}>{item.avatarText}</AppText>
                 </View>
               </View>
               <View style={styles.saleInfo}>
                 <View style={styles.saleTitleRow}>
-                  <Text style={styles.saleTitle}>{item.title}</Text>
+                  <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.textPrimary} style={{ flex: 1 }}>{item.title}</AppText>
                   <View style={[styles.itemBadge, { backgroundColor: item.badgeBackground }]}>
-                    <Text style={styles.itemBadgeText}>{item.badge}</Text>
+                    <AppText fontSize={10} fontFamily="ManropeBold" color={COLORS.black} style={{ letterSpacing: 0.5 }}>{item.badge}</AppText>
                   </View>
                 </View>
-                <Text style={styles.saleSubtitle}>{item.subtitle}</Text>
+                <AppText variant="p3" color={COLORS.textSecondary}>{item.subtitle}</AppText>
               </View>
-              <Text style={styles.amount}>₱{item.amount}</Text>
+              <AppText variant="p2" fontFamily="ManropeExtraBold" color={COLORS.white} style={{ marginLeft: 8 }}>₱{item.amount}</AppText>
             </TouchableOpacity>
           ))
         )}

@@ -1,14 +1,14 @@
-import Screen from '@/components/layout/Screen';
-import Input from '@/components/common/Input';
+import AppText from '@/components/common/AppText';
 import Button from '@/components/common/Button';
+import Input from '@/components/common/Input';
+import Screen from '@/components/layout/Screen';
+import { useThemeColors } from "@/hooks/useThemeColors";
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useLocalSearchParams } from 'expo-router';
-import { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { useThemeColors } from "@/hooks/useThemeColors";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { ScrollView, StyleSheet, View } from 'react-native';
 
 const ticketData = {
   '8266150525': {
@@ -85,8 +85,8 @@ const ticketData = {
 type TicketResult = typeof ticketData[keyof typeof ticketData];
 
 export default function PayoutsScreen() {
-    const COLORS = useThemeColors();
-      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   const { ticket } = useLocalSearchParams();
   const ticketQuery = Array.isArray(ticket) ? ticket[0] : ticket ?? '';
   const [ticketNumber, setTicketNumber] = useState('');
@@ -127,8 +127,8 @@ export default function PayoutsScreen() {
     <Screen backgroundColor={COLORS.background}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.heading}>
-          <Text style={styles.title}>Payouts</Text>
-          <Text style={styles.subtitle}>Scan or enter a ticket to verify</Text>
+          <AppText variant='h1' color={COLORS.textPrimary}>Payouts</AppText>
+          <AppText variant="p2" style={{ marginTop: 8 }}>Scan or enter a ticket to verify</AppText>
         </View>
 
         {!result ? (
@@ -151,7 +151,7 @@ export default function PayoutsScreen() {
 
             <View style={styles.dividerRow}>
               <View style={styles.dividerLine} />
-              <Text style={styles.orText}>OR ENTER TICKET NUMBER</Text>
+              <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.textSecondary} style={{ textAlign: "center", letterSpacing: 1, marginHorizontal: 12 }}>OR ENTER TICKET NUMBER</AppText>
               <View style={styles.dividerLine} />
             </View>
 
@@ -176,51 +176,51 @@ export default function PayoutsScreen() {
               />
             </View>
 
-            {error ? <Text style={styles.errorText}>{error}</Text> : null}
+            {error ? <AppText variant="p2" color={COLORS.danger} style={{ marginTop: 8, textAlign: "center" }}>{error}</AppText> : null}
           </>
         ) : null}
 
         {result ? (
           <View style={styles.ticketCard}>
             <View style={styles.ticketHeader}>
-              <Text style={styles.ticketHeaderText}>Ticket Details</Text>
+              <AppText variant="p1" fontFamily="ManropeExtraBold" color={COLORS.black}>Ticket Details</AppText>
               <View style={[styles.statusBadge, { backgroundColor: result.badgeColor }]}>
-                <Text style={[styles.statusBadgeText, { color: result.badgeTextColor }]}>{result.status}</Text>
+                <AppText variant="p3" fontFamily="ManropeExtraBold" color={result.badgeTextColor}>{result.status}</AppText>
               </View>
             </View>
 
             <View style={styles.ticketBody}>
               <View style={[styles.ticketIcon, { backgroundColor: result.iconColor }]}>
-                <Text style={styles.ticketIconText}>{result.iconText}</Text>
+                <AppText variant="p1" fontFamily="ManropeExtraBold" color={COLORS.black}>{result.iconText}</AppText>
               </View>
               <View style={styles.ticketInfo}>
                 <View style={styles.ticketTitleRow}>
-                  <Text style={styles.ticketTitle}>{result.ticketType}</Text>
+                  <AppText variant="p2" fontFamily="ManropeExtraBold" color={COLORS.black} style={{ flex: 1 }}>{result.ticketType}</AppText>
                   <View style={styles.itemBadge}>
-                    <Text style={styles.itemBadgeText}>{result.option}</Text>
+                    <AppText fontSize={10} fontFamily="ManropeBold" color={COLORS.black}>{result.option}</AppText>
                   </View>
                 </View>
-                <Text style={styles.ticketSubtitle}>{result.subtitle}</Text>
+                <AppText variant="p3" color={COLORS.textSecondary}>{result.subtitle}</AppText>
               </View>
             </View>
 
             <View style={styles.ticketDetailsRow}>
-              <Text style={styles.ticketLabel}>Ticket</Text>
-              <Text style={styles.ticketValue}>No. {result.ticketNumber}</Text>
+              <AppText variant="p3" color="#7F7F7F">Ticket</AppText>
+              <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>No. {result.ticketNumber}</AppText>
             </View>
             <View style={styles.ticketDetailsRow}>
-              <Text style={styles.ticketLabel}>Date</Text>
-              <Text style={styles.ticketValue}>{result.date}</Text>
+              <AppText variant="p3" color="#7F7F7F">Date</AppText>
+              <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>{result.date}</AppText>
             </View>
             <View style={styles.ticketDetailsRow}>
-              <Text style={styles.ticketLabel}>Bet Amount</Text>
-              <Text style={styles.ticketValue}>₱{result.betAmount}</Text>
+              <AppText variant="p3" color="#7F7F7F">Bet Amount</AppText>
+              <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>₱{result.betAmount}</AppText>
             </View>
 
             <View style={[styles.resultBox, { backgroundColor: result.noteBackground }]}>
-              <Text style={[styles.resultText, { color: result.noteColor }]}>{result.note}</Text>
+              <AppText variant="p3" fontFamily="ManropeBold" color={result.noteColor} style={{ flex: 1 }}>{result.note}</AppText>
               {result.status === 'WON' ? (
-                <Text style={[styles.payoutAmount, { color: '#2B7A37' }]}>₱{result.payout}</Text>
+                <AppText variant="h4" fontFamily="ManropeExtraBold" color="#2B7A37">₱{result.payout}</AppText>
               ) : null}
             </View>
           </View>

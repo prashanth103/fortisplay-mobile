@@ -1,11 +1,6 @@
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import {
-  Modal,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import AppText from '@/components/common/AppText';
+import { Modal, Pressable, StyleSheet, View } from 'react-native';
 
 import Button from '@/components/common/Button';
 import { TYPOGRAPHY } from '@/theme/typography';
@@ -47,9 +42,9 @@ export default function ConfirmBetModal({
 
             <View style={styles.header}>
 
-              <Text style={styles.headerTitle}>
+              <AppText variant="h4" fontFamily="ManropeExtraBold" color={COLORS.black}>
                 Confirm Bet
-              </Text>
+              </AppText>
 
               <Pressable onPress={onClose}>
                 <MaterialIcons
@@ -66,9 +61,9 @@ export default function ConfirmBetModal({
             <View style={styles.qrContainer}>
 
               <View style={styles.badge}>
-                <Text style={styles.badgeText}>
+                <AppText fontFamily="ManropeBold" color={COLORS.primary}>
                   KB3 · RACE 8
-                </Text>
+                </AppText>
               </View>
 
               <MaterialIcons
@@ -91,13 +86,13 @@ export default function ConfirmBetModal({
 
               <View>
 
-                <Text style={styles.winLabel}>
+                <AppText fontSize={28} fontFamily="ManropeExtraBold" color="#B27D00" style={{ textAlign: "center" }}>
                   WIN
-                </Text>
+                </AppText>
 
-                <Text style={styles.subLabel}>
+                <AppText fontFamily="ManropeRegular" color={COLORS.textMuted} style={{ textAlign: "center" }}>
                   POOL
-                </Text>
+                </AppText>
 
               </View>
 
@@ -107,29 +102,29 @@ export default function ConfirmBetModal({
 
                   <View style={styles.innerCircle}>
 
-                    <Text style={styles.code}>
+                    <AppText fontFamily="ManropeBold" color={COLORS.black}>
                       {runnerCode}
-                    </Text>
+                    </AppText>
 
                   </View>
 
                 </View>
 
-                <Text style={styles.runnerName}>
+                <AppText fontFamily="ManropeBold" color={COLORS.black} style={{ marginTop: 8 }}>
                   {runnerName}
-                </Text>
+                </AppText>
 
               </View>
 
               <View>
 
-                <Text style={styles.exactLabel}>
+                <AppText fontSize={28} fontFamily="ManropeExtraBold" color={COLORS.black} style={{ textAlign: "center" }}>
                   EXACT
-                </Text>
+                </AppText>
 
-                <Text style={styles.subLabel}>
+                <AppText fontFamily="ManropeRegular" color={COLORS.textMuted} style={{ textAlign: "center" }}>
                   ORDER
-                </Text>
+                </AppText>
 
               </View>
 
@@ -143,14 +138,14 @@ export default function ConfirmBetModal({
 
             <View style={styles.amountRow}>
 
-              <Text style={styles.total}>
+              <AppText variant="h3" fontFamily="ManropeBold" color={COLORS.black}>
                 TOTAL AMOUNT
-              </Text>
+              </AppText>
 
               <View style={styles.amountBox}>
-                <Text style={styles.amount}>
+                <AppText variant="h3" fontFamily="ManropeBold" color="#B27D00">
                   ₱{amount}
-                </Text>
+                </AppText>
               </View>
 
             </View>

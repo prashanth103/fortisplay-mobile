@@ -1,11 +1,6 @@
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import {
-  Modal,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import AppText from '@/components/common/AppText';
+import { Modal, Pressable, StyleSheet, View } from 'react-native';
 
 import { useDevice } from '@/hooks/useDevice';
 import { useThemeColors } from "@/hooks/useThemeColors";
@@ -47,8 +42,8 @@ export default function ProfileModal({
           onPress={(event) => event.stopPropagation()}
         >
           <View style={styles.identity}>
-            <Text style={[styles.profileName, isTablet && styles.tabletProfileName]}>SO name displayed</Text>
-            <Text style={[styles.profileId, isTablet && styles.tabletProfileId]}>SO ID 400001</Text>
+            <AppText variant="p1" fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>SO name displayed</AppText>
+            <AppText variant="p2" fontFamily="ManropeExtraBold" color={COLORS.textSecondary} style={{ marginTop: 4 }}>SO ID 400001</AppText>
           </View>
 
           <Pressable
@@ -60,7 +55,7 @@ export default function ProfileModal({
               size={isTablet ? 30 : 20}
               color={COLORS.primary}
             />
-            <Text style={[styles.menuItemText, isTablet && styles.tabletMenuItemText]}>Change Password</Text>
+            <AppText variant="p1" fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>Change Password</AppText>
           </Pressable>
 
           <Pressable
@@ -72,7 +67,7 @@ export default function ProfileModal({
               size={isTablet ? 30 : 20}
               color="#FF806F"
             />
-            <Text style={[styles.logoutText, isTablet && styles.tabletLogoutText]}>Logout</Text>
+            <AppText variant="p1" fontFamily="ManropeExtraBold" color="#FF8B7E">Logout</AppText>
           </Pressable>
         </Pressable>
       </Pressable>

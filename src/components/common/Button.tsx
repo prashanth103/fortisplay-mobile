@@ -1,16 +1,7 @@
 import React from 'react';
-import {
-  StyleProp,
-  StyleSheet,
-  Text,
-  TextStyle,
-  TouchableOpacity,
-  TouchableOpacityProps,
-  View,
-  ViewStyle,
-} from 'react-native';
+import AppText from '@/components/common/AppText';
+import { StyleProp, StyleSheet, TextStyle, TouchableOpacity, TouchableOpacityProps, View, ViewStyle } from 'react-native';
 import { RADIUS } from '@/theme/radius';
-import { TYPOGRAPHY } from '@/theme/typography';
 import { useThemeColors } from "@/hooks/useThemeColors";
 
 type ButtonVariant = 'primary' | 'outline' | 'ghost';
@@ -39,8 +30,27 @@ export default function Button({
   activeOpacity = 0.85,
   ...touchableProps
 }: Props) {
-    const COLORS = useThemeColors();
-      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+
+  const getTextColor = () => {
+    switch (variant) {
+      case 'primary': return COLORS.black;
+      case 'outline': return COLORS.textPrimary;
+      case 'ghost': return COLORS.textPrimary;
+      default: return COLORS.black;
+    }
+  };
+
+  const getFontSize = () => {
+    switch (size) {
+      case 'sm': return 16;
+      case 'md': return 18;
+      case 'lg': return 20;
+      default: return 18;
+    }
+  };
+
   return (
     <TouchableOpacity
       {...touchableProps}
@@ -56,18 +66,16 @@ export default function Button({
     >
       <View style={[styles.content, contentStyle]}>
         {leftIcon}
-        <Text
+        <AppText
           numberOfLines={1}
           adjustsFontSizeToFit
-          style={[
-            styles.text,
-            styles[`${variant}Text` as keyof typeof styles] as any,
-            styles[`${size}Text` as keyof typeof styles] as any,
-            textStyle,
-          ]}
+          fontFamily="ManropeBold"
+          color={getTextColor()}
+          fontSize={getFontSize()}
+          style={textStyle}
         >
           {title}
-        </Text>
+        </AppText>
         {rightIcon}
       </View>
     </TouchableOpacity>
@@ -111,26 +119,5 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8,
-  },
-  text: {
-    fontWeight: '700',
-  },
-  primaryText: {
-    color: COLORS.black,
-  },
-  outlineText: {
-    color: COLORS.textPrimary,
-  },
-  ghostText: {
-    color: COLORS.textPrimary,
-  },
-  smText: {
-    fontSize: TYPOGRAPHY.body.size,
-  },
-  mdText: {
-    fontSize: TYPOGRAPHY.bodyLarge.size,
-  },
-  lgText: {
-    fontSize: 20,
   },
 });

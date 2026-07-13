@@ -10,11 +10,7 @@ import { TYPOGRAPHY } from '@/theme/typography';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { router } from 'expo-router';
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 export default function LoginScreen() {
   const COLORS = useThemeColors();
@@ -49,14 +45,9 @@ export default function LoginScreen() {
         >
           Welcome back
         </AppText>
-        <Text
-          style={[
-            styles.subtitle,
-            isTablet && styles.subtitleTablet
-          ]}
-        >
+        <AppText variant="p2">
           Sign in to your gaming station
-        </Text>
+        </AppText>
       </View>
 
       <Input
@@ -112,18 +103,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   headerTablet: {
     marginBottom: 56
-  },
-  titleTablet: {
-    fontSize: TYPOGRAPHY.h1.fontSize
-  },
-  subtitle: {
-    color:
-      COLORS.textSecondary,
-    fontSize:
-      TYPOGRAPHY.small.size,
-  },
-  subtitleTablet: {
-    fontSize: TYPOGRAPHY.body.size
   },
   signInButton: {
     height: 54,
