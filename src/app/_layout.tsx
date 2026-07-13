@@ -1,6 +1,7 @@
-﻿import { useFonts } from 'expo-font';
+import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { ThemeProvider } from '@/context/ThemeContext';
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -14,13 +15,13 @@ export default function RootLayout() {
   if (!fontsLoaded) return null;
 
   return (
-    <>
+    <ThemeProvider>
       <StatusBar style="light" />
       <Stack
         screenOptions={{
           headerShown: false,
         }}
       />
-    </>
+    </ThemeProvider>
   );
 }

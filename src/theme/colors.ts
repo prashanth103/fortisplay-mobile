@@ -93,6 +93,102 @@ export const LIGHT_COLORS = {
   black: '#000000',
 } as const;
 
+// export const BLUE_COLORS = {
+//   primary: '#1E88E5',
+//   primaryLight: '#E3F2FD',
+
+//   background: '#F7F7F5',
+//   backgroundSecondary: '#FFFFFF',
+
+//   // Header Colors
+//   headerbg: '#FFFFFF',
+//   iconDark: '#1A1A1A',
+//   iconGrey: '#8A8A8A',
+
+//   surface: '#FFFFFF',
+//   surfaceElevated: '#FBFBFA',
+
+//   border: '#E4E4E1',
+//   borderMuted: '#EDEDEB',
+
+//   textPrimary: '#161616',
+//   textSecondary: '#5C5C5C',
+//   textMuted: '#8F8F8F',
+
+//   danger: '#D6392B',
+
+//   finished: '#1E8A45',
+
+//   payoutBackground: '#E7F5EA',
+
+//   navyCard: '#EEF2F7',
+
+//   walletStatIconColor: "#1565C0",
+//   walletPrimaryDark: "#1976D2",
+//   walletCard: "#FFFFFF",
+//   walletAccent: "#E9C25E",
+//   walletLabel: "#5B6472",
+//   walletText: "#151A21",
+//   walletSuccess: "#1E9E4A",
+//   walletInfo: "#3563D4",
+//   walletIconBackground: "#FBEDC7",
+//   walletHistoryCard: "#F1F4F8",
+
+//   overlay: 'rgba(0,0,0,0.4)',
+
+//   white: '#FFFFFF',
+//   black: '#000000',
+// } as const;
+
+// export const RED_COLORS = {
+//   primary: '#E53935',
+//   primaryLight: '#FFEBEE',
+
+//   background: '#F7F7F5',
+//   backgroundSecondary: '#FFFFFF',
+
+//   // Header Colors
+//   headerbg: '#FFFFFF',
+//   iconDark: '#1A1A1A',
+//   iconGrey: '#8A8A8A',
+
+//   surface: '#FFFFFF',
+//   surfaceElevated: '#FBFBFA',
+
+//   border: '#E4E4E1',
+//   borderMuted: '#EDEDEB',
+
+//   textPrimary: '#161616',
+//   textSecondary: '#5C5C5C',
+//   textMuted: '#8F8F8F',
+
+//   danger: '#D6392B',
+
+//   finished: '#1E8A45',
+
+//   payoutBackground: '#E7F5EA',
+
+//   navyCard: '#EEF2F7',
+
+//   walletStatIconColor: "#C62828",
+//   walletPrimaryDark: "#D32F2F",
+//   walletCard: "#FFFFFF",
+//   walletAccent: "#E9C25E",
+//   walletLabel: "#5B6472",
+//   walletText: "#151A21",
+//   walletSuccess: "#1E9E4A",
+//   walletInfo: "#3563D4",
+//   walletIconBackground: "#FBEDC7",
+//   walletHistoryCard: "#F1F4F8",
+
+//   overlay: 'rgba(0,0,0,0.4)',
+
+//   white: '#FFFFFF',
+//   black: '#000000',
+// } as const;
+
+export type ThemeName = 'light' | 'dark' | 'blue' | 'red';
+
 export type ThemeColors = typeof DARK_COLORS;
 
 // We still export COLORS to satisfy some files that may not be React components (e.g., pure TS functions)

@@ -1,8 +1,7 @@
-import { useState } from 'react';
-
 import BetSlip from '@/components/bet/BetSlip';
 import ConfirmBetModal from '@/components/bet/ConfirmBetModal';
 import TicketModal from '@/components/bet/TicketModal';
+import { useState } from 'react';
 
 import RaceSelector from '@/components/home/RaceSelector';
 
@@ -35,9 +34,22 @@ export default function Home() {
     item => item.id === selectedRunnerId
   );
 
+  // const { themeName, setThemeName } = React.useContext(ThemeContext);
+
   return (
     <Screen>
-
+      {/* <View style={{ flexDirection: 'row', justifyContent: 'center', gap: 10, paddingVertical: 10 }}>
+        {(['light', 'dark', 'blue', 'red'] as const).map(name => (
+          <View key={name}>
+            <Button
+              title={name.toUpperCase()}
+              onPress={() => setThemeName(name)}
+              style={{ backgroundColor: themeName === name ? '#C89512' : '#888', paddingHorizontal: 12, height: 32 }}
+              textStyle={{ fontSize: 12, color: '#FFF' }}
+            />
+          </View>
+        ))}
+      </View> */}
       <View>
         <RaceSelector
           selectedRaceId={selectedRaceId}
