@@ -14,112 +14,98 @@ export const createCommonStyles = (COLORS: any) => StyleSheet.create({
   // Heading
   h1: {
     fontFamily: 'ManropeExtraBold',
-    color: COLORS.textPrimary,
   },
   h1Mobile: {
     fontSize: 32,
-    color: COLORS.textPrimary,
+    lineHeight: 40,
   },
   h1Tablet: {
     fontSize: 36,
-    color: COLORS.textPrimary,
+    lineHeight: 44,
   },
+
   h2: {
     fontFamily: 'ManropeExtraBold',
-    color: COLORS.textPrimary,
   },
   h2Mobile: {
-    fontSize: 28,
-    lineHeight: 36,
-    color: COLORS.textPrimary,
+    fontSize: 24,
+    lineHeight: 30,
   },
   h2Tablet: {
-    fontSize: 34,
-    lineHeight: 42,
-    color: COLORS.textPrimary,
+    fontSize: 28,
+    lineHeight: 36,
   },
+
   h3: {
+    fontFamily: 'ManropeSemiBold',
+  },
+  h3Mobile: {
     fontSize: 22,
-    fontWeight: '600',
-    color: '#E0E7FF',
+    lineHeight: 30,
   },
+  h3Tablet: {
+    fontSize: 26,
+    lineHeight: 34,
+  },
+
   h4: {
-    fontSize: 20,
-    fontWeight: '600',
-    color: '#E0E7FF',
+    fontFamily: 'ManropeSemiBold',
   },
+  h4Mobile: {
+    fontSize: 20,
+    lineHeight: 28,
+  },
+  h4Tablet: {
+    fontSize: 24,
+    lineHeight: 32,
+  },
+
   h5: {
+    fontFamily: 'ManropeSemiBold',
+  },
+  h5Mobile: {
     fontSize: 18,
-    fontWeight: '600',
-    color: '#E0E7FF',
+    lineHeight: 26,
+  },
+  h5Tablet: {
+    fontSize: 22,
+    lineHeight: 30,
   },
 
   // SubHeading
   p1: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: '#D1D5DB',
+    fontFamily: 'ManropeRegular',
   },
   p1Mobile: {
-    fontSize: 20,
-    color: '#D1D5DB',
+    fontSize: 16,
+    lineHeight: 24,
   },
   p1Tablet: {
-    fontSize: 24,
-    color: '#D1D5DB',
-  },
-  p2: {
     fontSize: 18,
-    fontWeight: '400',
-    color: '#D1D5DB',
+    lineHeight: 28,
+  },
+  
+  p2: {
+    fontFamily: 'ManropeRegular',
   },
   p2Mobile: {
-    fontSize: 18,
-    color: '#D1D5DB',
+    fontSize: 14,
+    lineHeight: 20,
   },
   p2Tablet: {
-    fontSize: 20,
-    color: '#D1D5DB',
-  },
-  p3: {
     fontSize: 16,
-    fontWeight: '400',
-    color: '#D1D5DB',
+    lineHeight: 24,
+  },
+  
+  p3: {
+    fontFamily: 'ManropeRegular',
   },
   p3Mobile: {
-    fontSize: 14,
-    color: '#D1D5DB',
+    fontSize: 12,
+    lineHeight: 18,
   },
   p3Tablet: {
-    fontSize: 16,
-    color: '#D1D5DB',
-  },
-  p4: {
     fontSize: 14,
-    fontWeight: '400',
-    color: '#D1D5DB',
+    lineHeight: 20,
   },
-  p4Mobile: {
-    fontSize: 12,
-    color: '#D1D5DB',
-  },
-  p4Tablet: {
-    fontSize: 14,
-    color: '#D1D5DB',
-  },
-
-
-
-  input: {
-    flex: 1,
-    color: COLORS.textPrimary,
-    fontSize: 14,
-    fontWeight: '600',
-
-    borderWidth: 0,
-    backgroundColor: 'transparent',
-
-    includeFontPadding: false,
-    textAlignVertical: 'center',
-  }
 })

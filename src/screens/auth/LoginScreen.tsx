@@ -1,4 +1,5 @@
 import AppLogo from '@/components/common/AppLogo';
+import AppText from '@/components/common/AppText';
 import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
 import AuthLayout from '@/components/layout/AuthLayout';
@@ -40,16 +41,14 @@ export default function LoginScreen() {
         ]}
       >
         <AppLogo size={isTablet ? 120 : 100} />
-        <Text
+        <AppText
+          variant="h2"
+          color={COLORS.textPrimary}
           numberOfLines={1}
           adjustsFontSizeToFit
-          style={[
-            commonStyles.h2,
-            isTablet ? commonStyles.h2Tablet : commonStyles.h2Mobile
-          ]}
         >
           Welcome back
-        </Text>
+        </AppText>
         <Text
           style={[
             styles.subtitle,
