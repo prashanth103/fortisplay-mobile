@@ -4,7 +4,7 @@ import { StyleProp, StyleSheet, TextStyle, TouchableOpacity, TouchableOpacityPro
 import { RADIUS } from '@/theme/radius';
 import { useThemeColors } from "@/hooks/useThemeColors";
 
-type ButtonVariant = 'primary' | 'outline' | 'ghost';
+type ButtonVariant = 'primary' | 'outline' | 'ghost' | 'cancel' | 'danger' | 'verify' | 'scan';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
 interface Props extends TouchableOpacityProps {
@@ -38,6 +38,10 @@ export default function Button({
       case 'primary': return COLORS.black;
       case 'outline': return COLORS.textPrimary;
       case 'ghost': return COLORS.textPrimary;
+      case 'cancel': return COLORS.white;
+      case 'danger': return COLORS.white;
+      case 'verify': return COLORS.primary;
+      case 'scan': return COLORS.white;
       default: return COLORS.black;
     }
   };
@@ -98,6 +102,20 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   ghost: {
     backgroundColor: 'transparent',
+  },
+  cancel: {
+    borderWidth: 1,
+    borderColor: COLORS.textSecondary,
+    backgroundColor: 'transparent',
+  },
+  danger: {
+    backgroundColor: COLORS.danger,
+  },
+  verify: {
+    backgroundColor: COLORS.border,
+  },
+  scan: {
+    backgroundColor: COLORS.surfaceElevated,
   },
   sm: {
     minHeight: 44,

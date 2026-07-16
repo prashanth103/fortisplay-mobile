@@ -36,7 +36,8 @@ export default function LoginScreen() {
       >
         <AppLogo size={isTablet ? 120 : 100} />
         <AppText
-          variant="h2"
+          variant="h3"
+          fontFamily='ManropeExtraBold'
           color={COLORS.textPrimary}
           numberOfLines={1}
           adjustsFontSizeToFit

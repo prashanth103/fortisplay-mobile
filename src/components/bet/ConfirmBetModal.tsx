@@ -157,16 +157,14 @@ export default function ConfirmBetModal({
 
             <Button
               title="Cancel"
-              variant="outline"
+              variant="cancel"
               style={styles.cancel}
-              textStyle={styles.cancelText}
               onPress={onClose}
             />
 
             <Button
               title="Place Bet"
               style={styles.confirm}
-              textStyle={styles.confirmText}
               onPress={onConfirm}
             />
 
@@ -366,31 +364,14 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flex: 1,
     height: 54,
     borderRadius: 12,
-    borderWidth: 1,
-    borderColor: COLORS.textSecondary,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 
   confirm: {
     flex: 1,
     height: 54,
     borderRadius: 12,
-    backgroundColor: COLORS.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 
-  cancelText: {
-    color: COLORS.white,
-    fontWeight: '700',
-    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
-  },
 
-  confirmText: {
-    color: COLORS.black,
-    fontWeight: '700',
-    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
-  },
 
 });

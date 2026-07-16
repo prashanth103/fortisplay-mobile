@@ -1,11 +1,11 @@
-import { useDevice } from '@/hooks/useDevice';
 import AppText from '@/components/common/AppText';
+import { useDevice } from '@/hooks/useDevice';
+import { useThemeColors } from "@/hooks/useThemeColors";
 import { RADIUS } from '@/theme/radius';
 import { TYPOGRAPHY } from '@/theme/typography';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import React, { useState } from 'react';
-import { ColorValue, DimensionValue, Pressable, StyleSheet, StyleProp, TextInput, TextInputProps, View, ViewStyle } from 'react-native';
-import { useThemeColors } from "@/hooks/useThemeColors";
+import { ColorValue, DimensionValue, Pressable, StyleProp, StyleSheet, TextInput, TextInputProps, View, ViewStyle } from 'react-native';
 
 interface Props extends TextInputProps {
   label?: string;
@@ -50,8 +50,8 @@ export default function Input({
 
   ...textInputProps
 }: Props) {
-    const COLORS = useThemeColors();
-      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   const { isTablet } = useDevice();
 
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -68,7 +68,7 @@ export default function Input({
       ]}
     >
       {label && (
-        <AppText variant="p2" fontFamily="ManropeSemiBold" color={COLORS.textPrimary} style={{ marginBottom: isTablet ? 10 : 8 }}>
+        <AppText variant="p3" fontFamily="ManropeExtraBold" color={COLORS.textPrimary} style={{ marginBottom: isTablet ? 10 : 8 }}>
           {label}
         </AppText>
       )}

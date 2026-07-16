@@ -170,8 +170,8 @@ export default function PayoutsScreen() {
               />
               <Button
                 title="Verify"
+                variant="verify"
                 style={styles.verifyButton}
-                textStyle={styles.verifyButtonText}
                 activeOpacity={0.8}
                 onPress={handleVerify}
               />
@@ -230,9 +230,8 @@ export default function PayoutsScreen() {
         {result ? (
           <Button
             title="Scan Another"
-            variant="outline"
+            variant="scan"
             style={styles.scanAnotherButton}
-            textStyle={styles.scanAnotherText}
             activeOpacity={0.8}
             onPress={handleReset}
           />
@@ -374,16 +373,11 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 48,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: COLORS.border,
     borderRadius: RADIUS.lg,
     paddingHorizontal: SPACING.md,
   },
 
-  verifyButtonText: {
-    color: COLORS.primary,
-    fontWeight: '800',
-    fontSize: 14,
-  },
+
   errorText: {
     color: COLORS.danger,
     marginTop: SPACING.sm,
@@ -497,13 +491,8 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   scanAnotherButton: {
     marginTop: SPACING.lg,
     borderRadius: RADIUS.xl,
-    borderWidth: 1,
-    borderColor: COLORS.border,
     paddingVertical: SPACING.md,
     alignItems: 'center',
   },
-  scanAnotherText: {
-    color: COLORS.textPrimary,
-    fontWeight: '800',
-  },
+
 });

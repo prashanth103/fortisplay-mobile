@@ -67,11 +67,11 @@ export default function LiveRace({
 
       <Button
         title="Watch Live"
+        variant="danger"
         style={[
           styles.button,
           isTablet && styles.buttonTablet,
         ]}
-        textStyle={styles.buttonText}
         onPress={onWatchLive}
         leftIcon={(
           <MaterialIcons
@@ -175,7 +175,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     width: 180,
     height: 54,
     borderRadius: RADIUS.lg,
-    backgroundColor: COLORS.danger,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -196,10 +195,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 60,
   },
 
-  buttonText: {
-    color: COLORS.white,
-    fontWeight: '700',
-    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
-  },
+
 
 });
