@@ -8,13 +8,9 @@ export function useDevice() {
 
   const isTablet = width >= BREAKPOINTS.tablet;
 
-  const isLargeTablet =
-    width >= BREAKPOINTS.largeTablet;
-
   return {
     width,
     height,
-    isTablet,
-    isLargeTablet
+    isTablet
   };
 }
