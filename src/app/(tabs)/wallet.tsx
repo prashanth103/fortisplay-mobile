@@ -1,5 +1,4 @@
-import { RADIUS } from '@/theme/radius';
-import { SPACING } from '@/theme/spacing';
+import { RADIUS, SPACING } from '@/theme';
 import AppText from '@/components/common/AppText';
 import Screen from '@/components/layout/Screen';
 import { useThemeColors } from "@/hooks/useThemeColors";

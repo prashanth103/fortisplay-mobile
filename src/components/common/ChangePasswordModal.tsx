@@ -1,6 +1,4 @@
-import { RADIUS } from '@/theme/radius';
-import { SHADOWS } from '@/theme/shadows';
-import { SPACING } from '@/theme/spacing';
+import { BORDERS, RADIUS, SHADOWS, SPACING } from '@/theme';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
 import { useState } from 'react';
@@ -121,7 +119,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     width: '100%',
     maxWidth: 480,
     borderRadius: RADIUS.xl,
-    borderWidth: 1,
+    borderWidth: BORDERS.ultraThin,
     borderColor: COLORS.modalBorder,
     backgroundColor: COLORS.surfaceElevated,
     overflow: 'hidden',
@@ -133,7 +131,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   header: {
     height: 66,
     paddingHorizontal: SPACING.xxl,
-    borderBottomWidth: 1,
+    borderBottomWidth: BORDERS.ultraThin,
     borderBottomColor: COLORS.border,
     flexDirection: 'row',
     alignItems: 'center',
@@ -161,7 +159,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flex: 0.82,
     height: 54,
     borderRadius: RADIUS.md,
-    borderWidth: 2,
+    borderWidth: BORDERS.thin,
     borderColor: COLORS.inputBorderFocused,
     justifyContent: 'center',
     alignItems: 'center',

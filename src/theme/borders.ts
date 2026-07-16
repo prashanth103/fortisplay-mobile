@@ -1,8 +1,10 @@
 export const BORDERS = {
 
   none: 0,
-  thin: 1,
-  medium: 2,
-  thick: 3,
+  ultraThin: 1,
+  thin: 2,
+  medium: 3,
+  thick: 4,
+  ultraThick: 5,
 
 } as const;

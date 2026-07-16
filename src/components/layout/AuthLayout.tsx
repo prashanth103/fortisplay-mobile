@@ -1,7 +1,8 @@
+import { BORDERS, SPACING } from '@/theme';
 import { useDevice } from '@/hooks/useDevice';
 import AppText from '@/components/common/AppText';
 import { useThemeColors } from "@/hooks/useThemeColors";
-import { SPACING } from '@/theme/spacing';
+
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -60,7 +61,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   footer: {
     paddingBottom: SPACING.xxl,
     alignItems: 'center',
-    borderTopWidth: 2,
+    borderTopWidth: BORDERS.thin,
     borderTopColor: COLORS.border,
     paddingTop: SPACING.md,
   },

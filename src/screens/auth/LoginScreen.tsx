@@ -1,4 +1,4 @@
-import { SPACING } from '@/theme/spacing';
+import { OPACITY, SHADOWS, SPACING, TYPOGRAPHY } from '@/theme';
 import AppLogo from '@/components/common/AppLogo';
 import AppText from '@/components/common/AppText';
 import Button from '@/components/common/Button';
@@ -6,8 +6,7 @@ import Input from '@/components/common/Input';
 import AuthLayout from '@/components/layout/AuthLayout';
 import { useDevice } from '@/hooks/useDevice';
 import { useThemeColors } from "@/hooks/useThemeColors";
-import { TYPOGRAPHY } from '@/theme/typography';
-import { SHADOWS } from '@/theme/shadows';
+
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { router } from 'expo-router';
 import React, { useState } from "react";
@@ -90,7 +89,7 @@ export default function LoginScreen() {
           styles.signInText,
           isTablet && styles.signInTextTablet,
         ]}
-        activeOpacity={0.9}
+        activeOpacity={OPACITY.activeHigh}
       />
 
     </AuthLayout>

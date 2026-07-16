@@ -1,14 +1,13 @@
+import { BORDERS, RADIUS, SHADOWS, SPACING, TYPOGRAPHY } from '@/theme';
 import AppText from '@/components/common/AppText';
-import { RADIUS } from '@/theme/radius';
+
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
 import { useThemeColors } from "@/hooks/useThemeColors";
-import { SHADOWS } from '@/theme/shadows';
-import { SPACING } from '@/theme/spacing';
-import { TYPOGRAPHY } from '@/theme/typography';
+
 import * as React from "react";
 
 interface Props {
@@ -251,7 +250,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   amountInputContainer: {
     height: 46,
-    borderWidth: 2,
+    borderWidth: BORDERS.thin,
     borderColor: COLORS.primary,
     borderRadius: RADIUS.sm,
     backgroundColor: COLORS.white,

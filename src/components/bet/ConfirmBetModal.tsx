@@ -1,11 +1,10 @@
-import { RADIUS } from '@/theme/radius';
-import { SPACING } from '@/theme/spacing';
+import { BORDERS, RADIUS, SPACING, TYPOGRAPHY } from '@/theme';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 
 import Button from '@/components/common/Button';
-import { TYPOGRAPHY } from '@/theme/typography';
+
 import { useThemeColors } from "@/hooks/useThemeColors";
 import * as React from "react";
 
@@ -207,7 +206,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   header: {
     height: 64,
     paddingHorizontal: SPACING.xl,
-    borderBottomWidth: 1,
+    borderBottomWidth: BORDERS.ultraThin,
     borderBottomColor: COLORS.ticketBorder,
     flexDirection: 'row',
     alignItems: 'center',
@@ -263,7 +262,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   line: {
     flex: 1,
-    borderTopWidth: 1,
+    borderTopWidth: BORDERS.ultraThin,
     borderTopColor: COLORS.textSecondary,
     borderStyle: 'dashed',
   },
@@ -342,7 +341,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   amountBox: {
-    borderWidth: 2,
+    borderWidth: BORDERS.thin,
     borderColor: COLORS.primary,
     borderRadius: RADIUS.sm,
     paddingHorizontal: SPACING.xl,
@@ -373,7 +372,5 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 54,
     borderRadius: RADIUS.sm,
   },
-
-
 
 });

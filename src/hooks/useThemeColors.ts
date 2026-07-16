@@ -1,5 +1,6 @@
+import { DARK_COLORS, LIGHT_COLORS } from '@/theme';
 import { ThemeContext } from '@/context/ThemeContext';
-import { DARK_COLORS, LIGHT_COLORS } from '@/theme/colors';
+
 import { useContext } from 'react';
 
 export function useThemeColors() {

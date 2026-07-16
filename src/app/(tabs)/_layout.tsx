@@ -1,5 +1,6 @@
+import { BORDERS, SPACING } from '@/theme';
 import AppText from '@/components/common/AppText';
-import { SPACING } from '@/theme/spacing';
+
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
@@ -61,7 +62,7 @@ export default function TabsLayout() {
         tabBarInactiveTintColor: COLORS.textSecondary,
         tabBarStyle: {
           backgroundColor: COLORS.surface,
-          borderTopWidth: 0,
+          borderTopWidth: BORDERS.none,
           height: 64 + bottomPadding,
           paddingTop: SPACING.sm,
           paddingBottom: bottomPadding,

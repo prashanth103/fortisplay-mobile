@@ -1,13 +1,11 @@
+import { BORDERS, RADIUS, SHADOWS, SPACING, TYPOGRAPHY } from '@/theme';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
 import { StyleSheet, View } from 'react-native';
 
 import Button from '@/components/common/Button';
 import { useDevice } from '@/hooks/useDevice';
-import { RADIUS } from '@/theme/radius';
-import { SPACING } from '@/theme/spacing';
-import { TYPOGRAPHY } from '@/theme/typography';
-import { SHADOWS } from '@/theme/shadows';
+
 import { useThemeColors } from "@/hooks/useThemeColors";
 import * as React from "react";
 
@@ -93,7 +91,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flex: 1,
     marginTop: SPACING.md,
     borderRadius: RADIUS.xl,
-    borderWidth: 1,
+    borderWidth: BORDERS.ultraThin,
     borderColor: COLORS.border,
     borderTopColor: COLORS.danger,
     backgroundColor: COLORS.surface,
@@ -113,7 +111,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 34,
     borderRadius: RADIUS.xl,
     backgroundColor: COLORS.liveRaceBackground,
-    borderWidth: 1,
+    borderWidth: BORDERS.ultraThin,
     borderColor: COLORS.liveRaceBorder,
   },
 
@@ -187,7 +185,5 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     width: 220,
     height: 60,
   },
-
-
 
 });

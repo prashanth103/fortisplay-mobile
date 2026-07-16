@@ -1,9 +1,9 @@
+import { BORDERS, OPACITY, RADIUS, SPACING, Z_INDEX } from '@/theme';
 import AppText from '@/components/common/AppText';
 import StripedBackground from '@/components/common/StripedBackground';
 import Screen from '@/components/layout/Screen';
 import { useThemeColors } from "@/hooks/useThemeColors";
-import { RADIUS } from '@/theme/radius';
-import { SPACING } from '@/theme/spacing';
+
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import React, { useMemo, useState } from "react";
 import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
@@ -140,7 +140,7 @@ export default function WatchScreen() {
               styles.raceCard,
               race.id === selectedRaceId && styles.raceCardSelected,
             ]}
-            activeOpacity={0.8}
+            activeOpacity={OPACITY.active}
             onPress={() => setSelectedRaceId(race.id)}
           >
             <View style={styles.raceRow}>
@@ -181,7 +181,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    zIndex: 10,
+    zIndex: Z_INDEX.elevated,
   },
   badge: {
     flexDirection: 'row',
@@ -219,7 +219,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     ...StyleSheet.absoluteFill,
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 5,
+    zIndex: Z_INDEX.base,
   },
   iconCircle: {
     width: 56,
@@ -239,7 +239,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   videoFooter: {
     flexDirection: 'row',
     alignItems: 'center',
-    zIndex: 10,
+    zIndex: Z_INDEX.elevated,
   },
   footerIconLeft: {
     marginRight: SPACING.md,
@@ -286,7 +286,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderRadius: RADIUS.lg,
     padding: SPACING.lg,
     marginBottom: SPACING.md,
-    borderWidth: 1,
+    borderWidth: BORDERS.ultraThin,
     borderColor: COLORS.border,
   },
   raceCardSelected: {

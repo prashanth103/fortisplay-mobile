@@ -1,8 +1,8 @@
-import { RADIUS } from '@/theme/radius';
+import { BORDERS, RADIUS, SPACING } from '@/theme';
 import { useState } from 'react';
 import AppText from '@/components/common/AppText';
 import { Pressable, StyleSheet, View } from 'react-native';
-import { SPACING } from '@/theme/spacing';
+
 import { useThemeColors } from "@/hooks/useThemeColors";
 import React from "react";
 
@@ -72,8 +72,8 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
     flexDirection: 'row',
     backgroundColor: COLORS.surface,
-    borderTopWidth: 2,
-    borderBottomWidth: 1,
+    borderTopWidth: BORDERS.thin,
+    borderBottomWidth: BORDERS.ultraThin,
     borderTopColor: COLORS.primary,
     borderColor: COLORS.border,
     borderTopRightRadius: RADIUS.md,
@@ -89,7 +89,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   activeItem: {
     backgroundColor: COLORS.betTypeTabBackground,
-    borderBottomWidth: 3,
+    borderBottomWidth: BORDERS.medium,
     borderBottomColor: COLORS.primary,
   },
 

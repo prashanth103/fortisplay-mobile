@@ -1,5 +1,7 @@
 export const Z_INDEX = {
 
+  base: 10,
+  elevated: 20,
   dropdown: 100,
 
   modal: 500,

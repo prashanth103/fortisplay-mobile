@@ -1,9 +1,8 @@
-import { SPACING } from '@/theme/spacing';
+import { BORDERS, RADIUS, SPACING, TYPOGRAPHY } from '@/theme';
 import AppText from '@/components/common/AppText';
 import { useDevice } from '@/hooks/useDevice';
 import { useThemeColors } from "@/hooks/useThemeColors";
-import { RADIUS } from '@/theme/radius';
-import { TYPOGRAPHY } from '@/theme/typography';
+
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import React, { useState } from 'react';
 import { ColorValue, DimensionValue, Pressable, StyleProp, StyleSheet, TextInput, TextInputProps, View, ViewStyle } from 'react-native';
@@ -163,7 +162,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   inputContainer: {
     height: 52,
-    borderWidth: 1,
+    borderWidth: BORDERS.ultraThin,
     borderColor: COLORS.border,
     borderRadius: RADIUS.md,
     backgroundColor: COLORS.surface,

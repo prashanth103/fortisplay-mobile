@@ -1,5 +1,4 @@
-import { RADIUS } from '@/theme/radius';
-import { SPACING } from '@/theme/spacing';
+import { RADIUS, SPACING } from '@/theme';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
 import { router } from 'expo-router';

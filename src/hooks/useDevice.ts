@@ -1,6 +1,5 @@
+import { BREAKPOINTS } from '@/theme';
 import { useWindowDimensions } from 'react-native';
-
-import { BREAKPOINTS } from '@/theme/breakpoints';
 
 export function useDevice() {
 

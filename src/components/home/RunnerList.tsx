@@ -1,4 +1,4 @@
-import { RADIUS } from '@/theme/radius';
+import { BORDERS, RADIUS } from '@/theme';
 import { FlatList, StyleSheet } from 'react-native';
 
 import RunnerCard from './RunnerCard';
@@ -52,7 +52,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   content: {
     flexGrow: 1,
-    borderBottomWidth: 1,
+    borderBottomWidth: BORDERS.ultraThin,
     borderBottomColor: COLORS.border,
     borderBottomLeftRadius: RADIUS.sm,
     borderBottomRightRadius: RADIUS.sm,

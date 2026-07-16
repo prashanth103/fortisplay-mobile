@@ -1,4 +1,4 @@
-import { ThemeName } from '@/theme/colors';
+import { ThemeName } from '@/theme';
 import { createContext, ReactNode, useEffect, useState } from 'react';
 import { Appearance } from 'react-native';
 
@@ -17,7 +17,6 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   //   Appearance.getColorScheme() === 'dark' ? 'dark' : 'light'
   // );
   const [themeName, setThemeName] = useState<ThemeName>('dark');
-
 
   // Listen to system theme changes if we are currently using 'light' or 'dark'
   useEffect(() => {

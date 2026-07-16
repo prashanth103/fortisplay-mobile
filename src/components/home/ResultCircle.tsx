@@ -1,5 +1,4 @@
-import { RADIUS } from '@/theme/radius';
-import { SPACING } from '@/theme/spacing';
+import { RADIUS, SPACING } from '@/theme';
 import { StyleSheet, View } from 'react-native';
 import AppText from '@/components/common/AppText';
 import { useThemeColors } from "@/hooks/useThemeColors";

@@ -1,10 +1,9 @@
+import { BORDERS, OPACITY, RADIUS, SHADOWS, SPACING } from '@/theme';
 import AppText from '@/components/common/AppText';
 import Input from '@/components/common/Input';
 import Screen from '@/components/layout/Screen';
 import { useThemeColors } from "@/hooks/useThemeColors";
-import { RADIUS } from '@/theme/radius';
-import { SHADOWS } from '@/theme/shadows';
-import { SPACING } from '@/theme/spacing';
+
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useRouter } from 'expo-router';
 import React, { useMemo, useState } from "react";
@@ -281,7 +280,7 @@ export default function SalesScreen() {
           </View>
         ) : (
           filteredSales.map((item) => (
-            <TouchableOpacity key={item.id} style={styles.saleCard} activeOpacity={0.8} onPress={() => handleItemPress(item.ticketNumber)}>
+            <TouchableOpacity key={item.id} style={styles.saleCard} activeOpacity={OPACITY.active} onPress={() => handleItemPress(item.ticketNumber)}>
               <View style={[styles.avatarBorder, { borderColor: item.avatarColor, backgroundColor: item.avatarColor }]}>
                 <View style={styles.avatar}>
                   <AppText variant="p2" fontFamily="ManropeBold" color={item.avatarTextColor}>{item.avatarText}</AppText>
@@ -366,7 +365,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     paddingVertical: SPACING.md,
     paddingHorizontal: SPACING.lg,
     marginBottom: SPACING.md,
-    borderWidth: 1,
+    borderWidth: BORDERS.ultraThin,
     borderColor: COLORS.border,
   },
   avatarBorder: {

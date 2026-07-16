@@ -6,4 +6,10 @@ export const OPACITY = {
 
   overlay: 0.5,
 
+  active: 0.8,
+  
+  activeMedium: 0.85,
+  
+  activeHigh: 0.9,
+
 } as const;

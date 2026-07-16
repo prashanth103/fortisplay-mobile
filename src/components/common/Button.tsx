@@ -1,8 +1,8 @@
-import { SPACING } from '@/theme/spacing';
+import { BORDERS, OPACITY, RADIUS, SPACING } from '@/theme';
 import React from 'react';
 import AppText from '@/components/common/AppText';
 import { StyleProp, StyleSheet, TextStyle, TouchableOpacity, TouchableOpacityProps, View, ViewStyle } from 'react-native';
-import { RADIUS } from '@/theme/radius';
+
 import { useThemeColors } from "@/hooks/useThemeColors";
 
 type ButtonVariant = 'primary' | 'outline' | 'ghost' | 'cancel' | 'danger' | 'verify' | 'scan';
@@ -28,7 +28,7 @@ export default function Button({
   textStyle,
   contentStyle,
   disabled,
-  activeOpacity = 0.85,
+  activeOpacity = OPACITY.activeMedium,
   ...touchableProps
 }: Props) {
   const COLORS = useThemeColors();
@@ -97,7 +97,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     backgroundColor: COLORS.primary,
   },
   outline: {
-    borderWidth: 1,
+    borderWidth: BORDERS.ultraThin,
     borderColor: COLORS.border,
     backgroundColor: COLORS.transparent,
   },
@@ -105,7 +105,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     backgroundColor: COLORS.transparent,
   },
   cancel: {
-    borderWidth: 1,
+    borderWidth: BORDERS.ultraThin,
     borderColor: COLORS.textSecondary,
     backgroundColor: COLORS.transparent,
   },
@@ -131,7 +131,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     paddingHorizontal: SPACING.xl,
   },
   disabled: {
-    opacity: 0.55,
+    opacity: OPACITY.disabled,
   },
   content: {
     flexDirection: 'row',

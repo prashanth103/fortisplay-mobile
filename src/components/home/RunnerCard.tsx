@@ -1,11 +1,10 @@
+import { BORDERS, RADIUS, SPACING, TYPOGRAPHY } from '@/theme';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import { useDevice } from '@/hooks/useDevice';
-import { RADIUS } from '@/theme/radius';
-import { SPACING } from '@/theme/spacing';
-import { TYPOGRAPHY } from '@/theme/typography';
+
 import { useThemeColors } from "@/hooks/useThemeColors";
 import * as React from "react";
 
@@ -91,7 +90,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: COLORS.surface,
     overflow: 'hidden', // important
-    borderWidth: 1,
+    borderWidth: BORDERS.ultraThin,
     borderColor: COLORS.border
   },
 
@@ -179,7 +178,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: RADIUS.md,
-    borderWidth: 2,
+    borderWidth: BORDERS.thin,
     borderColor: COLORS.primary,
     backgroundColor: COLORS.runnerCardBackground,
     justifyContent: 'center',

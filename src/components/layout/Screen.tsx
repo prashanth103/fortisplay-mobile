@@ -1,9 +1,10 @@
+import { SPACING } from '@/theme';
 import { ReactNode } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import AppHeader from '@/components/common/AppHeader';
-import { SPACING } from '@/theme/spacing';
+
 import { useThemeColors } from "@/hooks/useThemeColors";
 import React from "react";
 

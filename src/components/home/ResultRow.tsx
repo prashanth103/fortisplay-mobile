@@ -1,8 +1,9 @@
+import { BORDERS, SPACING } from '@/theme';
 import { StyleSheet, View } from 'react-native';
 import AppText from '@/components/common/AppText';
 
 import ResultCircle from './ResultCircle';
-import { SPACING } from '@/theme/spacing';
+
 import { useThemeColors } from "@/hooks/useThemeColors";
 import * as React from "react";
 
@@ -48,7 +49,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
     paddingVertical: SPACING.xl,
     paddingHorizontal: SPACING.lg,
-    borderBottomWidth: 1,
+    borderBottomWidth: BORDERS.ultraThin,
     borderBottomColor: COLORS.resultRowBorder,
     flexDirection: 'row',
     alignItems: 'center',

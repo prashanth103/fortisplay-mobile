@@ -1,4 +1,4 @@
-import { SPACING } from '@/theme/spacing';
+import { SPACING } from '@/theme';
 import BetSlip from '@/components/bet/BetSlip';
 import ConfirmBetModal from '@/components/bet/ConfirmBetModal';
 import TicketModal from '@/components/bet/TicketModal';

@@ -1,11 +1,11 @@
+import { BORDERS, RADIUS, SPACING } from '@/theme';
 import { StyleSheet, View } from 'react-native';
 import AppText from '@/components/common/AppText';
 
 import ResultRow from './ResultRow';
 
 import { RESULT_ROWS } from '@/data/runners';
-import { RADIUS } from '@/theme/radius';
-import { SPACING } from '@/theme/spacing';
+
 import { useThemeColors } from "@/hooks/useThemeColors";
 import * as React from "react";
 
@@ -44,10 +44,10 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
     marginTop: SPACING.md,
     backgroundColor: COLORS.surface,
-    borderWidth: 1,
+    borderWidth: BORDERS.ultraThin,
     borderColor: COLORS.border,
     borderTopColor: COLORS.finished,
-    borderTopWidth: 2,
+    borderTopWidth: BORDERS.thin,
     borderRadius: RADIUS.xl,
     overflow: 'hidden',
   },
@@ -55,7 +55,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   header: {
     justifyContent: 'center',
     alignItems: 'center',
-    borderBottomWidth: 1,
+    borderBottomWidth: BORDERS.ultraThin,
     borderBottomColor: COLORS.resultRowBorder,
     paddingVertical: SPACING.lg
   },

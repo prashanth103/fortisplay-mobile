@@ -1,5 +1,6 @@
+import { TYPOGRAPHY } from '@/theme';
 import { useThemeColors } from '@/hooks/useThemeColors';
-import { TYPOGRAPHY } from '@/theme/typography';
+
 import React from 'react';
 import { StyleSheet, Text, TextProps, ColorValue } from 'react-native';
 

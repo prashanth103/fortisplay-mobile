@@ -1,16 +1,14 @@
+import { BORDERS, OPACITY, RADIUS, SPACING } from '@/theme';
 import AppText from '@/components/common/AppText';
 import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
 import Screen from '@/components/layout/Screen';
 import { useThemeColors } from "@/hooks/useThemeColors";
-import { RADIUS } from '@/theme/radius';
-import { SPACING } from '@/theme/spacing';
+
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useLocalSearchParams } from 'expo-router';
 import React, { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, View } from 'react-native';
-
-
 
 export default function PayoutsScreen() {
   const COLORS = useThemeColors();
@@ -145,7 +143,7 @@ export default function PayoutsScreen() {
               title="Scan Ticket"
               style={styles.scanButton}
               textStyle={styles.scanButtonText}
-              activeOpacity={0.8}
+              activeOpacity={OPACITY.active}
               onPress={handleReset}
               leftIcon={<MaterialIcons name="qr-code-scanner" size={20} color={COLORS.black} />}
             />
@@ -172,7 +170,7 @@ export default function PayoutsScreen() {
                 title="Verify"
                 variant="verify"
                 style={styles.verifyButton}
-                activeOpacity={0.8}
+                activeOpacity={OPACITY.active}
                 onPress={handleVerify}
               />
             </View>
@@ -232,7 +230,7 @@ export default function PayoutsScreen() {
             title="Scan Another"
             variant="scan"
             style={styles.scanAnotherButton}
-            activeOpacity={0.8}
+            activeOpacity={OPACITY.active}
             onPress={handleReset}
           />
         ) : null}
@@ -276,8 +274,8 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     left: SPACING.lg,
     width: 24,
     height: 24,
-    borderTopWidth: 2,
-    borderLeftWidth: 2,
+    borderTopWidth: BORDERS.thin,
+    borderLeftWidth: BORDERS.thin,
     borderColor: COLORS.primary,
     borderTopLeftRadius: RADIUS.xs,
   },
@@ -287,8 +285,8 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     right: SPACING.lg,
     width: 24,
     height: 24,
-    borderTopWidth: 2,
-    borderRightWidth: 2,
+    borderTopWidth: BORDERS.thin,
+    borderRightWidth: BORDERS.thin,
     borderColor: COLORS.primary,
     borderTopRightRadius: RADIUS.xs,
   },
@@ -298,8 +296,8 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     left: SPACING.lg,
     width: 24,
     height: 24,
-    borderBottomWidth: 2,
-    borderLeftWidth: 2,
+    borderBottomWidth: BORDERS.thin,
+    borderLeftWidth: BORDERS.thin,
     borderColor: COLORS.primary,
     borderBottomLeftRadius: RADIUS.xs,
   },
@@ -309,8 +307,8 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     right: SPACING.lg,
     width: 24,
     height: 24,
-    borderBottomWidth: 2,
-    borderRightWidth: 2,
+    borderBottomWidth: BORDERS.thin,
+    borderRightWidth: BORDERS.thin,
     borderColor: COLORS.primary,
     borderBottomRightRadius: RADIUS.xs,
   },
@@ -376,7 +374,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderRadius: RADIUS.lg,
     paddingHorizontal: SPACING.md,
   },
-
 
   errorText: {
     color: COLORS.danger,

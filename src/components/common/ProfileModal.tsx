@@ -1,6 +1,4 @@
-import { RADIUS } from '@/theme/radius';
-import { SHADOWS } from '@/theme/shadows';
-import { SPACING } from '@/theme/spacing';
+import { BORDERS, RADIUS, SHADOWS, SPACING } from '@/theme';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
@@ -89,7 +87,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     width: 250,
     backgroundColor: COLORS.surfaceElevated,
     borderRadius: RADIUS.md,
-    borderWidth: 1,
+    borderWidth: BORDERS.ultraThin,
     borderColor: COLORS.modalBorder,
     overflow: 'hidden',
     ...SHADOWS.dropdown,
@@ -138,7 +136,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   menuItem: {
     minHeight: 50,
     paddingHorizontal: SPACING.xxl,
-    borderTopWidth: 1,
+    borderTopWidth: BORDERS.ultraThin,
     borderTopColor: COLORS.border,
     flexDirection: 'row',
     alignItems: 'center',
@@ -147,7 +145,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   tabletMenuItem: {
     minHeight: 66,
     paddingHorizontal: SPACING.xxl,
-    borderTopWidth: 1,
+    borderTopWidth: BORDERS.ultraThin,
     borderTopColor: COLORS.border,
     flexDirection: 'row',
     alignItems: 'center',
