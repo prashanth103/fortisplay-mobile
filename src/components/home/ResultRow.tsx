@@ -49,7 +49,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     paddingVertical: 18,
     paddingHorizontal: SPACING.lg,
     borderBottomWidth: 1,
-    borderBottomColor: '#4D3C18',
+    borderBottomColor: COLORS.resultRowBorder,
     flexDirection: 'row',
     alignItems: 'center',
   },

@@ -10,83 +10,84 @@ import { useLocalSearchParams } from 'expo-router';
 import React, { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, View } from 'react-native';
 
-const ticketData = {
-  '8266150525': {
-    status: 'WON',
-    badgeColor: '#D9F4E0',
-    badgeTextColor: '#2B7A37',
-    note: 'Payout due',
-    payout: 75,
-    ticketType: 'KB2 · WIN',
-    option: 'EXACT',
-    ticketNumber: '8266150525',
-    date: '21-06-2026, 4:32 PM',
-    betAmount: 5,
-    iconText: 'YW',
-    iconColor: '#F8D44E',
-    subtitle: 'Yellow',
-    noteText: 'Payout due',
-    noteBackground: '#D9F4E0',
-    noteColor: '#2B7A37',
-  },
-  '8259181740': {
-    status: 'LOST',
-    badgeColor: '#F2F2F2',
-    badgeTextColor: '#4F4F4F',
-    note: 'No payout — this ticket did not win.',
-    payout: 0,
-    ticketType: 'KB1 · WIN',
-    option: 'EXACT',
-    ticketNumber: '8259181740',
-    date: '21-06-2026, 4:05 PM',
-    betAmount: 5,
-    iconText: 'LG',
-    iconColor: '#5FD27C',
-    subtitle: 'Light Green',
-    noteBackground: '#F2F2F2',
-    noteColor: '#4F4F4F',
-  },
-  '8266144213': {
-    status: 'LOST',
-    badgeColor: '#F2F2F2',
-    badgeTextColor: '#4F4F4F',
-    note: 'No payout — this ticket did not win.',
-    payout: 0,
-    ticketType: 'KB1 · FORECAST',
-    option: 'ANY',
-    ticketNumber: '8266144213',
-    date: '21-06-2026, 4:18 PM',
-    betAmount: 10,
-    iconText: 'SB',
-    iconColor: '#6BB9FF',
-    subtitle: 'Light Blue',
-    noteBackground: '#F2F2F2',
-    noteColor: '#4F4F4F',
-  },
-  '824290817': {
-    status: 'PENDING',
-    badgeColor: '#FEF4CC',
-    badgeTextColor: '#B08B24',
-    note: 'Race not finished — payout pending result.',
-    payout: 0,
-    ticketType: 'KB3 · WIN',
-    option: 'EXACT',
-    ticketNumber: '824290817',
-    date: '21-06-2026, 3:25 PM',
-    betAmount: 5,
-    iconText: 'RD',
-    iconColor: '#F15151',
-    subtitle: 'Red',
-    noteBackground: '#FEF4CC',
-    noteColor: '#B08B24',
-  },
-};
 
-type TicketResult = typeof ticketData[keyof typeof ticketData];
 
 export default function PayoutsScreen() {
   const COLORS = useThemeColors();
   const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const ticketData = React.useMemo(() => ({
+    '8266150525': {
+      status: 'WON',
+      badgeColor: COLORS.successBackground,
+      badgeTextColor: COLORS.successText,
+      note: 'Payout due',
+      payout: 75,
+      ticketType: 'KB2 · WIN',
+      option: 'EXACT',
+      ticketNumber: '8266150525',
+      date: '21-06-2026, 4:32 PM',
+      betAmount: 5,
+      iconText: 'YW',
+      iconColor: COLORS.avatarYellow,
+      subtitle: 'Yellow',
+      noteText: 'Payout due',
+      noteBackground: COLORS.successBackground,
+      noteColor: COLORS.successText,
+    },
+    '8259181740': {
+      status: 'LOST',
+      badgeColor: COLORS.neutralBackground,
+      badgeTextColor: COLORS.neutralText,
+      note: 'No payout — this ticket did not win.',
+      payout: 0,
+      ticketType: 'KB1 · WIN',
+      option: 'EXACT',
+      ticketNumber: '8259181740',
+      date: '21-06-2026, 4:05 PM',
+      betAmount: 5,
+      iconText: 'LG',
+      iconColor: COLORS.avatarGreenLight,
+      subtitle: 'Light Green',
+      noteBackground: COLORS.neutralBackground,
+      noteColor: COLORS.neutralText,
+    },
+    '8266144213': {
+      status: 'LOST',
+      badgeColor: COLORS.neutralBackground,
+      badgeTextColor: COLORS.neutralText,
+      note: 'No payout — this ticket did not win.',
+      payout: 0,
+      ticketType: 'KB1 · FORECAST',
+      option: 'ANY',
+      ticketNumber: '8266144213',
+      date: '21-06-2026, 4:18 PM',
+      betAmount: 10,
+      iconText: 'SB',
+      iconColor: COLORS.avatarBlue,
+      subtitle: 'Light Blue',
+      noteBackground: COLORS.neutralBackground,
+      noteColor: COLORS.neutralText,
+    },
+    '824290817': {
+      status: 'PENDING',
+      badgeColor: COLORS.warningBackground,
+      badgeTextColor: COLORS.warningText,
+      note: 'Race not finished — payout pending result.',
+      payout: 0,
+      ticketType: 'KB3 · WIN',
+      option: 'EXACT',
+      ticketNumber: '824290817',
+      date: '21-06-2026, 3:25 PM',
+      betAmount: 5,
+      iconText: 'RD',
+      iconColor: COLORS.avatarRed,
+      subtitle: 'Red',
+      noteBackground: COLORS.warningBackground,
+      noteColor: COLORS.warningText,
+    },
+  }), [COLORS]);
+
+  type TicketResult = typeof ticketData[keyof typeof ticketData];
   const { ticket } = useLocalSearchParams();
   const ticketQuery = Array.isArray(ticket) ? ticket[0] : ticket ?? '';
   const [ticketNumber, setTicketNumber] = useState('');
@@ -205,22 +206,22 @@ export default function PayoutsScreen() {
             </View>
 
             <View style={styles.ticketDetailsRow}>
-              <AppText variant="p3" color="#7F7F7F">Ticket</AppText>
+              <AppText variant="p3" color={COLORS.tableHeader}>Ticket</AppText>
               <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>No. {result.ticketNumber}</AppText>
             </View>
             <View style={styles.ticketDetailsRow}>
-              <AppText variant="p3" color="#7F7F7F">Date</AppText>
+              <AppText variant="p3" color={COLORS.tableHeader}>Date</AppText>
               <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>{result.date}</AppText>
             </View>
             <View style={styles.ticketDetailsRow}>
-              <AppText variant="p3" color="#7F7F7F">Bet Amount</AppText>
+              <AppText variant="p3" color={COLORS.tableHeader}>Bet Amount</AppText>
               <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>₱{result.betAmount}</AppText>
             </View>
 
             <View style={[styles.resultBox, { backgroundColor: result.noteBackground }]}>
               <AppText variant="p3" fontFamily="ManropeBold" color={result.noteColor} style={{ flex: 1 }}>{result.note}</AppText>
               {result.status === 'WON' ? (
-                <AppText variant="h4" fontFamily="ManropeExtraBold" color="#2B7A37">₱{result.payout}</AppText>
+                <AppText variant="h4" fontFamily="ManropeExtraBold" color={COLORS.successText}>₱{result.payout}</AppText>
               ) : null}
             </View>
           </View>
@@ -455,7 +456,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderRadius: 999,
     paddingHorizontal: SPACING.sm,
     paddingVertical: 2,
-    backgroundColor: '#FAE5B2',
+    backgroundColor: COLORS.highlightBackground,
   },
   itemBadgeText: {
     color: COLORS.black,
@@ -468,7 +469,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     marginBottom: SPACING.sm,
   },
   ticketLabel: {
-    color: '#7F7F7F',
+    color: COLORS.tableHeader,
     fontSize: 13,
   },
   ticketValue: {

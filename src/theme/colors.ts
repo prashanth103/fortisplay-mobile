@@ -44,6 +44,54 @@ export const DARK_COLORS = {
 
   white: '#FFFFFF',
   black: '#000000',
+
+  // Component specific colors
+  badgeBackgroundDark: '#3B3323',
+  avatarYellow: '#F8D44E',
+  avatarBlue: '#6BB9FF',
+  avatarGreen: '#58D16A',
+  avatarOrange: '#F28B34',
+  avatarGrey: '#D9D9D9',
+  avatarRed: '#F15151',
+  avatarGreenLight: '#5FD27C',
+
+  tableHeader: '#7F7F7F',
+  successText: '#2B7A37',
+  successBackground: '#D9F4E0',
+  neutralBackground: '#F2F2F2',
+  neutralText: '#4F4F4F',
+  warningBackground: '#FEF4CC',
+  warningText: '#B08B24',
+  highlightBackground: '#FAE5B2',
+
+  inactiveBackground: '#888888',
+
+  runnerCardBackground: '#3B3323',
+  resultRowBorder: '#4D3C18',
+  raceSelectorText: '#6B5220',
+
+  liveRaceText: '#FF6A55',
+  liveRaceBackground: '#351B17',
+  liveRaceBorder: '#7A2A1F',
+  surfaceSecondary: '#242424',
+
+  betTypeTabBackground: '#3B3323',
+
+  // Stripes Background
+  stripedBackground1: '#191919',
+  stripedBackground2: '#222222',
+  stripedBackgroundAlt1: '#141414',
+  stripedBackgroundAlt2: '#1D1D1D',
+
+  logoutIcon: '#FF806F',
+  logoutText: '#FF8B7E',
+  modalBorder: '#3A3A3A',
+  inputBorderFocused: '#555555',
+
+  ticketGold: '#B27D00',
+  ticketBorder: '#ECECEC',
+  ticketBackground: '#1F1F1F',
+  watchBackground: '#191919',
 } as const;
 
 export const LIGHT_COLORS = {
@@ -91,101 +139,56 @@ export const LIGHT_COLORS = {
 
   white: '#FFFFFF',
   black: '#000000',
+
+  // Component specific colors
+  badgeBackgroundDark: '#3B3323',
+  avatarYellow: '#F8D44E',
+  avatarBlue: '#6BB9FF',
+  avatarGreen: '#58D16A',
+  avatarOrange: '#F28B34',
+  avatarGrey: '#D9D9D9',
+  avatarRed: '#F15151',
+  avatarGreenLight: '#5FD27C',
+
+  tableHeader: '#7F7F7F',
+  successText: '#2B7A37',
+  successBackground: '#D9F4E0',
+  neutralBackground: '#F2F2F2',
+  neutralText: '#4F4F4F',
+  warningBackground: '#FEF4CC',
+  warningText: '#B08B24',
+  highlightBackground: '#FAE5B2',
+
+  inactiveBackground: '#888888',
+
+  runnerCardBackground: '#3B3323',
+  resultRowBorder: '#4D3C18',
+  raceSelectorText: '#6B5220',
+
+  liveRaceText: '#FF6A55',
+  liveRaceBackground: '#351B17',
+  liveRaceBorder: '#7A2A1F',
+  surfaceSecondary: '#242424',
+
+  betTypeTabBackground: '#3B3323',
+
+  // Stripes Background
+  stripedBackground1: '#191919',
+  stripedBackground2: '#222222',
+  stripedBackgroundAlt1: '#141414',
+  stripedBackgroundAlt2: '#1D1D1D',
+
+  logoutIcon: '#FF806F',
+  logoutText: '#FF8B7E',
+  modalBorder: '#3A3A3A',
+  inputBorderFocused: '#555555',
+
+  ticketGold: '#B27D00',
+  ticketBorder: '#ECECEC',
+  ticketBackground: '#1F1F1F',
+  watchBackground: '#191919',
 } as const;
 
-// export const BLUE_COLORS = {
-//   primary: '#1E88E5',
-//   primaryLight: '#E3F2FD',
-
-//   background: '#F7F7F5',
-//   backgroundSecondary: '#FFFFFF',
-
-//   // Header Colors
-//   headerbg: '#FFFFFF',
-//   iconDark: '#1A1A1A',
-//   iconGrey: '#8A8A8A',
-
-//   surface: '#FFFFFF',
-//   surfaceElevated: '#FBFBFA',
-
-//   border: '#E4E4E1',
-//   borderMuted: '#EDEDEB',
-
-//   textPrimary: '#161616',
-//   textSecondary: '#5C5C5C',
-//   textMuted: '#8F8F8F',
-
-//   danger: '#D6392B',
-
-//   finished: '#1E8A45',
-
-//   payoutBackground: '#E7F5EA',
-
-//   navyCard: '#EEF2F7',
-
-//   walletStatIconColor: "#1565C0",
-//   walletPrimaryDark: "#1976D2",
-//   walletCard: "#FFFFFF",
-//   walletAccent: "#E9C25E",
-//   walletLabel: "#5B6472",
-//   walletText: "#151A21",
-//   walletSuccess: "#1E9E4A",
-//   walletInfo: "#3563D4",
-//   walletIconBackground: "#FBEDC7",
-//   walletHistoryCard: "#F1F4F8",
-
-//   overlay: 'rgba(0,0,0,0.4)',
-
-//   white: '#FFFFFF',
-//   black: '#000000',
-// } as const;
-
-// export const RED_COLORS = {
-//   primary: '#E53935',
-//   primaryLight: '#FFEBEE',
-
-//   background: '#F7F7F5',
-//   backgroundSecondary: '#FFFFFF',
-
-//   // Header Colors
-//   headerbg: '#FFFFFF',
-//   iconDark: '#1A1A1A',
-//   iconGrey: '#8A8A8A',
-
-//   surface: '#FFFFFF',
-//   surfaceElevated: '#FBFBFA',
-
-//   border: '#E4E4E1',
-//   borderMuted: '#EDEDEB',
-
-//   textPrimary: '#161616',
-//   textSecondary: '#5C5C5C',
-//   textMuted: '#8F8F8F',
-
-//   danger: '#D6392B',
-
-//   finished: '#1E8A45',
-
-//   payoutBackground: '#E7F5EA',
-
-//   navyCard: '#EEF2F7',
-
-//   walletStatIconColor: "#C62828",
-//   walletPrimaryDark: "#D32F2F",
-//   walletCard: "#FFFFFF",
-//   walletAccent: "#E9C25E",
-//   walletLabel: "#5B6472",
-//   walletText: "#151A21",
-//   walletSuccess: "#1E9E4A",
-//   walletInfo: "#3563D4",
-//   walletIconBackground: "#FBEDC7",
-//   walletHistoryCard: "#F1F4F8",
-
-//   overlay: 'rgba(0,0,0,0.4)',
-
-//   white: '#FFFFFF',
-//   black: '#000000',
-// } as const;
 
 export type ThemeName = 'light' | 'dark' | 'blue' | 'red';
 

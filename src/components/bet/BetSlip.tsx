@@ -72,7 +72,7 @@ export default function BetSlip({
         <View style={styles.topRow}>
 
           <View style={styles.leftBlock}>
-            <AppText fontFamily="ManropeBold" color="#B27D00" style={{ marginBottom: 12 }}>
+            <AppText fontFamily="ManropeBold" color={COLORS.ticketGold} style={{ marginBottom: 12 }}>
               WIN · FINISH 1ST
             </AppText>
 
@@ -157,7 +157,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   iconBox: {
-    backgroundColor: '#3B3323',
+    backgroundColor: COLORS.badgeBackgroundDark,
     height: 36,
     width: 36,
     borderRadius: 10,
@@ -196,7 +196,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   pool: {
-    color: '#B27D00',
+    color: COLORS.ticketGold,
     fontWeight: '700',
     marginBottom: 12,
   },

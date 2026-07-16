@@ -96,7 +96,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   containerSelected: {
-    backgroundColor: '#3B3323',
+    backgroundColor: COLORS.runnerCardBackground,
   },
 
   selectedIndicator: {
@@ -181,7 +181,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderRadius: RADIUS.md,
     borderWidth: 2,
     borderColor: COLORS.primary,
-    backgroundColor: '#3B3323',
+    backgroundColor: COLORS.runnerCardBackground,
     justifyContent: 'center',
     alignItems: 'center',
   },

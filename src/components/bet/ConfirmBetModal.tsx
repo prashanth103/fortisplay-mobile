@@ -86,7 +86,7 @@ export default function ConfirmBetModal({
 
               <View>
 
-                <AppText fontSize={28} fontFamily="ManropeExtraBold" color="#B27D00" style={{ textAlign: "center" }}>
+                <AppText fontSize={28} fontFamily="ManropeExtraBold" color={COLORS.ticketGold} style={{ textAlign: "center" }}>
                   WIN
                 </AppText>
 
@@ -143,7 +143,7 @@ export default function ConfirmBetModal({
               </AppText>
 
               <View style={styles.amountBox}>
-                <AppText variant="h3" fontFamily="ManropeBold" color="#B27D00">
+                <AppText variant="h3" fontFamily="ManropeBold" color={COLORS.ticketGold}>
                   ₱{amount}
                 </AppText>
               </View>
@@ -208,7 +208,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 64,
     paddingHorizontal: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#ECECEC',
+    borderBottomColor: COLORS.ticketBorder,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -226,7 +226,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   badge: {
-    backgroundColor: '#1F1F1F',
+    backgroundColor: COLORS.ticketBackground,
     borderRadius: 16,
     paddingHorizontal: 16,
     paddingVertical: 6,
@@ -311,7 +311,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   winLabel: {
     fontSize: 28,
     fontWeight: '800',
-    color: '#B27D00',
+    color: COLORS.ticketGold,
     textAlign: 'center',
   },
 
@@ -350,7 +350,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   amount: {
-    color: '#B27D00',
+    color: COLORS.ticketGold,
     fontWeight: '700',
     fontSize: 22,
   },

@@ -87,7 +87,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   activeItem: {
-    backgroundColor: "#3B3323",
+    backgroundColor: COLORS.betTypeTabBackground,
     borderBottomWidth: 3,
     borderBottomColor: COLORS.primary,
   },

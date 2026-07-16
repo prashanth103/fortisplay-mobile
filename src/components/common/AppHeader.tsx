@@ -9,7 +9,8 @@ import ChangePasswordModal from '@/components/common/ChangePasswordModal';
 import ProfileModal from '@/components/common/ProfileModal';
 import { useDevice } from '@/hooks/useDevice';
 import { useThemeColors } from "@/hooks/useThemeColors";
-import React from "react";
+import { ThemeContext } from '@/context/ThemeContext';
+import React, { useContext } from "react";
 
 export default function AppHeader() {
     const COLORS = useThemeColors();
@@ -17,10 +18,10 @@ export default function AppHeader() {
   const { isTablet } = useDevice();
   const [profileVisible, setProfileVisible] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const scheme = useColorScheme();
+  const { themeName, setThemeName } = useContext(ThemeContext);
 
   const toggleTheme = () => {
-    Appearance.setColorScheme(scheme === 'dark' ? 'light' : 'dark');
+    setThemeName(themeName === 'dark' ? 'light' : 'dark');
   };
 
   const openPasswordModal = () => {
@@ -40,7 +41,7 @@ export default function AppHeader() {
       <View style={[styles.rightContainer, isTablet && styles.rightContainerTablet]}>
         <Pressable onPress={toggleTheme} style={styles.themeToggle}>
           <MaterialIcons
-            name={scheme === 'dark' ? 'light-mode' : 'dark-mode'}
+            name={themeName === 'dark' ? 'light-mode' : 'dark-mode'}
             size={isTablet ? 28 : 24}
             color={COLORS.textPrimary}
           />

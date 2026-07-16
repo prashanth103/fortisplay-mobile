@@ -36,7 +36,7 @@ export default function LiveRace({
 
         <View style={styles.dot} />
 
-        <AppText fontFamily="ManropeBold" color="#FF6A55" fontSize={16}>
+        <AppText fontFamily="ManropeBold" color={COLORS.liveRaceText} fontSize={16}>
           LIVE NOW
         </AppText>
 
@@ -51,7 +51,7 @@ export default function LiveRace({
         <MaterialIcons
           name="lock-outline"
           size={isTablet ? 52 : 42}
-          color="#8A8A8A"
+          color={COLORS.iconGrey}
         />
       </View>
 
@@ -111,9 +111,9 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     paddingHorizontal: 18,
     height: 34,
     borderRadius: 18,
-    backgroundColor: '#351B17',
+    backgroundColor: COLORS.liveRaceBackground,
     borderWidth: 1,
-    borderColor: '#7A2A1F',
+    borderColor: COLORS.liveRaceBorder,
   },
 
   dot: {
@@ -125,7 +125,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   badgeText: {
-    color: '#FF6A55',
+    color: COLORS.liveRaceText,
     fontWeight: '700',
     fontSize: TYPOGRAPHY.body.size,
   },
@@ -134,7 +134,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     width: 74,
     height: 74,
     borderRadius: 37,
-    backgroundColor: '#242424',
+    backgroundColor: COLORS.surfaceSecondary,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 28,

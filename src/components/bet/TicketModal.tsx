@@ -126,7 +126,7 @@ export default function TicketModal({
                 <AppText variant="h2" fontFamily="ManropeExtraBold" color={COLORS.black}>TOTAL</AppText>
 
                 <View style={styles.amountBox}>
-                  <AppText variant="h3" fontFamily="ManropeBold" color="#B27D00">
+                  <AppText variant="h3" fontFamily="ManropeBold" color={COLORS.ticketGold}>
                     ₱{amount}.00
                   </AppText>
                 </View>
@@ -225,7 +225,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 64,
     paddingHorizontal: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#ECECEC',
+    borderBottomColor: COLORS.ticketBorder,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -243,7 +243,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   badge: {
-    backgroundColor: '#1F1F1F',
+    backgroundColor: COLORS.ticketBackground,
     borderRadius: 16,
     paddingHorizontal: 16,
     paddingVertical: 6,
@@ -296,7 +296,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   separator: {
     borderTopWidth: 1,
-    borderTopColor: "#ECECEC",
+    borderTopColor: COLORS.ticketBorder,
     marginVertical: 16,
     marginHorizontal: 24
   },
@@ -374,7 +374,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   amount: {
-    color: '#B27D00',
+    color: COLORS.ticketGold,
     fontWeight: '700',
     fontSize: 22,
   },

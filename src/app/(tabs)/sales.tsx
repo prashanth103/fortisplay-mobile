@@ -21,10 +21,10 @@ export default function SalesScreen() {
       detailSubtitle: 'Yellow',
       amount: 5,
       badge: 'EXACT',
-      badgeBackground: '#3B3323',
+      badgeBackground: COLORS.badgeBackgroundDark,
       badgeTextColor: COLORS.primary,
       avatarText: 'YW',
-      avatarColor: '#F8D44E',
+      avatarColor: COLORS.avatarYellow,
       avatarTextColor: COLORS.black,
       status: 'WON',
       statusBackground: COLORS.payoutBackground,
@@ -45,10 +45,10 @@ export default function SalesScreen() {
       detailSubtitle: 'Light Blue',
       amount: 10,
       badge: 'ANY',
-      badgeBackground: '#3B3323',
+      badgeBackground: COLORS.badgeBackgroundDark,
       badgeTextColor: COLORS.primary,
       avatarText: 'SB',
-      avatarColor: '#6BB9FF',
+      avatarColor: COLORS.avatarBlue,
       avatarTextColor: COLORS.black,
       status: 'LOST',
       statusBackground: COLORS.surface,
@@ -69,10 +69,10 @@ export default function SalesScreen() {
       detailSubtitle: 'Light Green',
       amount: 5,
       badge: 'EXACT',
-      badgeBackground: '#3B3323',
+      badgeBackground: COLORS.badgeBackgroundDark,
       badgeTextColor: COLORS.primary,
       avatarText: 'LG',
-      avatarColor: '#58D16A',
+      avatarColor: COLORS.avatarGreen,
       avatarTextColor: COLORS.black,
       status: 'PENDING',
       statusBackground: COLORS.payoutBackground,
@@ -93,10 +93,10 @@ export default function SalesScreen() {
       detailSubtitle: 'Orange',
       amount: 20,
       badge: 'ANY',
-      badgeBackground: '#3B3323',
+      badgeBackground: COLORS.badgeBackgroundDark,
       badgeTextColor: COLORS.primary,
       avatarText: 'OR',
-      avatarColor: '#F28B34',
+      avatarColor: COLORS.avatarOrange,
       avatarTextColor: COLORS.black,
       status: 'PENDING',
       statusBackground: COLORS.surface,
@@ -117,10 +117,10 @@ export default function SalesScreen() {
       detailSubtitle: 'Silver',
       amount: 15,
       badge: 'EXACT',
-      badgeBackground: '#3B3323',
+      badgeBackground: COLORS.badgeBackgroundDark,
       badgeTextColor: COLORS.primary,
       avatarText: 'SV',
-      avatarColor: '#D9D9D9',
+      avatarColor: COLORS.avatarGrey,
       avatarTextColor: COLORS.black,
       status: 'LOST',
       statusBackground: COLORS.surface,
@@ -141,10 +141,10 @@ export default function SalesScreen() {
       detailSubtitle: 'Red',
       amount: 5,
       badge: 'EXACT',
-      badgeBackground: '#3B3323',
+      badgeBackground: COLORS.badgeBackgroundDark,
       badgeTextColor: COLORS.primary,
       avatarText: 'RD',
-      avatarColor: '#F15151',
+      avatarColor: COLORS.avatarRed,
       avatarTextColor: COLORS.black,
       status: 'PENDING',
       statusBackground: COLORS.payoutBackground,
@@ -258,22 +258,22 @@ export default function SalesScreen() {
               </View>
 
               <View style={styles.ticketDetailsRow}>
-                <AppText variant="p3" color="#7F7F7F">Ticket</AppText>
+                <AppText variant="p3" color={COLORS.tableHeader}>Ticket</AppText>
                 <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>No. {selectedSale.ticketNumber}</AppText>
               </View>
               <View style={styles.ticketDetailsRow}>
-                <AppText variant="p3" color="#7F7F7F">Date</AppText>
+                <AppText variant="p3" color={COLORS.tableHeader}>Date</AppText>
                 <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>{selectedSale.date}</AppText>
               </View>
               <View style={styles.ticketDetailsRow}>
-                <AppText variant="p3" color="#7F7F7F">Bet Amount</AppText>
+                <AppText variant="p3" color={COLORS.tableHeader}>Bet Amount</AppText>
                 <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>₱{selectedSale.betAmount}</AppText>
               </View>
 
               <View style={[styles.resultBox, { backgroundColor: selectedSale.resultNoteBg }]}>
                 <AppText variant="p3" fontFamily="ManropeBold" color={selectedSale.resultNoteColor} style={{ flex: 1 }}>{selectedSale.resultNote}</AppText>
                 {selectedSale.resultValue ? (
-                  <AppText variant="h4" fontFamily="ManropeExtraBold" color="#2B7A37">₱{selectedSale.resultValue}</AppText>
+                  <AppText variant="h4" fontFamily="ManropeExtraBold" color={COLORS.successText}>₱{selectedSale.resultValue}</AppText>
                 ) : null}
               </View>
             </View>
@@ -525,7 +525,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     marginBottom: SPACING.sm,
   },
   ticketLabel: {
-    color: '#7F7F7F',
+    color: COLORS.tableHeader,
     fontSize: 13,
   },
   ticketValue: {

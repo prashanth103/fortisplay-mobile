@@ -65,9 +65,9 @@ export default function ProfileModal({
             <MaterialIcons
               name="logout"
               size={isTablet ? 30 : 20}
-              color="#FF806F"
+              color={COLORS.logoutIcon}
             />
-            <AppText variant="p1" fontFamily="ManropeExtraBold" color="#FF8B7E">Logout</AppText>
+            <AppText variant="p1" fontFamily="ManropeExtraBold" color={COLORS.logoutText}>Logout</AppText>
           </Pressable>
         </Pressable>
       </Pressable>
@@ -87,7 +87,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     backgroundColor: COLORS.surfaceElevated,
     borderRadius: 14,
     borderWidth: 1,
-    borderColor: '#3A3A3A',
+    borderColor: COLORS.modalBorder,
     overflow: 'hidden',
     shadowColor: COLORS.black,
     shadowOffset: { width: 0, height: 18 },
@@ -167,13 +167,13 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     fontWeight: '800',
   },
   logoutText: {
-    color: '#FF8B7E',
+    color: COLORS.logoutText,
     fontSize: 16,
     fontFamily: 'Manrope',
     fontWeight: '800',
   },
   tabletLogoutText: {
-    color: '#FF8B7E',
+    color: COLORS.logoutText,
     fontSize: 19,
     fontFamily: 'Manrope',
     fontWeight: '800',

@@ -56,7 +56,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: '#4D3C18',
+    borderBottomColor: COLORS.resultRowBorder,
     paddingVertical: 16
   },
 

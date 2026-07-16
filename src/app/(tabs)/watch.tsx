@@ -81,7 +81,7 @@ export default function WatchScreen() {
     <Screen backgroundColor={COLORS.background}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.videoCard}>
-          <StripedBackground color1="#191919" color2="#222222" stripeWidth={12} />
+          <StripedBackground color1={COLORS.stripedBackground1} color2={COLORS.stripedBackground2} stripeWidth={12} />
           {/* Top Row */}
           <View style={styles.cardHeader}>
             <View style={[styles.badge, { backgroundColor: `${selectedRace.statusColor}22` }]}>
@@ -145,7 +145,7 @@ export default function WatchScreen() {
           >
             <View style={styles.raceRow}>
               <View style={styles.raceThumbnail}>
-                <StripedBackground color1="#141414" color2="#1D1D1D" stripeWidth={8} />
+                <StripedBackground color1={COLORS.stripedBackgroundAlt1} color2={COLORS.stripedBackgroundAlt2} stripeWidth={8} />
                 <MaterialIcons name="play-arrow" size={18} color={COLORS.textSecondary} />
               </View>
               <View style={styles.raceInfo}>
@@ -169,7 +169,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     paddingBottom: SPACING.huge,
   },
   videoCard: {
-    backgroundColor: '#191919',
+    backgroundColor: COLORS.watchBackground,
     borderRadius: RADIUS.xl,
     marginTop: SPACING.lg,
     height: 220,

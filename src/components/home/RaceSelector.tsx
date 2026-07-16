@@ -78,9 +78,9 @@ export default function RaceSelector({
                 <MaterialIcons
                   name="schedule"
                   size={16}
-                  color="#6B5220"
+                  color={COLORS.raceSelectorText}
                 />
-                <AppText fontFamily="ManropeBold" color="#6B5220">
+                <AppText fontFamily="ManropeBold" color={COLORS.raceSelectorText}>
                   {race.countdown}
                 </AppText>
               </View>
