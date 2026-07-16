@@ -127,7 +127,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   badgeText: {
     color: COLORS.liveRaceText,
     fontWeight: '700',
-    fontSize: TYPOGRAPHY.body.size,
+    fontSize: TYPOGRAPHY.body.fontSize,
   },
 
   iconContainer: {
@@ -160,13 +160,13 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   description: {
     marginTop: 12,
     color: COLORS.textSecondary,
-    fontSize: TYPOGRAPHY.body.size,
+    fontSize: TYPOGRAPHY.body.fontSize,
     textAlign: 'center',
     lineHeight: 24,
   },
 
   descriptionTablet: {
-    fontSize: TYPOGRAPHY.bodyLarge.size,
+    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
     lineHeight: 28,
   },
 
@@ -199,7 +199,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   buttonText: {
     color: COLORS.white,
     fontWeight: '700',
-    fontSize: TYPOGRAPHY.bodyLarge.size,
+    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
   },
 
 });

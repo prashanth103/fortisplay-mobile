@@ -151,7 +151,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   label: {
     color: COLORS.textPrimary,
     marginBottom: 8,
-    fontSize: TYPOGRAPHY.label.size,
+    fontSize: TYPOGRAPHY.label.fontSize,
     fontWeight: '600',
   },
 
@@ -180,7 +180,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   input: {
     flex: 1,
     color: COLORS.textPrimary,
-    fontSize: TYPOGRAPHY.body.size,
+    fontSize: TYPOGRAPHY.body.fontSize,
     fontWeight: '600',
     paddingVertical: 0,
   },

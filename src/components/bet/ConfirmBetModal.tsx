@@ -384,13 +384,13 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   cancelText: {
     color: COLORS.white,
     fontWeight: '700',
-    fontSize: TYPOGRAPHY.bodyLarge.size,
+    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
   },
 
   confirmText: {
     color: COLORS.black,
     fontWeight: '700',
-    fontSize: TYPOGRAPHY.bodyLarge.size,
+    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
   },
 
 });

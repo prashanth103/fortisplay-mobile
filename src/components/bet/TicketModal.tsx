@@ -390,13 +390,13 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   closeText: {
     color: COLORS.white,
     fontWeight: '700',
-    fontSize: TYPOGRAPHY.bodyLarge.size,
+    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
   },
 
   printText: {
     color: COLORS.black,
     fontWeight: '700',
-    fontSize: TYPOGRAPHY.bodyLarge.size,
+    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
   },
 
 });

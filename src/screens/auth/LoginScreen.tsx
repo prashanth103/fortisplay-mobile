@@ -5,7 +5,6 @@ import Input from '@/components/common/Input';
 import AuthLayout from '@/components/layout/AuthLayout';
 import { useDevice } from '@/hooks/useDevice';
 import { useThemeColors } from "@/hooks/useThemeColors";
-import { createCommonStyles } from '@/styles/commonStyles';
 import { TYPOGRAPHY } from '@/theme/typography';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { router } from 'expo-router';
@@ -15,7 +14,6 @@ import { StyleSheet, View } from 'react-native';
 export default function LoginScreen() {
   const COLORS = useThemeColors();
   const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
-  const commonStyles = React.useMemo(() => createCommonStyles(COLORS), [COLORS]);
 
   const { isTablet } = useDevice();
 
@@ -120,7 +118,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 60,
   },
   signInText: {
-    fontSize: TYPOGRAPHY.bodyLarge.size,
+    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
   },
   signInTextTablet: {
     fontSize: 20,

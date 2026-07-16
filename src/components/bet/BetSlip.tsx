@@ -246,7 +246,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     marginLeft: 12,
     color: COLORS.black,
     fontWeight: '700',
-    fontSize: TYPOGRAPHY.body.size,
+    fontSize: TYPOGRAPHY.body.fontSize,
   },
 
   amountBox: {

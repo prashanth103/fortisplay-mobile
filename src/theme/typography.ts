@@ -1,82 +1,23 @@
 import { COLORS } from "./colors";
 
 export const TYPOGRAPHY = {
-  display: {
-    size: 36,
-    weight: 700,
-    lineHeight: 44,
-  },
-
-  h1: {
-    color: COLORS.textPrimary,
-    fontSize: 28,
-    fontWeight: '800',
-    fontFamily: 'manrope'
-  },
-
-  h2: {
-    size: 28,
-    weight: 700,
-    lineHeight: 36,
-  },
-
-  h3: {
-    size: 24,
-    weight: 700,
-    lineHeight: 32,
-  },
-
-  title: {
-    size: 20,
-    weight: 700,
-    lineHeight: 28,
-  },
-
-  bodyLarge: {
-    size: 18,
-    weight: 500,
-    lineHeight: 28,
-  },
-
-  body: {
-    size: 16,
-    weight: 500,
-    lineHeight: 24,
-  },
-
-  small: {
-    size: 14,
-    weight: 500,
-    lineHeight: 20,
-  },
-
-  caption: {
-    size: 12,
-    weight: 500,
-    lineHeight: 16,
-  },
-
-  label: {
-    size: 13,
-    weight: 600,
-    lineHeight: 18
-  },
-
-  tag: {
-    size: 11,
-    weight: 700,
-    lineHeight: 14
-  },
-
-  stat: {
-    size: 34,
-    weight: 800,
-    lineHeight: 42
-  },
-
-  amount: {
-    size: 40,
-    weight: 800,
-    lineHeight: 48
-  }
+  h1: { fontSize: 36, lineHeight: 44 },
+  h2: { fontSize: 28, lineHeight: 36 },
+  h3: { fontSize: 24, lineHeight: 32 },
+  h4: { fontSize: 20, lineHeight: 28 },
+  h5: { fontSize: 18, lineHeight: 26 },
+  p1: { fontSize: 16, lineHeight: 24 },
+  p2: { fontSize: 14, lineHeight: 20 },
+  p3: { fontSize: 12, lineHeight: 18 },
+  
+  display: { fontSize: 36, lineHeight: 44 },
+  title: { fontSize: 20, lineHeight: 28 },
+  bodyLarge: { fontSize: 18, lineHeight: 28 },
+  body: { fontSize: 16, lineHeight: 24 },
+  small: { fontSize: 14, lineHeight: 20 },
+  caption: { fontSize: 12, lineHeight: 16 },
+  label: { fontSize: 13, lineHeight: 18 },
+  tag: { fontSize: 11, lineHeight: 14 },
+  stat: { fontSize: 34, lineHeight: 42 },
+  amount: { fontSize: 40, lineHeight: 48 }
 } as const;

@@ -157,18 +157,18 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   code: {
     color: COLORS.black,
     fontWeight: '800',
-    fontSize: TYPOGRAPHY.body.size,
+    fontSize: TYPOGRAPHY.body.fontSize,
   },
 
   codeTablet: {
-    fontSize: TYPOGRAPHY.bodyLarge.size,
+    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
   },
 
   name: {
     marginLeft: SPACING.lg,
     color: COLORS.textPrimary,
     fontWeight: '700',
-    fontSize: TYPOGRAPHY.bodyLarge.size,
+    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
   },
 
   nameTablet: {
