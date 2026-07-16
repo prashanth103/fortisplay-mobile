@@ -1,5 +1,6 @@
 import { RADIUS, SPACING } from '@/theme';
 import AppText from '@/components/common/AppText';
+import Card from '@/components/common/Card';
 import Screen from '@/components/layout/Screen';
 import { useThemeColors } from "@/hooks/useThemeColors";
 import MaterialIcons from '@react-native-vector-icons/material-icons';
@@ -183,7 +184,7 @@ export default function WalletScreen() {
 
         <View style={styles.topRow}>
           {topStats.map((item) => (
-            <View key={item.id} style={[styles.summaryCard, { backgroundColor: item.backgroundColor }]}>
+            <Card key={item.id} style={styles.summaryCard} backgroundColor={item.backgroundColor} padding="none" radius="xl">
               <View style={styles.summaryRow}>
                 <View style={[styles.summaryIcon, { backgroundColor: item.iconBackground }]}>
                   <MaterialIcons name={item.icon} size={22} color={item.iconColor} />
@@ -193,13 +194,13 @@ export default function WalletScreen() {
                   <AppText fontSize={28} fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>{item.value}</AppText>
                 </View>
               </View>
-            </View>
+            </Card>
           ))}
         </View>
 
         <View style={styles.actionRow}>
           {actionCards.map((item) => (
-            <View key={item.id} style={[styles.actionCard, { backgroundColor: item.backgroundColor }]}>
+            <Card key={item.id} style={styles.actionCard} backgroundColor={item.backgroundColor} padding="none" radius="lg">
               <View style={[styles.actionIcon, { backgroundColor: item.iconBackground }]}>
                 <MaterialIcons name={item.icon} size={item.iconSize} color={item.iconColor} />
               </View>
@@ -207,13 +208,13 @@ export default function WalletScreen() {
               <AppText variant="p3" color={item.labelColor} style={{ textTransform: "uppercase", letterSpacing: 0.6 }}>
                 {item.title}
               </AppText>
-            </View>
+            </Card>
           ))}
         </View>
 
         <View style={styles.statGrid}>
           {statCards.map((item) => (
-            <View key={item.id} style={[styles.statCard, { backgroundColor: item.backgroundColor }]}>
+            <Card key={item.id} style={styles.statCard} backgroundColor={item.backgroundColor} padding="none" radius="md">
               <View style={[styles.statIcon, { backgroundColor: item.iconBackground }]}>
                 <MaterialIcons name={item.icon} size={17} color={item.iconColor} />
               </View>
@@ -221,13 +222,13 @@ export default function WalletScreen() {
                 <AppText variant="h4" style={{ marginBottom: SPACING.xs }}>{item.value}</AppText>
                 <AppText variant="p3" color={item.labelColor}>{item.title}</AppText>
               </View>
-            </View>
+            </Card>
           ))}
         </View>
 
         <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.walletText} style={{ marginBottom: SPACING.md, letterSpacing: 0.5 }}>Transaction History</AppText>
         {historyItems.map((item) => (
-          <View key={item.id} style={[styles.historyCard, { backgroundColor: item.backgroundColor }]}>
+          <Card key={item.id} style={styles.historyCard} backgroundColor={item.backgroundColor} padding="none" radius="xl">
             <View style={[styles.historyIcon, { backgroundColor: item.iconColor + '22' }]}>
               <MaterialIcons name={item.icon} size={20} color={item.iconColor} />
             </View>
@@ -236,7 +237,7 @@ export default function WalletScreen() {
               <AppText variant="p3" color={COLORS.textSecondary}>{item.subtitle}</AppText>
             </View>
             <AppText variant="p2" fontFamily="ManropeBold" color={item.amountColor}>{item.amount}</AppText>
-          </View>
+          </Card>
         ))}
       </ScrollView>
     </Screen>
