@@ -121,17 +121,17 @@ export default function WatchScreen() {
               />
             </View>
 
-            <AppText fontSize={12} fontFamily="ManropeExtraBold" color={COLORS.white} style={{ marginLeft: 16, marginRight: 16 }}>{selectedRace.cardLabel}</AppText>
+            <AppText fontSize={12} fontFamily="ManropeExtraBold" color={COLORS.white} style={{ marginLeft: SPACING.lg, marginRight: SPACING.lg }}>{selectedRace.cardLabel}</AppText>
             <MaterialIcons name="fullscreen" size={22} color={COLORS.white} />
           </View>
         </View>
 
         <View style={styles.contentHeader}>
           <AppText variant="h3">{selectedRace.title}</AppText>
-          <AppText variant="p2" style={{ marginTop: 4 }}>{selectedRace.subtitle}</AppText>
+          <AppText variant="p2" style={{ marginTop: SPACING.xs }}>{selectedRace.subtitle}</AppText>
         </View>
 
-        <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.textPrimary} style={{ marginTop: 24, marginBottom: 16 }}>LIVE & UPCOMING RACES</AppText>
+        <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.textPrimary} style={{ marginTop: SPACING.xxl, marginBottom: SPACING.lg }}>LIVE & UPCOMING RACES</AppText>
 
         {raceData.map(race => (
           <TouchableOpacity
@@ -150,7 +150,7 @@ export default function WatchScreen() {
               </View>
               <View style={styles.raceInfo}>
                 <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.textPrimary}>{race.title}</AppText>
-                <AppText variant="p3" style={{ marginTop: 4 }}>{race.subtitle}</AppText>
+                <AppText variant="p3" style={{ marginTop: SPACING.xs }}>{race.subtitle}</AppText>
               </View>
               <View style={[styles.raceStatus,]}>
                 <View style={[styles.raceStatusDot, { backgroundColor: race.statusColor }]} />
@@ -187,13 +187,13 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: SPACING.sm,
-    paddingVertical: 6,
-    borderRadius: 999,
+    paddingVertical: SPACING.sm,
+    borderRadius: RADIUS.full,
   },
   badgeDot: {
     width: 8,
     height: 8,
-    borderRadius: 8,
+    borderRadius: RADIUS.xs,
     marginRight: SPACING.sm,
   },
   badgeText: {
@@ -205,8 +205,8 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: SPACING.md,
-    paddingVertical: 6,
-    borderRadius: 999,
+    paddingVertical: SPACING.sm,
+    borderRadius: RADIUS.full,
     backgroundColor: 'rgba(0,0,0,0.5)',
   },
   watchersText: {
@@ -224,7 +224,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   iconCircle: {
     width: 56,
     height: 56,
-    borderRadius: 28,
+    borderRadius: RADIUS.xxxl,
     backgroundColor: 'rgba(255,255,255,0.15)',
     justifyContent: 'center',
     alignItems: 'center',
@@ -247,13 +247,13 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   footerTrack: {
     flex: 1,
     height: 4,
-    borderRadius: 2,
+    borderRadius: RADIUS.xxxs,
     backgroundColor: 'rgba(255,255,255,0.2)',
     overflow: 'hidden',
   },
   footerFill: {
     height: '100%',
-    borderRadius: 2,
+    borderRadius: RADIUS.xxxs,
   },
   footerLabel: {
     fontSize: 12,
@@ -272,7 +272,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   subtitle: {
     color: COLORS.textSecondary,
-    marginTop: 4,
+    marginTop: SPACING.xs,
   },
   sectionTitle: {
     color: COLORS.textPrimary,
@@ -317,20 +317,20 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   raceSubtitle: {
     color: COLORS.textSecondary,
-    marginTop: 4,
+    marginTop: SPACING.xs,
     fontSize: 13,
   },
   raceStatus: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 999,
+    borderRadius: RADIUS.full,
     paddingHorizontal: SPACING.sm,
-    paddingVertical: 4,
+    paddingVertical: SPACING.xs,
   },
   raceStatusDot: {
     width: 6,
     height: 6,
-    borderRadius: 3,
+    borderRadius: RADIUS.xxs,
     marginRight: SPACING.xs,
   },
   raceStatusText: {

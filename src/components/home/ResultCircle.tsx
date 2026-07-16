@@ -1,3 +1,5 @@
+import { RADIUS } from '@/theme/radius';
+import { SPACING } from '@/theme/spacing';
 import { StyleSheet, View } from 'react-native';
 import AppText from '@/components/common/AppText';
 import { useThemeColors } from "@/hooks/useThemeColors";
@@ -18,7 +20,7 @@ export default function ResultCircle({
   const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   return (
     <View style={styles.container}>
-      <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.textPrimary} style={{ marginBottom: 8 }}>
+      <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.textPrimary} style={{ marginBottom: SPACING.sm }}>
         {place}
       </AppText>
 
@@ -46,7 +48,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   outerCircle: {
     width: 46,
     height: 46,
-    borderRadius: 23,
+    borderRadius: RADIUS.xxl,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -54,7 +56,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   innerCircle: {
     width: 30,
     height: 30,
-    borderRadius: 15,
+    borderRadius: RADIUS.lg,
     backgroundColor: COLORS.white,
     justifyContent: 'center',
     alignItems: 'center',

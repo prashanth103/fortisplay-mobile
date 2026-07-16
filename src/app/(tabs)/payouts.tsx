@@ -129,7 +129,7 @@ export default function PayoutsScreen() {
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.heading}>
           <AppText variant='h1' color={COLORS.textPrimary}>Payouts</AppText>
-          <AppText variant="p2" style={{ marginTop: 8 }}>Scan or enter a ticket to verify</AppText>
+          <AppText variant="p2" style={{ marginTop: SPACING.sm }}>Scan or enter a ticket to verify</AppText>
         </View>
 
         {!result ? (
@@ -152,7 +152,7 @@ export default function PayoutsScreen() {
 
             <View style={styles.dividerRow}>
               <View style={styles.dividerLine} />
-              <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.textSecondary} style={{ textAlign: "center", letterSpacing: 1, marginHorizontal: 12 }}>OR ENTER TICKET NUMBER</AppText>
+              <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.textSecondary} style={{ textAlign: "center", letterSpacing: 1, marginHorizontal: SPACING.md }}>OR ENTER TICKET NUMBER</AppText>
               <View style={styles.dividerLine} />
             </View>
 
@@ -177,7 +177,7 @@ export default function PayoutsScreen() {
               />
             </View>
 
-            {error ? <AppText variant="p2" color={COLORS.danger} style={{ marginTop: 8, textAlign: "center" }}>{error}</AppText> : null}
+            {error ? <AppText variant="p2" color={COLORS.danger} style={{ marginTop: SPACING.sm, textAlign: "center" }}>{error}</AppText> : null}
           </>
         ) : null}
 
@@ -322,7 +322,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: COLORS.primary,
     borderRadius: RADIUS.lg,
-    paddingVertical: 14,
+    paddingVertical: SPACING.lg,
     marginBottom: SPACING.lg,
   },
   scanButtonText: {
@@ -350,7 +350,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     letterSpacing: 1,
     fontSize: 12,
     fontWeight: '700',
-    marginHorizontal: 12,
+    marginHorizontal: SPACING.md,
   },
 
   verifyRow: {
@@ -403,7 +403,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   statusBadge: {
     borderRadius: RADIUS.xxl,
     paddingHorizontal: SPACING.sm,
-    paddingVertical: 6,
+    paddingVertical: SPACING.sm,
   },
   statusBadgeText: {
     fontSize: 12,
@@ -417,7 +417,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   ticketIcon: {
     width: 54,
     height: 54,
-    borderRadius: 28,
+    borderRadius: RADIUS.xxxl,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: SPACING.lg,
@@ -447,9 +447,9 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     fontSize: 13,
   },
   itemBadge: {
-    borderRadius: 999,
+    borderRadius: RADIUS.full,
     paddingHorizontal: SPACING.sm,
-    paddingVertical: 2,
+    paddingVertical: SPACING.xxs,
     backgroundColor: COLORS.highlightBackground,
   },
   itemBadgeText: {

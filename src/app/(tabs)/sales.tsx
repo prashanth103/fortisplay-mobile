@@ -3,6 +3,7 @@ import Input from '@/components/common/Input';
 import Screen from '@/components/layout/Screen';
 import { useThemeColors } from "@/hooks/useThemeColors";
 import { RADIUS } from '@/theme/radius';
+import { SHADOWS } from '@/theme/shadows';
 import { SPACING } from '@/theme/spacing';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useRouter } from 'expo-router';
@@ -196,16 +197,16 @@ export default function SalesScreen() {
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.heading}>
           <AppText variant="h1">Sales</AppText>
-          <AppText variant="p2" style={{ marginTop: 8 }}>Today's transactions</AppText>
+          <AppText variant="p2" style={{ marginTop: SPACING.sm }}>Today's transactions</AppText>
         </View>
 
         <View style={styles.summaryRow}>
           <View style={styles.summaryCard}>
-            <AppText variant="p3" color={COLORS.textSecondary} style={{ letterSpacing: 0.5, marginBottom: 8 }}>TOTAL SALES</AppText>
+            <AppText variant="p3" color={COLORS.textSecondary} style={{ letterSpacing: 0.5, marginBottom: SPACING.sm }}>TOTAL SALES</AppText>
             <AppText fontSize={26} fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>₱ {totalSales}</AppText>
           </View>
           <View style={styles.summaryCard}>
-            <AppText variant="p3" color={COLORS.textSecondary} style={{ letterSpacing: 0.5, marginBottom: 8 }}>TICKETS</AppText>
+            <AppText variant="p3" color={COLORS.textSecondary} style={{ letterSpacing: 0.5, marginBottom: SPACING.sm }}>TICKETS</AppText>
             <AppText fontSize={26} fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>{salesData.length}</AppText>
           </View>
         </View>
@@ -250,7 +251,7 @@ export default function SalesScreen() {
                   </View>
                   <AppText variant="p3" color={COLORS.textSecondary}>{selectedSale.detailSubtitle}</AppText>
                   {selectedSale.resultLabel ? (
-                    <AppText variant="p3" fontFamily="ManropeBold" color={selectedSale.resultNoteColor} style={{ marginTop: 4 }}>
+                    <AppText variant="p3" fontFamily="ManropeBold" color={selectedSale.resultNoteColor} style={{ marginTop: SPACING.xs }}>
                       {selectedSale.resultLabel}
                     </AppText>
                   ) : null}
@@ -297,7 +298,7 @@ export default function SalesScreen() {
                 </View>
                 <AppText variant="p3" color={COLORS.textSecondary}>{item.subtitle}</AppText>
               </View>
-              <AppText variant="p2" fontFamily="ManropeExtraBold" color={COLORS.white} style={{ marginLeft: 8 }}>₱{item.amount}</AppText>
+              <AppText variant="p2" fontFamily="ManropeExtraBold" color={COLORS.white} style={{ marginLeft: SPACING.sm }}>₱{item.amount}</AppText>
             </TouchableOpacity>
           ))
         )}
@@ -332,16 +333,16 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   summaryCard: {
     flex: 1,
     backgroundColor: COLORS.walletCard,
-    borderRadius: 12,
-    paddingVertical: 14,
-    paddingHorizontal: 16,
+    borderRadius: RADIUS.sm,
+    paddingVertical: SPACING.lg,
+    paddingHorizontal: SPACING.lg,
     minHeight: 78,
   },
   summaryLabel: {
     color: COLORS.walletLabel,
     fontSize: 11,
     letterSpacing: 0.6,
-    marginBottom: 6,
+    marginBottom: SPACING.sm,
   },
 
   summaryValue: {
@@ -361,32 +362,26 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: COLORS.surfaceElevated,
-    borderRadius: 12,
-    paddingVertical: 12,
-    paddingHorizontal: 14,
-    marginBottom: 10,
+    borderRadius: RADIUS.sm,
+    paddingVertical: SPACING.md,
+    paddingHorizontal: SPACING.lg,
+    marginBottom: SPACING.md,
     borderWidth: 1,
     borderColor: COLORS.border,
   },
   avatarBorder: {
     width: 52,
     height: 52,
-    borderRadius: 26,
+    borderRadius: RADIUS.xxxl,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 16,
-
-    // shadow/elevation for high color circle
-    shadowColor: COLORS.black,
-    shadowOpacity: 0.35,
-    shadowRadius: 6,
-    shadowOffset: { width: 0, height: 3 },
-    elevation: 6,
+    marginRight: SPACING.lg,
+    ...SHADOWS.avatar,
   },
   avatar: {
     width: 34,
     height: 34,
-    borderRadius: 17,
+    borderRadius: RADIUS.xl,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLORS.white,
@@ -403,14 +398,14 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    gap: 8,
-    marginBottom: 4,
+    gap: SPACING.sm,
+    marginBottom: SPACING.xs,
   },
   cardTitle: {
     color: COLORS.textPrimary,
     fontSize: 16,
     fontWeight: '800',
-    marginBottom: 4,
+    marginBottom: SPACING.xs,
   },
   saleTitle: {
     color: COLORS.textPrimary,
@@ -418,9 +413,9 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     fontWeight: '900',
   },
   itemBadge: {
-    borderRadius: 8,
-    paddingHorizontal: 7,
-    paddingVertical: 3,
+    borderRadius: RADIUS.xs,
+    paddingHorizontal: SPACING.sm,
+    paddingVertical: SPACING.xs,
     backgroundColor: COLORS.salesBadgeBackground,
   },
   itemBadgeText: {
@@ -478,7 +473,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   ticketIconOuter: {
     width: 54,
     height: 54,
-    borderRadius: 28,
+    borderRadius: RADIUS.xxxl,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: SPACING.lg,
@@ -486,7 +481,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   ticketIconInner: {
     width: 44,
     height: 44,
-    borderRadius: 22,
+    borderRadius: RADIUS.xxl,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLORS.white,
@@ -536,7 +531,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   statusBadge: {
     borderRadius: RADIUS.xxl,
     paddingHorizontal: SPACING.sm,
-    paddingVertical: 6,
+    paddingVertical: SPACING.sm,
   },
   statusBadgeText: {
     fontSize: 12,

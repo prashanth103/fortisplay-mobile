@@ -1,3 +1,6 @@
+import { RADIUS } from '@/theme/radius';
+import { SHADOWS } from '@/theme/shadows';
+import { SPACING } from '@/theme/spacing';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
 import { useState } from 'react';
@@ -111,13 +114,13 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    padding: SPACING.xl,
     backgroundColor: 'rgba(0,0,0,0.78)',
   },
   modal: {
     width: '100%',
     maxWidth: 480,
-    borderRadius: 20,
+    borderRadius: RADIUS.xl,
     borderWidth: 1,
     borderColor: COLORS.modalBorder,
     backgroundColor: COLORS.surfaceElevated,
@@ -133,7 +136,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   header: {
     height: 66,
-    paddingHorizontal: 24,
+    paddingHorizontal: SPACING.xxl,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.border,
     flexDirection: 'row',
@@ -143,25 +146,25 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   closeButton: {
     width: 32,
     height: 32,
-    borderRadius: 8,
+    borderRadius: RADIUS.xs,
     backgroundColor: COLORS.border,
     justifyContent: 'center',
     alignItems: 'center',
   },
   body: {
-    paddingHorizontal: 24,
-    paddingTop: 24,
-    paddingBottom: 24,
+    paddingHorizontal: SPACING.xxl,
+    paddingTop: SPACING.xxl,
+    paddingBottom: SPACING.xxl,
   },
   actions: {
     flexDirection: 'row',
-    gap: 16,
-    marginTop: 6,
+    gap: SPACING.lg,
+    marginTop: SPACING.sm,
   },
   cancelButton: {
     flex: 0.82,
     height: 54,
-    borderRadius: 14,
+    borderRadius: RADIUS.md,
     borderWidth: 2,
     borderColor: COLORS.inputBorderFocused,
     justifyContent: 'center',
@@ -170,7 +173,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   updateButton: {
     flex: 1.18,
     height: 54,
-    borderRadius: 14,
+    borderRadius: RADIUS.md,
     backgroundColor: COLORS.primary,
     justifyContent: 'center',
     alignItems: 'center',

@@ -58,7 +58,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     alignSelf: 'center'
   },
   footer: {
-    paddingBottom: 24,
+    paddingBottom: SPACING.xxl,
     alignItems: 'center',
     borderTopWidth: 2,
     borderTopColor: COLORS.border,

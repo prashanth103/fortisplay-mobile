@@ -1,3 +1,5 @@
+import { RADIUS } from '@/theme/radius';
+import { SPACING } from '@/theme/spacing';
 import AppText from '@/components/common/AppText';
 import Screen from '@/components/layout/Screen';
 import { useThemeColors } from "@/hooks/useThemeColors";
@@ -177,7 +179,7 @@ export default function WalletScreen() {
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
           <AppText variant="h1">Wallet</AppText>
-          <AppText variant="p2" style={{ marginTop: 6 }}>Today's cash flow</AppText>
+          <AppText variant="p2" style={{ marginTop: SPACING.sm }}>Today's cash flow</AppText>
         </View>
 
         <View style={styles.topRow}>
@@ -188,7 +190,7 @@ export default function WalletScreen() {
                   <MaterialIcons name={item.icon} size={22} color={item.iconColor} />
                 </View>
                 <View style={styles.summaryInfo}>
-                  <AppText variant="p3" color={COLORS.walletLabel} style={{ textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 6 }}>{item.title}</AppText>
+                  <AppText variant="p3" color={COLORS.walletLabel} style={{ textTransform: "uppercase", letterSpacing: 0.8, marginBottom: SPACING.sm }}>{item.title}</AppText>
                   <AppText fontSize={28} fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>{item.value}</AppText>
                 </View>
               </View>
@@ -202,7 +204,7 @@ export default function WalletScreen() {
               <View style={[styles.actionIcon, { backgroundColor: item.iconBackground }]}>
                 <MaterialIcons name={item.icon} size={item.iconSize} color={item.iconColor} />
               </View>
-              <AppText fontSize={25} fontFamily="ManropeExtraBold" color={item.textColor} style={{ marginBottom: 6 }}>{item.value}</AppText>
+              <AppText fontSize={25} fontFamily="ManropeExtraBold" color={item.textColor} style={{ marginBottom: SPACING.sm }}>{item.value}</AppText>
               <AppText variant="p3" color={item.labelColor} style={{ textTransform: "uppercase", letterSpacing: 0.6 }}>
                 {item.title}
               </AppText>
@@ -217,21 +219,21 @@ export default function WalletScreen() {
                 <MaterialIcons name={item.icon} size={17} color={item.iconColor} />
               </View>
               <View style={styles.statText}>
-                <AppText variant="h4" style={{ marginBottom: 3 }}>{item.value}</AppText>
+                <AppText variant="h4" style={{ marginBottom: SPACING.xs }}>{item.value}</AppText>
                 <AppText variant="p3" color={item.labelColor}>{item.title}</AppText>
               </View>
             </View>
           ))}
         </View>
 
-        <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.walletText} style={{ marginBottom: 12, letterSpacing: 0.5 }}>Transaction History</AppText>
+        <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.walletText} style={{ marginBottom: SPACING.md, letterSpacing: 0.5 }}>Transaction History</AppText>
         {historyItems.map((item) => (
           <View key={item.id} style={[styles.historyCard, { backgroundColor: item.backgroundColor }]}>
             <View style={[styles.historyIcon, { backgroundColor: item.iconColor + '22' }]}>
               <MaterialIcons name={item.icon} size={20} color={item.iconColor} />
             </View>
             <View style={styles.historyText}>
-              <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.textPrimary} style={{ marginBottom: 2 }}>{item.title}</AppText>
+              <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.textPrimary} style={{ marginBottom: SPACING.xxs }}>{item.title}</AppText>
               <AppText variant="p3" color={COLORS.textSecondary}>{item.subtitle}</AppText>
             </View>
             <AppText variant="p2" fontFamily="ManropeBold" color={item.amountColor}>{item.amount}</AppText>
@@ -244,11 +246,11 @@ export default function WalletScreen() {
 
 const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
-    paddingBottom: 32,
+    paddingBottom: SPACING.xxxl,
   },
   header: {
-    marginTop: 12,
-    marginBottom: 20,
+    marginTop: SPACING.md,
+    marginBottom: SPACING.xl,
   },
   title: {
     color: COLORS.textPrimary,
@@ -257,17 +259,17 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   subtitle: {
     color: COLORS.textSecondary,
-    marginTop: 6,
+    marginTop: SPACING.sm,
     fontSize: 14,
   },
   topRow: {
-    marginBottom: 18,
+    marginBottom: SPACING.xl,
   },
   summaryCard: {
     width: '100%',
-    borderRadius: 18,
-    paddingVertical: 16,
-    paddingHorizontal: 18,
+    borderRadius: RADIUS.xl,
+    paddingVertical: SPACING.lg,
+    paddingHorizontal: SPACING.xl,
     minHeight: 86,
   },
   summaryRow: {
@@ -277,10 +279,10 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   summaryIcon: {
     width: 46,
     height: 46,
-    borderRadius: 14,
+    borderRadius: RADIUS.md,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 14,
+    marginRight: SPACING.lg,
   },
   summaryInfo: {
     flex: 1,
@@ -290,7 +292,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     fontSize: 12,
     textTransform: 'uppercase',
     letterSpacing: 0.8,
-    marginBottom: 6,
+    marginBottom: SPACING.sm,
   },
   summaryValue: {
     fontSize: 28,
@@ -300,28 +302,28 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   actionRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 18,
+    marginBottom: SPACING.xl,
   },
   actionCard: {
     width: '48%',
-    borderRadius: 16,
-    padding: 16,
+    borderRadius: RADIUS.lg,
+    padding: SPACING.lg,
     minHeight: 148,
     justifyContent: 'space-between',
   },
   actionIcon: {
     width: 46,
     height: 46,
-    borderRadius: 14,
+    borderRadius: RADIUS.md,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: SPACING.lg,
   },
 
   actionValue: {
     fontSize: 25,
     fontWeight: '900',
-    marginBottom: 6,
+    marginBottom: SPACING.sm,
   },
 
   actionLabel: {
@@ -333,13 +335,13 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    marginBottom: 22,
+    marginBottom: SPACING.xxl,
   },
   statCard: {
     width: '48%',
-    padding: 11,
-    borderRadius: 14,
-    marginBottom: 10,
+    padding: SPACING.md,
+    borderRadius: RADIUS.md,
+    marginBottom: SPACING.md,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -349,10 +351,10 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   statIcon: {
     width: 42,
     height: 42,
-    borderRadius: 12,
+    borderRadius: RADIUS.sm,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 10,
+    marginRight: SPACING.md,
   },
   statText: {
     flex: 1,
@@ -362,7 +364,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   statValue: {
     fontSize: 19,
     fontWeight: '800',
-    marginBottom: 3,
+    marginBottom: SPACING.xs,
   },
 
   statLabel: {
@@ -371,7 +373,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   sectionTitle: {
     color: COLORS.walletText,
-    marginBottom: 12,
+    marginBottom: SPACING.md,
     fontSize: 14,
     fontWeight: '700',
     letterSpacing: 0.5,
@@ -379,17 +381,17 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   historyCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 20,
-    padding: 16,
-    marginBottom: 12,
+    borderRadius: RADIUS.xl,
+    padding: SPACING.lg,
+    marginBottom: SPACING.md,
   },
   historyIcon: {
     width: 46,
     height: 46,
-    borderRadius: 16,
+    borderRadius: RADIUS.lg,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 8,
+    marginRight: SPACING.sm,
   },
   historyText: {
     flex: 1,
@@ -398,7 +400,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     color: COLORS.textPrimary,
     fontSize: 15,
     fontWeight: '700',
-    marginBottom: 2,
+    marginBottom: SPACING.xxs,
   },
   historySubtitle: {
     color: COLORS.textSecondary,

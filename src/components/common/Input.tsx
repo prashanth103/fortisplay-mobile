@@ -1,3 +1,4 @@
+import { SPACING } from '@/theme/spacing';
 import AppText from '@/components/common/AppText';
 import { useDevice } from '@/hooks/useDevice';
 import { useThemeColors } from "@/hooks/useThemeColors";
@@ -141,23 +142,23 @@ export default function Input({
 
 const createStyles = (COLORS: any) => StyleSheet.create({
   wrapper: {
-    marginBottom: 14,
+    marginBottom: SPACING.lg,
   },
 
   tabletWrapper: {
-    marginBottom: 18,
+    marginBottom: SPACING.xl,
   },
 
   label: {
     color: COLORS.textPrimary,
-    marginBottom: 8,
+    marginBottom: SPACING.sm,
     fontSize: TYPOGRAPHY.label.fontSize,
     fontWeight: '600',
   },
 
   tabletLabel: {
     fontSize: 14,
-    marginBottom: 10,
+    marginBottom: SPACING.md,
   },
 
   inputContainer: {
@@ -166,11 +167,11 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderColor: COLORS.border,
     borderRadius: RADIUS.md,
     backgroundColor: COLORS.surface,
-    paddingHorizontal: 16,
+    paddingHorizontal: SPACING.lg,
 
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
+    gap: SPACING.md,
   },
 
   tabletInput: {

@@ -1,3 +1,4 @@
+import { SPACING } from '@/theme/spacing';
 import BetSlip from '@/components/bet/BetSlip';
 import ConfirmBetModal from '@/components/bet/ConfirmBetModal';
 import TicketModal from '@/components/bet/TicketModal';
@@ -38,13 +39,13 @@ export default function Home() {
 
   return (
     <Screen>
-      {/* <View style={{ flexDirection: 'row', justifyContent: 'center', gap: 10, paddingVertical: 10 }}>
+      {/* <View style={{ flexDirection: 'row', justifyContent: 'center', gap: SPACING.md, paddingVertical: SPACING.md }}>
         {(['light', 'dark', 'blue', 'red'] as const).map(name => (
           <View key={name}>
             <Button
               title={name.toUpperCase()}
               onPress={() => setThemeName(name)}
-              style={{ backgroundColor: themeName === name ? '#C89512' : '#888', paddingHorizontal: 12, height: 32 }}
+              style={{ backgroundColor: themeName === name ? '#C89512' : '#888', paddingHorizontal: SPACING.md, height: 32 }}
               textStyle={{ fontSize: 12, color: '#FFF' }}
             />
           </View>

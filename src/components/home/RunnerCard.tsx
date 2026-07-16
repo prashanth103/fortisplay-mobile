@@ -62,7 +62,7 @@ export default function RunnerCard({
             </View>
           </View>
 
-          <AppText fontFamily="ManropeBold" color={COLORS.textPrimary} fontSize={isTablet ? 22 : 18} style={{ marginLeft: 24 }}>
+          <AppText fontFamily="ManropeBold" color={COLORS.textPrimary} fontSize={isTablet ? 22 : 18} style={{ marginLeft: SPACING.xxl }}>
             {name}
           </AppText>
         </View>
@@ -129,7 +129,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   circle: {
     width: 54,
     height: 54,
-    borderRadius: 27,
+    borderRadius: RADIUS.xxxl,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -137,12 +137,12 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   circleTablet: {
     width: 64,
     height: 64,
-    borderRadius: 32,
+    borderRadius: RADIUS.full,
   },
   innerCircle: {
     width: 36,
     height: 36,
-    borderRadius: 18,
+    borderRadius: RADIUS.xl,
     backgroundColor: COLORS.white,
     alignItems: 'center',
     justifyContent: 'center',
@@ -151,7 +151,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   innerCircleTablet: {
     width: 42,
     height: 42,
-    borderRadius: 21,
+    borderRadius: RADIUS.xxl,
   },
 
   code: {

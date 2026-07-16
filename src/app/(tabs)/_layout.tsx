@@ -1,3 +1,4 @@
+import { SPACING } from '@/theme/spacing';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
 import { Tabs } from 'expo-router';
@@ -62,12 +63,12 @@ export default function TabsLayout() {
           backgroundColor: COLORS.surface,
           borderTopWidth: 0,
           height: 64 + bottomPadding,
-          paddingTop: 8,
+          paddingTop: SPACING.sm,
           paddingBottom: bottomPadding,
-          paddingHorizontal: 8,
+          paddingHorizontal: SPACING.sm,
         },
         tabBarItemStyle: {
-          paddingVertical: 2,
+          paddingVertical: SPACING.xxs,
         },
         tabBarLabelStyle: {
           fontSize: 11,
@@ -88,7 +89,7 @@ export default function TabsLayout() {
                   color={color}
                   fontSize={size}
                   fontFamily="ManropeBold"
-                  style={{ paddingBottom: 4 }}
+                  style={{ paddingBottom: SPACING.xs }}
                 >
                   ₱
                 </AppText>

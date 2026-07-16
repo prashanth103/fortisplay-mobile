@@ -46,7 +46,7 @@ export default function ResultRow({
 const createStyles = (COLORS: any) => StyleSheet.create({
 
   container: {
-    paddingVertical: 18,
+    paddingVertical: SPACING.xl,
     paddingHorizontal: SPACING.lg,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.resultRowBorder,
@@ -57,7 +57,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   runners: {
     flex: 1,
     flexDirection: 'row',
-    gap: 14,
+    gap: SPACING.lg,
   },
 
 });

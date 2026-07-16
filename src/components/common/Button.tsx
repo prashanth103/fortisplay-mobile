@@ -1,3 +1,4 @@
+import { SPACING } from '@/theme/spacing';
 import React from 'react';
 import AppText from '@/components/common/AppText';
 import { StyleProp, StyleSheet, TextStyle, TouchableOpacity, TouchableOpacityProps, View, ViewStyle } from 'react-native';
@@ -98,15 +99,15 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   outline: {
     borderWidth: 1,
     borderColor: COLORS.border,
-    backgroundColor: 'transparent',
+    backgroundColor: COLORS.transparent,
   },
   ghost: {
-    backgroundColor: 'transparent',
+    backgroundColor: COLORS.transparent,
   },
   cancel: {
     borderWidth: 1,
     borderColor: COLORS.textSecondary,
-    backgroundColor: 'transparent',
+    backgroundColor: COLORS.transparent,
   },
   danger: {
     backgroundColor: COLORS.danger,
@@ -119,15 +120,15 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   sm: {
     minHeight: 44,
-    paddingHorizontal: 14,
+    paddingHorizontal: SPACING.lg,
   },
   md: {
     minHeight: 52,
-    paddingHorizontal: 16,
+    paddingHorizontal: SPACING.lg,
   },
   lg: {
     minHeight: 54,
-    paddingHorizontal: 18,
+    paddingHorizontal: SPACING.xl,
   },
   disabled: {
     opacity: 0.55,
@@ -136,6 +137,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 8,
+    gap: SPACING.sm,
   },
 });

@@ -1,9 +1,11 @@
+import { RADIUS } from '@/theme/radius';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
+import { SHADOWS } from '@/theme/shadows';
 import { SPACING } from '@/theme/spacing';
 import { TYPOGRAPHY } from '@/theme/typography';
 import { useThemeColors } from "@/hooks/useThemeColors";
@@ -47,7 +49,7 @@ export default function BetSlip({
             />
           </View>
 
-          <AppText variant="h4" fontFamily="ManropeBold" color={COLORS.primary} style={{ marginLeft: 8 }}>
+          <AppText variant="h4" fontFamily="ManropeBold" color={COLORS.primary} style={{ marginLeft: SPACING.sm }}>
             Bet Slip
           </AppText>
 
@@ -72,7 +74,7 @@ export default function BetSlip({
         <View style={styles.topRow}>
 
           <View style={styles.leftBlock}>
-            <AppText fontFamily="ManropeBold" color={COLORS.ticketGold} style={{ marginBottom: 12 }}>
+            <AppText fontFamily="ManropeBold" color={COLORS.ticketGold} style={{ marginBottom: SPACING.md }}>
               WIN · FINISH 1ST
             </AppText>
 
@@ -84,7 +86,7 @@ export default function BetSlip({
                 </AppText>
               </View>
 
-              <AppText fontSize={16} fontFamily="ManropeBold" color={COLORS.black} style={{ marginLeft: 12 }}>
+              <AppText fontSize={16} fontFamily="ManropeBold" color={COLORS.black} style={{ marginLeft: SPACING.md }}>
                 {runnerName}
               </AppText>
 
@@ -92,7 +94,7 @@ export default function BetSlip({
           </View>
 
           <View style={styles.rightBlock}>
-            <AppText fontFamily="ManropeBold" color={COLORS.textSecondary} style={{ marginBottom: 6 }}>STAKE</AppText>
+            <AppText fontFamily="ManropeBold" color={COLORS.textSecondary} style={{ marginBottom: SPACING.sm }}>STAKE</AppText>
 
             <Input
               wrapperStyle={styles.amountBox}
@@ -133,7 +135,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderTopRightRadius: 18,
     paddingTop: SPACING.lg,
     paddingBottom: SPACING.lg,
-    marginTop: 14,
+    marginTop: SPACING.lg,
     shadowColor: COLORS.primary,
     shadowOffset: {
       width: 0,
@@ -160,7 +162,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     backgroundColor: COLORS.badgeBackgroundDark,
     height: 36,
     width: 36,
-    borderRadius: 10,
+    borderRadius: RADIUS.sm,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -169,14 +171,14 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     color: COLORS.primary,
     fontWeight: '700',
     fontSize: 20,
-    marginLeft: 8,
+    marginLeft: SPACING.sm,
   },
 
   count: {
-    marginLeft: 8,
+    marginLeft: SPACING.sm,
     width: 22,
     height: 22,
-    borderRadius: 11,
+    borderRadius: RADIUS.sm,
     backgroundColor: COLORS.primary,
     justifyContent: 'center',
     alignItems: 'center',
@@ -189,16 +191,16 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   content: {
-    marginTop: 20,
+    marginTop: SPACING.xl,
     backgroundColor: COLORS.white,
-    paddingVertical: 16,
+    paddingVertical: SPACING.lg,
     paddingHorizontal: SPACING.lg,
   },
 
   pool: {
     color: COLORS.ticketGold,
     fontWeight: '700',
-    marginBottom: 12,
+    marginBottom: SPACING.md,
   },
 
   topRow: {
@@ -209,7 +211,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   leftBlock: {
     flex: 1,
-    paddingRight: 12,
+    paddingRight: SPACING.md,
   },
 
   rightBlock: {
@@ -220,7 +222,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   stakeLabel: {
     color: COLORS.textSecondary,
     fontWeight: '700',
-    marginBottom: 6,
+    marginBottom: SPACING.sm,
   },
 
   runner: {
@@ -231,7 +233,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   circle: {
     width: 34,
     height: 34,
-    borderRadius: 17,
+    borderRadius: RADIUS.xl,
     backgroundColor: COLORS.primary,
     justifyContent: 'center',
     alignItems: 'center',
@@ -243,7 +245,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   runnerName: {
-    marginLeft: 12,
+    marginLeft: SPACING.md,
     color: COLORS.black,
     fontWeight: '700',
     fontSize: TYPOGRAPHY.body.fontSize,
@@ -258,10 +260,10 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 46,
     borderWidth: 2,
     borderColor: COLORS.primary,
-    borderRadius: 10,
+    borderRadius: RADIUS.sm,
     backgroundColor: COLORS.white,
-    paddingHorizontal: 12,
-    gap: 6,
+    paddingHorizontal: SPACING.md,
+    gap: SPACING.sm,
   },
 
   currency: {
@@ -277,9 +279,9 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   button: {
-    marginTop: 18,
+    marginTop: SPACING.xl,
     height: 52,
-    borderRadius: 12,
+    borderRadius: RADIUS.sm,
     backgroundColor: COLORS.primary,
     justifyContent: 'center',
     alignItems: 'center',

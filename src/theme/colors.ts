@@ -44,6 +44,7 @@ export const DARK_COLORS = {
 
   white: '#FFFFFF',
   black: '#000000',
+  transparent: 'transparent',
 
   // Component specific colors
   badgeBackgroundDark: '#3B3323',
@@ -139,6 +140,7 @@ export const LIGHT_COLORS = {
 
   white: '#FFFFFF',
   black: '#000000',
+  transparent: 'transparent',
 
   // Component specific colors
   badgeBackgroundDark: '#3B3323',

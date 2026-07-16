@@ -1,3 +1,4 @@
+import { SPACING } from '@/theme/spacing';
 import AppLogo from '@/components/common/AppLogo';
 import AppText from '@/components/common/AppText';
 import Button from '@/components/common/Button';
@@ -6,6 +7,7 @@ import AuthLayout from '@/components/layout/AuthLayout';
 import { useDevice } from '@/hooks/useDevice';
 import { useThemeColors } from "@/hooks/useThemeColors";
 import { TYPOGRAPHY } from '@/theme/typography';
+import { SHADOWS } from '@/theme/shadows';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { router } from 'expo-router';
 import React, { useState } from "react";
@@ -98,14 +100,14 @@ export default function LoginScreen() {
 const createStyles = (COLORS: any) => StyleSheet.create({
   header: {
     alignItems: 'center',
-    marginBottom: 48,
+    marginBottom: SPACING.huge,
   },
   headerTablet: {
-    marginBottom: 56
+    marginBottom: SPACING.huge
   },
   signInButton: {
     height: 54,
-    marginTop: 20,
+    marginTop: SPACING.xl,
     shadowColor: COLORS.primary,
     shadowOpacity: 0.30,
     shadowRadius: 24,

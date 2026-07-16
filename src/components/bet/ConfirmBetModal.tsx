@@ -1,3 +1,5 @@
+import { RADIUS } from '@/theme/radius';
+import { SPACING } from '@/theme/spacing';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
@@ -110,7 +112,7 @@ export default function ConfirmBetModal({
 
                 </View>
 
-                <AppText fontFamily="ManropeBold" color={COLORS.black} style={{ marginTop: 8 }}>
+                <AppText fontFamily="ManropeBold" color={COLORS.black} style={{ marginTop: SPACING.sm }}>
                   {runnerName}
                 </AppText>
 
@@ -185,26 +187,26 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLORS.overlay,
-    padding: 20,
+    padding: SPACING.xl,
   },
 
   container: {
     width: '100%',
-    backgroundColor: 'transparent',
-    borderRadius: 20,
+    backgroundColor: COLORS.transparent,
+    borderRadius: RADIUS.xl,
     overflow: 'visible',
   },
 
   card: {
     width: '100%',
-    borderRadius: 20,
+    borderRadius: RADIUS.xl,
     backgroundColor: COLORS.white,
     overflow: 'hidden',
   },
 
   header: {
     height: 64,
-    paddingHorizontal: 20,
+    paddingHorizontal: SPACING.xl,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.ticketBorder,
     flexDirection: 'row',
@@ -220,14 +222,14 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   qrContainer: {
     alignItems: 'center',
-    paddingTop: 18,
+    paddingTop: SPACING.xl,
   },
 
   badge: {
     backgroundColor: COLORS.ticketBackground,
-    borderRadius: 16,
-    paddingHorizontal: 16,
-    paddingVertical: 6,
+    borderRadius: RADIUS.lg,
+    paddingHorizontal: SPACING.lg,
+    paddingVertical: SPACING.sm,
   },
 
   badgeText: {
@@ -238,7 +240,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   lineContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 12,
+    marginVertical: SPACING.md,
   },
 
   semiCircleLeft: {
@@ -247,7 +249,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderTopRightRadius: 15,
     borderBottomRightRadius: 15,
     backgroundColor: COLORS.background,
-    marginRight: 6
+    marginRight: SPACING.sm
   },
 
   semiCircleRight: {
@@ -256,7 +258,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderTopLeftRadius: 15,
     borderBottomLeftRadius: 15,
     backgroundColor: COLORS.background,
-    marginLeft: 6
+    marginLeft: SPACING.sm
   },
 
   line: {
@@ -267,7 +269,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   infoRow: {
-    paddingHorizontal: 24,
+    paddingHorizontal: SPACING.xxl,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -280,7 +282,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   circle: {
     width: 58,
     height: 58,
-    borderRadius: 29,
+    borderRadius: RADIUS.full,
     backgroundColor: COLORS.primary,
     justifyContent: 'center',
     alignItems: 'center',
@@ -289,7 +291,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   innerCircle: {
     width: 36,
     height: 36,
-    borderRadius: 19,
+    borderRadius: RADIUS.xl,
     backgroundColor: COLORS.white,
     justifyContent: 'center',
     alignItems: 'center',
@@ -301,7 +303,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   runnerName: {
-    marginTop: 8,
+    marginTop: SPACING.sm,
     fontWeight: '700',
     color: COLORS.black,
   },
@@ -326,8 +328,8 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   amountRow: {
-    paddingHorizontal: 24,
-    paddingBottom: 20,
+    paddingHorizontal: SPACING.xxl,
+    paddingBottom: SPACING.xl,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -342,9 +344,9 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   amountBox: {
     borderWidth: 2,
     borderColor: COLORS.primary,
-    borderRadius: 12,
-    paddingHorizontal: 20,
-    paddingVertical: 4,
+    borderRadius: RADIUS.sm,
+    paddingHorizontal: SPACING.xl,
+    paddingVertical: SPACING.xs,
   },
 
   amount: {
@@ -355,21 +357,21 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   footer: {
     flexDirection: 'row',
-    paddingHorizontal: 20,
-    paddingTop: 18,
-    gap: 16,
+    paddingHorizontal: SPACING.xl,
+    paddingTop: SPACING.xl,
+    gap: SPACING.lg,
   },
 
   cancel: {
     flex: 1,
     height: 54,
-    borderRadius: 12,
+    borderRadius: RADIUS.sm,
   },
 
   confirm: {
     flex: 1,
     height: 54,
-    borderRadius: 12,
+    borderRadius: RADIUS.sm,
   },
 
 

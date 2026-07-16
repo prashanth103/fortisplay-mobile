@@ -1,3 +1,6 @@
+import { RADIUS } from '@/theme/radius';
+import { SHADOWS } from '@/theme/shadows';
+import { SPACING } from '@/theme/spacing';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
@@ -43,7 +46,7 @@ export default function ProfileModal({
         >
           <View style={styles.identity}>
             <AppText variant="p1" fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>SO name displayed</AppText>
-            <AppText variant="p2" fontFamily="ManropeExtraBold" color={COLORS.textSecondary} style={{ marginTop: 4 }}>SO ID 400001</AppText>
+            <AppText variant="p2" fontFamily="ManropeExtraBold" color={COLORS.textSecondary} style={{ marginTop: SPACING.xs }}>SO ID 400001</AppText>
           </View>
 
           <Pressable
@@ -85,7 +88,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     right: 16,
     width: 250,
     backgroundColor: COLORS.surfaceElevated,
-    borderRadius: 14,
+    borderRadius: RADIUS.md,
     borderWidth: 1,
     borderColor: COLORS.modalBorder,
     overflow: 'hidden',
@@ -101,14 +104,14 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     width: 320,
   },
   identity: {
-    paddingHorizontal: 20,
-    paddingTop: 16,
-    paddingBottom: 18,
+    paddingHorizontal: SPACING.xl,
+    paddingTop: SPACING.lg,
+    paddingBottom: SPACING.xl,
   },
   tabletIdentity: {
-    paddingHorizontal: 24,
-    paddingTop: 18,
-    paddingBottom: 20,
+    paddingHorizontal: SPACING.xxl,
+    paddingTop: SPACING.xl,
+    paddingBottom: SPACING.xl,
   },
   profileName: {
     color: COLORS.textPrimary,
@@ -123,14 +126,14 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     fontWeight: '800',
   },
   profileId: {
-    marginTop: 4,
+    marginTop: SPACING.xs,
     color: COLORS.textSecondary,
     fontSize: 13,
     fontFamily: 'Manrope',
     fontWeight: '800',
   },
   tabletProfileId: {
-    marginTop: 4,
+    marginTop: SPACING.xs,
     color: COLORS.textSecondary,
     fontSize: 16,
     fontFamily: 'Manrope',
@@ -138,21 +141,21 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   menuItem: {
     minHeight: 50,
-    paddingHorizontal: 22,
+    paddingHorizontal: SPACING.xxl,
     borderTopWidth: 1,
     borderTopColor: COLORS.border,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 18,
+    gap: SPACING.xl,
   },
   tabletMenuItem: {
     minHeight: 66,
-    paddingHorizontal: 22,
+    paddingHorizontal: SPACING.xxl,
     borderTopWidth: 1,
     borderTopColor: COLORS.border,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 18,
+    gap: SPACING.xl,
   },
   menuItemText: {
     color: COLORS.textPrimary,

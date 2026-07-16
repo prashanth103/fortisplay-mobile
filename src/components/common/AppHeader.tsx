@@ -1,3 +1,5 @@
+import { RADIUS } from '@/theme/radius';
+import { SPACING } from '@/theme/spacing';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
 import { router } from 'expo-router';
@@ -94,41 +96,41 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     height: 72,
-    paddingHorizontal: 16,
+    paddingHorizontal: SPACING.lg,
     backgroundColor: COLORS.headerbg,
   },
   containerTablet: {
     height: 88,
-    paddingHorizontal: 24,
+    paddingHorizontal: SPACING.xxl,
   },
   rightContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12
+    gap: SPACING.md
   },
   rightContainerTablet: {
-    gap: 20
+    gap: SPACING.xl
   },
   themeToggle: {
-    padding: 8,
-    borderRadius: 20,
+    padding: SPACING.sm,
+    borderRadius: RADIUS.xl,
     backgroundColor: COLORS.border,
     justifyContent: 'center',
     alignItems: 'center',
   },
   balanceContainer: {
     height: 44,
-    paddingHorizontal: 16,
-    borderRadius: 24,
+    paddingHorizontal: SPACING.lg,
+    borderRadius: RADIUS.xxl,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
+    gap: SPACING.md,
     backgroundColor: COLORS.primary,
   },
   balanceContainerTablet: {
     height: 56,
-    paddingHorizontal: 22,
-    borderRadius: 28,
+    paddingHorizontal: SPACING.xxl,
+    borderRadius: RADIUS.xxxl,
   },
   amount: {
     color: COLORS.border,
@@ -141,22 +143,22 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   profileContainer: {
     height: 48,
-    paddingLeft: 8,
-    paddingRight: 12,
-    borderRadius: 24,
+    paddingLeft: SPACING.sm,
+    paddingRight: SPACING.md,
+    borderRadius: RADIUS.xxl,
     backgroundColor: COLORS.border,
     flexDirection: 'row',
     alignItems: 'center',
   },
   profileContainerTablet: {
     height: 56,
-    paddingLeft: 10,
-    paddingRight: 16,
+    paddingLeft: SPACING.md,
+    paddingRight: SPACING.lg,
   },
   profileIconContainer: {
     width: 36,
     height: 36,
-    borderRadius: 24,
+    borderRadius: RADIUS.xxl,
     backgroundColor: COLORS.primary,
     justifyContent: 'center',
     alignItems: 'center',
@@ -164,6 +166,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   profileIconContainerTablet: {
     width: 44,
     height: 44,
-    borderRadius: 22,
+    borderRadius: RADIUS.xxl,
   },
 });

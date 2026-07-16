@@ -7,6 +7,7 @@ import { useDevice } from '@/hooks/useDevice';
 import { RADIUS } from '@/theme/radius';
 import { SPACING } from '@/theme/spacing';
 import { TYPOGRAPHY } from '@/theme/typography';
+import { SHADOWS } from '@/theme/shadows';
 import { useThemeColors } from "@/hooks/useThemeColors";
 import * as React from "react";
 
@@ -55,11 +56,11 @@ export default function LiveRace({
         />
       </View>
 
-      <AppText fontFamily="ManropeBold" color={COLORS.textPrimary} fontSize={isTablet ? 38 : 32} style={{ marginTop: 24 }}>
+      <AppText fontFamily="ManropeBold" color={COLORS.textPrimary} fontSize={isTablet ? 38 : 32} style={{ marginTop: SPACING.xxl }}>
         Bets Closed
       </AppText>
 
-      <AppText fontFamily="ManropeRegular" color={COLORS.textSecondary} fontSize={isTablet ? 18 : 16} style={{ marginTop: 12, textAlign: "center", lineHeight: isTablet ? 28 : 24 }}>
+      <AppText fontFamily="ManropeRegular" color={COLORS.textSecondary} fontSize={isTablet ? 18 : 16} style={{ marginTop: SPACING.md, textAlign: "center", lineHeight: isTablet ? 28 : 24 }}>
         Betting for {raceName} is now closed.
         {'\n'}
         The race is underway — watch it live.
@@ -102,15 +103,15 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   containerTablet: {
-    paddingHorizontal: 80,
+    paddingHorizontal: SPACING.huge,
   },
 
   badge: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 18,
+    paddingHorizontal: SPACING.xl,
     height: 34,
-    borderRadius: 18,
+    borderRadius: RADIUS.xl,
     backgroundColor: COLORS.liveRaceBackground,
     borderWidth: 1,
     borderColor: COLORS.liveRaceBorder,
@@ -119,9 +120,9 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   dot: {
     width: 10,
     height: 10,
-    borderRadius: 5,
+    borderRadius: RADIUS.xs,
     backgroundColor: COLORS.danger,
-    marginRight: 8,
+    marginRight: SPACING.sm,
   },
 
   badgeText: {
@@ -133,21 +134,21 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   iconContainer: {
     width: 74,
     height: 74,
-    borderRadius: 37,
+    borderRadius: RADIUS.full,
     backgroundColor: COLORS.surfaceSecondary,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 28,
+    marginTop: SPACING.xxxl,
   },
 
   iconContainerTablet: {
     width: 92,
     height: 92,
-    borderRadius: 46,
+    borderRadius: RADIUS.full,
   },
 
   title: {
-    marginTop: 24,
+    marginTop: SPACING.xxl,
     color: COLORS.textPrimary,
     fontSize: 32,
     fontWeight: '700',
@@ -158,7 +159,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   description: {
-    marginTop: 12,
+    marginTop: SPACING.md,
     color: COLORS.textSecondary,
     fontSize: TYPOGRAPHY.body.fontSize,
     textAlign: 'center',
@@ -171,23 +172,15 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   button: {
-    marginTop: 40,
+    marginTop: SPACING.huge,
     width: 180,
     height: 54,
     borderRadius: RADIUS.lg,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 10,
-
-    shadowColor: COLORS.danger,
-    shadowOpacity: 0.35,
-    shadowRadius: 16,
-    shadowOffset: {
-      width: 0,
-      height: 8,
-    },
-    elevation: 10,
+    gap: SPACING.md,
+    ...SHADOWS.buttonDanger,
   },
 
   buttonTablet: {

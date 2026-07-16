@@ -1,3 +1,4 @@
+import { SPACING } from '@/theme/spacing';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
@@ -132,7 +133,7 @@ export default function TicketModal({
                 </View>
 
               </View>
-              <AppText variant="p3" fontFamily="ManropeRegular" color={COLORS.textMuted} style={{ textAlign: "center", marginBottom: 12, paddingHorizontal: 24 }}>
+              <AppText variant="p3" fontFamily="ManropeRegular" color={COLORS.textMuted} style={{ textAlign: "center", marginBottom: SPACING.md, paddingHorizontal: SPACING.xxl }}>
                 Valid for 60 days. Ticket required for all payments
               </AppText>
             </View>
@@ -204,26 +205,26 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     backgroundColor: COLORS.overlay,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    padding: SPACING.xl,
   },
 
   container: {
     width: '100%',
-    borderRadius: 20,
-    backgroundColor: 'transparent',
+    borderRadius: RADIUS.xl,
+    backgroundColor: COLORS.transparent,
     overflow: 'visible',
   },
 
   card: {
     width: '100%',
-    borderRadius: 20,
+    borderRadius: RADIUS.xl,
     backgroundColor: COLORS.white,
     overflow: 'hidden',
   },
 
   header: {
     height: 64,
-    paddingHorizontal: 20,
+    paddingHorizontal: SPACING.xl,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.ticketBorder,
     flexDirection: 'row',
@@ -239,14 +240,14 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   qrContainer: {
     alignItems: 'center',
-    marginVertical: 20,
+    marginVertical: SPACING.xl,
   },
 
   badge: {
     backgroundColor: COLORS.ticketBackground,
-    borderRadius: 16,
-    paddingHorizontal: 16,
-    paddingVertical: 6,
+    borderRadius: RADIUS.lg,
+    paddingHorizontal: SPACING.lg,
+    paddingVertical: SPACING.sm,
   },
 
   badgeText: {
@@ -271,7 +272,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderTopRightRadius: 15,
     borderBottomRightRadius: 15,
     backgroundColor: COLORS.background,
-    marginRight: 6
+    marginRight: SPACING.sm
   },
 
   semiCircleRight: {
@@ -280,7 +281,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderTopLeftRadius: 15,
     borderBottomLeftRadius: 15,
     backgroundColor: COLORS.background,
-    marginLeft: 6
+    marginLeft: SPACING.sm
   },
 
   line: {
@@ -291,20 +292,20 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   details: {
-    paddingHorizontal: 24,
+    paddingHorizontal: SPACING.xxl,
   },
 
   separator: {
     borderTopWidth: 1,
     borderTopColor: COLORS.ticketBorder,
-    marginVertical: 16,
-    marginHorizontal: 24
+    marginVertical: SPACING.lg,
+    marginHorizontal: SPACING.xxl
   },
 
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 8,
+    marginBottom: SPACING.sm,
   },
 
   rowLabel: {
@@ -320,9 +321,9 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   footer: {
     flexDirection: 'row',
-    gap: 16,
-    paddingHorizontal: 20,
-    paddingTop: 16,
+    gap: SPACING.lg,
+    paddingHorizontal: SPACING.xl,
+    paddingTop: SPACING.lg,
   },
 
   close: {
@@ -343,14 +344,14 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 8,
+    gap: SPACING.sm,
   },
 
   totalContainer: {
     flexDirection: 'column',
-    gap: 22,
-    paddingHorizontal: 24,
-    paddingBottom: 18,
+    gap: SPACING.xxl,
+    paddingHorizontal: SPACING.xxl,
+    paddingBottom: SPACING.xl,
   },
 
   totalRow: {
@@ -368,9 +369,9 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   amountBox: {
     borderWidth: 2,
     borderColor: COLORS.primary,
-    borderRadius: 12,
-    paddingHorizontal: 20,
-    paddingVertical: 4,
+    borderRadius: RADIUS.sm,
+    paddingHorizontal: SPACING.xl,
+    paddingVertical: SPACING.xs,
   },
 
   amount: {
@@ -383,8 +384,8 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     textAlign: 'center',
     color: COLORS.textMuted,
     fontSize: 12,
-    marginBottom: 12,
-    paddingHorizontal: 24
+    marginBottom: SPACING.md,
+    paddingHorizontal: SPACING.xxl
   },
 
   closeText: {

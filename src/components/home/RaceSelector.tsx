@@ -55,7 +55,7 @@ export default function RaceSelector({
               <AppText
                 fontFamily="ManropeSemiBold"
                 color={active ? COLORS.black : COLORS.textPrimary}
-                style={{ marginLeft: 6 }}
+                style={{ marginLeft: SPACING.sm }}
               >
                 • {race.time}
               </AppText>
@@ -96,7 +96,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
     paddingTop: SPACING.md,
     gap: SPACING.md,
-    marginBottom: 10,
+    marginBottom: SPACING.md,
   },
 
   card: {
@@ -122,12 +122,12 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: SPACING.md,
   },
 
   timerRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4,
+    gap: SPACING.xs,
   },
 });

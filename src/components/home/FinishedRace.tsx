@@ -57,7 +57,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: COLORS.resultRowBorder,
-    paddingVertical: 16
+    paddingVertical: SPACING.lg
   },
 
 });

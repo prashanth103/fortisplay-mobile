@@ -55,7 +55,7 @@ export default function BetTypeTabs() {
               fontFamily="ManropeRegular"
               fontSize={12}
               color={active ? COLORS.textPrimary : COLORS.textSecondary}
-              style={{ marginTop: 4 }}
+              style={{ marginTop: SPACING.xs }}
             >
               {item.subtitle}
             </AppText>
@@ -82,7 +82,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   item: {
     flex: 1,
-    paddingVertical: 14,
+    paddingVertical: SPACING.lg,
     alignItems: 'center',
   },
 
