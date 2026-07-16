@@ -125,11 +125,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderColor: COLORS.modalBorder,
     backgroundColor: COLORS.surfaceElevated,
     overflow: 'hidden',
-    shadowColor: COLORS.black,
-    shadowOffset: { width: 0, height: 18 },
-    shadowOpacity: 0.38,
-    shadowRadius: 28,
-    elevation: 18,
+    ...SHADOWS.modal,
   },
   modalTablet: {
     maxWidth: 520,

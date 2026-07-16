@@ -1,14 +1,14 @@
+import AppText from '@/components/common/AppText';
 import { RADIUS } from '@/theme/radius';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import AppText from '@/components/common/AppText';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
+import { useThemeColors } from "@/hooks/useThemeColors";
 import { SHADOWS } from '@/theme/shadows';
 import { SPACING } from '@/theme/spacing';
 import { TYPOGRAPHY } from '@/theme/typography';
-import { useThemeColors } from "@/hooks/useThemeColors";
 import * as React from "react";
 
 interface Props {
@@ -30,8 +30,8 @@ export default function BetSlip({
   onClose,
   onPlaceBet,
 }: Props) {
-    const COLORS = useThemeColors();
-      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   if (!visible) return null;
 
   return (
@@ -131,19 +131,12 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   container: {
     backgroundColor: COLORS.surface,
-    borderTopLeftRadius: 18,
-    borderTopRightRadius: 18,
+    borderTopLeftRadius: RADIUS.xl,
+    borderTopRightRadius: RADIUS.xl,
     paddingTop: SPACING.lg,
     paddingBottom: SPACING.lg,
     marginTop: SPACING.lg,
-    shadowColor: COLORS.primary,
-    shadowOffset: {
-      width: 0,
-      height: -4,
-    },
-    shadowOpacity: 0.15,
-    shadowRadius: 12,
-    elevation: 20,
+    ...SHADOWS.betSlip,
   },
 
   header: {
@@ -253,7 +246,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   amountBox: {
     width: 105,
-    marginBottom: 0,
+    marginBottom: SPACING.none,
   },
 
   amountInputContainer: {
@@ -275,7 +268,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   input: {
     fontWeight: '700',
     fontSize: 22,
-    padding: 0,
   },
 
   button: {

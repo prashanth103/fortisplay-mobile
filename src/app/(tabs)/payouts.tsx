@@ -279,7 +279,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderTopWidth: 2,
     borderLeftWidth: 2,
     borderColor: COLORS.primary,
-    borderTopLeftRadius: 6,
+    borderTopLeftRadius: RADIUS.xs,
   },
   scanCornerTopRight: {
     position: 'absolute',
@@ -290,7 +290,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderTopWidth: 2,
     borderRightWidth: 2,
     borderColor: COLORS.primary,
-    borderTopRightRadius: 6,
+    borderTopRightRadius: RADIUS.xs,
   },
   scanCornerBottomLeft: {
     position: 'absolute',
@@ -301,7 +301,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderBottomWidth: 2,
     borderLeftWidth: 2,
     borderColor: COLORS.primary,
-    borderBottomLeftRadius: 6,
+    borderBottomLeftRadius: RADIUS.xs,
   },
   scanCornerBottomRight: {
     position: 'absolute',
@@ -312,7 +312,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderBottomWidth: 2,
     borderRightWidth: 2,
     borderColor: COLORS.primary,
-    borderBottomRightRadius: 6,
+    borderBottomRightRadius: RADIUS.xs,
   },
   scanButton: {
     width: 190,
@@ -360,7 +360,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   inputWrapper: {
     flex: 1,
-    marginBottom: 0,
+    marginBottom: SPACING.none,
   },
   inputContainer: {
     height: 48,

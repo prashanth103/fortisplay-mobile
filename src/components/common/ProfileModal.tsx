@@ -92,11 +92,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.modalBorder,
     overflow: 'hidden',
-    shadowColor: COLORS.black,
-    shadowOffset: { width: 0, height: 18 },
-    shadowOpacity: 0.34,
-    shadowRadius: 24,
-    elevation: 16,
+    ...SHADOWS.dropdown,
   },
   menuTablet: {
     top: 84,

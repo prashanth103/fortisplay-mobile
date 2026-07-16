@@ -1,6 +1,6 @@
+import AppText from '@/components/common/AppText';
 import { SPACING } from '@/theme/spacing';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import AppText from '@/components/common/AppText';
 import { Tabs } from 'expo-router';
 import React from 'react';
 import { Platform } from 'react-native';
@@ -49,7 +49,7 @@ export default function TabsLayout() {
   const insets = useSafeAreaInsets();
   const COLORS = useThemeColors();
 
-  const bottomPadding = insets.bottom + (Platform.OS === 'ios' ? 12 : 10);
+  const bottomPadding = insets.bottom + (Platform.OS === 'ios' ? SPACING.md : SPACING.sm);
 
   return (
     <Tabs
@@ -73,7 +73,7 @@ export default function TabsLayout() {
         tabBarLabelStyle: {
           fontSize: 11,
           fontWeight: '600',
-          marginBottom: Platform.OS === 'ios' ? 4 : 2,
+          marginBottom: Platform.OS === 'ios' ? SPACING.xs : SPACING.xxs,
         },
       }}
     >

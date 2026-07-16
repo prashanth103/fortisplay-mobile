@@ -1,3 +1,4 @@
+import { RADIUS } from '@/theme/radius';
 import { useState } from 'react';
 import AppText from '@/components/common/AppText';
 import { Pressable, StyleSheet, View } from 'react-native';
@@ -75,8 +76,8 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderBottomWidth: 1,
     borderTopColor: COLORS.primary,
     borderColor: COLORS.border,
-    borderTopRightRadius: 14,
-    borderTopLeftRadius: 14,
+    borderTopRightRadius: RADIUS.md,
+    borderTopLeftRadius: RADIUS.md,
     marginTop: SPACING.md,
   },
 

@@ -269,8 +269,8 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   semiCircleLeft: {
     width: 13,
     height: 26,
-    borderTopRightRadius: 15,
-    borderBottomRightRadius: 15,
+    borderTopRightRadius: RADIUS.lg,
+    borderBottomRightRadius: RADIUS.lg,
     backgroundColor: COLORS.background,
     marginRight: SPACING.sm
   },
@@ -278,8 +278,8 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   semiCircleRight: {
     width: 13,
     height: 26,
-    borderTopLeftRadius: 15,
-    borderBottomLeftRadius: 15,
+    borderTopLeftRadius: RADIUS.lg,
+    borderBottomLeftRadius: RADIUS.lg,
     backgroundColor: COLORS.background,
     marginLeft: SPACING.sm
   },

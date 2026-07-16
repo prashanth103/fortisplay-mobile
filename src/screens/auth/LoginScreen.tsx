@@ -108,14 +108,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   signInButton: {
     height: 54,
     marginTop: SPACING.xl,
-    shadowColor: COLORS.primary,
-    shadowOpacity: 0.30,
-    shadowRadius: 24,
-    shadowOffset: {
-      width: 0,
-      height: 8,
-    },
-    elevation: 8,
+    ...SHADOWS.button,
   },
   signInButtonTablet: {
     height: 60,

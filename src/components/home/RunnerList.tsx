@@ -1,3 +1,4 @@
+import { RADIUS } from '@/theme/radius';
 import { FlatList, StyleSheet } from 'react-native';
 
 import RunnerCard from './RunnerCard';
@@ -53,7 +54,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flexGrow: 1,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.border,
-    borderBottomLeftRadius: 12,
-    borderBottomRightRadius: 12,
+    borderBottomLeftRadius: RADIUS.sm,
+    borderBottomRightRadius: RADIUS.sm,
   },
 });
