@@ -1,7 +1,7 @@
-import { BORDERS, OPACITY, RADIUS, SHADOWS, SPACING } from '@/theme';
 import { useThemeColors } from '@/hooks/useThemeColors';
+import { BORDERS, OPACITY, RADIUS, SHADOWS, SPACING } from '@/theme';
 import React from 'react';
-import { StyleProp, StyleSheet, TouchableOpacity, TouchableOpacityProps, View, ViewStyle } from 'react-native';
+import { DimensionValue, StyleProp, StyleSheet, TouchableOpacity, TouchableOpacityProps, View, ViewStyle } from 'react-native';
 
 export type CardVariant = 'elevated' | 'outlined' | 'flat';
 export type CardPadding = 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
@@ -10,14 +10,16 @@ export type CardRadius = 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 interface CardProps extends TouchableOpacityProps {
   children: React.ReactNode;
   variant?: CardVariant;
-  padding?: CardPadding;
-  radius?: CardRadius;
+  padding?: CardPadding | number;
+  radius?: CardRadius | number;
   shadow?: keyof typeof SHADOWS;
   border?: keyof typeof BORDERS;
   borderColor?: string;
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
   backgroundColor?: string;
+  width?: DimensionValue;
+  height?: DimensionValue;
 }
 
 export default function Card({
@@ -31,6 +33,8 @@ export default function Card({
   onPress,
   style,
   backgroundColor,
+  width,
+  height,
   ...touchableProps
 }: CardProps) {
   const COLORS = useThemeColors();
@@ -40,9 +44,11 @@ export default function Card({
     styles.base,
     styles[`variant_${variant}`],
     {
-      padding: padding === 'none' ? 0 : SPACING[padding],
-      borderRadius: radius === 'none' ? 0 : RADIUS[radius],
+      padding: padding === 'none' ? 0 : (typeof padding === 'number' ? padding : SPACING[padding]),
+      borderRadius: radius === 'none' ? 0 : (typeof radius === 'number' ? radius : RADIUS[radius]),
       backgroundColor: backgroundColor || COLORS.surface,
+      width: width,
+      height: height,
       ...(shadow ? SHADOWS[shadow] : {}),
       ...(border ? { borderWidth: BORDERS[border], borderColor: borderColor || COLORS.border } : {}),
     },

@@ -1,8 +1,8 @@
-import { RADIUS, SPACING } from '@/theme';
 import AppText from '@/components/common/AppText';
 import Card from '@/components/common/Card';
 import Screen from '@/components/layout/Screen';
 import { useThemeColors } from "@/hooks/useThemeColors";
+import { RADIUS, SPACING } from '@/theme';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import React, { ComponentProps } from "react";
 import { ScrollView, StyleSheet, View } from 'react-native';
@@ -184,7 +184,7 @@ export default function WalletScreen() {
 
         <View style={styles.topRow}>
           {topStats.map((item) => (
-            <Card key={item.id} style={styles.summaryCard} backgroundColor={item.backgroundColor} padding="none" radius="xl">
+            <Card key={item.id} width="100%" backgroundColor={item.backgroundColor} padding={SPACING.xxl} radius={RADIUS.xl}>
               <View style={styles.summaryRow}>
                 <View style={[styles.summaryIcon, { backgroundColor: item.iconBackground }]}>
                   <MaterialIcons name={item.icon} size={22} color={item.iconColor} />
@@ -200,7 +200,7 @@ export default function WalletScreen() {
 
         <View style={styles.actionRow}>
           {actionCards.map((item) => (
-            <Card key={item.id} style={styles.actionCard} backgroundColor={item.backgroundColor} padding="none" radius="lg">
+            <Card key={item.id} width="48%" backgroundColor={item.backgroundColor} padding={SPACING.lg} radius={RADIUS.lg}>
               <View style={[styles.actionIcon, { backgroundColor: item.iconBackground }]}>
                 <MaterialIcons name={item.icon} size={item.iconSize} color={item.iconColor} />
               </View>
@@ -214,13 +214,13 @@ export default function WalletScreen() {
 
         <View style={styles.statGrid}>
           {statCards.map((item) => (
-            <Card key={item.id} style={styles.statCard} backgroundColor={item.backgroundColor} padding="none" radius="md">
+            <Card key={item.id} style={styles.statCard} width="48%" backgroundColor={item.backgroundColor} padding={SPACING.xl} radius={RADIUS.md}>
               <View style={[styles.statIcon, { backgroundColor: item.iconBackground }]}>
                 <MaterialIcons name={item.icon} size={17} color={item.iconColor} />
               </View>
               <View style={styles.statText}>
-                <AppText variant="h4" style={{ marginBottom: SPACING.xs }}>{item.value}</AppText>
-                <AppText variant="p3" color={item.labelColor}>{item.title}</AppText>
+                <AppText variant="h3" color={COLORS.black} fontFamily="ManropeExtraBold" style={{ marginBottom: SPACING.xs }}>{item.value}</AppText>
+                <AppText variant="p3" color={item.labelColor} fontFamily="ManropeSemiBold">{item.title}</AppText>
               </View>
             </Card>
           ))}
@@ -228,7 +228,7 @@ export default function WalletScreen() {
 
         <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.walletText} style={{ marginBottom: SPACING.md, letterSpacing: 0.5 }}>Transaction History</AppText>
         {historyItems.map((item) => (
-          <Card key={item.id} style={styles.historyCard} backgroundColor={item.backgroundColor} padding="none" radius="xl">
+          <Card key={item.id} style={styles.historyCard} backgroundColor={item.backgroundColor} padding={SPACING.lg} radius={RADIUS.xl}>
             <View style={[styles.historyIcon, { backgroundColor: item.iconColor + '22' }]}>
               <MaterialIcons name={item.icon} size={20} color={item.iconColor} />
             </View>
@@ -265,13 +265,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   topRow: {
     marginBottom: SPACING.xl,
   },
-  summaryCard: {
-    width: '100%',
-    borderRadius: RADIUS.xl,
-    paddingVertical: SPACING.lg,
-    paddingHorizontal: SPACING.xl,
-    minHeight: 86,
-  },
   summaryRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -304,13 +297,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: SPACING.xl,
   },
-  actionCard: {
-    width: '48%',
-    borderRadius: RADIUS.lg,
-    padding: SPACING.lg,
-    minHeight: 148,
-    justifyContent: 'space-between',
-  },
   actionIcon: {
     width: 46,
     height: 46,
@@ -338,14 +324,9 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     marginBottom: SPACING.xxl,
   },
   statCard: {
-    width: '48%',
-    padding: SPACING.md,
-    borderRadius: RADIUS.md,
     marginBottom: SPACING.md,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    minHeight: 90,
   },
 
   statIcon: {
@@ -381,8 +362,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   historyCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: RADIUS.xl,
-    padding: SPACING.lg,
     marginBottom: SPACING.md,
   },
   historyIcon: {
