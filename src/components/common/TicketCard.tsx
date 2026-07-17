@@ -1,0 +1,149 @@
+import { RADIUS, SPACING } from '@/theme';
+import AppText from '@/components/common/AppText';
+import { useThemeColors } from '@/hooks/useThemeColors';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+
+export type TicketStatus = 'WON' | 'LOST' | 'PENDING';
+
+export interface TicketCardData {
+  status: TicketStatus;
+  ticketType: string;
+  option: string;
+  ticketNumber: string;
+  date: string;
+  betAmount: number;
+  iconText: string;
+  iconColor: string;
+  subtitle: string;
+  note: string;
+  payout?: number;
+}
+
+interface Props {
+  readonly data: Readonly<TicketCardData>;
+}
+
+function getStatusColors(status: TicketStatus, COLORS: ReturnType<typeof useThemeColors>) {
+  switch (status) {
+    case 'WON':
+      return { bg: COLORS.successBackground, text: COLORS.successText };
+    case 'LOST':
+      return { bg: COLORS.neutralBackground, text: COLORS.neutralText };
+    case 'PENDING':
+      return { bg: COLORS.warningBackground, text: COLORS.warningText };
+  }
+}
+
+export default function TicketCard({ data }: Props) {
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const statusColors = getStatusColors(data.status, COLORS);
+
+  return (
+    <View style={styles.card}>
+      <View style={styles.header}>
+        <AppText variant="p1" fontFamily="ManropeExtraBold" color={COLORS.black}>Ticket Details</AppText>
+        <View style={[styles.statusBadge, { backgroundColor: statusColors.bg }]}>
+          <AppText variant="p3" fontFamily="ManropeExtraBold" color={statusColors.text}>{data.status}</AppText>
+        </View>
+      </View>
+
+      <View style={styles.body}>
+        <View style={[styles.icon, { backgroundColor: data.iconColor }]}>
+          <AppText variant="p1" fontFamily="ManropeExtraBold" color={COLORS.black}>{data.iconText}</AppText>
+        </View>
+        <View style={styles.info}>
+          <View style={styles.titleRow}>
+            <AppText variant="p2" fontFamily="ManropeExtraBold" color={COLORS.black} style={{ flex: 1 }}>{data.ticketType}</AppText>
+            <View style={[styles.badge, { backgroundColor: COLORS.highlightBackground }]}>
+              <AppText fontSize={10} fontFamily="ManropeBold" color={COLORS.black}>{data.option}</AppText>
+            </View>
+          </View>
+          <AppText variant="p3" color={COLORS.textSecondary}>{data.subtitle}</AppText>
+        </View>
+      </View>
+
+      <View style={styles.row}>
+        <AppText variant="p3" color={COLORS.tableHeader}>Ticket</AppText>
+        <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>No. {data.ticketNumber}</AppText>
+      </View>
+      <View style={styles.row}>
+        <AppText variant="p3" color={COLORS.tableHeader}>Date</AppText>
+        <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>{data.date}</AppText>
+      </View>
+      <View style={styles.row}>
+        <AppText variant="p3" color={COLORS.tableHeader}>Bet Amount</AppText>
+        <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>₱{data.betAmount}</AppText>
+      </View>
+
+      <View style={[styles.resultBox, { backgroundColor: statusColors.bg }]}>
+        <AppText variant="p3" fontFamily="ManropeBold" color={statusColors.text} style={{ flex: 1 }}>{String(data.note).replace(/[<>"'&]/g, '')}</AppText>
+        {data.status === 'WON' && data.payout ? (
+          <AppText variant="h4" fontFamily="ManropeExtraBold" color={COLORS.successText}>₱{data.payout}</AppText>
+        ) : null}
+      </View>
+    </View>
+  );
+}
+
+const createStyles = (COLORS: ReturnType<typeof useThemeColors>) => StyleSheet.create({
+  card: {
+    backgroundColor: COLORS.white,
+    borderRadius: RADIUS.xl,
+    padding: SPACING.lg,
+    marginTop: SPACING.lg,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: SPACING.lg,
+  },
+  statusBadge: {
+    borderRadius: RADIUS.xxl,
+    paddingHorizontal: SPACING.sm,
+    paddingVertical: SPACING.sm,
+  },
+  body: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: SPACING.lg,
+  },
+  icon: {
+    width: 54,
+    height: 54,
+    borderRadius: RADIUS.xxxl,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: SPACING.lg,
+  },
+  info: {
+    flex: 1,
+  },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: SPACING.sm,
+    marginBottom: SPACING.xs,
+  },
+  badge: {
+    borderRadius: RADIUS.full,
+    paddingHorizontal: SPACING.sm,
+    paddingVertical: SPACING.xxs,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: SPACING.sm,
+  },
+  resultBox: {
+    marginTop: SPACING.lg,
+    borderRadius: RADIUS.lg,
+    padding: SPACING.lg,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+});

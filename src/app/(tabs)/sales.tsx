@@ -1,6 +1,7 @@
 import { BORDERS, OPACITY, RADIUS, SHADOWS, SPACING } from '@/theme';
 import AppText from '@/components/common/AppText';
 import Input from '@/components/common/Input';
+import TicketCard, { TicketCardData } from '@/components/common/TicketCard';
 import Screen from '@/components/layout/Screen';
 import { useThemeColors } from "@/hooks/useThemeColors";
 
@@ -13,150 +14,129 @@ export default function SalesScreen() {
 
   const COLORS = useThemeColors();
   const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
-  const salesData = [
+  const salesData: (TicketCardData & {
+    id: string;
+    title: string;
+    subtitle: string;
+    amount: number;
+    badge: string;
+    avatarText: string;
+    avatarColor: string;
+  })[] = [
     {
       id: '1',
       title: 'KB2 · WIN',
       subtitle: 'No. 8266150525 · 4:32:18 PM',
-      detailSubtitle: 'Yellow',
       amount: 5,
       badge: 'EXACT',
-      badgeBackground: COLORS.badgeBackgroundDark,
-      badgeTextColor: COLORS.primary,
       avatarText: 'YW',
       avatarColor: COLORS.avatarYellow,
-      avatarTextColor: COLORS.black,
       status: 'WON',
-      statusBackground: COLORS.payoutBackground,
-      statusTextColor: COLORS.finished,
+      ticketType: 'KB2 · WIN',
+      option: 'EXACT',
       ticketNumber: '8266150525',
       date: '21-06-2026, 4:32 PM',
       betAmount: 5,
-      resultLabel: 'PAYOUT DUE',
-      resultValue: 75,
-      resultNote: 'Race won — payout due.',
-      resultNoteColor: COLORS.finished,
-      resultNoteBg: COLORS.payoutBackground,
+      iconText: 'YW',
+      iconColor: COLORS.avatarYellow,
+      subtitle: 'Yellow',
+      note: 'Race won — payout due.',
+      payout: 75,
     },
     {
       id: '2',
       title: 'KB1 · FORECAST',
       subtitle: 'No. 8266144213 · 4:18:46 PM',
-      detailSubtitle: 'Light Blue',
       amount: 10,
       badge: 'ANY',
-      badgeBackground: COLORS.badgeBackgroundDark,
-      badgeTextColor: COLORS.primary,
       avatarText: 'SB',
       avatarColor: COLORS.avatarBlue,
-      avatarTextColor: COLORS.black,
       status: 'LOST',
-      statusBackground: COLORS.surface,
-      statusTextColor: COLORS.iconGrey,
+      ticketType: 'KB1 · FORECAST',
+      option: 'ANY',
       ticketNumber: '8266144213',
       date: '21-06-2026, 4:18 PM',
       betAmount: 10,
-      resultLabel: 'NO PAYOUT',
-      resultValue: 0,
-      resultNote: 'No payout — this ticket did not win.',
-      resultNoteColor: COLORS.textSecondary,
-      resultNoteBg: COLORS.surface,
+      iconText: 'SB',
+      iconColor: COLORS.avatarBlue,
+      subtitle: 'Light Blue',
+      note: 'No payout — this ticket did not win.',
     },
     {
       id: '3',
       title: 'KB1 · WIN',
       subtitle: 'No. 8259181740 · 4:05:09 PM',
-      detailSubtitle: 'Light Green',
       amount: 5,
       badge: 'EXACT',
-      badgeBackground: COLORS.badgeBackgroundDark,
-      badgeTextColor: COLORS.primary,
       avatarText: 'LG',
       avatarColor: COLORS.avatarGreen,
-      avatarTextColor: COLORS.black,
       status: 'PENDING',
-      statusBackground: COLORS.payoutBackground,
-      statusTextColor: COLORS.primary,
+      ticketType: 'KB1 · WIN',
+      option: 'EXACT',
       ticketNumber: '8259181740',
       date: '21-06-2026, 4:05 PM',
       betAmount: 5,
-      resultLabel: 'PENDING',
-      resultValue: 0,
-      resultNote: 'Race not finished — payout pending result.',
-      resultNoteColor: COLORS.primary,
-      resultNoteBg: COLORS.payoutBackground,
+      iconText: 'LG',
+      iconColor: COLORS.avatarGreen,
+      subtitle: 'Light Green',
+      note: 'Race not finished — payout pending result.',
     },
     {
       id: '4',
       title: 'KB2 · TRIFECTA',
       subtitle: 'No. 8254222906 · 3:52:31 PM',
-      detailSubtitle: 'Orange',
       amount: 20,
       badge: 'ANY',
-      badgeBackground: COLORS.badgeBackgroundDark,
-      badgeTextColor: COLORS.primary,
       avatarText: 'OR',
       avatarColor: COLORS.avatarOrange,
-      avatarTextColor: COLORS.black,
       status: 'PENDING',
-      statusBackground: COLORS.surface,
-      statusTextColor: COLORS.iconGrey,
+      ticketType: 'KB2 · TRIFECTA',
+      option: 'ANY',
       ticketNumber: '8254222906',
       date: '21-06-2026, 3:52 PM',
       betAmount: 20,
-      resultLabel: 'PENDING',
-      resultValue: 0,
-      resultNote: 'This ticket is still pending review.',
-      resultNoteColor: COLORS.textSecondary,
-      resultNoteBg: COLORS.surface,
+      iconText: 'OR',
+      iconColor: COLORS.avatarOrange,
+      subtitle: 'Orange',
+      note: 'This ticket is still pending review.',
     },
     {
       id: '5',
       title: 'KB1 · QUARTET',
       subtitle: 'No. 8248913558 · 3:40:55 PM',
-      detailSubtitle: 'Silver',
       amount: 15,
       badge: 'EXACT',
-      badgeBackground: COLORS.badgeBackgroundDark,
-      badgeTextColor: COLORS.primary,
       avatarText: 'SV',
       avatarColor: COLORS.avatarGrey,
-      avatarTextColor: COLORS.black,
       status: 'LOST',
-      statusBackground: COLORS.surface,
-      statusTextColor: COLORS.iconGrey,
+      ticketType: 'KB1 · QUARTET',
+      option: 'EXACT',
       ticketNumber: '8248913558',
       date: '21-06-2026, 3:40 PM',
       betAmount: 15,
-      resultLabel: 'NO PAYOUT',
-      resultValue: 0,
-      resultNote: 'This ticket did not qualify for payout.',
-      resultNoteColor: COLORS.textSecondary,
-      resultNoteBg: COLORS.surface,
+      iconText: 'SV',
+      iconColor: COLORS.avatarGrey,
+      subtitle: 'Silver',
+      note: 'This ticket did not qualify for payout.',
     },
     {
       id: '6',
       title: 'KB3 · WIN',
       subtitle: 'No. 824290817 · 3:25:12 PM',
-      detailSubtitle: 'Red',
       amount: 5,
       badge: 'EXACT',
-      badgeBackground: COLORS.badgeBackgroundDark,
-      badgeTextColor: COLORS.primary,
       avatarText: 'RD',
       avatarColor: COLORS.avatarRed,
-      avatarTextColor: COLORS.black,
       status: 'PENDING',
-      statusBackground: COLORS.payoutBackground,
-      statusTextColor: COLORS.primary,
+      ticketType: 'KB3 · WIN',
+      option: 'EXACT',
       ticketNumber: '824290817',
       date: '21-06-2026, 3:25 PM',
       betAmount: 5,
-      resultLabel: 'PENDING',
-      resultValue: 0,
-      resultNote: 'Race not finished — payout pending result.',
-      resultNoteColor: COLORS.primary,
-      resultNoteBg: COLORS.payoutBackground,
+      iconText: 'RD',
+      iconColor: COLORS.avatarRed,
+      subtitle: 'Red',
+      note: 'Race not finished — payout pending result.',
     },
   ];
   const router = useRouter();
@@ -227,70 +207,21 @@ export default function SalesScreen() {
               <MaterialIcons name="arrow-back-ios" size={18} color={COLORS.textPrimary} />
               <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.white}>Back</AppText>
             </Pressable>
-            <View style={styles.detailCard}>
-              <View style={styles.detailHeader}>
-                <AppText variant="p1" fontFamily="ManropeExtraBold" color={COLORS.black}>Ticket Details</AppText>
-                <View style={[styles.statusBadge, { backgroundColor: selectedSale.statusBackground }]}>
-                  <AppText variant="p3" fontFamily="ManropeExtraBold" color={selectedSale.statusTextColor}>{selectedSale.status}</AppText>
-                </View>
-              </View>
-
-              <View style={styles.ticketBody}>
-                <View style={[styles.ticketIconOuter, { backgroundColor: selectedSale.avatarColor }]}>
-                  <View style={styles.ticketIconInner}>
-                    <AppText variant="p2" fontFamily="ManropeExtraBold" color={selectedSale.avatarTextColor}>{selectedSale.avatarText}</AppText>
-                  </View>
-                </View>
-                <View style={styles.ticketInfo}>
-                  <View style={styles.ticketTitleRow}>
-                    <AppText variant="p2" fontFamily="ManropeExtraBold" color={COLORS.black} style={{ flex: 1 }}>{selectedSale.title}</AppText>
-                    <View style={[styles.itemBadge, { backgroundColor: selectedSale.badgeBackground }]}>
-                      <AppText fontSize={10} fontFamily="ManropeBold" color={COLORS.black} style={{ letterSpacing: 0.5 }}>{selectedSale.badge}</AppText>
-                    </View>
-                  </View>
-                  <AppText variant="p3" color={COLORS.textSecondary}>{selectedSale.detailSubtitle}</AppText>
-                  {selectedSale.resultLabel ? (
-                    <AppText variant="p3" fontFamily="ManropeBold" color={selectedSale.resultNoteColor} style={{ marginTop: SPACING.xs }}>
-                      {selectedSale.resultLabel}
-                    </AppText>
-                  ) : null}
-                </View>
-              </View>
-
-              <View style={styles.ticketDetailsRow}>
-                <AppText variant="p3" color={COLORS.tableHeader}>Ticket</AppText>
-                <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>No. {selectedSale.ticketNumber}</AppText>
-              </View>
-              <View style={styles.ticketDetailsRow}>
-                <AppText variant="p3" color={COLORS.tableHeader}>Date</AppText>
-                <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>{selectedSale.date}</AppText>
-              </View>
-              <View style={styles.ticketDetailsRow}>
-                <AppText variant="p3" color={COLORS.tableHeader}>Bet Amount</AppText>
-                <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>₱{selectedSale.betAmount}</AppText>
-              </View>
-
-              <View style={[styles.resultBox, { backgroundColor: selectedSale.resultNoteBg }]}>
-                <AppText variant="p3" fontFamily="ManropeBold" color={selectedSale.resultNoteColor} style={{ flex: 1 }}>{selectedSale.resultNote}</AppText>
-                {selectedSale.resultValue ? (
-                  <AppText variant="h4" fontFamily="ManropeExtraBold" color={COLORS.successText}>₱{selectedSale.resultValue}</AppText>
-                ) : null}
-              </View>
-            </View>
+            <TicketCard data={selectedSale} />
           </View>
         ) : (
           filteredSales.map((item) => (
             <TouchableOpacity key={item.id} style={styles.saleCard} activeOpacity={OPACITY.active} onPress={() => handleItemPress(item.ticketNumber)}>
               <View style={[styles.avatarBorder, { borderColor: item.avatarColor, backgroundColor: item.avatarColor }]}>
                 <View style={styles.avatar}>
-                  <AppText variant="p2" fontFamily="ManropeBold" color={item.avatarTextColor}>{item.avatarText}</AppText>
+                  <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.black}>{item.avatarText}</AppText>
                 </View>
               </View>
               <View style={styles.saleInfo}>
                 <View style={styles.saleTitleRow}>
                   <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.textPrimary}>{item.title}</AppText>
-                  <View style={[styles.itemBadge, { backgroundColor: item.badgeBackground }]}>
-                    <AppText fontSize={10} fontFamily="ManropeBold" color={COLORS.black} style={[{ letterSpacing: 0.5 }, { color: item.badgeTextColor }]}>
+                  <View style={[styles.itemBadge, { backgroundColor: COLORS.badgeBackgroundDark }]}>
+                    <AppText fontSize={10} fontFamily="ManropeBold" color={COLORS.primary} style={{ letterSpacing: 0.5 }}>
                       {item.badge}
                     </AppText>
                   </View>
@@ -442,115 +373,5 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     alignItems: 'center',
     gap: SPACING.sm,
     marginBottom: SPACING.md,
-  },
-  backText: {
-    color: COLORS.white,
-    fontSize: 14,
-    fontWeight: '700',
-  },
-  detailCard: {
-    backgroundColor: COLORS.white,
-    borderRadius: RADIUS.xl,
-    padding: SPACING.lg,
-  },
-  detailHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: SPACING.lg,
-  },
-  detailHeaderText: {
-    color: COLORS.black,
-    fontSize: 16,
-    fontWeight: '800',
-  },
-  ticketBody: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: SPACING.lg,
-  },
-  ticketIconOuter: {
-    width: 54,
-    height: 54,
-    borderRadius: RADIUS.xxxl,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: SPACING.lg,
-  },
-  ticketIconInner: {
-    width: 44,
-    height: 44,
-    borderRadius: RADIUS.xxl,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: COLORS.white,
-  },
-  ticketIconText: {
-    fontWeight: '800',
-    fontSize: 14,
-  },
-  ticketInfo: {
-    flex: 1,
-  },
-  ticketTitleRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: SPACING.sm,
-    marginBottom: SPACING.xs,
-  },
-  ticketTitle: {
-    color: COLORS.black,
-    fontSize: 15,
-    fontWeight: '800',
-    flex: 1,
-  },
-  ticketSubtitle: {
-    color: COLORS.textSecondary,
-    fontSize: 13,
-  },
-  resultLabel: {
-    fontSize: 12,
-    fontWeight: '700',
-  },
-  ticketDetailsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: SPACING.sm,
-  },
-  ticketLabel: {
-    color: COLORS.tableHeader,
-    fontSize: 13,
-  },
-  ticketValue: {
-    color: COLORS.black,
-    fontSize: 13,
-    fontWeight: '700',
-  },
-  statusBadge: {
-    borderRadius: RADIUS.xxl,
-    paddingHorizontal: SPACING.sm,
-    paddingVertical: SPACING.sm,
-  },
-  statusBadgeText: {
-    fontSize: 12,
-    fontWeight: '800',
-  },
-  resultBox: {
-    marginTop: SPACING.lg,
-    borderRadius: RADIUS.lg,
-    padding: SPACING.lg,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  resultText: {
-    flex: 1,
-    fontSize: 13,
-    fontWeight: '700',
-  },
-  payoutAmount: {
-    fontSize: 20,
-    fontWeight: '900',
   },
 });

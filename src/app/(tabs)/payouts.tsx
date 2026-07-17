@@ -2,6 +2,7 @@ import { BORDERS, OPACITY, RADIUS, SPACING } from '@/theme';
 import AppText from '@/components/common/AppText';
 import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
+import TicketCard, { TicketCardData } from '@/components/common/TicketCard';
 import Screen from '@/components/layout/Screen';
 import { useThemeColors } from "@/hooks/useThemeColors";
 
@@ -13,11 +14,9 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 export default function PayoutsScreen() {
   const COLORS = useThemeColors();
   const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
-  const ticketData = React.useMemo(() => ({
+  const ticketData: Record<string, TicketCardData> = {
     '8266150525': {
       status: 'WON',
-      badgeColor: COLORS.successBackground,
-      badgeTextColor: COLORS.successText,
       note: 'Payout due',
       payout: 75,
       ticketType: 'KB2 · WIN',
@@ -28,16 +27,10 @@ export default function PayoutsScreen() {
       iconText: 'YW',
       iconColor: COLORS.avatarYellow,
       subtitle: 'Yellow',
-      noteText: 'Payout due',
-      noteBackground: COLORS.successBackground,
-      noteColor: COLORS.successText,
     },
     '8259181740': {
       status: 'LOST',
-      badgeColor: COLORS.neutralBackground,
-      badgeTextColor: COLORS.neutralText,
       note: 'No payout — this ticket did not win.',
-      payout: 0,
       ticketType: 'KB1 · WIN',
       option: 'EXACT',
       ticketNumber: '8259181740',
@@ -46,15 +39,10 @@ export default function PayoutsScreen() {
       iconText: 'LG',
       iconColor: COLORS.avatarGreenLight,
       subtitle: 'Light Green',
-      noteBackground: COLORS.neutralBackground,
-      noteColor: COLORS.neutralText,
     },
     '8266144213': {
       status: 'LOST',
-      badgeColor: COLORS.neutralBackground,
-      badgeTextColor: COLORS.neutralText,
       note: 'No payout — this ticket did not win.',
-      payout: 0,
       ticketType: 'KB1 · FORECAST',
       option: 'ANY',
       ticketNumber: '8266144213',
@@ -63,15 +51,10 @@ export default function PayoutsScreen() {
       iconText: 'SB',
       iconColor: COLORS.avatarBlue,
       subtitle: 'Light Blue',
-      noteBackground: COLORS.neutralBackground,
-      noteColor: COLORS.neutralText,
     },
     '824290817': {
       status: 'PENDING',
-      badgeColor: COLORS.warningBackground,
-      badgeTextColor: COLORS.warningText,
       note: 'Race not finished — payout pending result.',
-      payout: 0,
       ticketType: 'KB3 · WIN',
       option: 'EXACT',
       ticketNumber: '824290817',
@@ -80,12 +63,10 @@ export default function PayoutsScreen() {
       iconText: 'RD',
       iconColor: COLORS.avatarRed,
       subtitle: 'Red',
-      noteBackground: COLORS.warningBackground,
-      noteColor: COLORS.warningText,
     },
-  }), [COLORS]);
+  };
 
-  type TicketResult = typeof ticketData[keyof typeof ticketData];
+  type TicketResult = TicketCardData;
   const { ticket } = useLocalSearchParams();
   const ticketQuery = Array.isArray(ticket) ? ticket[0] : ticket ?? '';
   const [ticketNumber, setTicketNumber] = useState('');
@@ -179,51 +160,7 @@ export default function PayoutsScreen() {
           </>
         ) : null}
 
-        {result ? (
-          <View style={styles.ticketCard}>
-            <View style={styles.ticketHeader}>
-              <AppText variant="p1" fontFamily="ManropeExtraBold" color={COLORS.black}>Ticket Details</AppText>
-              <View style={[styles.statusBadge, { backgroundColor: result.badgeColor }]}>
-                <AppText variant="p3" fontFamily="ManropeExtraBold" color={result.badgeTextColor}>{result.status}</AppText>
-              </View>
-            </View>
-
-            <View style={styles.ticketBody}>
-              <View style={[styles.ticketIcon, { backgroundColor: result.iconColor }]}>
-                <AppText variant="p1" fontFamily="ManropeExtraBold" color={COLORS.black}>{result.iconText}</AppText>
-              </View>
-              <View style={styles.ticketInfo}>
-                <View style={styles.ticketTitleRow}>
-                  <AppText variant="p2" fontFamily="ManropeExtraBold" color={COLORS.black} style={{ flex: 1 }}>{result.ticketType}</AppText>
-                  <View style={styles.itemBadge}>
-                    <AppText fontSize={10} fontFamily="ManropeBold" color={COLORS.black}>{result.option}</AppText>
-                  </View>
-                </View>
-                <AppText variant="p3" color={COLORS.textSecondary}>{result.subtitle}</AppText>
-              </View>
-            </View>
-
-            <View style={styles.ticketDetailsRow}>
-              <AppText variant="p3" color={COLORS.tableHeader}>Ticket</AppText>
-              <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>No. {result.ticketNumber}</AppText>
-            </View>
-            <View style={styles.ticketDetailsRow}>
-              <AppText variant="p3" color={COLORS.tableHeader}>Date</AppText>
-              <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>{result.date}</AppText>
-            </View>
-            <View style={styles.ticketDetailsRow}>
-              <AppText variant="p3" color={COLORS.tableHeader}>Bet Amount</AppText>
-              <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>₱{result.betAmount}</AppText>
-            </View>
-
-            <View style={[styles.resultBox, { backgroundColor: result.noteBackground }]}>
-              <AppText variant="p3" fontFamily="ManropeBold" color={result.noteColor} style={{ flex: 1 }}>{result.note}</AppText>
-              {result.status === 'WON' ? (
-                <AppText variant="h4" fontFamily="ManropeExtraBold" color={COLORS.successText}>₱{result.payout}</AppText>
-              ) : null}
-            </View>
-          </View>
-        ) : null}
+        {result ? <TicketCard data={result} /> : null}
 
         {result ? (
           <Button
@@ -246,16 +183,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   heading: {
     marginTop: SPACING.lg,
     marginBottom: SPACING.lg,
-  },
-  title: {
-    color: COLORS.textPrimary,
-    fontSize: 28,
-    fontWeight: '800',
-  },
-  subtitle: {
-    color: COLORS.textSecondary,
-    marginTop: SPACING.sm,
-    fontSize: 14,
   },
   scanFrame: {
     width: 240,
@@ -379,111 +306,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     color: COLORS.danger,
     marginTop: SPACING.sm,
     textAlign: 'center',
-  },
-  ticketCard: {
-    backgroundColor: COLORS.white,
-    borderRadius: RADIUS.xl,
-    padding: SPACING.lg,
-    marginTop: SPACING.lg,
-  },
-  ticketHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: SPACING.lg,
-  },
-  ticketHeaderText: {
-    color: COLORS.black,
-    fontSize: 16,
-    fontWeight: '800',
-  },
-  statusBadge: {
-    borderRadius: RADIUS.xxl,
-    paddingHorizontal: SPACING.sm,
-    paddingVertical: SPACING.sm,
-  },
-  statusBadgeText: {
-    fontSize: 12,
-    fontWeight: '800',
-  },
-  ticketBody: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: SPACING.lg,
-  },
-  ticketIcon: {
-    width: 54,
-    height: 54,
-    borderRadius: RADIUS.xxxl,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: SPACING.lg,
-  },
-  ticketIconText: {
-    color: COLORS.black,
-    fontWeight: '800',
-  },
-  ticketInfo: {
-    flex: 1,
-  },
-  ticketTitleRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: SPACING.sm,
-    marginBottom: SPACING.xs,
-  },
-  ticketTitle: {
-    color: COLORS.black,
-    fontSize: 15,
-    fontWeight: '800',
-    flex: 1,
-  },
-  ticketSubtitle: {
-    color: COLORS.textSecondary,
-    fontSize: 13,
-  },
-  itemBadge: {
-    borderRadius: RADIUS.full,
-    paddingHorizontal: SPACING.sm,
-    paddingVertical: SPACING.xxs,
-    backgroundColor: COLORS.highlightBackground,
-  },
-  itemBadgeText: {
-    color: COLORS.black,
-    fontSize: 10,
-    fontWeight: '700',
-  },
-  ticketDetailsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: SPACING.sm,
-  },
-  ticketLabel: {
-    color: COLORS.tableHeader,
-    fontSize: 13,
-  },
-  ticketValue: {
-    color: COLORS.black,
-    fontSize: 13,
-    fontWeight: '700',
-  },
-  resultBox: {
-    marginTop: SPACING.lg,
-    borderRadius: RADIUS.lg,
-    padding: SPACING.lg,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  resultText: {
-    flex: 1,
-    fontSize: 13,
-    fontWeight: '700',
-  },
-  payoutAmount: {
-    fontSize: 20,
-    fontWeight: '900',
   },
   scanAnotherButton: {
     marginTop: SPACING.lg,
