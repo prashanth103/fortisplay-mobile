@@ -1,167 +1,52 @@
 import AppText from '@/components/common/AppText';
 import Input from '@/components/common/Input';
-import TicketCard, { TicketCardData } from '@/components/common/TicketCard';
+import TicketCard from '@/components/common/TicketCard';
 import Screen from '@/components/layout/Screen';
-import { useThemeColors } from "@/hooks/useThemeColors";
+import { SALES_DATA } from '@/data/dummyData';
+import { useThemeColors } from '@/hooks/useThemeColors';
 import { BORDERS, OPACITY, RADIUS, SHADOWS, SPACING } from '@/theme';
 
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useRouter } from 'expo-router';
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 export default function SalesScreen() {
-
   const COLORS = useThemeColors();
   const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
-  const salesData: (TicketCardData & {
-    id: string;
-    title: string;
-    subtitle: string;
-    amount: number;
-    badge: string;
-    avatarText: string;
-    avatarColor: string;
-  })[] = [
-      {
-        id: '1',
-        title: 'KB2 · WIN',
-        subtitle: 'No. 8266150525 · 4:32:18 PM',
-        amount: 5,
-        badge: 'EXACT',
-        avatarText: 'YW',
-        avatarColor: COLORS.avatarYellow,
-        status: 'WON',
-        ticketType: 'KB2 · WIN',
-        option: 'EXACT',
-        ticketNumber: '8266150525',
-        date: '21-06-2026, 4:32 PM',
-        betAmount: 5,
-        iconText: 'YW',
-        iconColor: COLORS.avatarYellow,
-        note: 'Race won — payout due.',
-        payout: 75,
-      },
-      {
-        id: '2',
-        title: 'KB1 · FORECAST',
-        subtitle: 'No. 8266144213 · 4:18:46 PM',
-        amount: 10,
-        badge: 'ANY',
-        avatarText: 'SB',
-        avatarColor: COLORS.avatarBlue,
-        status: 'LOST',
-        ticketType: 'KB1 · FORECAST',
-        option: 'ANY',
-        ticketNumber: '8266144213',
-        date: '21-06-2026, 4:18 PM',
-        betAmount: 10,
-        iconText: 'SB',
-        iconColor: COLORS.avatarBlue,
-        note: 'No payout — this ticket did not win.',
-      },
-      {
-        id: '3',
-        title: 'KB1 · WIN',
-        subtitle: 'No. 8259181740 · 4:05:09 PM',
-        amount: 5,
-        badge: 'EXACT',
-        avatarText: 'LG',
-        avatarColor: COLORS.avatarGreen,
-        status: 'PENDING',
-        ticketType: 'KB1 · WIN',
-        option: 'EXACT',
-        ticketNumber: '8259181740',
-        date: '21-06-2026, 4:05 PM',
-        betAmount: 5,
-        iconText: 'LG',
-        iconColor: COLORS.avatarGreen,
-        note: 'Race not finished — payout pending result.',
-      },
-      {
-        id: '4',
-        title: 'KB2 · TRIFECTA',
-        subtitle: 'No. 8254222906 · 3:52:31 PM',
-        amount: 20,
-        badge: 'ANY',
-        avatarText: 'OR',
-        avatarColor: COLORS.avatarOrange,
-        status: 'PENDING',
-        ticketType: 'KB2 · TRIFECTA',
-        option: 'ANY',
-        ticketNumber: '8254222906',
-        date: '21-06-2026, 3:52 PM',
-        betAmount: 20,
-        iconText: 'OR',
-        iconColor: COLORS.avatarOrange,
-        note: 'This ticket is still pending review.',
-      },
-      {
-        id: '5',
-        title: 'KB1 · QUARTET',
-        subtitle: 'No. 8248913558 · 3:40:55 PM',
-        amount: 15,
-        badge: 'EXACT',
-        avatarText: 'SV',
-        avatarColor: COLORS.avatarGrey,
-        status: 'LOST',
-        ticketType: 'KB1 · QUARTET',
-        option: 'EXACT',
-        ticketNumber: '8248913558',
-        date: '21-06-2026, 3:40 PM',
-        betAmount: 15,
-        iconText: 'SV',
-        iconColor: COLORS.avatarGrey,
-        note: 'This ticket did not qualify for payout.',
-      },
-      {
-        id: '6',
-        title: 'KB3 · WIN',
-        subtitle: 'No. 824290817 · 3:25:12 PM',
-        amount: 5,
-        badge: 'EXACT',
-        avatarText: 'RD',
-        avatarColor: COLORS.avatarRed,
-        status: 'PENDING',
-        ticketType: 'KB3 · WIN',
-        option: 'EXACT',
-        ticketNumber: '824290817',
-        date: '21-06-2026, 3:25 PM',
-        betAmount: 5,
-        iconText: 'RD',
-        iconColor: COLORS.avatarRed,
-        note: 'Race not finished — payout pending result.',
-      },
-    ];
   const router = useRouter();
   const [query, setQuery] = useState('');
   const [selectedSaleId, setSelectedSaleId] = useState<string | null>(null);
 
-  const selectedSale = useMemo(
-    () => salesData.find((item) => item.id === selectedSaleId) ?? null,
-    [selectedSaleId]
+  const salesData = useMemo(
+    () => SALES_DATA.map((item) => ({
+      ...item,
+      avatarColor: COLORS[item.avatarColorKey] as string,
+      iconColor: COLORS[item.iconColorKey] as string,
+    })),
+    [COLORS]
   );
 
-  const handleItemPress = (ticketNumber: string) => {
-    router.push(`/payouts?ticket=${ticketNumber}`);
-  };
+  const selectedSale = useMemo(
+    () => salesData.find((item) => item.id === selectedSaleId) ?? null,
+    [selectedSaleId, salesData]
+  );
 
   const filteredSales = useMemo(
-    () =>
-      salesData.filter((item) => {
-        const search = query.trim().toLowerCase();
-        return (
-          !search ||
-          item.title.toLowerCase().includes(search) ||
-          item.subtitle.toLowerCase().includes(search) ||
-          item.avatarText.toLowerCase().includes(search)
-        );
-      }),
-    [query]
+    () => salesData.filter((item) => {
+      const search = query.trim().toLowerCase();
+      return (
+        !search ||
+        item.title.toLowerCase().includes(search) ||
+        item.listSubtitle.toLowerCase().includes(search) ||
+        item.avatarText.toLowerCase().includes(search)
+      );
+    }),
+    [query, salesData]
   );
 
   const totalSales = useMemo(
-    () => salesData.reduce((total, item) => total + item.amount, 0),
+    () => SALES_DATA.reduce((total, item) => total + item.amount, 0),
     []
   );
 
@@ -180,7 +65,7 @@ export default function SalesScreen() {
           </View>
           <View style={styles.summaryCard}>
             <AppText variant="p3" color={COLORS.textSecondary} style={{ letterSpacing: 0.5, marginBottom: SPACING.sm }}>TICKETS</AppText>
-            <AppText fontSize={26} fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>{salesData.length}</AppText>
+            <AppText fontSize={26} fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>{SALES_DATA.length}</AppText>
           </View>
         </View>
 
@@ -205,7 +90,12 @@ export default function SalesScreen() {
           </View>
         ) : (
           filteredSales.map((item) => (
-            <TouchableOpacity key={item.id} style={styles.saleCard} activeOpacity={OPACITY.active} onPress={() => handleItemPress(item.ticketNumber)}>
+            <TouchableOpacity
+              key={item.id}
+              style={styles.saleCard}
+              activeOpacity={OPACITY.active}
+              onPress={() => router.push(`/payouts?ticket=${item.ticketNumber}`)}
+            >
               <View style={[styles.avatarBorder, { borderColor: item.avatarColor, backgroundColor: item.avatarColor }]}>
                 <View style={styles.avatar}>
                   <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.black}>{item.avatarText}</AppText>
@@ -220,7 +110,7 @@ export default function SalesScreen() {
                     </AppText>
                   </View>
                 </View>
-                <AppText variant="p3" color={COLORS.textSecondary}>{item.subtitle}</AppText>
+                <AppText variant="p3" color={COLORS.textSecondary}>{item.listSubtitle}</AppText>
               </View>
               <AppText variant="p2" fontFamily="ManropeExtraBold" color={COLORS.white} style={{ marginLeft: SPACING.sm }}>₱{item.amount}</AppText>
             </TouchableOpacity>
@@ -231,23 +121,13 @@ export default function SalesScreen() {
   );
 }
 
-const createStyles = (COLORS: any) => StyleSheet.create({
+const createStyles = (COLORS: ReturnType<typeof useThemeColors>) => StyleSheet.create({
   container: {
     paddingBottom: SPACING.huge,
   },
   heading: {
     marginTop: SPACING.lg,
     marginBottom: SPACING.lg,
-  },
-  title: {
-    color: COLORS.textPrimary,
-    fontSize: 32,
-    fontWeight: '800',
-  },
-  subtitle: {
-    color: COLORS.textSecondary,
-    marginTop: SPACING.sm,
-    fontSize: 14,
   },
   summaryRow: {
     flexDirection: 'row',
@@ -261,18 +141,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     paddingVertical: SPACING.lg,
     paddingHorizontal: SPACING.lg,
     minHeight: 78,
-  },
-  summaryLabel: {
-    color: COLORS.walletLabel,
-    fontSize: 11,
-    letterSpacing: 0.6,
-    marginBottom: SPACING.sm,
-  },
-
-  summaryValue: {
-    color: COLORS.white,
-    fontSize: 22,
-    fontWeight: '900',
   },
   searchBox: {
     marginBottom: SPACING.lg,
@@ -310,11 +178,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     alignItems: 'center',
     backgroundColor: COLORS.white,
   },
-  avatarText: {
-    color: COLORS.textPrimary,
-    fontWeight: '900',
-    fontSize: 12,
-  },
   saleInfo: {
     flex: 1,
   },
@@ -325,38 +188,10 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     gap: SPACING.sm,
     marginBottom: SPACING.xs,
   },
-  cardTitle: {
-    color: COLORS.textPrimary,
-    fontSize: 16,
-    fontWeight: '800',
-    marginBottom: SPACING.xs,
-  },
-  saleTitle: {
-    color: COLORS.textPrimary,
-    fontSize: 15,
-    fontWeight: '900',
-  },
   itemBadge: {
     borderRadius: RADIUS.xs,
     paddingHorizontal: SPACING.sm,
     paddingVertical: SPACING.xs,
-    backgroundColor: COLORS.salesBadgeBackground,
-  },
-  itemBadgeText: {
-    color: COLORS.salesBadgeText,
-    fontSize: 10,
-    fontWeight: '900',
-    letterSpacing: 0.5,
-  },
-  saleSubtitle: {
-    color: COLORS.textSecondary,
-    fontSize: 13,
-  },
-  amount: {
-    color: COLORS.white,
-    fontSize: 15,
-    fontWeight: '800',
-    marginLeft: SPACING.sm,
   },
   detailContainer: {
     flex: 1,

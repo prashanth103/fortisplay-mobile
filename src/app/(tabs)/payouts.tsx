@@ -1,95 +1,54 @@
-import { BORDERS, OPACITY, RADIUS, SPACING } from '@/theme';
 import AppText from '@/components/common/AppText';
 import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
 import TicketCard, { TicketCardData } from '@/components/common/TicketCard';
 import Screen from '@/components/layout/Screen';
-import { useThemeColors } from "@/hooks/useThemeColors";
+import { PAYOUTS_DATA } from '@/data/dummyData';
+import { useThemeColors } from '@/hooks/useThemeColors';
+import { BORDERS, OPACITY, RADIUS, SPACING } from '@/theme';
 
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useLocalSearchParams } from 'expo-router';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 
 export default function PayoutsScreen() {
   const COLORS = useThemeColors();
   const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
-  const ticketData: Record<string, TicketCardData> = {
-    '8266150525': {
-      status: 'WON',
-      note: 'Payout due',
-      payout: 75,
-      ticketType: 'KB2 · WIN',
-      option: 'EXACT',
-      ticketNumber: '8266150525',
-      date: '21-06-2026, 4:32 PM',
-      betAmount: 5,
-      iconText: 'YW',
-      iconColor: COLORS.avatarYellow,
-      subtitle: 'Yellow',
-    },
-    '8259181740': {
-      status: 'LOST',
-      note: 'No payout — this ticket did not win.',
-      ticketType: 'KB1 · WIN',
-      option: 'EXACT',
-      ticketNumber: '8259181740',
-      date: '21-06-2026, 4:05 PM',
-      betAmount: 5,
-      iconText: 'LG',
-      iconColor: COLORS.avatarGreenLight,
-      subtitle: 'Light Green',
-    },
-    '8266144213': {
-      status: 'LOST',
-      note: 'No payout — this ticket did not win.',
-      ticketType: 'KB1 · FORECAST',
-      option: 'ANY',
-      ticketNumber: '8266144213',
-      date: '21-06-2026, 4:18 PM',
-      betAmount: 10,
-      iconText: 'SB',
-      iconColor: COLORS.avatarBlue,
-      subtitle: 'Light Blue',
-    },
-    '824290817': {
-      status: 'PENDING',
-      note: 'Race not finished — payout pending result.',
-      ticketType: 'KB3 · WIN',
-      option: 'EXACT',
-      ticketNumber: '824290817',
-      date: '21-06-2026, 3:25 PM',
-      betAmount: 5,
-      iconText: 'RD',
-      iconColor: COLORS.avatarRed,
-      subtitle: 'Red',
-    },
-  };
 
-  type TicketResult = TicketCardData;
+  const ticketData: Record<string, TicketCardData> = useMemo(
+    () => Object.fromEntries(
+      Object.entries(PAYOUTS_DATA).map(([key, item]) => [
+        key,
+        { ...item, iconColor: COLORS[item.iconColorKey] as string },
+      ])
+    ),
+    [COLORS]
+  );
+
   const { ticket } = useLocalSearchParams();
   const ticketQuery = Array.isArray(ticket) ? ticket[0] : ticket ?? '';
   const [ticketNumber, setTicketNumber] = useState('');
-  const [result, setResult] = useState<TicketResult | null>(null);
+  const [result, setResult] = useState<TicketCardData | null>(null);
   const [error, setError] = useState('');
 
   useEffect(() => {
     if (!ticketQuery) return;
     setTicketNumber(ticketQuery);
-    const ticketResult = ticketData[ticketQuery.trim() as keyof typeof ticketData];
-    if (ticketResult) {
-      setResult(ticketResult);
+    const found = ticketData[ticketQuery.trim()];
+    if (found) {
+      setResult(found);
       setError('');
     } else {
       setResult(null);
       setError('Ticket not found. Check the number and try again.');
     }
-  }, [ticketQuery]);
+  }, [ticketQuery, ticketData]);
 
   const handleVerify = () => {
-    const ticket = ticketData[ticketNumber.trim() as keyof typeof ticketData];
-    if (ticket) {
-      setResult(ticket);
+    const found = ticketData[ticketNumber.trim()];
+    if (found) {
+      setResult(found);
       setError('');
     } else {
       setResult(null);
@@ -107,7 +66,7 @@ export default function PayoutsScreen() {
     <Screen backgroundColor={COLORS.background}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.heading}>
-          <AppText variant='h1' color={COLORS.textPrimary}>Payouts</AppText>
+          <AppText variant="h1" color={COLORS.textPrimary}>Payouts</AppText>
           <AppText variant="p2" style={{ marginTop: SPACING.sm }}>Scan or enter a ticket to verify</AppText>
         </View>
 
@@ -131,7 +90,7 @@ export default function PayoutsScreen() {
 
             <View style={styles.dividerRow}>
               <View style={styles.dividerLine} />
-              <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.textSecondary} style={{ textAlign: "center", letterSpacing: 1, marginHorizontal: SPACING.md }}>OR ENTER TICKET NUMBER</AppText>
+              <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.textSecondary} style={{ textAlign: 'center', letterSpacing: 1, marginHorizontal: SPACING.md }}>OR ENTER TICKET NUMBER</AppText>
               <View style={styles.dividerLine} />
             </View>
 
@@ -156,7 +115,7 @@ export default function PayoutsScreen() {
               />
             </View>
 
-            {error ? <AppText variant="p2" color={COLORS.danger} style={{ marginTop: SPACING.sm, textAlign: "center" }}>{error}</AppText> : null}
+            {error ? <AppText variant="p2" color={COLORS.danger} style={{ marginTop: SPACING.sm, textAlign: 'center' }}>{error}</AppText> : null}
           </>
         ) : null}
 
@@ -176,7 +135,7 @@ export default function PayoutsScreen() {
   );
 }
 
-const createStyles = (COLORS: any) => StyleSheet.create({
+const createStyles = (COLORS: ReturnType<typeof useThemeColors>) => StyleSheet.create({
   container: {
     paddingBottom: SPACING.huge,
   },
@@ -256,28 +215,16 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     marginLeft: SPACING.sm,
     fontSize: 14,
   },
-
   dividerRow: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: SPACING.md,
   },
-
   dividerLine: {
     flex: 1,
     height: 1,
     backgroundColor: COLORS.borderMuted,
   },
-
-  orText: {
-    color: COLORS.textSecondary,
-    textAlign: 'center',
-    letterSpacing: 1,
-    fontSize: 12,
-    fontWeight: '700',
-    marginHorizontal: SPACING.md,
-  },
-
   verifyRow: {
     flexDirection: 'row',
     gap: SPACING.sm,
@@ -301,17 +248,10 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderRadius: RADIUS.lg,
     paddingHorizontal: SPACING.md,
   },
-
-  errorText: {
-    color: COLORS.danger,
-    marginTop: SPACING.sm,
-    textAlign: 'center',
-  },
   scanAnotherButton: {
     marginTop: SPACING.lg,
     borderRadius: RADIUS.xl,
     paddingVertical: SPACING.md,
     alignItems: 'center',
   },
-
 });

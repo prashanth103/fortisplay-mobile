@@ -1,179 +1,17 @@
 import AppText from '@/components/common/AppText';
 import Card from '@/components/common/Card';
 import Screen from '@/components/layout/Screen';
-import { useThemeColors } from "@/hooks/useThemeColors";
+import { ACTION_CARDS, HISTORY_ITEMS, STAT_CARDS, TOP_STATS } from '@/data/dummyData';
+import { useThemeColors } from '@/hooks/useThemeColors';
 import { RADIUS, SPACING } from '@/theme';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import React, { ComponentProps } from "react";
+import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 
 export default function WalletScreen() {
-
   const COLORS = useThemeColors();
   const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
-  type MaterialIconName = ComponentProps<typeof MaterialIcons>['name'];
 
-  const topStats: Array<{
-    id: string;
-    title: string;
-    value: string;
-    icon: MaterialIconName;
-    backgroundColor: string;
-    iconBackground: string;
-    iconColor: string;
-  }> = [
-      {
-        id: 'sales',
-        title: 'Total Sales',
-        value: '₱ 400',
-        icon: 'trending-up',
-        backgroundColor: COLORS.walletCard,
-        iconBackground: COLORS.walletIconBackground,
-        iconColor: COLORS.walletAccent,
-      },
-    ];
-
-  const actionCards: Array<{
-    id: string;
-    title: string;
-    value: string;
-    icon: MaterialIconName;
-    backgroundColor: string;
-    textColor: string;
-    labelColor: string;
-    iconBackground: string;
-    iconColor: string;
-    iconSize: number;
-  }> = [
-      {
-        id: 'cash',
-        title: 'Cash in Hand',
-        value: '₱1,250.00',
-        icon: 'account-balance-wallet',
-        backgroundColor: COLORS.primary,
-        textColor: COLORS.black,
-        labelColor: COLORS.black,
-        iconBackground: COLORS.walletPrimaryDark,
-        iconColor: COLORS.black,
-        iconSize: 20,
-      },
-      {
-        id: 'commission',
-        title: 'My Commission',
-        value: '₱ 40.00',
-        icon: 'percent',
-        backgroundColor: COLORS.walletCard,
-        textColor: COLORS.walletText,
-        labelColor: COLORS.walletLabel,
-        iconBackground: COLORS.walletIconBackground,
-        iconColor: COLORS.walletAccent,
-        iconSize: 24,
-      },
-    ];
-
-  const statCards: Array<{
-    id: string;
-    title: string;
-    value: string;
-    icon: MaterialIconName;
-    backgroundColor: string;
-    iconBackground: string;
-    iconColor: string;
-    labelColor: string;
-  }> = [
-    {
-      id: 'received',
-      title: 'RECEIVED',
-      value: '₱ 0',
-      icon: 'arrow-downward',
-      backgroundColor: COLORS.white,
-      iconBackground: COLORS.walletIconBackground,
-      iconColor: COLORS.walletStatIconColor,
-      labelColor: COLORS.textSecondary,
-    },
-    {
-      id: 'remitted',
-      title: 'REMITTED',
-      value: '₱ 100',
-      icon: 'arrow-forward',
-      backgroundColor: COLORS.white,
-      iconBackground: COLORS.walletIconBackground,
-      iconColor: COLORS.walletStatIconColor,
-      labelColor: COLORS.textSecondary,
-    },
-    {
-      id: 'cancel',
-      title: 'CANCEL',
-      value: '₱ 0',
-      icon: 'close',
-      backgroundColor: COLORS.white,
-      iconBackground: COLORS.walletIconBackground,
-      iconColor: COLORS.walletStatIconColor,
-      labelColor: COLORS.textSecondary,
-    },
-    {
-      id: 'payouts',
-      title: 'PAYOUTS',
-      value: '₱ 0',
-      icon: 'payments',
-      backgroundColor: COLORS.white,
-      iconBackground: COLORS.walletIconBackground,
-      iconColor: COLORS.walletStatIconColor,
-      labelColor: COLORS.textSecondary,
-    },
-  ] as const;
-
-  const historyItems: Array<{
-    id: string;
-    title: string;
-    subtitle: string;
-    amount: string;
-    amountColor: string;
-    icon: MaterialIconName;
-    iconColor: string;
-    backgroundColor: string;
-  }> = [
-    {
-      id: '1',
-      title: 'Received',
-      subtitle: 'Cash · 17:22:08',
-      amount: '+₱500',
-      amountColor: COLORS.walletSuccess,
-      icon: 'arrow-downward',
-      iconColor: COLORS.walletSuccess,
-      backgroundColor: COLORS.walletHistoryCard,
-    },
-    {
-      id: '2',
-      title: 'Payout Sent',
-      subtitle: 'Bank transfer · 16:30:52',
-      amount: '-₱200',
-      amountColor: COLORS.danger,
-      icon: 'arrow-upward',
-      iconColor: COLORS.danger,
-      backgroundColor: COLORS.walletHistoryCard,
-    },
-    {
-      id: '3',
-      title: 'Sales settled',
-      subtitle: 'Ticket · 15:48:10',
-      amount: '+₱800',
-      amountColor: COLORS.walletSuccess,
-      icon: 'check-circle',
-      iconColor: COLORS.walletInfo,
-      backgroundColor: COLORS.walletHistoryCard,
-    },
-    {
-      id: '4',
-      title: 'Cash added',
-      subtitle: 'Deposit · 14:10:28',
-      amount: '+₱300',
-      amountColor: COLORS.walletSuccess,
-      icon: 'paid',
-      iconColor: COLORS.walletAccent,
-      backgroundColor: COLORS.walletHistoryCard,
-    },
-  ] as const;
   return (
     <Screen backgroundColor={COLORS.background}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -183,14 +21,14 @@ export default function WalletScreen() {
         </View>
 
         <View style={styles.topRow}>
-          {topStats.map((item) => (
-            <Card key={item.id} width="100%" backgroundColor={item.backgroundColor} padding={SPACING.xxl} radius={RADIUS.xl}>
+          {TOP_STATS.map((item) => (
+            <Card key={item.id} width="100%" backgroundColor={COLORS[item.backgroundColorKey] as string} padding={SPACING.xxl} radius={RADIUS.xl}>
               <View style={styles.summaryRow}>
-                <View style={[styles.summaryIcon, { backgroundColor: item.iconBackground }]}>
-                  <MaterialIcons name={item.icon} size={22} color={item.iconColor} />
+                <View style={[styles.summaryIcon, { backgroundColor: COLORS[item.iconBackgroundKey] as string }]}>
+                  <MaterialIcons name={item.icon} size={22} color={COLORS[item.iconColorKey] as string} />
                 </View>
                 <View style={styles.summaryInfo}>
-                  <AppText variant="p3" color={COLORS.walletLabel} style={{ textTransform: "uppercase", letterSpacing: 0.8, marginBottom: SPACING.sm }}>{item.title}</AppText>
+                  <AppText variant="p3" color={COLORS.walletLabel} style={{ textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: SPACING.sm }}>{item.title}</AppText>
                   <AppText fontSize={28} fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>{item.value}</AppText>
                 </View>
               </View>
@@ -199,13 +37,13 @@ export default function WalletScreen() {
         </View>
 
         <View style={styles.actionRow}>
-          {actionCards.map((item) => (
-            <Card key={item.id} width="48%" backgroundColor={item.backgroundColor} padding={SPACING.lg} radius={RADIUS.lg}>
-              <View style={[styles.actionIcon, { backgroundColor: item.iconBackground }]}>
-                <MaterialIcons name={item.icon} size={item.iconSize} color={item.iconColor} />
+          {ACTION_CARDS.map((item) => (
+            <Card key={item.id} width="48%" backgroundColor={COLORS[item.backgroundColorKey] as string} padding={SPACING.lg} radius={RADIUS.lg}>
+              <View style={[styles.actionIcon, { backgroundColor: COLORS[item.iconBackgroundKey] as string }]}>
+                <MaterialIcons name={item.icon} size={item.iconSize} color={COLORS[item.iconColorKey] as string} />
               </View>
-              <AppText fontSize={25} fontFamily="ManropeExtraBold" color={item.textColor} style={{ marginBottom: SPACING.sm }}>{item.value}</AppText>
-              <AppText variant="p3" color={item.labelColor} style={{ textTransform: "uppercase", letterSpacing: 0.6 }}>
+              <AppText fontSize={25} fontFamily="ManropeExtraBold" color={COLORS[item.textColorKey] as string} style={{ marginBottom: SPACING.sm }}>{item.value}</AppText>
+              <AppText variant="p3" color={COLORS[item.labelColorKey] as string} style={{ textTransform: 'uppercase', letterSpacing: 0.6 }}>
                 {item.title}
               </AppText>
             </Card>
@@ -213,54 +51,47 @@ export default function WalletScreen() {
         </View>
 
         <View style={styles.statGrid}>
-          {statCards.map((item) => (
-            <Card key={item.id} style={styles.statCard} width="48%" backgroundColor={item.backgroundColor} padding={SPACING.xl} radius={RADIUS.md}>
-              <View style={[styles.statIcon, { backgroundColor: item.iconBackground }]}>
-                <MaterialIcons name={item.icon} size={17} color={item.iconColor} />
+          {STAT_CARDS.map((item) => (
+            <Card key={item.id} style={styles.statCard} width="48%" backgroundColor={COLORS[item.backgroundColorKey] as string} padding={SPACING.xl} radius={RADIUS.md}>
+              <View style={[styles.statIcon, { backgroundColor: COLORS[item.iconBackgroundKey] as string }]}>
+                <MaterialIcons name={item.icon} size={17} color={COLORS[item.iconColorKey] as string} />
               </View>
               <View style={styles.statText}>
                 <AppText variant="h3" color={COLORS.black} fontFamily="ManropeExtraBold" style={{ marginBottom: SPACING.xs }}>{item.value}</AppText>
-                <AppText variant="p3" color={item.labelColor} fontFamily="ManropeSemiBold">{item.title}</AppText>
+                <AppText variant="p3" color={COLORS[item.labelColorKey] as string} fontFamily="ManropeSemiBold">{item.title}</AppText>
               </View>
             </Card>
           ))}
         </View>
 
         <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.walletText} style={{ marginBottom: SPACING.md, letterSpacing: 0.5 }}>Transaction History</AppText>
-        {historyItems.map((item) => (
-          <Card key={item.id} style={styles.historyCard} backgroundColor={item.backgroundColor} padding={SPACING.lg} radius={RADIUS.xl}>
-            <View style={[styles.historyIcon, { backgroundColor: item.iconColor + '22' }]}>
-              <MaterialIcons name={item.icon} size={20} color={item.iconColor} />
-            </View>
-            <View style={styles.historyText}>
-              <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.textPrimary} style={{ marginBottom: SPACING.xxs }}>{item.title}</AppText>
-              <AppText variant="p3" color={COLORS.textSecondary}>{item.subtitle}</AppText>
-            </View>
-            <AppText variant="p2" fontFamily="ManropeBold" color={item.amountColor}>{item.amount}</AppText>
-          </Card>
-        ))}
+        {HISTORY_ITEMS.map((item) => {
+          const iconColor = COLORS[item.iconColorKey] as string;
+          return (
+            <Card key={item.id} style={styles.historyCard} backgroundColor={COLORS[item.backgroundColorKey] as string} padding={SPACING.lg} radius={RADIUS.xl}>
+              <View style={[styles.historyIcon, { backgroundColor: iconColor + '22' }]}>
+                <MaterialIcons name={item.icon} size={20} color={iconColor} />
+              </View>
+              <View style={styles.historyText}>
+                <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.textPrimary} style={{ marginBottom: SPACING.xxs }}>{item.title}</AppText>
+                <AppText variant="p3" color={COLORS.textSecondary}>{item.subtitle}</AppText>
+              </View>
+              <AppText variant="p2" fontFamily="ManropeBold" color={COLORS[item.amountColorKey] as string}>{item.amount}</AppText>
+            </Card>
+          );
+        })}
       </ScrollView>
     </Screen>
   );
 }
 
-const createStyles = (COLORS: any) => StyleSheet.create({
+const createStyles = (COLORS: ReturnType<typeof useThemeColors>) => StyleSheet.create({
   container: {
     paddingBottom: SPACING.xxxl,
   },
   header: {
     marginTop: SPACING.md,
     marginBottom: SPACING.xl,
-  },
-  title: {
-    color: COLORS.textPrimary,
-    fontSize: 32,
-    fontWeight: '800',
-  },
-  subtitle: {
-    color: COLORS.textSecondary,
-    marginTop: SPACING.sm,
-    fontSize: 14,
   },
   topRow: {
     marginBottom: SPACING.xl,
@@ -280,18 +111,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   summaryInfo: {
     flex: 1,
   },
-  summaryLabel: {
-    color: COLORS.walletLabel,
-    fontSize: 12,
-    textTransform: 'uppercase',
-    letterSpacing: 0.8,
-    marginBottom: SPACING.sm,
-  },
-  summaryValue: {
-    fontSize: 28,
-    fontWeight: '900',
-    color: COLORS.textPrimary,
-  },
   actionRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -305,18 +124,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     alignItems: 'center',
     marginBottom: SPACING.lg,
   },
-
-  actionValue: {
-    fontSize: 25,
-    fontWeight: '900',
-    marginBottom: SPACING.sm,
-  },
-
-  actionLabel: {
-    fontSize: 12,
-    textTransform: 'uppercase',
-    letterSpacing: 0.6,
-  },
   statGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -328,7 +135,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-
   statIcon: {
     width: 42,
     height: 42,
@@ -340,24 +146,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   statText: {
     flex: 1,
     alignItems: 'flex-end',
-  },
-
-  statValue: {
-    fontSize: 19,
-    fontWeight: '800',
-    marginBottom: SPACING.xs,
-  },
-
-  statLabel: {
-    fontSize: 13,
-    color: COLORS.textSecondary,
-  },
-  sectionTitle: {
-    color: COLORS.walletText,
-    marginBottom: SPACING.md,
-    fontSize: 14,
-    fontWeight: '700',
-    letterSpacing: 0.5,
   },
   historyCard: {
     flexDirection: 'row',
@@ -374,19 +162,5 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   historyText: {
     flex: 1,
-  },
-  historyTitle: {
-    color: COLORS.textPrimary,
-    fontSize: 15,
-    fontWeight: '700',
-    marginBottom: SPACING.xxs,
-  },
-  historySubtitle: {
-    color: COLORS.textSecondary,
-    fontSize: 12,
-  },
-  historyAmount: {
-    fontSize: 15,
-    fontWeight: '700',
   },
 });
