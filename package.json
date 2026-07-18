@@ -41,7 +41,10 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "check-lock": "node ./scripts/check-lock.js",
+    "build:android": "npm run check-lock && eas build --non-interactive --platform android --profile preview",
+    "build:preview": "npm run check-lock && eas build --non-interactive --platform android --profile preview"
   },
   "private": true
 }
