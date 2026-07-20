@@ -1,6 +1,6 @@
-import { RADIUS, SPACING } from '@/theme';
 import AppText from '@/components/common/AppText';
 import { useThemeColors } from '@/hooks/useThemeColors';
+import { RADIUS, SPACING } from '@/theme';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
@@ -60,7 +60,7 @@ export default function TicketCard({ data }: Props) {
               <AppText fontSize={10} fontFamily="ManropeBold" color={COLORS.black}>{data.option}</AppText>
             </View>
           </View>
-          <AppText variant="p3" color={COLORS.textSecondary}>{data.subtitle}</AppText>
+          <AppText variant="p3" color={COLORS.primaryLight}>{data.subtitle}</AppText>
         </View>
       </View>
 
@@ -119,7 +119,7 @@ const createStyles = (COLORS: ReturnType<typeof useThemeColors>) => StyleSheet.c
     marginRight: SPACING.lg,
   },
   info: {
-    flex: 1,
+    // flex: 1,
   },
   titleRow: {
     flexDirection: 'row',
