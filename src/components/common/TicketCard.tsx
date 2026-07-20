@@ -119,7 +119,10 @@ const createStyles = (COLORS: ReturnType<typeof useThemeColors>) => StyleSheet.c
     marginRight: SPACING.lg,
   },
   info: {
-    // flex: 1,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    gap: SPACING.xxs,
+    flex: 1,
   },
   titleRow: {
     flexDirection: 'row',
