@@ -43,46 +43,46 @@ export default function TicketCard({ data }: Props) {
   return (
     <View style={styles.card}>
       <View style={styles.header}>
-        <AppText variant="p1" color={COLORS.black}>Ticket Details</AppText>
+        <AppText fontFamily="ManropeRegular" variant="p1" color={COLORS.black}>Ticket Details</AppText>
         <View style={[styles.statusBadge, { backgroundColor: statusColors.bg }]}>
-          <AppText variant="p3" color={statusColors.text}>{data.status}</AppText>
+          <AppText fontFamily="ManropeRegular" variant="p3" color={statusColors.text}>{data.status}</AppText>
         </View>
       </View>
 
       <View style={styles.body}>
         <View style={[styles.icon, { backgroundColor: data.iconColor }]}>
           <View style={styles.iconInner}>
-            <AppText variant="p1" color={COLORS.black}>{data.iconText}</AppText>
+            <AppText fontFamily="ManropeRegular" variant="p1" color={COLORS.black}>{data.iconText}</AppText>
           </View>
         </View>
         <View style={styles.info}>
           <View style={styles.titleRow}>
-            <AppText variant="p2" color={COLORS.black} style={{ flex: 1 }}>{data.ticketType}</AppText>
+            <AppText fontFamily="ManropeRegular" variant="p2" color={COLORS.black} style={{ flex: 1 }}>{data.ticketType}</AppText>
             <View style={[styles.badge, { backgroundColor: COLORS.primaryMuted }]}>
-              <AppText color={COLORS.black}>{data.option}</AppText>
+              <AppText fontFamily="ManropeRegular" color={COLORS.black}>{data.option}</AppText>
             </View>
           </View>
-          <AppText variant="p3" color={COLORS.primaryMuted}>{data.subtitle}</AppText>
+          <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS.primaryMuted}>{data.subtitle}</AppText>
         </View>
       </View>
 
       <View style={styles.row}>
-        <AppText variant="p3" color={COLORS.textMuted}>Ticket</AppText>
-        <AppText variant="p3" color={COLORS.black}>No. {data.ticketNumber}</AppText>
+        <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS.textMuted}>Ticket</AppText>
+        <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS.black}>No. {data.ticketNumber}</AppText>
       </View>
       <View style={styles.row}>
-        <AppText variant="p3" color={COLORS.textMuted}>Date</AppText>
-        <AppText variant="p3" color={COLORS.black}>{data.date}</AppText>
+        <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS.textMuted}>Date</AppText>
+        <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS.black}>{data.date}</AppText>
       </View>
       <View style={styles.row}>
-        <AppText variant="p3" color={COLORS.textMuted}>Bet Amount</AppText>
-        <AppText variant="p3" color={COLORS.black}>₱{data.betAmount}</AppText>
+        <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS.textMuted}>Bet Amount</AppText>
+        <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS.black}>₱{data.betAmount}</AppText>
       </View>
 
       <View style={[styles.resultBox, { backgroundColor: statusColors.bg }]}>
-        <AppText variant="p3" color={statusColors.text} style={{ flex: 1 }}>{String(data.note).replace(/[<>"'&]/g, '')}</AppText>
+        <AppText fontFamily="ManropeRegular" variant="p3" color={statusColors.text} style={{ flex: 1 }}>{String(data.note).replace(/[<>"'&]/g, '')}</AppText>
         {data.status === 'WON' && data.payout ? (
-          <AppText variant="h4" color={COLORS.success}>₱{data.payout}</AppText>
+          <AppText fontFamily="ManropeBold" variant="h4" color={COLORS.success}>₱{data.payout}</AppText>
         ) : null}
       </View>
     </View>

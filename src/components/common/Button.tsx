@@ -71,7 +71,7 @@ export default function Button({
     >
       <View style={[styles.content, contentStyle]}>
         {leftIcon}
-        <AppText
+        <AppText fontFamily="ManropeRegular"
           variant={getTextVariant()}
           numberOfLines={1}
           adjustsFontSizeToFit

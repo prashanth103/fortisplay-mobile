@@ -17,6 +17,7 @@ export const PALETTE = {
   gold300: '#F6D877',
   gold400: '#E3BA4B',
   gold500: '#C89512',
+  gold600: '#91720cff',
   gold800: '#3B3323', // Dark gold background
   gold100: '#FCF3D6', // Light gold background
 
@@ -43,6 +44,7 @@ export const PALETTE = {
 export const DARK_COLORS = {
   // Brand
   primary: PALETTE.gold400,
+  primaryDark: PALETTE.gold600,
   primaryMuted: 'rgba(227, 186, 75, 0.15)', // transparent gold400
   primaryContrast: PALETTE.black,
 

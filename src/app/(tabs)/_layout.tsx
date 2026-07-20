@@ -76,7 +76,7 @@ export default function TabsLayout() {
             title: tab.title,
             tabBarIcon: ({ color, size }) =>
               tab.customIcon ? (
-                <AppText
+                <AppText fontFamily="ManropeRegular"
                   color={color}
                   style={{ paddingBottom: SPACING.xs }}
                 >

@@ -1,6 +1,6 @@
-import { BORDERS, RADIUS, SPACING, TYPOGRAPHY } from '@/theme';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
+import { BORDERS, RADIUS, SPACING } from '@/theme';
+import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { Modal, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 import Button from '@/components/common/Button';
@@ -27,8 +27,8 @@ export default function TicketModal({
   onClose,
   onPrint,
 }: Props) {
-    const COLORS = useThemeColors();
-      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   return (
     <Modal
       visible={visible}
@@ -46,101 +46,101 @@ export default function TicketModal({
               contentContainerStyle={styles.cardContent}
             >
 
-            {/* Header */}
+              {/* Header */}
 
-            <View style={styles.header}>
+              <View style={styles.header}>
 
-              <AppText variant="h4" color={COLORS.black}>
-                Ticket
-              </AppText>
-
-              <Pressable onPress={onClose}>
-                <MaterialIcons
-                  name="close"
-                  size={22}
-                  color={COLORS.textMuted}
-                />
-              </Pressable>
-
-            </View>
-
-            {/* QR */}
-
-            <View style={styles.qrContainer}>
-
-              <View style={styles.badge}>
-                <AppText color={COLORS.primary}>
-                  KB · FIXED ODDS
+                <AppText fontFamily="ManropeBold" variant="h4" color={COLORS.black}>
+                  Ticket
                 </AppText>
+
+                <Pressable onPress={onClose}>
+                  <MaterialIcons
+                    name="close"
+                    size={22}
+                    color={COLORS.textMuted}
+                  />
+                </Pressable>
+
               </View>
 
-              <MaterialIcons
-                name="qr-code-2"
-                size={240}
-                color={COLORS.black}
-              />
+              {/* QR */}
 
-              <AppText variant="p2" color={COLORS.textMuted}>
-                No. {ticketNo}
-              </AppText>
+              <View style={styles.qrContainer}>
 
-            </View>
-
-            <View style={styles.lineContainer}>
-              <View style={styles.semiCircleLeft} />
-              <View style={styles.line} />
-              <View style={styles.semiCircleRight} />
-            </View>
-
-            {/* Details */}
-
-            <View style={styles.details}>
-
-              <Row
-                label="Date"
-                value={new Date().toLocaleString()}
-              />
-
-              <Row
-                label="Pool"
-                value="WIN"
-              />
-
-              <Row
-                label="Order Preference"
-                value="EXACT"
-              />
-
-              <Row
-                label="Variant"
-                value="Fixed Odds"
-              />
-
-              <Row
-                label="Tickets"
-                value={runnerCode}
-              />
-
-            </View>
-
-            <View style={styles.separator} />
-
-            <View style={styles.totalContainer}>
-              <View style={styles.totalRow}>
-
-                <AppText variant="h4" color={COLORS.black}>TOTAL</AppText>
-
-                <View style={styles.amountBox}>
-                  <AppText variant="h3" color={COLORS.primary}>
-                    ₱{amount}.00
+                <View style={styles.badge}>
+                  <AppText fontFamily="ManropeRegular" color={COLORS.primary}>
+                    KB · FIXED ODDS
                   </AppText>
                 </View>
 
+                <MaterialIcons
+                  name="qr-code-2"
+                  size={240}
+                  color={COLORS.black}
+                />
+
+                <AppText fontFamily="ManropeRegular" variant="p2" color={COLORS.textMuted}>
+                  No. {ticketNo}
+                </AppText>
+
               </View>
-              <AppText variant="p3" color={COLORS.textMuted} style={{ textAlign: "center", marginBottom: SPACING.md, paddingHorizontal: SPACING.xxl }}>
-                Valid for 60 days. Ticket required for all payments
-              </AppText>
-            </View>
+
+              <View style={styles.lineContainer}>
+                <View style={styles.semiCircleLeft} />
+                <View style={styles.line} />
+                <View style={styles.semiCircleRight} />
+              </View>
+
+              {/* Details */}
+
+              <View style={styles.details}>
+
+                <Row
+                  label="Date"
+                  value={new Date().toLocaleString()}
+                />
+
+                <Row
+                  label="Pool"
+                  value="WIN"
+                />
+
+                <Row
+                  label="Order Preference"
+                  value="EXACT"
+                />
+
+                <Row
+                  label="Variant"
+                  value="Fixed Odds"
+                />
+
+                <Row
+                  label="Tickets"
+                  value={runnerCode}
+                />
+
+              </View>
+
+              <View style={styles.separator} />
+
+              <View style={styles.totalContainer}>
+                <View style={styles.totalRow}>
+
+                  <AppText fontFamily="ManropeExtraBold" variant="h5" color={COLORS.black}>TOTAL</AppText>
+
+                  <View style={styles.amountBox}>
+                    <AppText fontFamily="ManropeBold" variant="h4" color={COLORS.primary}>
+                      ₱{amount}.00
+                    </AppText>
+                  </View>
+
+                </View>
+                <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS.textMuted} style={{ textAlign: "center", marginBottom: SPACING.md, paddingHorizontal: SPACING.xxl }}>
+                  Valid for 60 days. Ticket required for all payments
+                </AppText>
+              </View>
 
             </ScrollView>
 
@@ -192,11 +192,11 @@ function Row({
   return (
     <View style={styles.row}>
 
-      <AppText variant="p1" color={COLORS.textMuted}>
+      <AppText fontFamily="ManropeRegular" variant="p1" color={COLORS.textMuted}>
         {label}
       </AppText>
 
-      <AppText variant="p1" color={COLORS.black}>
+      <AppText fontFamily="ManropeSemiBold" variant="p1" color={COLORS.black}>
         {value}
       </AppText>
 

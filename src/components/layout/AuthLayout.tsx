@@ -1,7 +1,7 @@
-import { BORDERS, SPACING } from '@/theme';
-import { useDevice } from '@/hooks/useDevice';
 import AppText from '@/components/common/AppText';
+import { useDevice } from '@/hooks/useDevice';
 import { useThemeColors } from "@/hooks/useThemeColors";
+import { BORDERS, SPACING } from '@/theme';
 
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -32,9 +32,9 @@ export default function AuthLayout({
         {children}
       </View>
       <View style={styles.footer}>
-        <AppText variant="p3">
+        <AppText fontFamily="ManropeRegular" variant="p3">
           Powered by
-          <AppText variant="p3" color={COLORS.text}>
+          <AppText fontFamily="ManropeBold" variant="p3" color={COLORS.text}>
             {' '}NorthAlley.
           </AppText>
         </AppText>

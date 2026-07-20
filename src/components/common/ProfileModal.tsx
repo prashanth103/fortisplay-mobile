@@ -1,6 +1,6 @@
+import AppText from '@/components/common/AppText';
 import { BORDERS, RADIUS, SHADOWS, SPACING } from '@/theme';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import AppText from '@/components/common/AppText';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 
 import { useDevice } from '@/hooks/useDevice';
@@ -20,8 +20,8 @@ export default function ProfileModal({
   onChangePassword,
   onLogout,
 }: ProfileModalProps) {
-    const COLORS = useThemeColors();
-      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   const { isTablet } = useDevice();
 
   return (
@@ -43,8 +43,8 @@ export default function ProfileModal({
           onPress={(event) => event.stopPropagation()}
         >
           <View style={styles.identity}>
-            <AppText variant="p1" color={COLORS.text}>SO name displayed</AppText>
-            <AppText variant="p2" color={COLORS.textMuted} style={{ marginTop: SPACING.xs }}>SO ID 400001</AppText>
+            <AppText fontFamily="ManropeExtraBold" variant="p1" color={COLORS.text}>SO name displayed</AppText>
+            <AppText fontFamily="ManropeRegular" variant="p2" color={COLORS.textMuted} style={{ marginTop: SPACING.xs }}>SO ID 400001</AppText>
           </View>
 
           <Pressable
@@ -56,7 +56,7 @@ export default function ProfileModal({
               size={isTablet ? 30 : 20}
               color={COLORS.primary}
             />
-            <AppText variant="p1" color={COLORS.text}>Change Password</AppText>
+            <AppText fontFamily="ManropeSemiBold" variant="p1" color={COLORS.text}>Change Password</AppText>
           </Pressable>
 
           <Pressable
@@ -68,7 +68,7 @@ export default function ProfileModal({
               size={isTablet ? 30 : 20}
               color={COLORS.danger}
             />
-            <AppText variant="p1" color={COLORS.danger}>Logout</AppText>
+            <AppText fontFamily="ManropeSemiBold" variant="p1" color={COLORS.danger}>Logout</AppText>
           </Pressable>
         </Pressable>
       </Pressable>

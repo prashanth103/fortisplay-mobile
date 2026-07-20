@@ -1,6 +1,6 @@
+import AppText from '@/components/common/AppText';
 import { BORDERS, RADIUS, SPACING } from '@/theme';
 import { StyleSheet, View } from 'react-native';
-import AppText from '@/components/common/AppText';
 
 import ResultRow from './ResultRow';
 
@@ -22,7 +22,7 @@ export default function FinishedRace({
     <View style={styles.container}>
 
       <View style={styles.header}>
-        <AppText variant="h2" color={COLORS.text}>
+        <AppText fontFamily="ManropeExtraBold" variant="h4" color={COLORS.text}>
           {raceName} RESULTS
         </AppText>
       </View>

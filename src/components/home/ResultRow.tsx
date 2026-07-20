@@ -26,7 +26,7 @@ export default function ResultRow({
   const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   return (
     <View style={styles.container}>
-      <AppText variant="h5" color={COLORS.primary} style={{ width: 110 }}>
+      <AppText fontFamily="ManropeBold" variant="h5" color={COLORS.primary} style={{ width: 110 }}>
         {title}
       </AppText>
 

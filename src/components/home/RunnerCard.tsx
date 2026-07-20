@@ -55,13 +55,13 @@ export default function RunnerCard({
                 isTablet && styles.innerCircleTablet,
               ]}
             >
-              <AppText color={COLORS.black}>
+              <AppText variant='p3' fontFamily="ManropeExtraBold" color={COLORS.black}>
                 {code}
               </AppText>
             </View>
           </View>
 
-          <AppText variant='h6' color={COLORS.text} style={{ marginLeft: SPACING.xxl }}>
+          <AppText fontFamily="ManropeSemiBold" variant='h6' color={COLORS.text} style={{ marginLeft: SPACING.xxl }}>
             {name}
           </AppText>
         </View>

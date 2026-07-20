@@ -68,7 +68,7 @@ export default function Input({
       ]}
     >
       {label && (
-        <AppText variant="p3" color={COLORS.text} style={{ marginBottom: isTablet ? 10 : 8 }}>
+        <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS.text} style={{ marginBottom: isTablet ? 10 : 8 }}>
           {label}
         </AppText>
       )}

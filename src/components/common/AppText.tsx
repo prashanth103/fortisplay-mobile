@@ -9,9 +9,10 @@ export type AppTextVariant = keyof typeof TYPOGRAPHY;
 interface AppTextProps extends TextProps {
   variant?: AppTextVariant;
   color?: string | ColorValue;
+  fontFamily?: string;
 }
 
-const AppText: React.FC<AppTextProps> = ({ variant = 'p2', color, style, children, ...props }) => {
+const AppText: React.FC<AppTextProps> = ({ variant = 'p2', color, fontFamily, style, children, ...props }) => {
   const colors = useThemeColors();
   
   const textStyle = TYPOGRAPHY[variant];
@@ -28,7 +29,7 @@ const AppText: React.FC<AppTextProps> = ({ variant = 'p2', color, style, childre
       style={[
         textStyle, 
         { color: finalColor }, 
-
+        fontFamily ? { fontFamily } : undefined,
         style
       ]} 
       {...props}

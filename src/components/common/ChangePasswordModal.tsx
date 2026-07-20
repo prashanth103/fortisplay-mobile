@@ -43,7 +43,7 @@ export default function ChangePasswordModal({
       <View style={styles.overlay}>
         <View style={[styles.modal, isTablet && styles.modalTablet]}>
           <View style={styles.header}>
-            <AppText variant="h4" color={COLORS.text}>Change Password</AppText>
+            <AppText fontFamily="ManropeBold" variant="h4" color={COLORS.text}>Change Password</AppText>
             <Pressable
               style={styles.closeButton}
               onPress={closeModal}

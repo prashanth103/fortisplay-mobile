@@ -86,12 +86,12 @@ export default function WatchScreen() {
           <View style={styles.cardHeader}>
             <View style={[styles.badge, { backgroundColor: `${selectedRace.statusColor}22` }]}>
               <View style={[styles.badgeDot, { backgroundColor: selectedRace.statusColor }]} />
-              <AppText variant="p3" color={selectedRace.statusColor}>{selectedRace.cardLabel}</AppText>
+              <AppText fontFamily="ManropeRegular" variant="p3" color={selectedRace.statusColor}>{selectedRace.cardLabel}</AppText>
             </View>
             {selectedRace.watchers ? (
               <View style={styles.watchersBadge}>
                 <MaterialIcons name="visibility" size={14} color={COLORS.white} />
-                <AppText color={COLORS.white}>{selectedRace.watchers}</AppText>
+                <AppText fontFamily="ManropeRegular" color={COLORS.white}>{selectedRace.watchers}</AppText>
               </View>
             ) : null}
           </View>
@@ -105,7 +105,7 @@ export default function WatchScreen() {
                 color={COLORS.white}
               />
             </View>
-            <AppText color={COLORS.textMuted} style={{ letterSpacing: 1.5 }}>{selectedRace.videoTitle}</AppText>
+            <AppText fontFamily="ManropeRegular" color={COLORS.textMuted} style={{ letterSpacing: 1.5 }}>{selectedRace.videoTitle}</AppText>
           </View>
 
           {/* Bottom Row */}
@@ -121,17 +121,17 @@ export default function WatchScreen() {
               />
             </View>
 
-            <AppText color={COLORS.white} style={{ marginLeft: SPACING.lg, marginRight: SPACING.lg }}>{selectedRace.cardLabel}</AppText>
+            <AppText fontFamily="ManropeRegular" color={COLORS.white} style={{ marginLeft: SPACING.lg, marginRight: SPACING.lg }}>{selectedRace.cardLabel}</AppText>
             <MaterialIcons name="fullscreen" size={22} color={COLORS.white} />
           </View>
         </View>
 
         <View style={styles.contentHeader}>
-          <AppText variant="h3">{selectedRace.title}</AppText>
-          <AppText variant="p2" style={{ marginTop: SPACING.xs }}>{selectedRace.subtitle}</AppText>
+          <AppText fontFamily="ManropeBold" variant="h3">{selectedRace.title}</AppText>
+          <AppText fontFamily="ManropeRegular" variant="p2" style={{ marginTop: SPACING.xs }}>{selectedRace.subtitle}</AppText>
         </View>
 
-        <AppText variant="p2" color={COLORS.text} style={{ marginTop: SPACING.xxl, marginBottom: SPACING.lg }}>LIVE & UPCOMING RACES</AppText>
+        <AppText fontFamily="ManropeRegular" variant="p2" color={COLORS.text} style={{ marginTop: SPACING.xxl, marginBottom: SPACING.lg }}>LIVE & UPCOMING RACES</AppText>
 
         {raceData.map(race => (
           <TouchableOpacity
@@ -149,12 +149,12 @@ export default function WatchScreen() {
                 <MaterialIcons name="play-arrow" size={18} color={COLORS.textMuted} />
               </View>
               <View style={styles.raceInfo}>
-                <AppText variant="p2" color={COLORS.text}>{race.title}</AppText>
-                <AppText variant="p3" style={{ marginTop: SPACING.xs }}>{race.subtitle}</AppText>
+                <AppText fontFamily="ManropeRegular" variant="p2" color={COLORS.text}>{race.title}</AppText>
+                <AppText fontFamily="ManropeRegular" variant="p3" style={{ marginTop: SPACING.xs }}>{race.subtitle}</AppText>
               </View>
               <View style={[styles.raceStatus,]}>
                 <View style={[styles.raceStatusDot, { backgroundColor: race.statusColor }]} />
-                <AppText color={race.statusColor}>{race.status}</AppText>
+                <AppText fontFamily="ManropeRegular" color={race.statusColor}>{race.status}</AppText>
               </View>
             </View>
           </TouchableOpacity>

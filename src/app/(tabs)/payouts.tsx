@@ -66,8 +66,8 @@ export default function PayoutsScreen() {
     <Screen backgroundColor={COLORS.bg}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.heading}>
-          <AppText variant="h1" color={COLORS.text}>Payouts</AppText>
-          <AppText variant="p2" style={{ marginTop: SPACING.sm }}>Scan or enter a ticket to verify</AppText>
+          <AppText fontFamily="ManropeExtraBold" variant="h1" color={COLORS.text}>Payouts</AppText>
+          <AppText fontFamily="ManropeRegular" variant="p2" style={{ marginTop: SPACING.sm }}>Scan or enter a ticket to verify</AppText>
         </View>
 
         {!result ? (
@@ -90,7 +90,7 @@ export default function PayoutsScreen() {
 
             <View style={styles.dividerRow}>
               <View style={styles.dividerLine} />
-              <AppText variant="p3" color={COLORS.textMuted} style={{ textAlign: 'center', letterSpacing: 1, marginHorizontal: SPACING.md }}>OR ENTER TICKET NUMBER</AppText>
+              <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS.textMuted} style={{ textAlign: 'center', letterSpacing: 1, marginHorizontal: SPACING.md }}>OR ENTER TICKET NUMBER</AppText>
               <View style={styles.dividerLine} />
             </View>
 
@@ -115,7 +115,7 @@ export default function PayoutsScreen() {
               />
             </View>
 
-            {error ? <AppText variant="p2" color={COLORS.danger} style={{ marginTop: SPACING.sm, textAlign: 'center' }}>{error}</AppText> : null}
+            {error ? <AppText fontFamily="ManropeRegular" variant="p2" color={COLORS.danger} style={{ marginTop: SPACING.sm, textAlign: 'center' }}>{error}</AppText> : null}
           </>
         ) : null}
 

@@ -53,7 +53,7 @@ export default function AppHeader() {
             size={isTablet ? 28 : 22}
             color={COLORS.border}
           />
-          <AppText variant="p1" color={COLORS.border}>$ 12,500.00</AppText>
+          <AppText fontFamily="ManropeExtraBold" variant="p1" color={COLORS.border}>$ 12,500.00</AppText>
         </View>
         <Pressable
           style={[styles.profileContainer, isTablet && styles.profileContainerTablet]}

@@ -54,18 +54,18 @@ export default function SalesScreen() {
     <Screen backgroundColor={COLORS.bg}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.heading}>
-          <AppText variant="h1">Sales</AppText>
-          <AppText variant="p2" style={{ marginTop: SPACING.sm }}>Today's transactions</AppText>
+          <AppText fontFamily="ManropeExtraBold" variant="h1">Sales</AppText>
+          <AppText fontFamily="ManropeRegular" variant="p2" style={{ marginTop: SPACING.sm }}>Today's transactions</AppText>
         </View>
 
         <View style={styles.summaryRow}>
           <View style={styles.summaryCard}>
-            <AppText variant="p3" color={COLORS.textMuted} style={{ letterSpacing: 0.5, marginBottom: SPACING.sm }}>TOTAL SALES</AppText>
-            <AppText color={COLORS.text}>₱ {totalSales}</AppText>
+            <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS.textMuted} style={{ letterSpacing: 0.5, marginBottom: SPACING.sm }}>TOTAL SALES</AppText>
+            <AppText fontFamily="ManropeRegular" color={COLORS.text}>₱ {totalSales}</AppText>
           </View>
           <View style={styles.summaryCard}>
-            <AppText variant="p3" color={COLORS.textMuted} style={{ letterSpacing: 0.5, marginBottom: SPACING.sm }}>TICKETS</AppText>
-            <AppText color={COLORS.text}>{SALES_DATA.length}</AppText>
+            <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS.textMuted} style={{ letterSpacing: 0.5, marginBottom: SPACING.sm }}>TICKETS</AppText>
+            <AppText fontFamily="ManropeRegular" color={COLORS.text}>{SALES_DATA.length}</AppText>
           </View>
         </View>
 
@@ -84,7 +84,7 @@ export default function SalesScreen() {
           <View style={styles.detailContainer}>
             <Pressable onPress={() => setSelectedSaleId(null)} style={styles.backButton}>
               <MaterialIcons name="arrow-back-ios" size={18} color={COLORS.text} />
-              <AppText variant="p2" color={COLORS.white}>Back</AppText>
+              <AppText fontFamily="ManropeRegular" variant="p2" color={COLORS.white}>Back</AppText>
             </Pressable>
             <TicketCard data={selectedSale} />
           </View>
@@ -98,21 +98,21 @@ export default function SalesScreen() {
             >
               <View style={[styles.avatarBorder, { borderColor: item.avatarColor, backgroundColor: item.avatarColor }]}>
                 <View style={styles.avatar}>
-                  <AppText variant="p2" color={COLORS.black}>{item.avatarText}</AppText>
+                  <AppText fontFamily="ManropeRegular" variant="p2" color={COLORS.black}>{item.avatarText}</AppText>
                 </View>
               </View>
               <View style={styles.saleInfo}>
                 <View style={styles.saleTitleRow}>
-                  <AppText variant="p2" color={COLORS.text}>{item.title}</AppText>
+                  <AppText fontFamily="ManropeRegular" variant="p2" color={COLORS.text}>{item.title}</AppText>
                   <View style={[styles.itemBadge, { backgroundColor: COLORS.primaryMuted }]}>
-                    <AppText color={COLORS.primary} style={{ letterSpacing: 0.5 }}>
+                    <AppText fontFamily="ManropeRegular" color={COLORS.primary} style={{ letterSpacing: 0.5 }}>
                       {item.badge}
                     </AppText>
                   </View>
                 </View>
-                <AppText variant="p3" color={COLORS.textMuted}>{item.listSubtitle}</AppText>
+                <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS.textMuted}>{item.listSubtitle}</AppText>
               </View>
-              <AppText variant="p2" color={COLORS.white} style={{ marginLeft: SPACING.sm }}>₱{item.amount}</AppText>
+              <AppText fontFamily="ManropeRegular" variant="p2" color={COLORS.white} style={{ marginLeft: SPACING.sm }}>₱{item.amount}</AppText>
             </TouchableOpacity>
           ))
         )}

@@ -44,13 +44,13 @@ export default function BetTypeTabs() {
               active && styles.activeItem,
             ]}
           >
-            <AppText
+            <AppText fontFamily="ManropeBold"
               color={active ? COLORS.primary : COLORS.text}
             >
               {item.title}
             </AppText>
 
-            <AppText
+            <AppText fontFamily="ManropeRegular"
               color={active ? COLORS.text : COLORS.textMuted}
               style={{ marginTop: SPACING.xs }}
             >

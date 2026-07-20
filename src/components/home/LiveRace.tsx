@@ -35,7 +35,7 @@ export default function LiveRace({
 
         <View style={styles.dot} />
 
-        <AppText color={COLORS.danger}>
+        <AppText fontFamily="ManropeRegular" color={COLORS.danger}>
           LIVE NOW
         </AppText>
 
@@ -54,11 +54,11 @@ export default function LiveRace({
         />
       </View>
 
-      <AppText color={COLORS.text} style={{ marginTop: SPACING.xxl }}>
+      <AppText fontFamily="ManropeRegular" color={COLORS.text} style={{ marginTop: SPACING.xxl }}>
         Bets Closed
       </AppText>
 
-      <AppText color={COLORS.textMuted} style={{ marginTop: SPACING.md, textAlign: "center", lineHeight: isTablet ? 28 : 24 }}>
+      <AppText fontFamily="ManropeRegular" color={COLORS.textMuted} style={{ marginTop: SPACING.md, textAlign: "center", lineHeight: isTablet ? 28 : 24 }}>
         Betting for {raceName} is now closed.
         {'\n'}
         The race is underway — watch it live.

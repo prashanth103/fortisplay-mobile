@@ -1,6 +1,6 @@
-import { BORDERS, RADIUS, SPACING, TYPOGRAPHY } from '@/theme';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
+import { BORDERS, RADIUS, SPACING } from '@/theme';
+import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 
 import Button from '@/components/common/Button';
@@ -25,8 +25,8 @@ export default function ConfirmBetModal({
   onClose,
   onConfirm,
 }: Props) {
-    const COLORS = useThemeColors();
-      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   return (
     <Modal
       transparent
@@ -43,15 +43,15 @@ export default function ConfirmBetModal({
 
             <View style={styles.header}>
 
-              <AppText variant="h5" color={COLORS.black}>
+              <AppText fontFamily="ManropeExtraBold" variant="h5" color={COLORS.black}>
                 Confirm Bet
               </AppText>
 
-              <Pressable onPress={onClose}>
+              <Pressable style={styles.closeButton} onPress={onClose}>
                 <MaterialIcons
                   name="close"
-                  size={22}
-                  color={COLORS.textMuted}
+                  size={18}
+                  color={COLORS.bgSurface}
                 />
               </Pressable>
 
@@ -62,7 +62,7 @@ export default function ConfirmBetModal({
             <View style={styles.qrContainer}>
 
               <View style={styles.badge}>
-                <AppText color={COLORS.primary}>
+                <AppText fontFamily="ManropeRegular" color={COLORS.primary}>
                   KB3 · RACE 8
                 </AppText>
               </View>
@@ -87,11 +87,11 @@ export default function ConfirmBetModal({
 
               <View>
 
-                <AppText color={COLORS.primary} style={{ textAlign: "center" }}>
+                <AppText fontFamily="ManropeRegular" color={COLORS.primary} style={{ textAlign: "center" }}>
                   WIN
                 </AppText>
 
-                <AppText color={COLORS.textMuted} style={{ textAlign: "center" }}>
+                <AppText fontFamily="ManropeRegular" color={COLORS.textMuted} style={{ textAlign: "center" }}>
                   POOL
                 </AppText>
 
@@ -103,7 +103,7 @@ export default function ConfirmBetModal({
 
                   <View style={styles.innerCircle}>
 
-                    <AppText color={COLORS.black}>
+                    <AppText fontFamily="ManropeExtraBold" color={COLORS.black}>
                       {runnerCode}
                     </AppText>
 
@@ -111,7 +111,7 @@ export default function ConfirmBetModal({
 
                 </View>
 
-                <AppText color={COLORS.black} style={{ marginTop: SPACING.sm }}>
+                <AppText fontFamily="ManropeRegular" color={COLORS.black} style={{ marginTop: SPACING.sm }}>
                   {runnerName}
                 </AppText>
 
@@ -119,11 +119,11 @@ export default function ConfirmBetModal({
 
               <View>
 
-                <AppText color={COLORS.black} style={{ textAlign: "center" }}>
+                <AppText fontFamily="ManropeRegular" color={COLORS.black} style={{ textAlign: "center" }}>
                   EXACT
                 </AppText>
 
-                <AppText color={COLORS.textMuted} style={{ textAlign: "center" }}>
+                <AppText fontFamily="ManropeRegular" color={COLORS.textMuted} style={{ textAlign: "center" }}>
                   ORDER
                 </AppText>
 
@@ -139,12 +139,12 @@ export default function ConfirmBetModal({
 
             <View style={styles.amountRow}>
 
-              <AppText variant="h5" color={COLORS.black}>
+              <AppText fontFamily="ManropeBold" variant="h5" color={COLORS.black}>
                 TOTAL AMOUNT
               </AppText>
 
               <View style={styles.amountBox}>
-                <AppText variant="h3" color={COLORS.primary}>
+                <AppText fontFamily="ManropeBold" variant="h3" color={COLORS.primary}>
                   ₱{amount}
                 </AppText>
               </View>
@@ -207,15 +207,16 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 64,
     paddingHorizontal: SPACING.xl,
     borderBottomWidth: BORDERS.ultraThin,
-    borderBottomColor: COLORS.border,
+    borderBottomColor: COLORS.icon,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
 
-  headerTitle: {
-
-    color: COLORS.black,
+  closeButton: {
+    padding: SPACING.sm,
+    backgroundColor: COLORS.text,
+    borderRadius: RADIUS.sm
   },
 
   qrContainer: {
@@ -228,11 +229,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderRadius: RADIUS.lg,
     paddingHorizontal: SPACING.lg,
     paddingVertical: SPACING.sm,
-  },
-
-  badgeText: {
-    color: COLORS.primary,
-
   },
 
   lineContainer: {
@@ -295,34 +291,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     alignItems: 'center',
   },
 
-  code: {
-    color: COLORS.black,
-
-  },
-
-  runnerName: {
-    marginTop: SPACING.sm,
-
-    color: COLORS.black,
-  },
-
-  winLabel: {
-
-    color: COLORS.primary,
-    textAlign: 'center',
-  },
-
-  exactLabel: {
-
-    color: COLORS.black,
-    textAlign: 'center',
-  },
-
-  subLabel: {
-    color: COLORS.textMuted,
-    textAlign: 'center',
-  },
-
   amountRow: {
     paddingHorizontal: SPACING.xxl,
     paddingBottom: SPACING.xl,
@@ -331,22 +299,12 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     alignItems: 'center',
   },
 
-  total: {
-
-    color: COLORS.black,
-  },
-
   amountBox: {
     borderWidth: BORDERS.thin,
     borderColor: COLORS.primary,
     borderRadius: RADIUS.sm,
     paddingHorizontal: SPACING.xl,
     paddingVertical: SPACING.xs,
-  },
-
-  amount: {
-    color: COLORS.primary,
-
   },
 
   footer: {

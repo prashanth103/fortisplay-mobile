@@ -1,4 +1,3 @@
-import { OPACITY, SHADOWS, SPACING, TYPOGRAPHY } from '@/theme';
 import AppLogo from '@/components/common/AppLogo';
 import AppText from '@/components/common/AppText';
 import Button from '@/components/common/Button';
@@ -6,6 +5,7 @@ import Input from '@/components/common/Input';
 import AuthLayout from '@/components/layout/AuthLayout';
 import { useDevice } from '@/hooks/useDevice';
 import { useThemeColors } from "@/hooks/useThemeColors";
+import { OPACITY, SHADOWS, SPACING } from '@/theme';
 
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { router } from 'expo-router';
@@ -36,7 +36,7 @@ export default function LoginScreen() {
         ]}
       >
         <AppLogo size={isTablet ? 120 : 100} />
-        <AppText
+        <AppText fontFamily="ManropeExtraBold"
           variant="h3"
           color={COLORS.text}
           numberOfLines={1}
@@ -44,7 +44,7 @@ export default function LoginScreen() {
         >
           Welcome back
         </AppText>
-        <AppText variant="p2">
+        <AppText fontFamily="ManropeRegular" variant="p2">
           Sign in to your gaming station
         </AppText>
       </View>

@@ -16,8 +16,8 @@ export default function WalletScreen() {
     <Screen backgroundColor={COLORS.bg}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
-          <AppText variant="h1">Wallet</AppText>
-          <AppText variant="p2" style={{ marginTop: SPACING.sm }}>Today's cash flow</AppText>
+          <AppText fontFamily="ManropeExtraBold" variant="h1">Wallet</AppText>
+          <AppText fontFamily="ManropeRegular" variant="p2" style={{ marginTop: SPACING.sm }}>Today's cash flow</AppText>
         </View>
 
         <View style={styles.topRow}>
@@ -28,8 +28,8 @@ export default function WalletScreen() {
                   <MaterialIcons name={item.icon} size={22} color={COLORS[item.iconColorKey] as string} />
                 </View>
                 <View style={styles.summaryInfo}>
-                  <AppText variant="p3" color={COLORS.textMuted} style={{ textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: SPACING.sm }}>{item.title}</AppText>
-                  <AppText variant='h3' color={COLORS.text}>{item.value}</AppText>
+                  <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS.textMuted} style={{ textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: SPACING.sm }}>{item.title}</AppText>
+                  <AppText fontFamily="ManropeBold" variant='h3' color={COLORS.text}>{item.value}</AppText>
                 </View>
               </View>
             </Card>
@@ -42,8 +42,8 @@ export default function WalletScreen() {
               <View style={[styles.actionIcon, { backgroundColor: COLORS[item.iconBackgroundKey] as string }]}>
                 <MaterialIcons name={item.icon} size={item.iconSize} color={COLORS[item.iconColorKey] as string} />
               </View>
-              <AppText color={COLORS[item.textColorKey] as string} style={{ marginBottom: SPACING.sm }}>{item.value}</AppText>
-              <AppText variant="p3" color={COLORS[item.labelColorKey] as string} style={{ textTransform: 'uppercase', letterSpacing: 0.6 }}>
+              <AppText fontFamily="ManropeRegular" color={COLORS[item.textColorKey] as string} style={{ marginBottom: SPACING.sm }}>{item.value}</AppText>
+              <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS[item.labelColorKey] as string} style={{ textTransform: 'uppercase', letterSpacing: 0.6 }}>
                 {item.title}
               </AppText>
             </Card>
@@ -57,14 +57,14 @@ export default function WalletScreen() {
                 <MaterialIcons name={item.icon} size={17} color={COLORS[item.iconColorKey] as string} />
               </View>
               <View style={styles.statText}>
-                <AppText variant="h3" color={COLORS.black} style={{ marginBottom: SPACING.xs }}>{item.value}</AppText>
-                <AppText variant="p3" color={COLORS[item.labelColorKey] as string}>{item.title}</AppText>
+                <AppText fontFamily="ManropeBold" variant="h3" color={COLORS.black} style={{ marginBottom: SPACING.xs }}>{item.value}</AppText>
+                <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS[item.labelColorKey] as string}>{item.title}</AppText>
               </View>
             </Card>
           ))}
         </View>
 
-        <AppText variant="p2" color={COLORS.text} style={{ marginBottom: SPACING.md, letterSpacing: 0.5 }}>Transaction History</AppText>
+        <AppText fontFamily="ManropeRegular" variant="p2" color={COLORS.text} style={{ marginBottom: SPACING.md, letterSpacing: 0.5 }}>Transaction History</AppText>
         {HISTORY_ITEMS.map((item) => {
           const iconColor = COLORS[item.iconColorKey] as string;
           return (
@@ -73,10 +73,10 @@ export default function WalletScreen() {
                 <MaterialIcons name={item.icon} size={20} color={iconColor} />
               </View>
               <View style={styles.historyText}>
-                <AppText variant="p2" color={COLORS.text} style={{ marginBottom: SPACING.xxs }}>{item.title}</AppText>
-                <AppText variant="p3" color={COLORS.textMuted}>{item.subtitle}</AppText>
+                <AppText fontFamily="ManropeRegular" variant="p2" color={COLORS.text} style={{ marginBottom: SPACING.xxs }}>{item.title}</AppText>
+                <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS.textMuted}>{item.subtitle}</AppText>
               </View>
-              <AppText variant="p2" color={COLORS[item.amountColorKey] as string}>{item.amount}</AppText>
+              <AppText fontFamily="ManropeRegular" variant="p2" color={COLORS[item.amountColorKey] as string}>{item.amount}</AppText>
             </Card>
           );
         })}
