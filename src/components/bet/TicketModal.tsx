@@ -1,7 +1,7 @@
 import { BORDERS, RADIUS, SPACING, TYPOGRAPHY } from '@/theme';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
-import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import { Modal, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 import Button from '@/components/common/Button';
 
@@ -34,18 +34,23 @@ export default function TicketModal({
       visible={visible}
       transparent
       animationType="fade"
+      onRequestClose={onClose}
     >
       <View style={styles.overlay}>
 
         <View style={styles.container}>
 
           <View style={styles.card}>
+            <ScrollView
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={styles.cardContent}
+            >
 
             {/* Header */}
 
             <View style={styles.header}>
 
-              <AppText variant="h2" color={COLORS.black}>
+              <AppText variant="h4" color={COLORS.black}>
                 Ticket
               </AppText>
 
@@ -123,7 +128,7 @@ export default function TicketModal({
             <View style={styles.totalContainer}>
               <View style={styles.totalRow}>
 
-                <AppText variant="h2" color={COLORS.black}>TOTAL</AppText>
+                <AppText variant="h4" color={COLORS.black}>TOTAL</AppText>
 
                 <View style={styles.amountBox}>
                   <AppText variant="h3" color={COLORS.primary}>
@@ -136,6 +141,8 @@ export default function TicketModal({
                 Valid for 60 days. Ticket required for all payments
               </AppText>
             </View>
+
+            </ScrollView>
 
           </View>
 
@@ -209,6 +216,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   container: {
     width: '100%',
+    maxHeight: '100%',
     borderRadius: RADIUS.xl,
     backgroundColor: COLORS.transparent,
     overflow: 'visible',
@@ -216,9 +224,14 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   card: {
     width: '100%',
+    flexShrink: 1,
     borderRadius: RADIUS.xl,
     backgroundColor: COLORS.white,
     overflow: 'hidden',
+  },
+
+  cardContent: {
+    flexGrow: 1,
   },
 
   header: {

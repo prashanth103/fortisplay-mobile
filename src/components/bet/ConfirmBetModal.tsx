@@ -43,7 +43,7 @@ export default function ConfirmBetModal({
 
             <View style={styles.header}>
 
-              <AppText variant="h4" color={COLORS.black}>
+              <AppText variant="h5" color={COLORS.black}>
                 Confirm Bet
               </AppText>
 
@@ -139,7 +139,7 @@ export default function ConfirmBetModal({
 
             <View style={styles.amountRow}>
 
-              <AppText variant="h3" color={COLORS.black}>
+              <AppText variant="h5" color={COLORS.black}>
                 TOTAL AMOUNT
               </AppText>
 
@@ -200,7 +200,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     width: '100%',
     borderRadius: RADIUS.xl,
     backgroundColor: COLORS.white,
-    overflow: 'hidden',
+    overflow: 'visible',
   },
 
   header: {
