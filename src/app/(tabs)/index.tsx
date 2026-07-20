@@ -119,8 +119,7 @@ export default function Home() {
         runnerName={runner?.name ?? ''}
         amount={betAmount}
         onClose={() => {
-          setStep('home');
-          setSelectedRunnerId(null);
+          setStep('confirm');
         }}
         onPrint={() => {
           setStep('home');

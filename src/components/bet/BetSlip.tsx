@@ -80,9 +80,11 @@ export default function BetSlip({
             <View style={styles.runner}>
 
               <View style={styles.circle}>
-                <AppText color={COLORS.black}>
-                  {runnerCode}
-                </AppText>
+                <View style={styles.innerCircle}>
+                  <AppText color={COLORS.black}>
+                    {runnerCode}
+                  </AppText>
+                </View>
               </View>
 
               <AppText color={COLORS.black} style={{ marginLeft: SPACING.md }}>
@@ -221,10 +223,20 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   circle: {
-    width: 34,
-    height: 34,
-    borderRadius: RADIUS.xl,
+    width: 44,
+    height: 44,
+    borderRadius: RADIUS.full,
     backgroundColor: COLORS.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    ...SHADOWS.avatar,
+  },
+
+  innerCircle: {
+    width: 28,
+    height: 28,
+    borderRadius: RADIUS.full,
+    backgroundColor: COLORS.white,
     justifyContent: 'center',
     alignItems: 'center',
   },

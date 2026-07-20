@@ -51,11 +51,13 @@ export default function TicketCard({ data }: Props) {
 
       <View style={styles.body}>
         <View style={[styles.icon, { backgroundColor: data.iconColor }]}>
-          <AppText variant="p1" color={COLORS.black}>{data.iconText}</AppText>
+          <View style={styles.iconInner}>
+            <AppText variant="p1" color={COLORS.black}>{data.iconText}</AppText>
+          </View>
         </View>
         <View style={styles.info}>
           <View style={styles.titleRow}>
-            <AppText variant="p2" color={COLORS.black} style={{ flex: 1 }}>{data.ticketType}</AppText>
+            <AppText variant="p2" color={COLORS.black}>{data.ticketType}</AppText>
             <View style={[styles.badge, { backgroundColor: COLORS.highlightBackground }]}>
               <AppText color={COLORS.black}>{data.option}</AppText>
             </View>
@@ -113,10 +115,18 @@ const createStyles = (COLORS: ReturnType<typeof useThemeColors>) => StyleSheet.c
   icon: {
     width: 54,
     height: 54,
-    borderRadius: RADIUS.xxxl,
+    borderRadius: RADIUS.full,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: SPACING.lg,
+  },
+  iconInner: {
+    width: 34,
+    height: 34,
+    borderRadius: RADIUS.full,
+    backgroundColor: COLORS.white,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   info: {
     flexDirection: 'column',
