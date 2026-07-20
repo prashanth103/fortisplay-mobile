@@ -19,7 +19,7 @@ export default function ResultCircle({
   const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   return (
     <View style={styles.container}>
-      <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.textPrimary} style={{ marginBottom: SPACING.sm }}>
+      <AppText variant="p3" color={COLORS.textPrimary} style={{ marginBottom: SPACING.sm }}>
         {place}
       </AppText>
 
@@ -30,7 +30,7 @@ export default function ResultCircle({
         ]}
       >
         <View style={styles.innerCircle}>
-          <AppText variant="p3" fontFamily="ManropeExtraBold" color={COLORS.black}>
+          <AppText variant="p3" color={COLORS.black}>
             {code}
           </AppText>
         </View>

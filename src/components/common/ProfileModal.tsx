@@ -43,8 +43,8 @@ export default function ProfileModal({
           onPress={(event) => event.stopPropagation()}
         >
           <View style={styles.identity}>
-            <AppText variant="p1" fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>SO name displayed</AppText>
-            <AppText variant="p2" fontFamily="ManropeExtraBold" color={COLORS.textSecondary} style={{ marginTop: SPACING.xs }}>SO ID 400001</AppText>
+            <AppText variant="p1" color={COLORS.textPrimary}>SO name displayed</AppText>
+            <AppText variant="p2" color={COLORS.textSecondary} style={{ marginTop: SPACING.xs }}>SO ID 400001</AppText>
           </View>
 
           <Pressable
@@ -56,7 +56,7 @@ export default function ProfileModal({
               size={isTablet ? 30 : 20}
               color={COLORS.primary}
             />
-            <AppText variant="p1" fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>Change Password</AppText>
+            <AppText variant="p1" color={COLORS.textPrimary}>Change Password</AppText>
           </Pressable>
 
           <Pressable
@@ -68,7 +68,7 @@ export default function ProfileModal({
               size={isTablet ? 30 : 20}
               color={COLORS.logoutIcon}
             />
-            <AppText variant="p1" fontFamily="ManropeExtraBold" color={COLORS.logoutText}>Logout</AppText>
+            <AppText variant="p1" color={COLORS.logoutText}>Logout</AppText>
           </Pressable>
         </Pressable>
       </Pressable>
@@ -109,29 +109,21 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   profileName: {
     color: COLORS.textPrimary,
-    fontSize: 16,
-    fontFamily: 'Manrope',
-    fontWeight: '800',
+
   },
   tabletProfileName: {
     color: COLORS.textPrimary,
-    fontSize: 20,
-    fontFamily: 'Manrope',
-    fontWeight: '800',
+
   },
   profileId: {
     marginTop: SPACING.xs,
     color: COLORS.textSecondary,
-    fontSize: 13,
-    fontFamily: 'Manrope',
-    fontWeight: '800',
+
   },
   tabletProfileId: {
     marginTop: SPACING.xs,
     color: COLORS.textSecondary,
-    fontSize: 16,
-    fontFamily: 'Manrope',
-    fontWeight: '800',
+
   },
   menuItem: {
     minHeight: 50,
@@ -153,26 +145,18 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   menuItemText: {
     color: COLORS.textPrimary,
-    fontSize: 16,
-    fontFamily: 'Manrope',
-    fontWeight: '800',
+
   },
   tabletMenuItemText: {
     color: COLORS.textPrimary,
-    fontSize: 19,
-    fontFamily: 'Manrope',
-    fontWeight: '800',
+
   },
   logoutText: {
     color: COLORS.logoutText,
-    fontSize: 16,
-    fontFamily: 'Manrope',
-    fontWeight: '800',
+
   },
   tabletLogoutText: {
     color: COLORS.logoutText,
-    fontSize: 19,
-    fontFamily: 'Manrope',
-    fontWeight: '800',
+
   },
 });

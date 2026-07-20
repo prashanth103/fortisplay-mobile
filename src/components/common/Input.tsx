@@ -68,7 +68,7 @@ export default function Input({
       ]}
     >
       {label && (
-        <AppText variant="p3" fontFamily="ManropeExtraBold" color={COLORS.textPrimary} style={{ marginBottom: isTablet ? 10 : 8 }}>
+        <AppText variant="p3" color={COLORS.textPrimary} style={{ marginBottom: isTablet ? 10 : 8 }}>
           {label}
         </AppText>
       )}
@@ -151,12 +151,11 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   label: {
     color: COLORS.textPrimary,
     marginBottom: SPACING.sm,
-    fontSize: TYPOGRAPHY.label.fontSize,
-    fontWeight: '600',
+
   },
 
   tabletLabel: {
-    fontSize: 14,
+
     marginBottom: SPACING.md,
   },
 
@@ -180,12 +179,11 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   input: {
     flex: 1,
     color: COLORS.textPrimary,
-    fontSize: TYPOGRAPHY.body.fontSize,
-    fontWeight: '600',
+
     paddingVertical: 0,
   },
 
   tabletText: {
-    fontSize: 18,
+
   },
 });

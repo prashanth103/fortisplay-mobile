@@ -45,16 +45,12 @@ export default function BetTypeTabs() {
             ]}
           >
             <AppText
-              fontFamily="ManropeBold"
-              fontSize={16}
               color={active ? COLORS.primary : COLORS.textPrimary}
             >
               {item.title}
             </AppText>
 
             <AppText
-              fontFamily="ManropeRegular"
-              fontSize={12}
               color={active ? COLORS.textPrimary : COLORS.textSecondary}
               style={{ marginTop: SPACING.xs }}
             >

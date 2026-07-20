@@ -55,13 +55,13 @@ export default function RunnerCard({
                 isTablet && styles.innerCircleTablet,
               ]}
             >
-              <AppText fontFamily="ManropeExtraBold" color={COLORS.black} fontSize={isTablet ? 18 : 16}>
+              <AppText color={COLORS.black}>
                 {code}
               </AppText>
             </View>
           </View>
 
-          <AppText fontFamily="ManropeBold" color={COLORS.textPrimary} fontSize={isTablet ? 22 : 18} style={{ marginLeft: SPACING.xxl }}>
+          <AppText color={COLORS.textPrimary} style={{ marginLeft: SPACING.xxl }}>
             {name}
           </AppText>
         </View>
@@ -155,23 +155,21 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   code: {
     color: COLORS.black,
-    fontWeight: '800',
-    fontSize: TYPOGRAPHY.body.fontSize,
+
   },
 
   codeTablet: {
-    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
+
   },
 
   name: {
     marginLeft: SPACING.lg,
     color: COLORS.textPrimary,
-    fontWeight: '700',
-    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
+
   },
 
   nameTablet: {
-    fontSize: 22,
+
   },
 
   addButton: {

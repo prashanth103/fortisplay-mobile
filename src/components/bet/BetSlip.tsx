@@ -48,12 +48,12 @@ export default function BetSlip({
             />
           </View>
 
-          <AppText variant="h4" fontFamily="ManropeBold" color={COLORS.primary} style={{ marginLeft: SPACING.sm }}>
+          <AppText variant="h4" color={COLORS.primary} style={{ marginLeft: SPACING.sm }}>
             Bet Slip
           </AppText>
 
           <View style={styles.count}>
-            <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.black}>1</AppText>
+            <AppText variant="p3" color={COLORS.black}>1</AppText>
           </View>
 
         </View>
@@ -73,19 +73,19 @@ export default function BetSlip({
         <View style={styles.topRow}>
 
           <View style={styles.leftBlock}>
-            <AppText fontFamily="ManropeBold" color={COLORS.ticketGold} style={{ marginBottom: SPACING.md }}>
+            <AppText color={COLORS.ticketGold} style={{ marginBottom: SPACING.md }}>
               WIN · FINISH 1ST
             </AppText>
 
             <View style={styles.runner}>
 
               <View style={styles.circle}>
-                <AppText fontFamily="ManropeBold" color={COLORS.black}>
+                <AppText color={COLORS.black}>
                   {runnerCode}
                 </AppText>
               </View>
 
-              <AppText fontSize={16} fontFamily="ManropeBold" color={COLORS.black} style={{ marginLeft: SPACING.md }}>
+              <AppText color={COLORS.black} style={{ marginLeft: SPACING.md }}>
                 {runnerName}
               </AppText>
 
@@ -93,13 +93,13 @@ export default function BetSlip({
           </View>
 
           <View style={styles.rightBlock}>
-            <AppText fontFamily="ManropeBold" color={COLORS.textSecondary} style={{ marginBottom: SPACING.sm }}>STAKE</AppText>
+            <AppText color={COLORS.textSecondary} style={{ marginBottom: SPACING.sm }}>STAKE</AppText>
 
             <Input
               wrapperStyle={styles.amountBox}
               inputContainerStyle={styles.amountInputContainer}
               leftContent={(
-                <AppText variant="h3" fontFamily="ManropeBold" color={COLORS.black}>
+                <AppText variant="h3" color={COLORS.black}>
                   ₱
                 </AppText>
               )}
@@ -161,8 +161,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   headerTitle: {
     color: COLORS.primary,
-    fontWeight: '700',
-    fontSize: 20,
+
     marginLeft: SPACING.sm,
   },
 
@@ -178,8 +177,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   countText: {
     color: COLORS.black,
-    fontWeight: '700',
-    fontSize: 12,
+
   },
 
   content: {
@@ -191,7 +189,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   pool: {
     color: COLORS.ticketGold,
-    fontWeight: '700',
+
     marginBottom: SPACING.md,
   },
 
@@ -213,7 +211,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   stakeLabel: {
     color: COLORS.textSecondary,
-    fontWeight: '700',
+
     marginBottom: SPACING.sm,
   },
 
@@ -233,14 +231,13 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   code: {
     color: COLORS.black,
-    fontWeight: '700',
+
   },
 
   runnerName: {
     marginLeft: SPACING.md,
     color: COLORS.black,
-    fontWeight: '700',
-    fontSize: TYPOGRAPHY.body.fontSize,
+
   },
 
   amountBox: {
@@ -260,13 +257,11 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   currency: {
     color: COLORS.black,
-    fontWeight: '700',
-    fontSize: 22,
+
   },
 
   input: {
-    fontWeight: '700',
-    fontSize: 22,
+
   },
 
   button: {
@@ -280,8 +275,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   buttonText: {
     color: COLORS.black,
-    fontWeight: '700',
-    fontSize: 18,
+
   },
 
 });

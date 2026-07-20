@@ -47,12 +47,12 @@ export default function Button({
     }
   };
 
-  const getFontSize = () => {
+  const getTextVariant = () => {
     switch (size) {
-      case 'sm': return 16;
-      case 'md': return 18;
-      case 'lg': return 20;
-      default: return 18;
+      case 'sm': return 'p1';
+      case 'md': return 'h5';
+      case 'lg': return 'h4';
+      default: return 'h5';
     }
   };
 
@@ -72,11 +72,10 @@ export default function Button({
       <View style={[styles.content, contentStyle]}>
         {leftIcon}
         <AppText
+          variant={getTextVariant()}
           numberOfLines={1}
           adjustsFontSizeToFit
-          fontFamily="ManropeBold"
           color={getTextColor()}
-          fontSize={getFontSize()}
           style={textStyle}
         >
           {title}

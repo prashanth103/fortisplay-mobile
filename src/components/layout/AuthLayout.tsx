@@ -34,7 +34,7 @@ export default function AuthLayout({
       <View style={styles.footer}>
         <AppText variant="p3">
           Powered by
-          <AppText variant="p3" color={COLORS.textPrimary} fontFamily="ManropeBold">
+          <AppText variant="p3" color={COLORS.textPrimary}>
             {' '}NorthAlley.
           </AppText>
         </AppText>

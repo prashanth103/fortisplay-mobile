@@ -1,23 +1,18 @@
 import { BORDERS, SPACING } from '@/theme';
 import AppText from '@/components/common/AppText';
-
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
 import { Platform } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
 import { useThemeColors } from '@/hooks/useThemeColors';
-
 type MaterialIconName = React.ComponentProps<typeof MaterialIcons>['name'];
-
 type TabItem = {
   name: string;
   title: string;
   icon?: MaterialIconName;
   customIcon?: boolean;
 };
-
 const TAB_ITEMS: TabItem[] = [
   {
     name: 'index',
@@ -45,13 +40,10 @@ const TAB_ITEMS: TabItem[] = [
     icon: 'account-balance-wallet',
   },
 ];
-
 export default function TabsLayout() {
   const insets = useSafeAreaInsets();
   const COLORS = useThemeColors();
-
   const bottomPadding = insets.bottom + (Platform.OS === 'ios' ? SPACING.md : SPACING.sm);
-
   return (
     <Tabs
       screenOptions={{
@@ -72,8 +64,6 @@ export default function TabsLayout() {
           paddingVertical: SPACING.xxs,
         },
         tabBarLabelStyle: {
-          fontSize: 11,
-          fontWeight: '600',
           marginBottom: Platform.OS === 'ios' ? SPACING.xs : SPACING.xxs,
         },
       }}
@@ -88,8 +78,6 @@ export default function TabsLayout() {
               tab.customIcon ? (
                 <AppText
                   color={color}
-                  fontSize={size}
-                  fontFamily="ManropeBold"
                   style={{ paddingBottom: SPACING.xs }}
                 >
                   ₱

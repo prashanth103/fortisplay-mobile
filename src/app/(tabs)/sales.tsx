@@ -61,11 +61,11 @@ export default function SalesScreen() {
         <View style={styles.summaryRow}>
           <View style={styles.summaryCard}>
             <AppText variant="p3" color={COLORS.textSecondary} style={{ letterSpacing: 0.5, marginBottom: SPACING.sm }}>TOTAL SALES</AppText>
-            <AppText fontSize={26} fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>₱ {totalSales}</AppText>
+            <AppText color={COLORS.textPrimary}>₱ {totalSales}</AppText>
           </View>
           <View style={styles.summaryCard}>
             <AppText variant="p3" color={COLORS.textSecondary} style={{ letterSpacing: 0.5, marginBottom: SPACING.sm }}>TICKETS</AppText>
-            <AppText fontSize={26} fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>{SALES_DATA.length}</AppText>
+            <AppText color={COLORS.textPrimary}>{SALES_DATA.length}</AppText>
           </View>
         </View>
 
@@ -84,7 +84,7 @@ export default function SalesScreen() {
           <View style={styles.detailContainer}>
             <Pressable onPress={() => setSelectedSaleId(null)} style={styles.backButton}>
               <MaterialIcons name="arrow-back-ios" size={18} color={COLORS.textPrimary} />
-              <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.white}>Back</AppText>
+              <AppText variant="p2" color={COLORS.white}>Back</AppText>
             </Pressable>
             <TicketCard data={selectedSale} />
           </View>
@@ -98,21 +98,21 @@ export default function SalesScreen() {
             >
               <View style={[styles.avatarBorder, { borderColor: item.avatarColor, backgroundColor: item.avatarColor }]}>
                 <View style={styles.avatar}>
-                  <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.black}>{item.avatarText}</AppText>
+                  <AppText variant="p2" color={COLORS.black}>{item.avatarText}</AppText>
                 </View>
               </View>
               <View style={styles.saleInfo}>
                 <View style={styles.saleTitleRow}>
-                  <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.textPrimary}>{item.title}</AppText>
+                  <AppText variant="p2" color={COLORS.textPrimary}>{item.title}</AppText>
                   <View style={[styles.itemBadge, { backgroundColor: COLORS.badgeBackgroundDark }]}>
-                    <AppText fontSize={10} fontFamily="ManropeBold" color={COLORS.primary} style={{ letterSpacing: 0.5 }}>
+                    <AppText color={COLORS.primary} style={{ letterSpacing: 0.5 }}>
                       {item.badge}
                     </AppText>
                   </View>
                 </View>
                 <AppText variant="p3" color={COLORS.textSecondary}>{item.listSubtitle}</AppText>
               </View>
-              <AppText variant="p2" fontFamily="ManropeExtraBold" color={COLORS.white} style={{ marginLeft: SPACING.sm }}>₱{item.amount}</AppText>
+              <AppText variant="p2" color={COLORS.white} style={{ marginLeft: SPACING.sm }}>₱{item.amount}</AppText>
             </TouchableOpacity>
           ))
         )}

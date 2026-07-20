@@ -43,7 +43,7 @@ export default function ConfirmBetModal({
 
             <View style={styles.header}>
 
-              <AppText variant="h4" fontFamily="ManropeExtraBold" color={COLORS.black}>
+              <AppText variant="h4" color={COLORS.black}>
                 Confirm Bet
               </AppText>
 
@@ -62,7 +62,7 @@ export default function ConfirmBetModal({
             <View style={styles.qrContainer}>
 
               <View style={styles.badge}>
-                <AppText fontFamily="ManropeBold" color={COLORS.primary}>
+                <AppText color={COLORS.primary}>
                   KB3 · RACE 8
                 </AppText>
               </View>
@@ -87,11 +87,11 @@ export default function ConfirmBetModal({
 
               <View>
 
-                <AppText fontSize={28} fontFamily="ManropeExtraBold" color={COLORS.ticketGold} style={{ textAlign: "center" }}>
+                <AppText color={COLORS.ticketGold} style={{ textAlign: "center" }}>
                   WIN
                 </AppText>
 
-                <AppText fontFamily="ManropeRegular" color={COLORS.textMuted} style={{ textAlign: "center" }}>
+                <AppText color={COLORS.textMuted} style={{ textAlign: "center" }}>
                   POOL
                 </AppText>
 
@@ -103,7 +103,7 @@ export default function ConfirmBetModal({
 
                   <View style={styles.innerCircle}>
 
-                    <AppText fontFamily="ManropeBold" color={COLORS.black}>
+                    <AppText color={COLORS.black}>
                       {runnerCode}
                     </AppText>
 
@@ -111,7 +111,7 @@ export default function ConfirmBetModal({
 
                 </View>
 
-                <AppText fontFamily="ManropeBold" color={COLORS.black} style={{ marginTop: SPACING.sm }}>
+                <AppText color={COLORS.black} style={{ marginTop: SPACING.sm }}>
                   {runnerName}
                 </AppText>
 
@@ -119,11 +119,11 @@ export default function ConfirmBetModal({
 
               <View>
 
-                <AppText fontSize={28} fontFamily="ManropeExtraBold" color={COLORS.black} style={{ textAlign: "center" }}>
+                <AppText color={COLORS.black} style={{ textAlign: "center" }}>
                   EXACT
                 </AppText>
 
-                <AppText fontFamily="ManropeRegular" color={COLORS.textMuted} style={{ textAlign: "center" }}>
+                <AppText color={COLORS.textMuted} style={{ textAlign: "center" }}>
                   ORDER
                 </AppText>
 
@@ -139,12 +139,12 @@ export default function ConfirmBetModal({
 
             <View style={styles.amountRow}>
 
-              <AppText variant="h3" fontFamily="ManropeBold" color={COLORS.black}>
+              <AppText variant="h3" color={COLORS.black}>
                 TOTAL AMOUNT
               </AppText>
 
               <View style={styles.amountBox}>
-                <AppText variant="h3" fontFamily="ManropeBold" color={COLORS.ticketGold}>
+                <AppText variant="h3" color={COLORS.ticketGold}>
                   ₱{amount}
                 </AppText>
               </View>
@@ -214,8 +214,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   headerTitle: {
-    fontSize: 20,
-    fontWeight: '800',
+
     color: COLORS.black,
   },
 
@@ -233,7 +232,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   badgeText: {
     color: COLORS.primary,
-    fontWeight: '700',
+
   },
 
   lineContainer: {
@@ -298,25 +297,23 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   code: {
     color: COLORS.black,
-    fontWeight: '700',
+
   },
 
   runnerName: {
     marginTop: SPACING.sm,
-    fontWeight: '700',
+
     color: COLORS.black,
   },
 
   winLabel: {
-    fontSize: 28,
-    fontWeight: '800',
+
     color: COLORS.ticketGold,
     textAlign: 'center',
   },
 
   exactLabel: {
-    fontSize: 28,
-    fontWeight: '800',
+
     color: COLORS.black,
     textAlign: 'center',
   },
@@ -335,8 +332,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   total: {
-    fontWeight: '700',
-    fontSize: 22,
+
     color: COLORS.black,
   },
 
@@ -350,8 +346,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   amount: {
     color: COLORS.ticketGold,
-    fontWeight: '700',
-    fontSize: 22,
+
   },
 
   footer: {

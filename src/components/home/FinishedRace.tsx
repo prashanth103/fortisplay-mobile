@@ -22,7 +22,7 @@ export default function FinishedRace({
     <View style={styles.container}>
 
       <View style={styles.header}>
-        <AppText variant="h2" fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>
+        <AppText variant="h2" color={COLORS.textPrimary}>
           {raceName} RESULTS
         </AppText>
       </View>

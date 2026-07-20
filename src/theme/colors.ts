@@ -10,7 +10,6 @@ export const DARK_COLORS = {
   iconDark: '#202020',
   iconGrey: '#7A7A7A',
 
-
   surface: '#181818',
   surfaceElevated: '#1F1F1F',
 
@@ -190,7 +189,6 @@ export const LIGHT_COLORS = {
   ticketBackground: '#1F1F1F',
   watchBackground: '#191919',
 } as const;
-
 
 export type ThemeName = 'light' | 'dark' | 'blue' | 'red';
 

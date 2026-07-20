@@ -35,7 +35,7 @@ export default function LiveRace({
 
         <View style={styles.dot} />
 
-        <AppText fontFamily="ManropeBold" color={COLORS.liveRaceText} fontSize={16}>
+        <AppText color={COLORS.liveRaceText}>
           LIVE NOW
         </AppText>
 
@@ -54,11 +54,11 @@ export default function LiveRace({
         />
       </View>
 
-      <AppText fontFamily="ManropeBold" color={COLORS.textPrimary} fontSize={isTablet ? 38 : 32} style={{ marginTop: SPACING.xxl }}>
+      <AppText color={COLORS.textPrimary} style={{ marginTop: SPACING.xxl }}>
         Bets Closed
       </AppText>
 
-      <AppText fontFamily="ManropeRegular" color={COLORS.textSecondary} fontSize={isTablet ? 18 : 16} style={{ marginTop: SPACING.md, textAlign: "center", lineHeight: isTablet ? 28 : 24 }}>
+      <AppText color={COLORS.textSecondary} style={{ marginTop: SPACING.md, textAlign: "center", lineHeight: isTablet ? 28 : 24 }}>
         Betting for {raceName} is now closed.
         {'\n'}
         The race is underway — watch it live.
@@ -125,8 +125,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   badgeText: {
     color: COLORS.liveRaceText,
-    fontWeight: '700',
-    fontSize: TYPOGRAPHY.body.fontSize,
+
   },
 
   iconContainer: {
@@ -148,24 +147,23 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   title: {
     marginTop: SPACING.xxl,
     color: COLORS.textPrimary,
-    fontSize: 32,
-    fontWeight: '700',
+
   },
 
   titleTablet: {
-    fontSize: 38,
+
   },
 
   description: {
     marginTop: SPACING.md,
     color: COLORS.textSecondary,
-    fontSize: TYPOGRAPHY.body.fontSize,
+
     textAlign: 'center',
     lineHeight: 24,
   },
 
   descriptionTablet: {
-    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
+
     lineHeight: 28,
   },
 

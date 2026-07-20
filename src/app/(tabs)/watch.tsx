@@ -86,12 +86,12 @@ export default function WatchScreen() {
           <View style={styles.cardHeader}>
             <View style={[styles.badge, { backgroundColor: `${selectedRace.statusColor}22` }]}>
               <View style={[styles.badgeDot, { backgroundColor: selectedRace.statusColor }]} />
-              <AppText variant="p3" fontFamily="ManropeBold" color={selectedRace.statusColor}>{selectedRace.cardLabel}</AppText>
+              <AppText variant="p3" color={selectedRace.statusColor}>{selectedRace.cardLabel}</AppText>
             </View>
             {selectedRace.watchers ? (
               <View style={styles.watchersBadge}>
                 <MaterialIcons name="visibility" size={14} color={COLORS.white} />
-                <AppText fontSize={11} fontFamily="ManropeSemiBold" color={COLORS.white}>{selectedRace.watchers}</AppText>
+                <AppText color={COLORS.white}>{selectedRace.watchers}</AppText>
               </View>
             ) : null}
           </View>
@@ -105,7 +105,7 @@ export default function WatchScreen() {
                 color={COLORS.white}
               />
             </View>
-            <AppText fontSize={12} fontFamily="ManropeExtraBold" color={COLORS.textMuted} style={{ letterSpacing: 1.5 }}>{selectedRace.videoTitle}</AppText>
+            <AppText color={COLORS.textMuted} style={{ letterSpacing: 1.5 }}>{selectedRace.videoTitle}</AppText>
           </View>
 
           {/* Bottom Row */}
@@ -121,7 +121,7 @@ export default function WatchScreen() {
               />
             </View>
 
-            <AppText fontSize={12} fontFamily="ManropeExtraBold" color={COLORS.white} style={{ marginLeft: SPACING.lg, marginRight: SPACING.lg }}>{selectedRace.cardLabel}</AppText>
+            <AppText color={COLORS.white} style={{ marginLeft: SPACING.lg, marginRight: SPACING.lg }}>{selectedRace.cardLabel}</AppText>
             <MaterialIcons name="fullscreen" size={22} color={COLORS.white} />
           </View>
         </View>
@@ -131,7 +131,7 @@ export default function WatchScreen() {
           <AppText variant="p2" style={{ marginTop: SPACING.xs }}>{selectedRace.subtitle}</AppText>
         </View>
 
-        <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.textPrimary} style={{ marginTop: SPACING.xxl, marginBottom: SPACING.lg }}>LIVE & UPCOMING RACES</AppText>
+        <AppText variant="p2" color={COLORS.textPrimary} style={{ marginTop: SPACING.xxl, marginBottom: SPACING.lg }}>LIVE & UPCOMING RACES</AppText>
 
         {raceData.map(race => (
           <TouchableOpacity
@@ -149,12 +149,12 @@ export default function WatchScreen() {
                 <MaterialIcons name="play-arrow" size={18} color={COLORS.textSecondary} />
               </View>
               <View style={styles.raceInfo}>
-                <AppText variant="p2" fontFamily="ManropeBold" color={COLORS.textPrimary}>{race.title}</AppText>
+                <AppText variant="p2" color={COLORS.textPrimary}>{race.title}</AppText>
                 <AppText variant="p3" style={{ marginTop: SPACING.xs }}>{race.subtitle}</AppText>
               </View>
               <View style={[styles.raceStatus,]}>
                 <View style={[styles.raceStatusDot, { backgroundColor: race.statusColor }]} />
-                <AppText fontSize={11} fontFamily="ManropeBold" color={race.statusColor}>{race.status}</AppText>
+                <AppText color={race.statusColor}>{race.status}</AppText>
               </View>
             </View>
           </TouchableOpacity>
@@ -197,8 +197,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     marginRight: SPACING.sm,
   },
   badgeText: {
-    fontSize: 12,
-    fontWeight: '700',
+
     letterSpacing: 0.5,
   },
   watchersBadge: {
@@ -211,8 +210,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   watchersText: {
     color: COLORS.white,
-    fontSize: 11,
-    fontWeight: '600',
+
     marginLeft: SPACING.xs,
   },
   centerOverlay: {
@@ -232,8 +230,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   videoBodyTitle: {
     color: COLORS.textMuted,
-    fontSize: 12,
-    fontWeight: '800',
+
     letterSpacing: 1.5,
   },
   videoFooter: {
@@ -256,8 +253,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderRadius: RADIUS.xxxs,
   },
   footerLabel: {
-    fontSize: 12,
-    fontWeight: '800',
+
     marginLeft: SPACING.md,
     marginRight: SPACING.md,
   },
@@ -267,8 +263,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   title: {
     color: COLORS.textPrimary,
-    fontSize: 22,
-    fontWeight: '800',
+
   },
   subtitle: {
     color: COLORS.textSecondary,
@@ -276,8 +271,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   sectionTitle: {
     color: COLORS.textPrimary,
-    fontSize: 14,
-    fontWeight: '700',
+
     marginTop: SPACING.xl,
     marginBottom: SPACING.md,
   },
@@ -312,13 +306,12 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   raceTitle: {
     color: COLORS.textPrimary,
-    fontWeight: '700',
-    fontSize: 15,
+
   },
   raceSubtitle: {
     color: COLORS.textSecondary,
     marginTop: SPACING.xs,
-    fontSize: 13,
+
   },
   raceStatus: {
     flexDirection: 'row',
@@ -334,7 +327,6 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     marginRight: SPACING.xs,
   },
   raceStatusText: {
-    fontSize: 11,
-    fontWeight: '700',
+
   },
 });

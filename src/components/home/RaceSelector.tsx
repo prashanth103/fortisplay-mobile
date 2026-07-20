@@ -46,14 +46,12 @@ export default function RaceSelector({
             <View style={styles.row}>
               <AppText
                 variant="h5"
-                fontFamily="ManropeBold"
                 color={active ? COLORS.black : COLORS.textPrimary}
               >
                 {race.title}
               </AppText>
 
               <AppText
-                fontFamily="ManropeSemiBold"
                 color={active ? COLORS.black : COLORS.textPrimary}
                 style={{ marginLeft: SPACING.sm }}
               >
@@ -62,13 +60,13 @@ export default function RaceSelector({
             </View>
 
             {race.status === 'FINISHED' && (
-              <AppText fontFamily="ManropeBold" color={COLORS.finished}>
+              <AppText color={COLORS.finished}>
                 ✓ FINISHED
               </AppText>
             )}
 
             {race.status === 'LIVE' && (
-              <AppText fontFamily="ManropeBold" color={COLORS.danger}>
+              <AppText color={COLORS.danger}>
                 ● LIVE
               </AppText>
             )}
@@ -80,7 +78,7 @@ export default function RaceSelector({
                   size={16}
                   color={COLORS.raceSelectorText}
                 />
-                <AppText fontFamily="ManropeBold" color={COLORS.raceSelectorText}>
+                <AppText color={COLORS.raceSelectorText}>
                   {race.countdown}
                 </AppText>
               </View>

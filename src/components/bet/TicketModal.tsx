@@ -45,7 +45,7 @@ export default function TicketModal({
 
             <View style={styles.header}>
 
-              <AppText variant="h2" fontFamily="ManropeExtraBold" color={COLORS.black}>
+              <AppText variant="h2" color={COLORS.black}>
                 Ticket
               </AppText>
 
@@ -64,7 +64,7 @@ export default function TicketModal({
             <View style={styles.qrContainer}>
 
               <View style={styles.badge}>
-                <AppText fontFamily="ManropeBold" color={COLORS.primary}>
+                <AppText color={COLORS.primary}>
                   KB · FIXED ODDS
                 </AppText>
               </View>
@@ -75,7 +75,7 @@ export default function TicketModal({
                 color={COLORS.black}
               />
 
-              <AppText variant="p2" fontFamily="ManropeSemiBold" color={COLORS.textMuted}>
+              <AppText variant="p2" color={COLORS.textMuted}>
                 No. {ticketNo}
               </AppText>
 
@@ -123,16 +123,16 @@ export default function TicketModal({
             <View style={styles.totalContainer}>
               <View style={styles.totalRow}>
 
-                <AppText variant="h2" fontFamily="ManropeExtraBold" color={COLORS.black}>TOTAL</AppText>
+                <AppText variant="h2" color={COLORS.black}>TOTAL</AppText>
 
                 <View style={styles.amountBox}>
-                  <AppText variant="h3" fontFamily="ManropeBold" color={COLORS.ticketGold}>
+                  <AppText variant="h3" color={COLORS.ticketGold}>
                     ₱{amount}.00
                   </AppText>
                 </View>
 
               </View>
-              <AppText variant="p3" fontFamily="ManropeRegular" color={COLORS.textMuted} style={{ textAlign: "center", marginBottom: SPACING.md, paddingHorizontal: SPACING.xxl }}>
+              <AppText variant="p3" color={COLORS.textMuted} style={{ textAlign: "center", marginBottom: SPACING.md, paddingHorizontal: SPACING.xxl }}>
                 Valid for 60 days. Ticket required for all payments
               </AppText>
             </View>
@@ -185,11 +185,11 @@ function Row({
   return (
     <View style={styles.row}>
 
-      <AppText variant="p1" fontFamily="ManropeRegular" color={COLORS.textMuted}>
+      <AppText variant="p1" color={COLORS.textMuted}>
         {label}
       </AppText>
 
-      <AppText variant="p1" fontFamily="ManropeBold" color={COLORS.black}>
+      <AppText variant="p1" color={COLORS.black}>
         {value}
       </AppText>
 
@@ -232,8 +232,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   title: {
-    fontSize: 24,
-    fontWeight: '800',
+
     color: COLORS.black,
   },
 
@@ -251,13 +250,12 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   badgeText: {
     color: COLORS.primary,
-    fontWeight: '700',
+
   },
 
   ticketNo: {
     color: COLORS.textMuted,
-    fontWeight: '600',
-    fontSize: 14,
+
   },
 
   lineContainer: {
@@ -309,13 +307,12 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   rowLabel: {
     color: COLORS.textMuted,
-    fontSize: 16,
+
   },
 
   rowValue: {
     color: COLORS.black,
-    fontWeight: '700',
-    fontSize: 16,
+
   },
 
   footer: {
@@ -360,8 +357,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   totalLabel: {
-    fontSize: 24,
-    fontWeight: '800',
+
     color: COLORS.black,
   },
 
@@ -375,28 +371,25 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   amount: {
     color: COLORS.ticketGold,
-    fontWeight: '700',
-    fontSize: 22,
+
   },
 
   disclaimer: {
     textAlign: 'center',
     color: COLORS.textMuted,
-    fontSize: 12,
+
     marginBottom: SPACING.md,
     paddingHorizontal: SPACING.xxl
   },
 
   closeText: {
     color: COLORS.white,
-    fontWeight: '700',
-    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
+
   },
 
   printText: {
     color: COLORS.black,
-    fontWeight: '700',
-    fontSize: TYPOGRAPHY.bodyLarge.fontSize,
+
   },
 
 });

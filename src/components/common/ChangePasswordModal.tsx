@@ -43,7 +43,7 @@ export default function ChangePasswordModal({
       <View style={styles.overlay}>
         <View style={[styles.modal, isTablet && styles.modalTablet]}>
           <View style={styles.header}>
-            <AppText variant="h4" fontFamily="ManropeExtraBold" color={COLORS.textPrimary}>Change Password</AppText>
+            <AppText variant="h4" color={COLORS.textPrimary}>Change Password</AppText>
             <Pressable
               style={styles.closeButton}
               onPress={closeModal}
@@ -174,14 +174,10 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   cancelText: {
     color: COLORS.textPrimary,
-    fontSize: 20,
-    fontFamily: 'Manrope',
-    fontWeight: '800',
+
   },
   updateText: {
     color: COLORS.black,
-    fontSize: 20,
-    fontFamily: 'Manrope',
-    fontWeight: '800',
+
   },
 });

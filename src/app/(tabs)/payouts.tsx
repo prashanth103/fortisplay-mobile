@@ -90,7 +90,7 @@ export default function PayoutsScreen() {
 
             <View style={styles.dividerRow}>
               <View style={styles.dividerLine} />
-              <AppText variant="p3" fontFamily="ManropeBold" color={COLORS.textSecondary} style={{ textAlign: 'center', letterSpacing: 1, marginHorizontal: SPACING.md }}>OR ENTER TICKET NUMBER</AppText>
+              <AppText variant="p3" color={COLORS.textSecondary} style={{ textAlign: 'center', letterSpacing: 1, marginHorizontal: SPACING.md }}>OR ENTER TICKET NUMBER</AppText>
               <View style={styles.dividerLine} />
             </View>
 
@@ -211,9 +211,9 @@ const createStyles = (COLORS: ReturnType<typeof useThemeColors>) => StyleSheet.c
   },
   scanButtonText: {
     color: COLORS.black,
-    fontWeight: '800',
+
     marginLeft: SPACING.sm,
-    fontSize: 14,
+
   },
   dividerRow: {
     flexDirection: 'row',
