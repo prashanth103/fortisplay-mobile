@@ -68,7 +68,7 @@ export default function Input({
       ]}
     >
       {label && (
-        <AppText variant="p3" color={COLORS.textPrimary} style={{ marginBottom: isTablet ? 10 : 8 }}>
+        <AppText variant="p3" color={COLORS.text} style={{ marginBottom: isTablet ? 10 : 8 }}>
           {label}
         </AppText>
       )}
@@ -106,7 +106,7 @@ export default function Input({
             styles.input,
             isTablet && styles.tabletText,
             {
-              color: textColor ?? COLORS.textPrimary,
+              color: textColor ?? COLORS.text,
             },
             style,
           ]}
@@ -127,7 +127,7 @@ export default function Input({
               }
               size={20}
               color={
-                iconColor ?? COLORS.textSecondary
+                iconColor ?? COLORS.textMuted
               }
             />
           </Pressable>
@@ -149,7 +149,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   label: {
-    color: COLORS.textPrimary,
+    color: COLORS.text,
     marginBottom: SPACING.sm,
 
   },
@@ -164,7 +164,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderWidth: BORDERS.ultraThin,
     borderColor: COLORS.border,
     borderRadius: RADIUS.md,
-    backgroundColor: COLORS.surface,
+    backgroundColor: COLORS.bgSurface,
     paddingHorizontal: SPACING.lg,
 
     flexDirection: 'row',
@@ -178,7 +178,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   input: {
     flex: 1,
-    color: COLORS.textPrimary,
+    color: COLORS.text,
 
     paddingVertical: 0,
   },

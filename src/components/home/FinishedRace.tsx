@@ -22,7 +22,7 @@ export default function FinishedRace({
     <View style={styles.container}>
 
       <View style={styles.header}>
-        <AppText variant="h2" color={COLORS.textPrimary}>
+        <AppText variant="h2" color={COLORS.text}>
           {raceName} RESULTS
         </AppText>
       </View>
@@ -43,10 +43,10 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   container: {
     marginTop: SPACING.md,
-    backgroundColor: COLORS.surface,
+    backgroundColor: COLORS.bgSurface,
     borderWidth: BORDERS.ultraThin,
     borderColor: COLORS.border,
-    borderTopColor: COLORS.finished,
+    borderTopColor: COLORS.success,
     borderTopWidth: BORDERS.thin,
     borderRadius: RADIUS.xl,
     overflow: 'hidden',
@@ -56,7 +56,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderBottomWidth: BORDERS.ultraThin,
-    borderBottomColor: COLORS.resultRowBorder,
+    borderBottomColor: COLORS.border,
     paddingVertical: SPACING.lg
   },
 

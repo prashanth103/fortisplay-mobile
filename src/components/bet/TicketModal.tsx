@@ -126,7 +126,7 @@ export default function TicketModal({
                 <AppText variant="h2" color={COLORS.black}>TOTAL</AppText>
 
                 <View style={styles.amountBox}>
-                  <AppText variant="h3" color={COLORS.ticketGold}>
+                  <AppText variant="h3" color={COLORS.primary}>
                     ₱{amount}.00
                   </AppText>
                 </View>
@@ -225,7 +225,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 64,
     paddingHorizontal: SPACING.xl,
     borderBottomWidth: BORDERS.ultraThin,
-    borderBottomColor: COLORS.ticketBorder,
+    borderBottomColor: COLORS.border,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -242,7 +242,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   badge: {
-    backgroundColor: COLORS.ticketBackground,
+    backgroundColor: COLORS.bgSurface,
     borderRadius: RADIUS.lg,
     paddingHorizontal: SPACING.lg,
     paddingVertical: SPACING.sm,
@@ -268,7 +268,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 26,
     borderTopRightRadius: RADIUS.lg,
     borderBottomRightRadius: RADIUS.lg,
-    backgroundColor: COLORS.background,
+    backgroundColor: COLORS.bg,
     marginRight: SPACING.sm
   },
 
@@ -277,14 +277,14 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 26,
     borderTopLeftRadius: RADIUS.lg,
     borderBottomLeftRadius: RADIUS.lg,
-    backgroundColor: COLORS.background,
+    backgroundColor: COLORS.bg,
     marginLeft: SPACING.sm
   },
 
   line: {
     flex: 1,
     borderTopWidth: BORDERS.ultraThin,
-    borderTopColor: COLORS.textSecondary,
+    borderTopColor: COLORS.textMuted,
     borderStyle: 'dashed',
   },
 
@@ -294,7 +294,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   separator: {
     borderTopWidth: BORDERS.ultraThin,
-    borderTopColor: COLORS.ticketBorder,
+    borderTopColor: COLORS.border,
     marginVertical: SPACING.lg,
     marginHorizontal: SPACING.xxl
   },
@@ -370,7 +370,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   amount: {
-    color: COLORS.ticketGold,
+    color: COLORS.primary,
 
   },
 

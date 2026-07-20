@@ -35,7 +35,7 @@ export default function LiveRace({
 
         <View style={styles.dot} />
 
-        <AppText color={COLORS.liveRaceText}>
+        <AppText color={COLORS.danger}>
           LIVE NOW
         </AppText>
 
@@ -50,15 +50,15 @@ export default function LiveRace({
         <MaterialIcons
           name="lock-outline"
           size={isTablet ? 52 : 42}
-          color={COLORS.iconGrey}
+          color={COLORS.iconMuted}
         />
       </View>
 
-      <AppText color={COLORS.textPrimary} style={{ marginTop: SPACING.xxl }}>
+      <AppText color={COLORS.text} style={{ marginTop: SPACING.xxl }}>
         Bets Closed
       </AppText>
 
-      <AppText color={COLORS.textSecondary} style={{ marginTop: SPACING.md, textAlign: "center", lineHeight: isTablet ? 28 : 24 }}>
+      <AppText color={COLORS.textMuted} style={{ marginTop: SPACING.md, textAlign: "center", lineHeight: isTablet ? 28 : 24 }}>
         Betting for {raceName} is now closed.
         {'\n'}
         The race is underway — watch it live.
@@ -94,7 +94,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     borderWidth: BORDERS.ultraThin,
     borderColor: COLORS.border,
     borderTopColor: COLORS.danger,
-    backgroundColor: COLORS.surface,
+    backgroundColor: COLORS.bgSurface,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: SPACING.xl,
@@ -110,9 +110,9 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     paddingHorizontal: SPACING.xl,
     height: 34,
     borderRadius: RADIUS.xl,
-    backgroundColor: COLORS.liveRaceBackground,
+    backgroundColor: COLORS.dangerMuted,
     borderWidth: BORDERS.ultraThin,
-    borderColor: COLORS.liveRaceBorder,
+    borderColor: COLORS.danger,
   },
 
   dot: {
@@ -124,7 +124,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   badgeText: {
-    color: COLORS.liveRaceText,
+    color: COLORS.danger,
 
   },
 
@@ -132,7 +132,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     width: 74,
     height: 74,
     borderRadius: RADIUS.full,
-    backgroundColor: COLORS.surfaceSecondary,
+    backgroundColor: COLORS.bgSecondary,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: SPACING.xxxl,
@@ -146,7 +146,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   title: {
     marginTop: SPACING.xxl,
-    color: COLORS.textPrimary,
+    color: COLORS.text,
 
   },
 
@@ -156,7 +156,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   description: {
     marginTop: SPACING.md,
-    color: COLORS.textSecondary,
+    color: COLORS.textMuted,
 
     textAlign: 'center',
     lineHeight: 24,

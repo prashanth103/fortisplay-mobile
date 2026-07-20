@@ -13,7 +13,7 @@ export default function WalletScreen() {
   const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
 
   return (
-    <Screen backgroundColor={COLORS.background}>
+    <Screen backgroundColor={COLORS.bg}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
           <AppText variant="h1">Wallet</AppText>
@@ -28,8 +28,8 @@ export default function WalletScreen() {
                   <MaterialIcons name={item.icon} size={22} color={COLORS[item.iconColorKey] as string} />
                 </View>
                 <View style={styles.summaryInfo}>
-                  <AppText variant="p3" color={COLORS.walletLabel} style={{ textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: SPACING.sm }}>{item.title}</AppText>
-                  <AppText color={COLORS.textPrimary}>{item.value}</AppText>
+                  <AppText variant="p3" color={COLORS.textMuted} style={{ textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: SPACING.sm }}>{item.title}</AppText>
+                  <AppText variant='h3' color={COLORS.text}>{item.value}</AppText>
                 </View>
               </View>
             </Card>
@@ -64,7 +64,7 @@ export default function WalletScreen() {
           ))}
         </View>
 
-        <AppText variant="p2" color={COLORS.walletText} style={{ marginBottom: SPACING.md, letterSpacing: 0.5 }}>Transaction History</AppText>
+        <AppText variant="p2" color={COLORS.text} style={{ marginBottom: SPACING.md, letterSpacing: 0.5 }}>Transaction History</AppText>
         {HISTORY_ITEMS.map((item) => {
           const iconColor = COLORS[item.iconColorKey] as string;
           return (
@@ -73,8 +73,8 @@ export default function WalletScreen() {
                 <MaterialIcons name={item.icon} size={20} color={iconColor} />
               </View>
               <View style={styles.historyText}>
-                <AppText variant="p2" color={COLORS.textPrimary} style={{ marginBottom: SPACING.xxs }}>{item.title}</AppText>
-                <AppText variant="p3" color={COLORS.textSecondary}>{item.subtitle}</AppText>
+                <AppText variant="p2" color={COLORS.text} style={{ marginBottom: SPACING.xxs }}>{item.title}</AppText>
+                <AppText variant="p3" color={COLORS.textMuted}>{item.subtitle}</AppText>
               </View>
               <AppText variant="p2" color={COLORS[item.amountColorKey] as string}>{item.amount}</AppText>
             </Card>
@@ -94,7 +94,7 @@ const createStyles = (COLORS: ReturnType<typeof useThemeColors>) => StyleSheet.c
     marginBottom: SPACING.xl,
   },
   topRow: {
-    marginBottom: SPACING.xl,
+    marginBottom: SPACING.lg,
   },
   summaryRow: {
     flexDirection: 'row',

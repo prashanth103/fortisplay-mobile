@@ -1,5 +1,5 @@
-import { BORDERS, RADIUS, SHADOWS, SPACING, TYPOGRAPHY } from '@/theme';
 import AppText from '@/components/common/AppText';
+import { BORDERS, RADIUS, SHADOWS, SPACING } from '@/theme';
 
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { Pressable, StyleSheet, View } from 'react-native';
@@ -40,15 +40,15 @@ export default function BetSlip({
 
         <View style={styles.headerLeft}>
 
-          <View style={styles.iconBox}>
+          <View style={styles.receiptIcon}>
             <MaterialIcons
               name="receipt-long"
-              size={20}
+              size={14}
               color={COLORS.primary}
             />
           </View>
 
-          <AppText variant="h4" color={COLORS.primary} style={{ marginLeft: SPACING.sm }}>
+          <AppText variant="h6" color={COLORS.primary} style={{ marginLeft: SPACING.sm }}>
             Bet Slip
           </AppText>
 
@@ -58,11 +58,11 @@ export default function BetSlip({
 
         </View>
 
-        <Pressable onPress={onClose}>
+        <Pressable style={styles.closeIcon} onPress={onClose}>
           <MaterialIcons
             name="close"
-            size={22}
-            color={COLORS.textSecondary}
+            size={16}
+            color={COLORS.textMuted}
           />
         </Pressable>
 
@@ -73,7 +73,7 @@ export default function BetSlip({
         <View style={styles.topRow}>
 
           <View style={styles.leftBlock}>
-            <AppText color={COLORS.ticketGold} style={{ marginBottom: SPACING.md }}>
+            <AppText variant='h6' color={COLORS.primary} style={{ marginBottom: SPACING.md }}>
               WIN · FINISH 1ST
             </AppText>
 
@@ -93,7 +93,7 @@ export default function BetSlip({
           </View>
 
           <View style={styles.rightBlock}>
-            <AppText color={COLORS.textSecondary} style={{ marginBottom: SPACING.sm }}>STAKE</AppText>
+            <AppText color={COLORS.textMuted} style={{ marginBottom: SPACING.sm }}>STAKE</AppText>
 
             <Input
               wrapperStyle={styles.amountBox}
@@ -129,12 +129,12 @@ export default function BetSlip({
 const createStyles = (COLORS: any) => StyleSheet.create({
 
   container: {
-    backgroundColor: COLORS.surface,
+    backgroundColor: COLORS.bgSurface,
     borderTopLeftRadius: RADIUS.xl,
     borderTopRightRadius: RADIUS.xl,
-    paddingTop: SPACING.lg,
-    paddingBottom: SPACING.lg,
-    marginTop: SPACING.lg,
+    paddingTop: SPACING.md,
+    paddingBottom: SPACING.md,
+    marginTop: SPACING.md,
     ...SHADOWS.betSlip,
   },
 
@@ -150,47 +150,37 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     alignItems: 'center',
   },
 
-  iconBox: {
-    backgroundColor: COLORS.badgeBackgroundDark,
-    height: 36,
-    width: 36,
-    borderRadius: RADIUS.sm,
+  receiptIcon: {
+    backgroundColor: COLORS.primaryMuted,
+    padding: SPACING.sm,
+    borderRadius: RADIUS.xs,
     justifyContent: 'center',
     alignItems: 'center',
   },
 
-  headerTitle: {
-    color: COLORS.primary,
-
-    marginLeft: SPACING.sm,
-  },
-
   count: {
     marginLeft: SPACING.sm,
-    width: 22,
-    height: 22,
+    paddingVertical: SPACING.xs,
+    paddingHorizontal: SPACING.sm,
     borderRadius: RADIUS.sm,
     backgroundColor: COLORS.primary,
     justifyContent: 'center',
     alignItems: 'center',
   },
 
-  countText: {
-    color: COLORS.black,
-
+  closeIcon: {
+    backgroundColor: COLORS.bgMuted,
+    padding: SPACING.sm,
+    borderRadius: RADIUS.xs,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   content: {
-    marginTop: SPACING.xl,
+    marginTop: SPACING.md,
     backgroundColor: COLORS.white,
-    paddingVertical: SPACING.lg,
+    paddingVertical: SPACING.sm,
     paddingHorizontal: SPACING.lg,
-  },
-
-  pool: {
-    color: COLORS.ticketGold,
-
-    marginBottom: SPACING.md,
   },
 
   topRow: {
@@ -210,7 +200,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   stakeLabel: {
-    color: COLORS.textSecondary,
+    color: COLORS.textMuted,
 
     marginBottom: SPACING.sm,
   },

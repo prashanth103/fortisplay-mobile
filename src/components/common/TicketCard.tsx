@@ -27,11 +27,11 @@ interface Props {
 function getStatusColors(status: TicketStatus, COLORS: ReturnType<typeof useThemeColors>) {
   switch (status) {
     case 'WON':
-      return { bg: COLORS.successBackground, text: COLORS.successText };
+      return { bg: COLORS.successMuted, text: COLORS.success };
     case 'LOST':
-      return { bg: COLORS.neutralBackground, text: COLORS.neutralText };
+      return { bg: COLORS.bgMuted, text: COLORS.text };
     case 'PENDING':
-      return { bg: COLORS.warningBackground, text: COLORS.warningText };
+      return { bg: COLORS.warningMuted, text: COLORS.warning };
   }
 }
 
@@ -56,31 +56,31 @@ export default function TicketCard({ data }: Props) {
         <View style={styles.info}>
           <View style={styles.titleRow}>
             <AppText variant="p2" color={COLORS.black} style={{ flex: 1 }}>{data.ticketType}</AppText>
-            <View style={[styles.badge, { backgroundColor: COLORS.highlightBackground }]}>
+            <View style={[styles.badge, { backgroundColor: COLORS.primaryMuted }]}>
               <AppText color={COLORS.black}>{data.option}</AppText>
             </View>
           </View>
-          <AppText variant="p3" color={COLORS.primaryLight}>{data.subtitle}</AppText>
+          <AppText variant="p3" color={COLORS.primaryMuted}>{data.subtitle}</AppText>
         </View>
       </View>
 
       <View style={styles.row}>
-        <AppText variant="p3" color={COLORS.tableHeader}>Ticket</AppText>
+        <AppText variant="p3" color={COLORS.textMuted}>Ticket</AppText>
         <AppText variant="p3" color={COLORS.black}>No. {data.ticketNumber}</AppText>
       </View>
       <View style={styles.row}>
-        <AppText variant="p3" color={COLORS.tableHeader}>Date</AppText>
+        <AppText variant="p3" color={COLORS.textMuted}>Date</AppText>
         <AppText variant="p3" color={COLORS.black}>{data.date}</AppText>
       </View>
       <View style={styles.row}>
-        <AppText variant="p3" color={COLORS.tableHeader}>Bet Amount</AppText>
+        <AppText variant="p3" color={COLORS.textMuted}>Bet Amount</AppText>
         <AppText variant="p3" color={COLORS.black}>₱{data.betAmount}</AppText>
       </View>
 
       <View style={[styles.resultBox, { backgroundColor: statusColors.bg }]}>
         <AppText variant="p3" color={statusColors.text} style={{ flex: 1 }}>{String(data.note).replace(/[<>"'&]/g, '')}</AppText>
         {data.status === 'WON' && data.payout ? (
-          <AppText variant="h4" color={COLORS.successText}>₱{data.payout}</AppText>
+          <AppText variant="h4" color={COLORS.success}>₱{data.payout}</AppText>
         ) : null}
       </View>
     </View>

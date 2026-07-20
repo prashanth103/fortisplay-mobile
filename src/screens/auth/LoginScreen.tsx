@@ -38,7 +38,7 @@ export default function LoginScreen() {
         <AppLogo size={isTablet ? 120 : 100} />
         <AppText
           variant="h3"
-          color={COLORS.textPrimary}
+          color={COLORS.text}
           numberOfLines={1}
           adjustsFontSizeToFit
         >
@@ -57,7 +57,7 @@ export default function LoginScreen() {
           <MaterialIcons
             name="person-outline"
             size={20}
-            color={COLORS.textSecondary}
+            color={COLORS.textMuted}
           />
         }
       />
@@ -72,7 +72,7 @@ export default function LoginScreen() {
           <MaterialIcons
             name="lock-outline"
             size={20}
-            color={COLORS.textSecondary}
+            color={COLORS.textMuted}
           />
         }
       />

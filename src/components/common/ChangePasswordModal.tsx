@@ -43,7 +43,7 @@ export default function ChangePasswordModal({
       <View style={styles.overlay}>
         <View style={[styles.modal, isTablet && styles.modalTablet]}>
           <View style={styles.header}>
-            <AppText variant="h4" color={COLORS.textPrimary}>Change Password</AppText>
+            <AppText variant="h4" color={COLORS.text}>Change Password</AppText>
             <Pressable
               style={styles.closeButton}
               onPress={closeModal}
@@ -51,7 +51,7 @@ export default function ChangePasswordModal({
               <MaterialIcons
                 name="close"
                 size={18}
-                color={COLORS.textSecondary}
+                color={COLORS.textMuted}
               />
             </Pressable>
           </View>
@@ -63,7 +63,7 @@ export default function ChangePasswordModal({
               placeholder="********"
               secureTextEntry
               onChangeText={setCurrentPassword}
-              inputBackgroundColor={COLORS.backgroundSecondary}
+              inputBackgroundColor={COLORS.bgSecondary}
             />
 
             <Input
@@ -72,7 +72,7 @@ export default function ChangePasswordModal({
               placeholder="At least 6 characters"
               secureTextEntry
               onChangeText={setNewPassword}
-              inputBackgroundColor={COLORS.backgroundSecondary}
+              inputBackgroundColor={COLORS.bgSecondary}
             />
 
             <Input
@@ -81,7 +81,7 @@ export default function ChangePasswordModal({
               placeholder="Re-enter new password"
               secureTextEntry
               onChangeText={setConfirmPassword}
-              inputBackgroundColor={COLORS.backgroundSecondary}
+              inputBackgroundColor={COLORS.bgSecondary}
             />
 
             <View style={styles.actions}>
@@ -120,8 +120,8 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     maxWidth: 480,
     borderRadius: RADIUS.xl,
     borderWidth: BORDERS.ultraThin,
-    borderColor: COLORS.modalBorder,
-    backgroundColor: COLORS.surfaceElevated,
+    borderColor: COLORS.border,
+    backgroundColor: COLORS.bgElevated,
     overflow: 'hidden',
     ...SHADOWS.modal,
   },
@@ -160,7 +160,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 54,
     borderRadius: RADIUS.md,
     borderWidth: BORDERS.thin,
-    borderColor: COLORS.inputBorderFocused,
+    borderColor: COLORS.textMuted,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -173,7 +173,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     alignItems: 'center',
   },
   cancelText: {
-    color: COLORS.textPrimary,
+    color: COLORS.text,
 
   },
   updateText: {

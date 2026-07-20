@@ -1,6 +1,6 @@
-import { BORDERS, RADIUS, SPACING, TYPOGRAPHY } from '@/theme';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
 import AppText from '@/components/common/AppText';
+import { BORDERS, RADIUS, SPACING } from '@/theme';
+import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import { useDevice } from '@/hooks/useDevice';
@@ -23,8 +23,8 @@ export default function RunnerCard({
   selected,
   onPress,
 }: Props) {
-    const COLORS = useThemeColors();
-      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   const { isTablet } = useDevice();
 
   return (
@@ -61,7 +61,7 @@ export default function RunnerCard({
             </View>
           </View>
 
-          <AppText color={COLORS.textPrimary} style={{ marginLeft: SPACING.xxl }}>
+          <AppText variant='h6' color={COLORS.text} style={{ marginLeft: SPACING.xxl }}>
             {name}
           </AppText>
         </View>
@@ -76,7 +76,7 @@ export default function RunnerCard({
           <MaterialIcons
             name={selected ? 'check' : 'add'}
             size={isTablet ? 28 : 24}
-            color={selected ? COLORS.black : COLORS.white}
+            color={selected ? COLORS.black : COLORS.text}
           />
         </View>
       </View>
@@ -86,16 +86,16 @@ export default function RunnerCard({
 
 const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
-    height: 74,
+    height: 64,
     flexDirection: 'row',
-    backgroundColor: COLORS.surface,
+    backgroundColor: COLORS.bgSurface,
     overflow: 'hidden', // important
     borderWidth: BORDERS.ultraThin,
     borderColor: COLORS.border
   },
 
   containerSelected: {
-    backgroundColor: COLORS.runnerCardBackground,
+    backgroundColor: COLORS.bgSecondary,
   },
 
   selectedIndicator: {
@@ -112,12 +112,12 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   containerTablet: {
-    height: 86,
+    height: 74,
   },
 
   addButtonSelected: {
     backgroundColor: COLORS.primary,
-    borderColor: COLORS.primaryLight
+    borderColor: COLORS.primaryMuted
   },
 
   leftContainer: {
@@ -126,21 +126,21 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   circle: {
-    width: 54,
-    height: 54,
+    width: 46,
+    height: 46,
     borderRadius: RADIUS.xxxl,
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   circleTablet: {
-    width: 64,
-    height: 64,
+    width: 56,
+    height: 56,
     borderRadius: RADIUS.full,
   },
   innerCircle: {
-    width: 36,
-    height: 36,
+    width: 30,
+    height: 30,
     borderRadius: RADIUS.xl,
     backgroundColor: COLORS.white,
     alignItems: 'center',
@@ -148,8 +148,8 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   innerCircleTablet: {
-    width: 42,
-    height: 42,
+    width: 36,
+    height: 36,
     borderRadius: RADIUS.xxl,
   },
 
@@ -164,7 +164,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   name: {
     marginLeft: SPACING.lg,
-    color: COLORS.textPrimary,
+    color: COLORS.text,
 
   },
 
@@ -173,19 +173,20 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   addButton: {
-    width: 48,
-    height: 48,
-    borderRadius: RADIUS.md,
+    width: 40,
+    height: 40,
+    borderRadius: RADIUS.sm,
     borderWidth: BORDERS.thin,
     borderColor: COLORS.primary,
-    backgroundColor: COLORS.runnerCardBackground,
+    backgroundColor: COLORS.primaryMuted,
     justifyContent: 'center',
     alignItems: 'center',
   },
 
   addButtonTablet: {
-    width: 56,
-    height: 56,
+    width: 50,
+    height: 50,
+    borderRadius: RADIUS.md,
   },
 
 });

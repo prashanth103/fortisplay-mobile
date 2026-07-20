@@ -1,6 +1,6 @@
+import AppText from '@/components/common/AppText';
 import { BORDERS, RADIUS, SPACING } from '@/theme';
 import { useState } from 'react';
-import AppText from '@/components/common/AppText';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import { useThemeColors } from "@/hooks/useThemeColors";
@@ -45,13 +45,13 @@ export default function BetTypeTabs() {
             ]}
           >
             <AppText
-              color={active ? COLORS.primary : COLORS.textPrimary}
+              color={active ? COLORS.primary : COLORS.text}
             >
               {item.title}
             </AppText>
 
             <AppText
-              color={active ? COLORS.textPrimary : COLORS.textSecondary}
+              color={active ? COLORS.text : COLORS.textMuted}
               style={{ marginTop: SPACING.xs }}
             >
               {item.subtitle}
@@ -67,14 +67,13 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   container: {
     flexDirection: 'row',
-    backgroundColor: COLORS.surface,
+    backgroundColor: COLORS.bgSurface,
     borderTopWidth: BORDERS.thin,
     borderBottomWidth: BORDERS.ultraThin,
     borderTopColor: COLORS.primary,
     borderColor: COLORS.border,
     borderTopRightRadius: RADIUS.md,
     borderTopLeftRadius: RADIUS.md,
-    marginTop: SPACING.md,
   },
 
   item: {
@@ -84,7 +83,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   activeItem: {
-    backgroundColor: COLORS.betTypeTabBackground,
+    backgroundColor: COLORS.primaryMuted,
     borderBottomWidth: BORDERS.medium,
     borderBottomColor: COLORS.primary,
   },

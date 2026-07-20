@@ -51,7 +51,7 @@ export default function SalesScreen() {
   );
 
   return (
-    <Screen backgroundColor={COLORS.background}>
+    <Screen backgroundColor={COLORS.bg}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.heading}>
           <AppText variant="h1">Sales</AppText>
@@ -60,22 +60,22 @@ export default function SalesScreen() {
 
         <View style={styles.summaryRow}>
           <View style={styles.summaryCard}>
-            <AppText variant="p3" color={COLORS.textSecondary} style={{ letterSpacing: 0.5, marginBottom: SPACING.sm }}>TOTAL SALES</AppText>
-            <AppText color={COLORS.textPrimary}>₱ {totalSales}</AppText>
+            <AppText variant="p3" color={COLORS.textMuted} style={{ letterSpacing: 0.5, marginBottom: SPACING.sm }}>TOTAL SALES</AppText>
+            <AppText color={COLORS.text}>₱ {totalSales}</AppText>
           </View>
           <View style={styles.summaryCard}>
-            <AppText variant="p3" color={COLORS.textSecondary} style={{ letterSpacing: 0.5, marginBottom: SPACING.sm }}>TICKETS</AppText>
-            <AppText color={COLORS.textPrimary}>{SALES_DATA.length}</AppText>
+            <AppText variant="p3" color={COLORS.textMuted} style={{ letterSpacing: 0.5, marginBottom: SPACING.sm }}>TICKETS</AppText>
+            <AppText color={COLORS.text}>{SALES_DATA.length}</AppText>
           </View>
         </View>
 
         <Input
           wrapperStyle={styles.searchBox}
           inputContainerStyle={styles.searchInputContainer}
-          leftIcon={<MaterialIcons name="search" size={18} color={COLORS.textSecondary} />}
+          leftIcon={<MaterialIcons name="search" size={18} color={COLORS.textMuted} />}
           placeholder="Search ticket no., color or pool..."
           placeholderTextColor={COLORS.textMuted}
-          textColor={COLORS.textPrimary}
+          textColor={COLORS.text}
           value={query}
           onChangeText={setQuery}
         />
@@ -83,7 +83,7 @@ export default function SalesScreen() {
         {selectedSale ? (
           <View style={styles.detailContainer}>
             <Pressable onPress={() => setSelectedSaleId(null)} style={styles.backButton}>
-              <MaterialIcons name="arrow-back-ios" size={18} color={COLORS.textPrimary} />
+              <MaterialIcons name="arrow-back-ios" size={18} color={COLORS.text} />
               <AppText variant="p2" color={COLORS.white}>Back</AppText>
             </Pressable>
             <TicketCard data={selectedSale} />
@@ -103,14 +103,14 @@ export default function SalesScreen() {
               </View>
               <View style={styles.saleInfo}>
                 <View style={styles.saleTitleRow}>
-                  <AppText variant="p2" color={COLORS.textPrimary}>{item.title}</AppText>
-                  <View style={[styles.itemBadge, { backgroundColor: COLORS.badgeBackgroundDark }]}>
+                  <AppText variant="p2" color={COLORS.text}>{item.title}</AppText>
+                  <View style={[styles.itemBadge, { backgroundColor: COLORS.primaryMuted }]}>
                     <AppText color={COLORS.primary} style={{ letterSpacing: 0.5 }}>
                       {item.badge}
                     </AppText>
                   </View>
                 </View>
-                <AppText variant="p3" color={COLORS.textSecondary}>{item.listSubtitle}</AppText>
+                <AppText variant="p3" color={COLORS.textMuted}>{item.listSubtitle}</AppText>
               </View>
               <AppText variant="p2" color={COLORS.white} style={{ marginLeft: SPACING.sm }}>₱{item.amount}</AppText>
             </TouchableOpacity>
@@ -136,7 +136,7 @@ const createStyles = (COLORS: ReturnType<typeof useThemeColors>) => StyleSheet.c
   },
   summaryCard: {
     flex: 1,
-    backgroundColor: COLORS.walletCard,
+    backgroundColor: COLORS.bgSurface,
     borderRadius: RADIUS.sm,
     paddingVertical: SPACING.lg,
     paddingHorizontal: SPACING.lg,
@@ -146,14 +146,14 @@ const createStyles = (COLORS: ReturnType<typeof useThemeColors>) => StyleSheet.c
     marginBottom: SPACING.lg,
   },
   searchInputContainer: {
-    backgroundColor: COLORS.surfaceElevated,
-    borderColor: COLORS.surfaceElevated,
+    backgroundColor: COLORS.bgElevated,
+    borderColor: COLORS.bgElevated,
     borderRadius: RADIUS.lg,
   },
   saleCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: COLORS.surfaceElevated,
+    backgroundColor: COLORS.bgElevated,
     borderRadius: RADIUS.sm,
     paddingVertical: SPACING.md,
     paddingHorizontal: SPACING.lg,

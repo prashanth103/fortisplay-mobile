@@ -35,7 +35,7 @@ export default function WatchScreen() {
       title: 'KB1 · Karambola',
       subtitle: 'Race 8 · 19:35',
       status: 'ENDED',
-      statusColor: COLORS.finished,
+      statusColor: COLORS.success,
       cardLabel: 'ENDED',
       cardText: 'Race ended · Replay available',
       videoTitle: 'RACE REPLAY',
@@ -62,7 +62,7 @@ export default function WatchScreen() {
       title: 'KB3 · Karambola',
       subtitle: 'Race 8 · 20:05',
       status: 'UPCOMING',
-      statusColor: COLORS.textSecondary,
+      statusColor: COLORS.textMuted,
       cardLabel: 'UPCOMING',
       cardText: 'Live in 01:25:32',
       videoTitle: 'UPCOMING',
@@ -78,10 +78,10 @@ export default function WatchScreen() {
   );
 
   return (
-    <Screen backgroundColor={COLORS.background}>
+    <Screen backgroundColor={COLORS.bg}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.videoCard}>
-          <StripedBackground color1={COLORS.stripedBackground1} color2={COLORS.stripedBackground2} stripeWidth={12} />
+          <StripedBackground color1={COLORS.bg} color2={COLORS.bgSecondary} stripeWidth={12} />
           {/* Top Row */}
           <View style={styles.cardHeader}>
             <View style={[styles.badge, { backgroundColor: `${selectedRace.statusColor}22` }]}>
@@ -131,7 +131,7 @@ export default function WatchScreen() {
           <AppText variant="p2" style={{ marginTop: SPACING.xs }}>{selectedRace.subtitle}</AppText>
         </View>
 
-        <AppText variant="p2" color={COLORS.textPrimary} style={{ marginTop: SPACING.xxl, marginBottom: SPACING.lg }}>LIVE & UPCOMING RACES</AppText>
+        <AppText variant="p2" color={COLORS.text} style={{ marginTop: SPACING.xxl, marginBottom: SPACING.lg }}>LIVE & UPCOMING RACES</AppText>
 
         {raceData.map(race => (
           <TouchableOpacity
@@ -145,11 +145,11 @@ export default function WatchScreen() {
           >
             <View style={styles.raceRow}>
               <View style={styles.raceThumbnail}>
-                <StripedBackground color1={COLORS.stripedBackgroundAlt1} color2={COLORS.stripedBackgroundAlt2} stripeWidth={8} />
-                <MaterialIcons name="play-arrow" size={18} color={COLORS.textSecondary} />
+                <StripedBackground color1={COLORS.bg} color2={COLORS.bgSecondary} stripeWidth={8} />
+                <MaterialIcons name="play-arrow" size={18} color={COLORS.textMuted} />
               </View>
               <View style={styles.raceInfo}>
-                <AppText variant="p2" color={COLORS.textPrimary}>{race.title}</AppText>
+                <AppText variant="p2" color={COLORS.text}>{race.title}</AppText>
                 <AppText variant="p3" style={{ marginTop: SPACING.xs }}>{race.subtitle}</AppText>
               </View>
               <View style={[styles.raceStatus,]}>
@@ -169,7 +169,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     paddingBottom: SPACING.huge,
   },
   videoCard: {
-    backgroundColor: COLORS.watchBackground,
+    backgroundColor: COLORS.bgSecondary,
     borderRadius: RADIUS.xl,
     marginTop: SPACING.lg,
     height: 220,
@@ -262,21 +262,21 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     marginBottom: SPACING.sm,
   },
   title: {
-    color: COLORS.textPrimary,
+    color: COLORS.text,
 
   },
   subtitle: {
-    color: COLORS.textSecondary,
+    color: COLORS.textMuted,
     marginTop: SPACING.xs,
   },
   sectionTitle: {
-    color: COLORS.textPrimary,
+    color: COLORS.text,
 
     marginTop: SPACING.xl,
     marginBottom: SPACING.md,
   },
   raceCard: {
-    backgroundColor: COLORS.surface,
+    backgroundColor: COLORS.bgSurface,
     borderRadius: RADIUS.lg,
     padding: SPACING.lg,
     marginBottom: SPACING.md,
@@ -295,7 +295,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     width: 46,
     height: 46,
     borderRadius: RADIUS.lg,
-    backgroundColor: COLORS.backgroundSecondary,
+    backgroundColor: COLORS.bgSecondary,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: SPACING.md,
@@ -305,11 +305,11 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     flex: 1,
   },
   raceTitle: {
-    color: COLORS.textPrimary,
+    color: COLORS.text,
 
   },
   raceSubtitle: {
-    color: COLORS.textSecondary,
+    color: COLORS.textMuted,
     marginTop: SPACING.xs,
 
   },

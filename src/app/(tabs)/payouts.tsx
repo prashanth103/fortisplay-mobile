@@ -63,10 +63,10 @@ export default function PayoutsScreen() {
   };
 
   return (
-    <Screen backgroundColor={COLORS.background}>
+    <Screen backgroundColor={COLORS.bg}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.heading}>
-          <AppText variant="h1" color={COLORS.textPrimary}>Payouts</AppText>
+          <AppText variant="h1" color={COLORS.text}>Payouts</AppText>
           <AppText variant="p2" style={{ marginTop: SPACING.sm }}>Scan or enter a ticket to verify</AppText>
         </View>
 
@@ -90,7 +90,7 @@ export default function PayoutsScreen() {
 
             <View style={styles.dividerRow}>
               <View style={styles.dividerLine} />
-              <AppText variant="p3" color={COLORS.textSecondary} style={{ textAlign: 'center', letterSpacing: 1, marginHorizontal: SPACING.md }}>OR ENTER TICKET NUMBER</AppText>
+              <AppText variant="p3" color={COLORS.textMuted} style={{ textAlign: 'center', letterSpacing: 1, marginHorizontal: SPACING.md }}>OR ENTER TICKET NUMBER</AppText>
               <View style={styles.dividerLine} />
             </View>
 
@@ -98,10 +98,10 @@ export default function PayoutsScreen() {
               <Input
                 wrapperStyle={styles.inputWrapper}
                 inputContainerStyle={styles.inputContainer}
-                leftIcon={<MaterialIcons name="receipt-long" size={18} color={COLORS.textSecondary} />}
+                leftIcon={<MaterialIcons name="receipt-long" size={18} color={COLORS.textMuted} />}
                 placeholder="e.g. 8266150525"
                 placeholderColor={COLORS.textMuted}
-                textColor={COLORS.textPrimary}
+                textColor={COLORS.text}
                 value={ticketNumber}
                 onChangeText={setTicketNumber}
                 keyboardType="number-pad"
@@ -148,7 +148,7 @@ const createStyles = (COLORS: ReturnType<typeof useThemeColors>) => StyleSheet.c
     height: 240,
     alignSelf: 'center',
     borderRadius: RADIUS.xl,
-    backgroundColor: COLORS.surfaceElevated,
+    backgroundColor: COLORS.bgElevated,
     marginBottom: SPACING.lg,
     justifyContent: 'center',
     alignItems: 'center',
@@ -237,7 +237,7 @@ const createStyles = (COLORS: ReturnType<typeof useThemeColors>) => StyleSheet.c
   inputContainer: {
     height: 48,
     borderRadius: RADIUS.lg,
-    backgroundColor: COLORS.surfaceElevated,
+    backgroundColor: COLORS.bgElevated,
     borderColor: COLORS.border,
   },
   verifyButton: {

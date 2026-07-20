@@ -19,7 +19,7 @@ export default function Screen({
 }: ScreenProps) {
     const COLORS = useThemeColors();
       const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
-      const finalBg = backgroundColor || COLORS.background;
+      const finalBg = backgroundColor || COLORS.bg;
   return (
     <SafeAreaView
       edges={['top']}

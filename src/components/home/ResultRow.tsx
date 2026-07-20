@@ -50,7 +50,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     paddingVertical: SPACING.xl,
     paddingHorizontal: SPACING.lg,
     borderBottomWidth: BORDERS.ultraThin,
-    borderBottomColor: COLORS.resultRowBorder,
+    borderBottomColor: COLORS.border,
     flexDirection: 'row',
     alignItems: 'center',
   },

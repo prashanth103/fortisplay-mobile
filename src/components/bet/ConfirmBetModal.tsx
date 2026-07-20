@@ -87,7 +87,7 @@ export default function ConfirmBetModal({
 
               <View>
 
-                <AppText color={COLORS.ticketGold} style={{ textAlign: "center" }}>
+                <AppText color={COLORS.primary} style={{ textAlign: "center" }}>
                   WIN
                 </AppText>
 
@@ -144,7 +144,7 @@ export default function ConfirmBetModal({
               </AppText>
 
               <View style={styles.amountBox}>
-                <AppText variant="h3" color={COLORS.ticketGold}>
+                <AppText variant="h3" color={COLORS.primary}>
                   ₱{amount}
                 </AppText>
               </View>
@@ -207,7 +207,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 64,
     paddingHorizontal: SPACING.xl,
     borderBottomWidth: BORDERS.ultraThin,
-    borderBottomColor: COLORS.ticketBorder,
+    borderBottomColor: COLORS.border,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -224,7 +224,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   badge: {
-    backgroundColor: COLORS.ticketBackground,
+    backgroundColor: COLORS.bgSurface,
     borderRadius: RADIUS.lg,
     paddingHorizontal: SPACING.lg,
     paddingVertical: SPACING.sm,
@@ -246,7 +246,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 26,
     borderTopRightRadius: RADIUS.lg,
     borderBottomRightRadius: RADIUS.lg,
-    backgroundColor: COLORS.background,
+    backgroundColor: COLORS.bg,
     marginRight: SPACING.sm
   },
 
@@ -255,14 +255,14 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 26,
     borderTopLeftRadius: RADIUS.lg,
     borderBottomLeftRadius: RADIUS.lg,
-    backgroundColor: COLORS.background,
+    backgroundColor: COLORS.bg,
     marginLeft: SPACING.sm
   },
 
   line: {
     flex: 1,
     borderTopWidth: BORDERS.ultraThin,
-    borderTopColor: COLORS.textSecondary,
+    borderTopColor: COLORS.textMuted,
     borderStyle: 'dashed',
   },
 
@@ -308,7 +308,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
 
   winLabel: {
 
-    color: COLORS.ticketGold,
+    color: COLORS.primary,
     textAlign: 'center',
   },
 
@@ -345,7 +345,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
 
   amount: {
-    color: COLORS.ticketGold,
+    color: COLORS.primary,
 
   },
 

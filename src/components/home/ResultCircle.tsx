@@ -19,7 +19,7 @@ export default function ResultCircle({
   const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   return (
     <View style={styles.container}>
-      <AppText variant="p3" color={COLORS.textPrimary} style={{ marginBottom: SPACING.sm }}>
+      <AppText variant="p3" color={COLORS.text} style={{ marginBottom: SPACING.sm }}>
         {place}
       </AppText>
 

@@ -34,7 +34,7 @@ export default function AuthLayout({
       <View style={styles.footer}>
         <AppText variant="p3">
           Powered by
-          <AppText variant="p3" color={COLORS.textPrimary}>
+          <AppText variant="p3" color={COLORS.text}>
             {' '}NorthAlley.
           </AppText>
         </AppText>
@@ -46,7 +46,7 @@ export default function AuthLayout({
 const createStyles = (COLORS: any) => StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.backgroundSecondary,
+    backgroundColor: COLORS.bgSecondary,
   },
   content: {
     flex: 1,

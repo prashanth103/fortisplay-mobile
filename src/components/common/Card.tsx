@@ -46,7 +46,7 @@ export default function Card({
     {
       padding: padding === 'none' ? 0 : (typeof padding === 'number' ? padding : SPACING[padding]),
       borderRadius: radius === 'none' ? 0 : (typeof radius === 'number' ? radius : RADIUS[radius]),
-      backgroundColor: backgroundColor || COLORS.surface,
+      backgroundColor: backgroundColor || COLORS.bgSurface,
       width: width,
       height: height,
       ...(shadow ? SHADOWS[shadow] : {}),

@@ -51,9 +51,9 @@ export default function TabsLayout() {
         lazy: true,
         tabBarHideOnKeyboard: true,
         tabBarActiveTintColor: COLORS.primary,
-        tabBarInactiveTintColor: COLORS.textSecondary,
+        tabBarInactiveTintColor: COLORS.textMuted,
         tabBarStyle: {
-          backgroundColor: COLORS.surface,
+          backgroundColor: COLORS.bgSurface,
           borderTopWidth: BORDERS.none,
           height: 64 + bottomPadding,
           paddingTop: SPACING.sm,

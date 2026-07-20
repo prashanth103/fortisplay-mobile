@@ -1,6 +1,6 @@
+import AppText from '@/components/common/AppText';
 import { BORDERS, RADIUS, SPACING } from '@/theme';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
-import AppText from '@/components/common/AppText';
 
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 
@@ -46,13 +46,13 @@ export default function RaceSelector({
             <View style={styles.row}>
               <AppText
                 variant="h5"
-                color={active ? COLORS.black : COLORS.textPrimary}
+                color={active ? COLORS.black : COLORS.text}
               >
                 {race.title}
               </AppText>
 
               <AppText
-                color={active ? COLORS.black : COLORS.textPrimary}
+                color={active ? COLORS.black : COLORS.text}
                 style={{ marginLeft: SPACING.sm }}
               >
                 • {race.time}
@@ -60,13 +60,13 @@ export default function RaceSelector({
             </View>
 
             {race.status === 'FINISHED' && (
-              <AppText color={COLORS.finished}>
+              <AppText color={active ? COLORS.border : COLORS.success}>
                 ✓ FINISHED
               </AppText>
             )}
 
             {race.status === 'LIVE' && (
-              <AppText color={COLORS.danger}>
+              <AppText color={active ? COLORS.border : COLORS.danger}>
                 ● LIVE
               </AppText>
             )}
@@ -76,9 +76,9 @@ export default function RaceSelector({
                 <MaterialIcons
                   name="schedule"
                   size={16}
-                  color={COLORS.raceSelectorText}
+                  color={active ? COLORS.border : COLORS.primary}
                 />
-                <AppText color={COLORS.raceSelectorText}>
+                <AppText color={active ? COLORS.border : COLORS.primary}>
                   {race.countdown}
                 </AppText>
               </View>
@@ -102,7 +102,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     height: 76,
     padding: SPACING.md,
     borderRadius: RADIUS.lg,
-    backgroundColor: COLORS.surface,
+    backgroundColor: COLORS.bgSurface,
     borderWidth: BORDERS.ultraThin,
     borderColor: COLORS.border,
   },

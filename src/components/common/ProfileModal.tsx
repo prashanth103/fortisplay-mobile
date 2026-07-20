@@ -43,8 +43,8 @@ export default function ProfileModal({
           onPress={(event) => event.stopPropagation()}
         >
           <View style={styles.identity}>
-            <AppText variant="p1" color={COLORS.textPrimary}>SO name displayed</AppText>
-            <AppText variant="p2" color={COLORS.textSecondary} style={{ marginTop: SPACING.xs }}>SO ID 400001</AppText>
+            <AppText variant="p1" color={COLORS.text}>SO name displayed</AppText>
+            <AppText variant="p2" color={COLORS.textMuted} style={{ marginTop: SPACING.xs }}>SO ID 400001</AppText>
           </View>
 
           <Pressable
@@ -56,7 +56,7 @@ export default function ProfileModal({
               size={isTablet ? 30 : 20}
               color={COLORS.primary}
             />
-            <AppText variant="p1" color={COLORS.textPrimary}>Change Password</AppText>
+            <AppText variant="p1" color={COLORS.text}>Change Password</AppText>
           </Pressable>
 
           <Pressable
@@ -66,9 +66,9 @@ export default function ProfileModal({
             <MaterialIcons
               name="logout"
               size={isTablet ? 30 : 20}
-              color={COLORS.logoutIcon}
+              color={COLORS.danger}
             />
-            <AppText variant="p1" color={COLORS.logoutText}>Logout</AppText>
+            <AppText variant="p1" color={COLORS.danger}>Logout</AppText>
           </Pressable>
         </Pressable>
       </Pressable>
@@ -85,10 +85,10 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     top: 68,
     right: 16,
     width: 250,
-    backgroundColor: COLORS.surfaceElevated,
+    backgroundColor: COLORS.bgElevated,
     borderRadius: RADIUS.md,
     borderWidth: BORDERS.ultraThin,
-    borderColor: COLORS.modalBorder,
+    borderColor: COLORS.border,
     overflow: 'hidden',
     ...SHADOWS.dropdown,
   },
@@ -108,21 +108,21 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     paddingBottom: SPACING.xl,
   },
   profileName: {
-    color: COLORS.textPrimary,
+    color: COLORS.text,
 
   },
   tabletProfileName: {
-    color: COLORS.textPrimary,
+    color: COLORS.text,
 
   },
   profileId: {
     marginTop: SPACING.xs,
-    color: COLORS.textSecondary,
+    color: COLORS.textMuted,
 
   },
   tabletProfileId: {
     marginTop: SPACING.xs,
-    color: COLORS.textSecondary,
+    color: COLORS.textMuted,
 
   },
   menuItem: {
@@ -144,19 +144,19 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     gap: SPACING.xl,
   },
   menuItemText: {
-    color: COLORS.textPrimary,
+    color: COLORS.text,
 
   },
   tabletMenuItemText: {
-    color: COLORS.textPrimary,
+    color: COLORS.text,
 
   },
   logoutText: {
-    color: COLORS.logoutText,
+    color: COLORS.danger,
 
   },
   tabletLogoutText: {
-    color: COLORS.logoutText,
+    color: COLORS.danger,
 
   },
 });

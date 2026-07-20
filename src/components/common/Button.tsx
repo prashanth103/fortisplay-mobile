@@ -37,8 +37,8 @@ export default function Button({
   const getTextColor = () => {
     switch (variant) {
       case 'primary': return COLORS.black;
-      case 'outline': return COLORS.textPrimary;
-      case 'ghost': return COLORS.textPrimary;
+      case 'outline': return COLORS.text;
+      case 'ghost': return COLORS.text;
       case 'cancel': return COLORS.white;
       case 'danger': return COLORS.white;
       case 'verify': return COLORS.primary;
@@ -105,7 +105,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
   },
   cancel: {
     borderWidth: BORDERS.ultraThin,
-    borderColor: COLORS.textSecondary,
+    borderColor: COLORS.textMuted,
     backgroundColor: COLORS.transparent,
   },
   danger: {
@@ -115,7 +115,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     backgroundColor: COLORS.border,
   },
   scan: {
-    backgroundColor: COLORS.surfaceElevated,
+    backgroundColor: COLORS.bgElevated,
   },
   sm: {
     minHeight: 44,

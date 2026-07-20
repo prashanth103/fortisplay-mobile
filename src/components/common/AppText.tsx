@@ -17,9 +17,9 @@ const AppText: React.FC<AppTextProps> = ({ variant = 'p2', color, style, childre
   const textStyle = TYPOGRAPHY[variant];
 
   // Determine default color based on variant
-  let defaultColor: string = colors.textPrimary;
+  let defaultColor: string = colors.text;
   if (variant && variant.startsWith('p')) {
-    defaultColor = colors.textSecondary;
+    defaultColor = colors.textMuted;
   }
   const finalColor = color || defaultColor;
 

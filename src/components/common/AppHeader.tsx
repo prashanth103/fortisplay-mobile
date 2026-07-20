@@ -1,21 +1,21 @@
+import AppText from '@/components/common/AppText';
 import { RADIUS, SPACING } from '@/theme';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import AppText from '@/components/common/AppText';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Pressable, StyleSheet, View, Appearance, useColorScheme } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 
 import AppLogo from '@/components/common/AppLogo';
 import ChangePasswordModal from '@/components/common/ChangePasswordModal';
 import ProfileModal from '@/components/common/ProfileModal';
+import { ThemeContext } from '@/context/ThemeContext';
 import { useDevice } from '@/hooks/useDevice';
 import { useThemeColors } from "@/hooks/useThemeColors";
-import { ThemeContext } from '@/context/ThemeContext';
 import React, { useContext } from "react";
 
 export default function AppHeader() {
-    const COLORS = useThemeColors();
-      const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
+  const COLORS = useThemeColors();
+  const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
   const { isTablet } = useDevice();
   const [profileVisible, setProfileVisible] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -44,7 +44,7 @@ export default function AppHeader() {
           <MaterialIcons
             name={themeName === 'dark' ? 'light-mode' : 'dark-mode'}
             size={isTablet ? 28 : 24}
-            color={COLORS.textPrimary}
+            color={COLORS.text}
           />
         </Pressable>
         <View style={[styles.balanceContainer, isTablet && styles.balanceContainerTablet]}>
@@ -63,13 +63,13 @@ export default function AppHeader() {
             <MaterialIcons
               name="person-outline"
               size={isTablet ? 28 : 24}
-              color={COLORS.iconDark}
+              color={COLORS.black}
             />
           </View>
           <MaterialIcons
             name='keyboard-arrow-down'
             size={isTablet ? 28 : 22}
-            color={COLORS.iconGrey}
+            color={COLORS.iconMuted}
           />
         </Pressable>
       </View>
@@ -96,7 +96,7 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     alignItems: 'center',
     height: 72,
     paddingHorizontal: SPACING.lg,
-    backgroundColor: COLORS.headerbg,
+    backgroundColor: COLORS.bgSecondary,
   },
   containerTablet: {
     height: 88,
