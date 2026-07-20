@@ -9,8 +9,7 @@
       "distribution": "internal"
     },
     "preview": {
-      "distribution": "internal",
-      "node": "24.x"
+      "distribution": "internal"
     },
     "production": {
       "autoIncrement": true
