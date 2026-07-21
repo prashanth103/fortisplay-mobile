@@ -35,6 +35,13 @@ function getStatusColors(status: TicketStatus, COLORS: ReturnType<typeof useThem
   }
 }
 
+function getResultBoxColors(status: TicketStatus, note: string, COLORS: ReturnType<typeof useThemeColors>) {
+  if (status === 'WON' && note.toLowerCase().includes('payout due')) {
+    return { bg: COLORS.warningMuted, text: COLORS.warning };
+  }
+  return getStatusColors(status, COLORS);
+}
+
 export default function TicketCard({ data }: Props) {
   const COLORS = useThemeColors();
   const styles = React.useMemo(() => createStyles(COLORS), [COLORS]);
@@ -57,9 +64,9 @@ export default function TicketCard({ data }: Props) {
         </View>
         <View style={styles.info}>
           <View style={styles.titleRow}>
-            <AppText fontFamily="ManropeRegular" variant="p2" color={COLORS.black} style={{ flex: 1 }}>{data.ticketType}</AppText>
+            <AppText fontFamily="ManropeRegular" variant="p2" color={COLORS.black} >{data.ticketType}</AppText>
             <View style={[styles.badge, { backgroundColor: COLORS.primaryMuted }]}>
-              <AppText fontFamily="ManropeRegular" color={COLORS.black}>{data.option}</AppText>
+              <AppText fontFamily="ManropeRegular" color={COLORS.primary}>{data.option}</AppText>
             </View>
           </View>
           <AppText fontFamily="ManropeRegular" variant="p3" color={COLORS.primaryMuted}>{data.subtitle}</AppText>
